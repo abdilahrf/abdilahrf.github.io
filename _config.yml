@@ -72,8 +72,8 @@ kramdown:
 
 prose:
   rooturl: '_posts'
-  siteurl: 'http://abdilahrf.github.io/overflow/'
-  relativeLinks: 'http://abdilahrf.github.io/overflow/links.jsonp'
+  siteurl: 'http://abdilahrf.github.io/'
+  relativeLinks: 'http://abdilahrf.github.io/links.jsonp'
   media: 'images'
   metadata:
     _posts:
