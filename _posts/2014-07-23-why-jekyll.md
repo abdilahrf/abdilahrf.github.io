@@ -6,7 +6,7 @@ headline:
 modified: 2014-07-23
 category: webdevelopment
 tags: [jekyll]
-imagefeature: /overflow/images/cover10.jpg
+imagefeature: /
 mathjax: 
 chart: 
 comments: true

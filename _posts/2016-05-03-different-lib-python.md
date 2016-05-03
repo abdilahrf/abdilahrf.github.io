@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Ways to do python post request"
-description: 
+description: "Well I'am usually using php to solve web challanges at ctf but python is also good to do that"
 headline: 
 modified: 2016-05-03
 category: ctf
 tags: [ctf,python]
-imagefeature: 
+imagefeature: /
 mathjax: 
 chart: 
 comments: true
