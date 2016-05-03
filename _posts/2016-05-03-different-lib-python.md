@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "What is different about urllib,urllib2,mechanize,request ?"
+title: "Ways to do python post request"
 description: 
 headline: 
 modified: 2016-05-03
-category: ctf,python,urllib,urllib2,mechanize,request
-tags: [ctf,python,fetch website]
+category: ctf
+tags: [ctf,python]
 imagefeature: 
 mathjax: 
 chart: 
