@@ -23,6 +23,7 @@ The urllib module has been split into **parts** and **renamed** in Python 3 to u
 ---
 
 ####1. Urlopen
+
 urllib.urlopen(url[, data[, proxies[, context]]])
 
 you can input 4 parameter on urlopen but the 3 other is optional use that in situational condition. the most important thing is the url where do want to open. 
