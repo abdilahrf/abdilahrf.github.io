@@ -22,7 +22,7 @@ The urllib module has been split into **parts** and **renamed** in Python 3 to u
 
 ---
 
-####1. Urlopen
+#### 1. Urlopen
 
 urllib.urlopen(url[, data[, proxies[, context]]])
 
