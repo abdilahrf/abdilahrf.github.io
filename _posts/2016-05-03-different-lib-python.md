@@ -24,12 +24,31 @@ The urllib module has been split into **parts** and **renamed** in Python 3 to u
 
 #### 1. Urlopen
 
-urllib.urlopen(url[, data[, proxies[, context]]])
+`urllib.urlopen(url[, data[, proxies[, context]]])`
 
-you can input 4 parameter on urlopen but the 3 other is optional use that in situational condition. the most important thing is the url where do want to open. 
+you can input 4 parameter on Urlopen but the 3 other is optional use that in situational condition. the most important thing is the url where do want to open. 
 
 After you call the Urlopen method you can use the method on it : *read(), [readline()](https://docs.python.org/2/library/readline.html#module-readline), readlines(), fileno(), close(), info(), getcode() and geturl()*
 
 
 **geturl()** : returns the real URL of the page. <br> 
 **getcode()** : method returns the HTTP status code
+
+#### 2. Urlretrieve 
+
+`urllib.urlretrieve(url[, filename[, reporthook[, data]]])`
+
+you also can input 4 parameter on Urlretrieve
+
+
+#### 3. Urlopener
+
+`urllib._urlopener`
+
+#### 4. Urlcleanup
+
+` urllib.urlcleanup()`
+
+
+### Utility functions
+
