@@ -32,7 +32,33 @@ After you call the Urlopen method you can use the method on it : *read(), [readl
 
 
 **geturl()** : returns the real URL of the page. <br> 
-**getcode()** : method returns the HTTP status code
+**getcode()** : method returns the HTTP status code <br>
+**info()** : return an instance of HTTPMessage, to find all the method you can use inspect. <br>
+**read()** : return an str content of the website opened <br>
+
+
+```python
+
+import urllib
+import inspect
+
+a = urllib.urlopen("https://ctfs.me/")
+print(type(a))
+print("Read() return : ")
+print(type(a.read()))
+print("geturl() return : ", a.geturl())
+print(type(a.geturl()))
+print("getcode() return : ", a.getcode())
+print(type(a.getcode()))
+print("close() return : ", a.close())
+print(type(a.close()))
+print("info() return : " , a.info().values())
+print(type(a.info()))
+
+# Debug method for a.info() Instances
+#print(inspect.getmembers(a.info(), predicate=inspect.ismethod))
+
+```
 
 #### 2. Urlretrieve 
 
