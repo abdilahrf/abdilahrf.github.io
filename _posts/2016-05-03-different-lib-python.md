@@ -43,20 +43,20 @@ import urllib
 import inspect
 
 a = urllib.urlopen("https://ctfs.me/")
-print(type(a))
-print("Read() return : ")
-print(type(a.read()))
-print("geturl() return : ", a.geturl())
-print(type(a.geturl()))
-print("getcode() return : ", a.getcode())
-print(type(a.getcode()))
-print("close() return : ", a.close())
-print(type(a.close()))
-print("info() return : " , a.info().values())
-print(type(a.info()))
+print type(a)
+print "Read() return : "
+print type(a.read())
+print "geturl() return : ", a.geturl()
+print type(a.geturl())
+print "getcode() return : ", a.getcode()
+print type(a.getcode())
+print "close() return : ", a.close()
+print type(a.close())
+print "info() return : " , a.info().values()
+print type(a.info())
 
 # Debug method for a.info() Instances
-#print(inspect.getmembers(a.info(), predicate=inspect.ismethod))
+#print inspect.getmembers(a.info(), predicate=inspect.ismethod)
 
 ```
 
