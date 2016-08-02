@@ -1,5 +1,5 @@
 code { font-weight: normal; }
-pre .highlight { padding:30px; background-color: #272822; }
+.highlighter-rouge pre { padding:30px; background-color: #272822; }
 .highlight .hll { background-color: #272822; }
 .highlight .c { color: #75715e } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
