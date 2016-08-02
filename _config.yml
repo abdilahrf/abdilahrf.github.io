@@ -1,11 +1,11 @@
-title:            @abdilahrf Blog
+title:            "@abdilahrf Blog"
 description:      "Do CTF over the world"
 keyword: "Capture The Flag,Security information,Computer Science,Programming"
 logo:             logo.png
-pygments: true
 disqus_shortname: abdilahrf
 share:            true
 dropcap:			true
+pygments: true
 # Change url to your domain. Leave localhost server or blank when working locally.
 # or use the hint from http://jekyllrb.com/docs/github-pages/ to keep this the same 
 # whether working locally or remotely. Start Jekyll with: jekyll serve --baseurl ''
