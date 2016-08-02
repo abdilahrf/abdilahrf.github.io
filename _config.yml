@@ -1,8 +1,9 @@
-title:            Overflow
+title:            @abdilahrf Blog
 description:      "Do CTF over the world"
 keyword: "Capture The Flag,Security information,Computer Science,Programming"
 logo:             logo.png
-disqus_shortname: overflow-code
+pygments: true
+disqus_shortname: abdilahrf
 share:            true
 dropcap:			true
 # Change url to your domain. Leave localhost server or blank when working locally.
