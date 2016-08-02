@@ -21,6 +21,7 @@ categories:
 
     
 ```python 
+
     from pwn import *
     import numpy
     
@@ -63,7 +64,9 @@ categories:
     print r.recv(4096)
     print r.recv(4096)
     print r.recv(4096)
-    print r.recv(4096)```
+    print r.recv(4096)
+
+```
     
 
 [<img class="aligncenter size-large wp-image-1876" src="http://abdilahrf.github.io/images/2015/09/statistic-1024x576.png" alt="statistic" width="1024" height="576" />](http://abdilahrf.github.io/images/2015/09/statistic.png)
