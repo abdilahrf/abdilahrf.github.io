@@ -25,4 +25,4 @@ categories:
 
 lanjutan dari logoventures yang pertama gif image , kali ini jpeg coba kita exiftool
 
-[<img class="aligncenter size-large wp-image-1871" src="https://www.hasnydes.us/wp-content/uploads/2015/09/logoventure2-1024x576.png" alt="logoventure2" width="1024" height="576" />](https://www.hasnydes.us/wp-content/uploads/2015/09/logoventure2.png)
+[<img class="aligncenter size-large wp-image-1871" src="http://abdilahrf.github.io/images/2015/09/logoventure2-1024x576.png" alt="logoventure2" width="1024" height="576" />](http://abdilahrf.github.io/images/2015/09/logoventure2.png)

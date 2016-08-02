@@ -14,9 +14,9 @@ categories:
 Kegiatan Indonesian Backtrack Team Goes To School SMKN2 Jakarta
 
 <p style="text-align: center;">
-  <a href="https://www.hasnydes.us/wp-content/uploads/2015/09/ibtgts4.jpg"><img class="size-full wp-image-1764" src="https://www.hasnydes.us/wp-content/uploads/2015/09/ibtgts4.jpg" alt="Indonesian Backtrack Team Goes To School" width="3264" height="2448" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/09/ibtgts4.jpg"><img class="size-full wp-image-1764" src="http://abdilahrf.github.io/images/2015/09/ibtgts4.jpg" alt="Indonesian Backtrack Team Goes To School" width="3264" height="2448" /></a>
 </p>
 
 <p style="text-align: center;">
-  <a href="https://www.hasnydes.us/wp-content/uploads/2015/09/ibtgts3.jpg"><img class="aligncenter size-full wp-image-1763" src="https://www.hasnydes.us/wp-content/uploads/2015/09/ibtgts3.jpg" alt="Indonesian Backtrack Team Goes To School" width="3264" height="2448" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/09/ibtgts3.jpg"><img class="aligncenter size-full wp-image-1763" src="http://abdilahrf.github.io/images/2015/09/ibtgts3.jpg" alt="Indonesian Backtrack Team Goes To School" width="3264" height="2448" /></a>
 </p>

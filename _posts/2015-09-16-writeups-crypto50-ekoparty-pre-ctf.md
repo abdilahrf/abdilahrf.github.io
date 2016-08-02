@@ -53,7 +53,7 @@ Kita mendapatkan file message.mp3 , kemudian coba kita lihat strings nya
 
 hasil audacity
 
-[<img class="aligncenter size-large wp-image-1842" src="https://www.hasnydes.us/wp-content/uploads/2015/09/audaciry-1024x576.png" alt="audaciry" width="1024" height="576" />](https://www.hasnydes.us/wp-content/uploads/2015/09/audaciry.png)
+[<img class="aligncenter size-large wp-image-1842" src="http://abdilahrf.github.io/images/2015/09/audaciry-1024x576.png" alt="audaciry" width="1024" height="576" />](http://abdilahrf.github.io/images/2015/09/audaciry.png)
 
 &nbsp;
 

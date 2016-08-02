@@ -27,7 +27,7 @@ categories:
 > 
 > Hint : If I were a flag, where would I be?
 > 
-> [<img class="aligncenter size-full wp-image-1817" src="https://www.hasnydes.us/wp-content/uploads/2015/09/flag-facebook.png" alt="flag facebook" width="1366" height="768" />](https://www.hasnydes.us/wp-content/uploads/2015/09/flag-facebook.png)
+> [<img class="aligncenter size-full wp-image-1817" src="http://abdilahrf.github.io/images/2015/09/flag-facebook.png" alt="flag facebook" width="1366" height="768" />](http://abdilahrf.github.io/images/2015/09/flag-facebook.png)
 > 
 > **flag** : flag\_why\_hide\_stuff\_on_facebook
 
@@ -41,7 +41,7 @@ categories:
 > 
 > ini flag yang di temuin secara ga sengaja , kalau di liat dari hintnya CDIV(194) , dari google ngak ngebantu apapun ya , tapi pas gw coba buka <a href="https://icec.tf/play/logout" target="_blank">https://icec.tf/play/logout</a> dan ternyata not found , flagnya ada di 404 page :/
 > 
-> [<img class="aligncenter size-full wp-image-1816" src="https://www.hasnydes.us/wp-content/uploads/2015/09/404-flag.png" alt="404 flag" width="1366" height="768" />](https://www.hasnydes.us/wp-content/uploads/2015/09/404-flag.png)
+> [<img class="aligncenter size-full wp-image-1816" src="http://abdilahrf.github.io/images/2015/09/404-flag.png" alt="404 flag" width="1366" height="768" />](http://abdilahrf.github.io/images/2015/09/404-flag.png)
 > 
 > **Flag** : flag\_there\_you\_are\_you\_silly\_flag
 
@@ -87,7 +87,7 @@ categories:
 > 
 > download .docx filenya dan extract untuk mendapatkan flag.txt
 > 
-> [<img class="aligncenter size-full wp-image-1818" src="https://www.hasnydes.us/wp-content/uploads/2015/09/flag-docx.png" alt="flag docx" width="1366" height="768" />](https://www.hasnydes.us/wp-content/uploads/2015/09/flag-docx.png)
+> [<img class="aligncenter size-full wp-image-1818" src="http://abdilahrf.github.io/images/2015/09/flag-docx.png" alt="flag docx" width="1366" height="768" />](http://abdilahrf.github.io/images/2015/09/flag-docx.png)
 > 
 > **Flag :**this\_would\_be\_the\_flag\_you\_are\_looking\_for
 
@@ -133,7 +133,7 @@ dan ternyata kalau
 
 di jalankan di console dia mengambil kata printFlag sebagai nama fungsi , dan tinggal kita jalankan fungsi printFlag() untuk memunculkan flagnya
 
-[<img class="aligncenter size-full wp-image-1822" src="https://www.hasnydes.us/wp-content/uploads/2015/09/printFlag.png" alt="printFlag" width="1366" height="768" />](https://www.hasnydes.us/wp-content/uploads/2015/09/printFlag.png)
+[<img class="aligncenter size-full wp-image-1822" src="http://abdilahrf.github.io/images/2015/09/printFlag.png" alt="printFlag" width="1366" height="768" />](http://abdilahrf.github.io/images/2015/09/printFlag.png)
 
 **flag :** hidden\_in\_the_code
 
@@ -186,7 +186,7 @@ http://rumkin.com/tools/cipher/cryptogram-solver.php
 </div>
 
 <div class="row">
-  <a href="https://www.hasnydes.us/wp-content/uploads/2015/09/flag.gif"><img class="aligncenter size-full wp-image-1832" src="https://www.hasnydes.us/wp-content/uploads/2015/09/flag.gif" alt="flag" width="300" height="400" /></a>file flagnya diselipkan di 1 layer yang tampil mungkin kurang dari 0.01s frame rate , jadi kita bisa buka via &#8220;Gimp/Photoshop&#8221; untuk melihat frame yang di cari , di case ini gw pake ini <a href="http://regex.info/exif.cgi?imgurl=https%3A%2F%2Ficec.tf%2Fproblem-static%2Fstage1%2Fforensics%2Flogoventures%2Flogo.gif" target="_blank">Exif</a>
+  <a href="http://abdilahrf.github.io/images/2015/09/flag.gif"><img class="aligncenter size-full wp-image-1832" src="http://abdilahrf.github.io/images/2015/09/flag.gif" alt="flag" width="300" height="400" /></a>file flagnya diselipkan di 1 layer yang tampil mungkin kurang dari 0.01s frame rate , jadi kita bisa buka via &#8220;Gimp/Photoshop&#8221; untuk melihat frame yang di cari , di case ini gw pake ini <a href="http://regex.info/exif.cgi?imgurl=https%3A%2F%2Ficec.tf%2Fproblem-static%2Fstage1%2Fforensics%2Flogoventures%2Flogo.gif" target="_blank">Exif</a>
 </div>
 
 <div class="row">

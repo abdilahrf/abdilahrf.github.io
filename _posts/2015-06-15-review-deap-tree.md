@@ -23,7 +23,7 @@ untuk insert di dalam deap tree ini tidak memerlukan check lebih kecil atau lebi
 
 &nbsp;
 
-[<img class="aligncenter size-full wp-image-629" src="https://www.hasnydes.us/wp-content/uploads/2015/06/insertL12.png" alt="insertL" width="420" height="332" />](https://www.hasnydes.us/wp-content/uploads/2015/06/insertL12.png)
+[<img class="aligncenter size-full wp-image-629" src="http://abdilahrf.github.io/images/2015/06/insertL12.png" alt="insertL" width="420" height="332" />](http://abdilahrf.github.io/images/2015/06/insertL12.png)
 
 Nilai paling kecil akan berada di root dari min heap , nilai paling besar akan berada di root dari max heap
 
@@ -44,13 +44,13 @@ Jika ada yang tidak memiliki parner di tempat yang sama contohnya (10,11) maka d
 
 Contoh insertion
 
-[<img class="aligncenter size-full wp-image-630" src="https://www.hasnydes.us/wp-content/uploads/2015/06/insertL13.png" alt="insertL" width="485" height="359" />](https://www.hasnydes.us/wp-content/uploads/2015/06/insertL13.png)
+[<img class="aligncenter size-full wp-image-630" src="http://abdilahrf.github.io/images/2015/06/insertL13.png" alt="insertL" width="485" height="359" />](http://abdilahrf.github.io/images/2015/06/insertL13.png)
 
 Karena 10 tidak memiliki partner yang sama lokasinya , maka partnernya adalah partner dari parent nya yaitu (7)  , karena 50 berada di min-heap dan 50 > dari 40 , maka swap value nya
 
 Kemudian Kita lakukan max-upheap
 
-[<img class="aligncenter size-full wp-image-632" src="https://www.hasnydes.us/wp-content/uploads/2015/06/insertL15.png" alt="insertL" width="502" height="371" />](https://www.hasnydes.us/wp-content/uploads/2015/06/insertL15.png)
+[<img class="aligncenter size-full wp-image-632" src="http://abdilahrf.github.io/images/2015/06/insertL15.png" alt="insertL" width="502" height="371" />](http://abdilahrf.github.io/images/2015/06/insertL15.png)
 
 Di cek ke atas karena 50 > 45 , sesuai dengan aturan max-heap maka swap 45 dengan 50
 
@@ -64,15 +64,15 @@ delete min berarti delete root yang ada di min-heap(5), dan ambil value terakhir
 
 &nbsp;
 
-[<img class="aligncenter size-full wp-image-633" src="https://www.hasnydes.us/wp-content/uploads/2015/06/insertL16.png" alt="insertL" width="647" height="247" />](https://www.hasnydes.us/wp-content/uploads/2015/06/insertL16.png)
+[<img class="aligncenter size-full wp-image-633" src="http://abdilahrf.github.io/images/2015/06/insertL16.png" alt="insertL" width="647" height="247" />](http://abdilahrf.github.io/images/2015/06/insertL16.png)
 
 &nbsp;
 
-[<img class="aligncenter size-full wp-image-634" src="https://www.hasnydes.us/wp-content/uploads/2015/06/insertL17.png" alt="insertL" width="645" height="243" />](https://www.hasnydes.us/wp-content/uploads/2015/06/insertL17.png)
+[<img class="aligncenter size-full wp-image-634" src="http://abdilahrf.github.io/images/2015/06/insertL17.png" alt="insertL" width="645" height="243" />](http://abdilahrf.github.io/images/2015/06/insertL17.png)
 
-[<img class="aligncenter size-full wp-image-635" src="https://www.hasnydes.us/wp-content/uploads/2015/06/insertL18.png" alt="insertL" width="644" height="252" />](https://www.hasnydes.us/wp-content/uploads/2015/06/insertL18.png)
+[<img class="aligncenter size-full wp-image-635" src="http://abdilahrf.github.io/images/2015/06/insertL18.png" alt="insertL" width="644" height="252" />](http://abdilahrf.github.io/images/2015/06/insertL18.png)
 
-[<img class="aligncenter size-full wp-image-636" src="https://www.hasnydes.us/wp-content/uploads/2015/06/insertL19.png" alt="insertL" width="366" height="292" />](https://www.hasnydes.us/wp-content/uploads/2015/06/insertL19.png)
+[<img class="aligncenter size-full wp-image-636" src="http://abdilahrf.github.io/images/2015/06/insertL19.png" alt="insertL" width="366" height="292" />](http://abdilahrf.github.io/images/2015/06/insertL19.png)
 
   * Masukan 25 ke variabel temp = 25 , cek temp dengan node(4) dan node(5) ,
   * karena 10 < dari 25 maka swap 25 dengan 10

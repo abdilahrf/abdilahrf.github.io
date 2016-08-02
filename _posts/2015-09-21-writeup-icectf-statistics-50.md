@@ -85,4 +85,4 @@ categories:
     
     
 
-[<img class="aligncenter size-large wp-image-1876" src="https://www.hasnydes.us/wp-content/uploads/2015/09/statistic-1024x576.png" alt="statistic" width="1024" height="576" />](https://www.hasnydes.us/wp-content/uploads/2015/09/statistic.png)
+[<img class="aligncenter size-large wp-image-1876" src="http://abdilahrf.github.io/images/2015/09/statistic-1024x576.png" alt="statistic" width="1024" height="576" />](http://abdilahrf.github.io/images/2015/09/statistic.png)
