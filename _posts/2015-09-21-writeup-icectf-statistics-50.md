@@ -22,49 +22,49 @@ categories:
     
 ```python 
 
-    from pwn import *
-    import numpy
-    
-    r = remote("vuln2015.icec.tf", 9000)
-    
-    i = 1
-    
-    for a in range(0, 200):
-    
-        recv = r.recvuntil("the numbers:")
-    
-        recv = recv.split("\n")
-    
-        num = recv[0].strip()
-        soal = recv[1]
-    
-        print "[receiving] " + num
-        print "[receiving] " + soal
-    
-        num = [int(x) for x in num.split(" ")]
-    
-        answer = 0
-    
-        if "maximum" in soal:
-            answer = max(num)
-        elif "minimum" in soal:
-            answer = min(num)
-        elif "average" in soal:
-            answer = numpy.average(num)
-        elif "sum" in soal:
-            answer = numpy.sum(num)
-    
-        print "[answer] " + str(answer)
-        print "[count] " + str(i)
-    
-        i += 1
-    
-        r.send(str(answer) + "\n")
-    
-    print r.recv(4096)
-    print r.recv(4096)
-    print r.recv(4096)
-    print r.recv(4096)
+from pwn import *
+import numpy
+
+r = remote("vuln2015.icec.tf", 9000)
+
+i = 1
+
+for a in range(0, 200):
+
+    recv = r.recvuntil("the numbers:")
+
+    recv = recv.split("\n")
+
+    num = recv[0].strip()
+    soal = recv[1]
+
+    print "[receiving] " + num
+    print "[receiving] " + soal
+
+    num = [int(x) for x in num.split(" ")]
+
+    answer = 0
+
+    if "maximum" in soal:
+        answer = max(num)
+    elif "minimum" in soal:
+        answer = min(num)
+    elif "average" in soal:
+        answer = numpy.average(num)
+    elif "sum" in soal:
+        answer = numpy.sum(num)
+
+    print "[answer] " + str(answer)
+    print "[count] " + str(i)
+
+    i += 1
+
+    r.send(str(answer) + "\n")
+
+print r.recv(4096)
+print r.recv(4096)
+print r.recv(4096)
+print r.recv(4096)
 
 ```
     
