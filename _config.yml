@@ -1,11 +1,11 @@
 title:            "@abdilahrf"
-description:      "Do CTF over the world"
-keyword: "Capture The Flag,Security information,Computer Science,Programming"
+description:      "Coffe Make you like a hero"
+keyword: "Capture The Flag,Information Security,Computer Science,Programming"
 logo:             logo.png
 disqus_shortname: abdilahrf
 share:            true
 dropcap:			true
-pygments: true
+
 # Change url to your domain. Leave localhost server or blank when working locally.
 # or use the hint from http://jekyllrb.com/docs/github-pages/ to keep this the same 
 # whether working locally or remotely. Start Jekyll with: jekyll serve --baseurl ''
@@ -15,7 +15,7 @@ url:        	  "http://abdilahrf.github.io"
 owner:
   name:           Abdillah Muhamad
   avatar:         https://avatars2.githubusercontent.com/u/6015012?v=3&s=460
-  email:          ceemde@yahoo.com
+  email:          hasny1337@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
   description:    Coffe make you like a hero
   # Social networking links used in footer. Update and remove as you like.
@@ -50,6 +50,7 @@ links:
 timezone:    Asia/Jakarta
 future:      true
 highlighter: pygments
+pygments: true
 markdown:    kramdown
 paginate:    5
 paginate_path: "page:num"

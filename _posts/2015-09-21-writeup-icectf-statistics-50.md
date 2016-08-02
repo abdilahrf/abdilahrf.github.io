@@ -11,6 +11,7 @@ factory_shortcodes_assets:
 categories:
   - ice ctf
 ---
+
 > IceCTF Statistics &#8211; 50
 > 
 > <div class="pull-right">
