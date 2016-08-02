@@ -13,7 +13,6 @@ categories:
 ---
 
 > IceCTF Statistics &#8211; 50
-> 
 >   **Programming**
 >   Daniel is strangely good at computing statistics in his head, so instead of a password, a program asks him a series of statistics questions for authentication. Let&#8217;s show him how insecure that is. You can access the server with  <code>nc vuln2015.icec.tf 9000</code>.
 
