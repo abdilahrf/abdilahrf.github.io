@@ -41,7 +41,7 @@ Import Post WordPress ke Ghost Cara mudah untuk memindahkan postingan wordpress 
   
   <p>
     <div id="attachment_117" style="width: 710px" class="wp-caption aligncenter">
-      <a href="http://hasnydes.us/wp-content/uploads/2014/06/Untitled.png"><img class="wp-image-117" src="http://hasnydes.us/wp-content/uploads/2014/06/Untitled-1024x575.png" alt="Install Ghost Plugin" width="700" height="394" /></a>
+      <a href="http://abdilahrf.github.io/images/2014/06/Untitled.png"><img class="wp-image-117" src="http://abdilahrf.github.io/images/2014/06/Untitled-1024x575.png" alt="Install Ghost Plugin" width="700" height="394" /></a>
       
       <p class="wp-caption-text">
         Install Ghost Plugin
@@ -61,7 +61,7 @@ Import Post WordPress ke Ghost Cara mudah untuk memindahkan postingan wordpress 
   
   <p>
     <div id="attachment_118" style="width: 310px" class="wp-caption aligncenter">
-      <a href="http://hasnydes.us/wp-content/uploads/2014/06/Untitled1.png"><img class="wp-image-118 size-medium" src="http://hasnydes.us/wp-content/uploads/2014/06/Untitled1-300x110.png" alt="Plugin Ghost" width="300" height="110" /></a>
+      <a href="http://abdilahrf.github.io/images/2014/06/Untitled1.png"><img class="wp-image-118 size-medium" src="http://abdilahrf.github.io/images/2014/06/Untitled1-300x110.png" alt="Plugin Ghost" width="300" height="110" /></a>
       
       <p class="wp-caption-text">
         Plugin Ghost
@@ -81,7 +81,7 @@ Import Post WordPress ke Ghost Cara mudah untuk memindahkan postingan wordpress 
   
   <p>
     <div id="attachment_119" style="width: 710px" class="wp-caption aligncenter">
-      <a href="http://hasnydes.us/wp-content/uploads/2014/06/Untitled2.png"><img class="wp-image-119" src="http://hasnydes.us/wp-content/uploads/2014/06/Untitled2-1024x621.png" alt="Plugin Ghost" width="700" height="425" /></a>
+      <a href="http://abdilahrf.github.io/images/2014/06/Untitled2.png"><img class="wp-image-119" src="http://abdilahrf.github.io/images/2014/06/Untitled2-1024x621.png" alt="Plugin Ghost" width="700" height="425" /></a>
       
       <p class="wp-caption-text">
         Plugin Ghost
@@ -105,7 +105,7 @@ Import Post WordPress ke Ghost Cara mudah untuk memindahkan postingan wordpress 
   
   <p>
     <div id="attachment_120" style="width: 460px" class="wp-caption aligncenter">
-      <a href="http://hasnydes.us/wp-content/uploads/2014/06/Untitled3.png"><img class="wp-image-120" src="http://hasnydes.us/wp-content/uploads/2014/06/Untitled3.png" alt="Login Ghost" width="450" height="134" /></a>
+      <a href="http://abdilahrf.github.io/images/2014/06/Untitled3.png"><img class="wp-image-120" src="http://abdilahrf.github.io/images/2014/06/Untitled3.png" alt="Login Ghost" width="450" height="134" /></a>
       
       <p class="wp-caption-text">
         Login Ghost
@@ -121,7 +121,7 @@ Import Post WordPress ke Ghost Cara mudah untuk memindahkan postingan wordpress 
   
   <p>
     <div id="attachment_121" style="width: 710px" class="wp-caption aligncenter">
-      <a href="http://hasnydes.us/wp-content/uploads/2014/06/Untitled4.png"><img class="wp-image-121" src="http://hasnydes.us/wp-content/uploads/2014/06/Untitled4.png" alt="Ghost Debug" width="700" height="367" /></a>
+      <a href="http://abdilahrf.github.io/images/2014/06/Untitled4.png"><img class="wp-image-121" src="http://abdilahrf.github.io/images/2014/06/Untitled4.png" alt="Ghost Debug" width="700" height="367" /></a>
       
       <p class="wp-caption-text">
         Ghost Debug

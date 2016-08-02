@@ -12,7 +12,7 @@ categories:
   - CheatSheet
 ---
 <div id="attachment_128" style="width: 1359px" class="wp-caption aligncenter">
-  <a href="http://hasnydes.us/wp-content/uploads/2014/06/Ghost-Cheatsheet.png" rel="attachment wp-att-128"><img class="wp-image-128 size-full" src="http://hasnydes.us/wp-content/uploads/2014/06/Ghost-Cheatsheet.png" alt="Ghost Cheatsheet" width="1349" height="3763" /></a>
+  <a href="http://abdilahrf.github.io/images/2014/06/Ghost-Cheatsheet.png" rel="attachment wp-att-128"><img class="wp-image-128 size-full" src="http://abdilahrf.github.io/images/2014/06/Ghost-Cheatsheet.png" alt="Ghost Cheatsheet" width="1349" height="3763" /></a>
   
   <p class="wp-caption-text">
     Ghost Cheatsheet

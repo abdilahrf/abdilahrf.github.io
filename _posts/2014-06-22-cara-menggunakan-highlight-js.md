@@ -18,7 +18,7 @@ Cara menggunakan highlight.js untuk mewarnai kode di website atau blog anda <img
 &nbsp;
 
 <div id="attachment_135" style="width: 610px" class="wp-caption aligncenter">
-  <a href="http://hasnydes.us/wp-content/uploads/2014/06/highlight.png"><img class="wp-image-135" src="http://hasnydes.us/wp-content/uploads/2014/06/highlight.png" alt="Highlight Js" width="600" height="315" /></a>
+  <a href="http://abdilahrf.github.io/images/2014/06/highlight.png"><img class="wp-image-135" src="http://abdilahrf.github.io/images/2014/06/highlight.png" alt="Highlight Js" width="600" height="315" /></a>
   
   <p class="wp-caption-text">
     Highlight Js
@@ -28,7 +28,7 @@ Cara menggunakan highlight.js untuk mewarnai kode di website atau blog anda <img
   * Buat Folder Latihan Yang Di Dalam nya terdiri dari folder &#8216; css &#8216;  & &#8216; js &#8216; dan buat file example.html
 
 <div id="attachment_136" style="width: 610px" class="wp-caption aligncenter">
-  <a href="http://hasnydes.us/wp-content/uploads/2014/06/folder-latihan.png"><img class="wp-image-136" src="http://hasnydes.us/wp-content/uploads/2014/06/folder-latihan.png" alt="folder latihan" width="600" height="229" /></a>
+  <a href="http://abdilahrf.github.io/images/2014/06/folder-latihan.png"><img class="wp-image-136" src="http://abdilahrf.github.io/images/2014/06/folder-latihan.png" alt="folder latihan" width="600" height="229" /></a>
   
   <p class="wp-caption-text">
     Latihan Syntax Highlight
@@ -70,7 +70,7 @@ print
   
   <p>
     <div id="attachment_137" style="width: 470px" class="wp-caption aligncenter">
-      <a href="http://hasnydes.us/wp-content/uploads/2014/06/script.png"><img class="size-full wp-image-137" src="http://hasnydes.us/wp-content/uploads/2014/06/script.png" alt="Script" width="460" height="370" /></a>
+      <a href="http://abdilahrf.github.io/images/2014/06/script.png"><img class="size-full wp-image-137" src="http://abdilahrf.github.io/images/2014/06/script.png" alt="Script" width="460" height="370" /></a>
       
       <p class="wp-caption-text">
         Script
@@ -95,7 +95,7 @@ hasil nya adalah seperti ini
 &nbsp;
 
 <div id="attachment_139" style="width: 427px" class="wp-caption aligncenter">
-  <a href="http://hasnydes.us/wp-content/uploads/2014/06/Untitled5.png"><img class="size-full wp-image-139" src="http://hasnydes.us/wp-content/uploads/2014/06/Untitled5.png" alt="Highlight JS" width="417" height="169" /></a>
+  <a href="http://abdilahrf.github.io/images/2014/06/Untitled5.png"><img class="size-full wp-image-139" src="http://abdilahrf.github.io/images/2014/06/Untitled5.png" alt="Highlight JS" width="417" height="169" /></a>
   
   <p class="wp-caption-text">
     Highlight JS

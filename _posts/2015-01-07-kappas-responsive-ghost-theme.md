@@ -155,9 +155,9 @@ Initial Release
 
 ## Get In Touch {#item-description__get-in-touch}
 
-[![](http://hasnydes.us/wp-content/uploads/2014/03/Facebook-Support.jpg)](http://fb.com/hasnydesign) [![](http://hasnydes.us/wp-content/uploads/2014/03/Follow-Me.jpg)](http://themeforest.net/user/hasnydesign/follow?ref=hasnydesign)
+[![](http://abdilahrf.github.io/images/2014/03/Facebook-Support.jpg)](http://fb.com/hasnydesign) [![](http://abdilahrf.github.io/images/2014/03/Follow-Me.jpg)](http://themeforest.net/user/hasnydesign/follow?ref=hasnydesign)
   
-[![](http://hasnydes.us/wp-content/uploads/2014/03/website-Support.jpg)](http://hasnydes.us/) [![](http://hasnydes.us/wp-content/uploads/2014/03/about-me.jpg)](http://themeforest.net/user/abdilahrf?ref=hasnydesign)
+[![](http://abdilahrf.github.io/images/2014/03/website-Support.jpg)](http://hasnydes.us/) [![](http://abdilahrf.github.io/images/2014/03/about-me.jpg)](http://themeforest.net/user/abdilahrf?ref=hasnydesign)
   
 Gladdy to help you
   
