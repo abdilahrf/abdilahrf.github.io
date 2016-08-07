@@ -7,7 +7,7 @@ imagefeature: https://cdn.pbrd.co/images/BFc2IT4.jpg
 chart: true
 ---
 
-<img src="https://cdn.pbrd.co/images/BFc2IT4.jpg" alt="Kurawa In Disorder" />
+<img src="/images/cdc2014.jpg" alt="Kurawa In Disorder" />
 
 An ordinary man with a passion in Information secutiry. 
 Part of Cyber Security Community at Binus University and active moderator on the Indonesian team backtrack. 
