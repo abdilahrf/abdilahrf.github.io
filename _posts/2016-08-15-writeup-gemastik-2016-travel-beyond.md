@@ -21,7 +21,7 @@ featured: false
 ### Solusi :
 
 Sesuai clue pada soal kita harus mencari cara untuk melakukan database dump. percobaan pertama kita mencoba melakukan
-*SQL Injection* pada search, untuk memastikan SQL Injection kami menggunakan sleep(10) :
+*SQL Injection* pada search [https://target.netsec.gemastik.ui.ac.id/092c3b34fb7b7552859b236e97652c0e/travel-beyond/result.php?search=](https://target.netsec.gemastik.ui.ac.id/092c3b34fb7b7552859b236e97652c0e/travel-beyond/result.php?search=) , untuk memastikan SQL Injection kami menggunakan sleep(10) :
 
 `x' union select sleep(10) from information_schema.tables where table_name like '%a#` < ERROR 
 
