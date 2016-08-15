@@ -513,7 +513,7 @@ figcaption {
     font-style:italic;
 }
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
     height: 6px;
 }
 
