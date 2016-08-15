@@ -4,7 +4,7 @@ title: "Writeup Gemastik 2016 : Java Authentication - 50"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
-category: gemastik,ctf
+category: gemastik
 tags: [gemastik,ctf]
 imagefeature: /images/gemastik.png
 mathjax: 
@@ -24,10 +24,10 @@ Decompile file soal `Authentication.class` bisa menggunakan JD-GUI ( Desktop App
 kita coba pake [online decompiler](http://www.javadecompilers.com/) 
 
 ```java
-        if (string.equals("administrator") && Authentication.getHash(string2).equals("f6edb40dbd5b0568edc693c1a6bdb18e")) {
-            BufferedReader bufferedReader2 = new BufferedReader(new FileReader("Authentication.flag"));
-            System.out.println(bufferedReader2.readLine());
-        } 
+if (string.equals("administrator") && Authentication.getHash(string2).equals("f6edb40dbd5b0568edc693c1a6bdb18e")) {
+    BufferedReader bufferedReader2 = new BufferedReader(new FileReader("Authentication.flag"));
+    System.out.println(bufferedReader2.readLine());
+} 
 ```
 
 Terlihat authentikasi nya membandingan username dengan "administrator" dan hash(string2) atau "password" = f6edb40dbd5b0568edc693c1a6bdb18e 
@@ -45,4 +45,4 @@ Password : j4v47
 GEMASTIK{try_to_obfuscate_Java_next_time}
 ```
 
-`**Flag : GEMASTIK{try_to_obfuscate_Java_next_time}**`
+`Flag : GEMASTIK{try_to_obfuscate_Java_next_time}`
