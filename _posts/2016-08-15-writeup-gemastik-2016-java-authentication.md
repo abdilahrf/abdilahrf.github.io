@@ -35,7 +35,7 @@ kemudian decrypt md5 dengan https://hashkiller.co.uk/md5-decrypter.aspx
 
 `f6edb40dbd5b0568edc693c1a6bdb18e MD5 : j4v47`
 
-```bash
+```
 abdilahrf:~/workspace $ nc target.netsec.gemastik.ui.ac.id 13337
 Java Network Authentication Service v1.0
 
@@ -45,4 +45,4 @@ Password : j4v47
 GEMASTIK{try_to_obfuscate_Java_next_time}
 ```
 
-**Flag : GEMASTIK{try_to_obfuscate_Java_next_time}**
+`**Flag : GEMASTIK{try_to_obfuscate_Java_next_time}**`
