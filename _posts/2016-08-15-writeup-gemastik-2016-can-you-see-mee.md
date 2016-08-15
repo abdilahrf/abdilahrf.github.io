@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writeup Gemastik 2016 : Lottery Machine - 125"
+title: "Writeup Gemastik 2016 : Can You See Mee - 50"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/lottery-machine.png)
+![Lottery Machine](/images/can-you-see-mee.png)
 
 
 ### Solusi :

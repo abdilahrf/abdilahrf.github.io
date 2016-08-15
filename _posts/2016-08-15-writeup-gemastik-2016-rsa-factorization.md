@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writeup Gemastik 2016 : Lottery Machine - 125"
+title: "Writeup Gemastik 2016 : RSA Factorization - 100"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
