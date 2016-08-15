@@ -25,6 +25,7 @@ Sesuai clue pada soal kita harus mencari cara untuk melakukan database dump. per
 
 `x' union select sleep(10) from information_schema.tables where table_name like '%a#` < ERROR 
 
+
 `x' union select sleep(10),1 from information_schema.tables where table_name like '%a#` < ERROR.
 
 ... SNIP ....
