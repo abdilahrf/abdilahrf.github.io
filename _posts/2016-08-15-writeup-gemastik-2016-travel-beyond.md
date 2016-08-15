@@ -23,7 +23,8 @@ featured: false
 Sesuai clue pada soal kita harus mencari cara untuk melakukan database dump. percobaan pertama kita mencoba melakukan
 *SQL Injection* pada search, untuk memastikan SQL Injection kami menggunakan sleep(10) :
 
-`x' union select sleep(10) from information_schema.tables where table_name like '%a#` < ERROR
+`x' union select sleep(10) from information_schema.tables where table_name like '%a#` < ERROR 
+
 `x' union select sleep(10),1 from information_schema.tables where table_name like '%a#` < ERROR.
 
 ... SNIP ....
