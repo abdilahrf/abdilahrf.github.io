@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/egovernment-repository.png)
+![E-Government Repository](/images/egovernment-repository.png)
 
 
 ### Solusi :

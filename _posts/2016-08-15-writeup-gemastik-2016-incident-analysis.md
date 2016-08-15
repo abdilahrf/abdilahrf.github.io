@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/incident-analysis-machine.png)
+![Incident Analysis](/images/incident-analysis-machine.png)
 
 
 ### Solusi :

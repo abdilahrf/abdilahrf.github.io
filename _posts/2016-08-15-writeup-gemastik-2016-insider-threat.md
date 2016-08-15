@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/insider-threat.png)
+![Insider Threat](/images/insider-threat.png)
 
 
 ### Solusi :

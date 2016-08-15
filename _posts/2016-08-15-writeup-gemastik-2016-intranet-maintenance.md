@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/intranet-maintenance.png)
+![Intranet Maintenance](/images/intranet-maintenance.png)
 
 
 ### Solusi :

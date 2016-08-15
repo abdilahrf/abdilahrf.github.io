@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Python Server](/images/power-plant.png)
+![Power plant](/images/power-plant.png)
 
 
 ### Solusi :

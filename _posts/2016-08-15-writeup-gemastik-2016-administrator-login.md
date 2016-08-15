@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/administrator-login.png)
+![Administrator Login](/images/administrator-login.png)
 
 
 ### Solusi :

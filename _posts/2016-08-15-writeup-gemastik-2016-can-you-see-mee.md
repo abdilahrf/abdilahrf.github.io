@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/can-you-see-mee.png)
+![Can You See Mee](/images/can-you-see-mee.png)
 
 
 ### Solusi :

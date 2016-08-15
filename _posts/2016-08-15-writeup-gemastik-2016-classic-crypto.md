@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Python Server](/images/classic-crypto.png)
+![Classic Crypto](/images/classic-crypto.png)
 
 
 ### Solusi :

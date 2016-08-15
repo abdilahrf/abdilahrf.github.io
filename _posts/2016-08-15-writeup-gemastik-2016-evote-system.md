@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/lottery-machine.png)
+![Evote System](/images/evote-system.png)
 
 
 ### Solusi :

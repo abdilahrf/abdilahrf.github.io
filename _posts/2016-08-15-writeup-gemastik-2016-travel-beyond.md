@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/lottery-machine.png)
+![Travel & Beyond](/images/travel-beyond.png)
 
 
 ### Solusi :

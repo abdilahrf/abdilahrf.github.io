@@ -15,7 +15,7 @@ featured: false
 
 ### Problem :
 
-![Lottery Machine](/images/lottery-machine.png)
+![RSA Factorization](/images/rsa-factorization.png)
 
 
 ### Solusi :
