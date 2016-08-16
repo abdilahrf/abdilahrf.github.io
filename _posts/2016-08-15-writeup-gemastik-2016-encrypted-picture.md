@@ -19,3 +19,10 @@ featured: false
 
 
 ### Solusi :
+
+Karena image encrypted.png di encrypt menggunakan script python di berikan dengan operasi XOR maka dengan menjalankan ulang
+image yang terencrypt akan kembali ke aslinya 
+
+![Python Server](/images/encrypted-picture-flag.png)
+
+Ubah binary ke ascii dan muncul flag `GEMASTIK{there_is_no_sp00n}`
