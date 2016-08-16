@@ -20,4 +20,8 @@ featured: false
 
 ### Solusi :
 
+Bypass SQL Injection Login 
 
+![Administrator login flag](/images/administrator-login-flag.png)
+
+`GEMASTIK{JS_filter_will_not_save_u}`
