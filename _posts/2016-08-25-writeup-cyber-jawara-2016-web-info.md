@@ -27,10 +27,12 @@ Kami melakukan beberapa percobaan SQL Injection untuk mendapatkan table yang men
 Seperti yang di tulis oleh blog ini [SQLi BigTree 4.0RC2](https://exploit.ph/web-hacking/2015/02/08/a-web-hack/)
 
 Namun kami tidak mendapatkan hasil yang berarti karena yang kita kerjakan bukan soal 
-yang dimaksud **WTF* ~~S1ck~~
+yang dimaksud **WTF** ~~S1ck~~
 
 Soal yang di maksud ada di [http://www.cyberjawara.tk/r3v3rs3m3](http://www.cyberjawara.tk/r3v3rs3m3)
 
 Soal yang di kasih bukan soal? 
+
+`~~Flag: CJ2016{Soal_nya_bukan_soal}~~`
 
 ![Genius](http://vignette2.wikia.nocookie.net/animaljam/images/4/40/623px-Genius-meme.png)
