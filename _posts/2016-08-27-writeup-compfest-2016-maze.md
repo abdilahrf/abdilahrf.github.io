@@ -6,7 +6,7 @@ headline:
 modified: 2016-08-27
 category: compfest
 tags: [compfest,ctf]
-imagefeature: /images/gemastik.png
+imagefeature: /images/compfest.png
 mathjax: 
 chart: 
 comments: true
