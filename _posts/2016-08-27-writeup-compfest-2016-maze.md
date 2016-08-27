@@ -17,7 +17,7 @@ featured: false
 
 There's a "maze" hidden within this website. Our informants told us that the flag in it has been deleted though. Recovering it would not be a problem for you, would it?
 
-http://musashi.compfest.web.id:11663/
+`http://musashi.compfest.web.id:11663/`
 
 ### Solusi :
 
@@ -27,7 +27,7 @@ sesuatu yang bermanfaat.
  
 Pertama kami coba download semua jpg yang ada di web tersebut untuk di analisa lebih lanjut. 
  
-wget -r http://musashi.compfest.web.id:11663 
+`wget -r http://musashi.compfest.web.id:11663`
  
 Namun tidak mendapatkan hasil yang berarti 
  
@@ -45,6 +45,7 @@ Untuk menemukan path flagnya
  
 `/CTF/compfest/web/ : $  ls -laR | grep -B 4 "FLAG" `
  
+![Maze Find Flag](/images/mazefindflag.png)
  
 Ditemukan flag ada di `files/maze/2/1/9/7/FLAG!!!!.txt `
  
