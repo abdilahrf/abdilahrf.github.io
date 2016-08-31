@@ -5,7 +5,7 @@ description: "Writeup Idsecconf CTF 2016 Online"
 headline: 
 modified: 2016-08-29
 category: idsecconf
-tags: [idsecconf,ctf,web]
+tags: [idsecconf,ctf,reverse]
 imagefeature: /images/idsecconf.jpg
 mathjax: 
 chart: 
