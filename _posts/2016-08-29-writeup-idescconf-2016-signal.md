@@ -76,7 +76,7 @@ dan dalam pengecekan password input kita di XOR dengan `1122334455667788h`
 .text:0000000000400906 usr_1           endp
 ```
 
-```
+```python
 flag = 0x62A2A01426E579E ^ 0x1122334455667788
 print hex(flag)
 ```
