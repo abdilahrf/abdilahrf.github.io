@@ -33,6 +33,7 @@ saya coba dengan menjalankan berulang2 kali tapi. kita simpan 1 elemen
 dari 31337(3) ke dalam variable. karena n di antara 0-9.
 
 script python solve.
+
 ```python
 
 from pwn import *
@@ -89,8 +90,8 @@ for a in range(0, 200):
 print r.recv(4096)
 print r.recv(4096)
 print r.recv(4096)
-
 ```
+
 
 jalankan python dengan loop.
 `for x in `seq 1 100`;do $(python sequence.py >> res);done `
@@ -98,7 +99,6 @@ jalankan python dengan loop.
 dapatkan flag dengan grep.
 `cat res | grep flag`
  
-dan di dapatkan flag
 ![Sequence Flag](/images/sequence_flag.png)
 
 Flag : `flag{_mamat_dan_sekur_selalu_bersama_}`
