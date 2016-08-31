@@ -20,6 +20,7 @@ featured: false
 ### Solusi :
 
 Diketahui bit adalah ELF x64 yang stripped
+
 `bit: ELF 64-bit LSB  executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.24, BuildID[sha1]=18a69419634b377f3ffbb736952951340bcd045b, stripped`
 
 Hasil objdump menunjukan file bit menggunakan beberapa lib
