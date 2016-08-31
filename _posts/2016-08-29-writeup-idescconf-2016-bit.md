@@ -27,7 +27,9 @@ Hasil objdump menunjukan file bit menggunakan beberapa lib
 abdilahrf:~/workspace/CTF/idsecconf/reverse/bit $ objdump -T bit                                                    
 
 bit:     file format elf64-x86-64
-```
+
+```objdump
+
 DYNAMIC SYMBOL TABLE:
 0000000000000000      DF *UND*  0000000000000000  GLIBC_2.2.5 putchar
 0000000000000000      DF *UND*  0000000000000000  GLIBC_2.2.5 puts
@@ -51,7 +53,7 @@ vulnerability PRNG seed tapi ternyata bukan lagi pula di situ jika kita menebak 
 maka akan di hadiahkan jumlah taruhan + 100 programnya juga tidak melakukan looping maka
 akan mustahil untuk menebak dengan benar sampai BTC nya = 100000
 
-```
+```cpp
 __int64 __fastcall sub_4009BB(__int64 a1, __int64 a2)
 {
   unsigned int v2; // eax@1
