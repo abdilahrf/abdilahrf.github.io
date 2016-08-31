@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writeup Idsecconf CTF 2016 : Bit - 150"
+title: "Writeup Idsecconf CTF 2016 : Bit - 100"
 description: "Writeup Idsecconf CTF 2016 Online"
 headline: 
 modified: 2016-08-29
