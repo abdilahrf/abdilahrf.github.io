@@ -6,7 +6,7 @@ headline:
 modified: 2016-08-29
 category: idsecconf
 tags: [idsecconf,ctf,web]
-imagefeature: /images/idsecconf.png
+imagefeature: /images/idsecconf.jpg
 mathjax: 
 chart: 
 comments: true
@@ -23,6 +23,7 @@ Di berikan sebuah website dan lokasi flag di beritahu ada di `http://139.59.245.
 namun kita hanya bisa menggunakan Method `OPTIONS,HEAD` 
 
 menurut w3 protocol : `The HEAD method is identical to GET except that the server MUST NOT return a message-body in the response. `
+
 `Content-MD5, A Base64-encoded binary MD5 sum of the content of the request body, Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ== Obsolete`
 
 `echo 'T/JeCTIbbkLdlRS/YqTvHw==' | base64 -d | xxd`

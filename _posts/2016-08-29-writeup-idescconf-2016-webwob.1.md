@@ -6,7 +6,7 @@ headline:
 modified: 2016-08-29
 category: idsecconf
 tags: [idsecconf,ctf,web]
-imagefeature: /images/idsecconf.png
+imagefeature: /images/idsecconf.jpg
 mathjax: 
 chart: 
 comments: true
