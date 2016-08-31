@@ -34,6 +34,7 @@ dari 31337(3) ke dalam variable. karena n di antara 0-9.
 
 script python solve.
 ```python
+
 from pwn import *
 
 
