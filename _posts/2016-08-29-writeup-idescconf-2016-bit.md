@@ -134,7 +134,9 @@ setelah membaca tentang Int64 di [Integer Overflow](https://rosettacode.org/wiki
 
 maka kita dapat melakukan integer overflow sehingga BTC kita > 10000
 
-`echo -n -e "18446744073709551616\n3133731337\n"| ./bit `
+```bash
+echo -n -e "18446744073709551616\n3133731337\n"| ./bit 
+```
 
 ![Bit Flag Lokal](/images/bit_flaglokal.png)
 
