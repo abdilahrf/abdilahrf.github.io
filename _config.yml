@@ -155,6 +155,11 @@ prose:
           element: "checkbox"
           label: "Comments"
           value: false
+      - name: "private"
+        field:
+          element: "text"
+          label: "priv"
+          value: false
 
 
 include: [".htaccess"]

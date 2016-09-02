@@ -61,6 +61,7 @@ tags: [Abdillah,abdilahrf]
 	</nav>
 {% else %}
 	{% for post in site.posts %}
+	{% if post.private != true %}
     <article class="notepad-index-post post row">
         <div class="small-12 medium-3 large-2 columns datetime">
             <span class="notepad-post-meta">
@@ -93,5 +94,6 @@ tags: [Abdillah,abdilahrf]
             
         </div>
     </article>
+    {% endif %}
 	{% endfor %}  
 {% endif %}
