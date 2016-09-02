@@ -6,7 +6,9 @@ headline: CodThebest
 tags: [Abdillah,abdilahrf]
 ---
 {% if site.paginate %}
+
 	{% for post in paginator.posts %}
+	{% if post.private != true %}
     <article class="notepad-index-post post row">
         <div class="small-12 medium-3 large-2 columns datetime">
             <span class="notepad-post-meta">
@@ -39,6 +41,7 @@ tags: [Abdillah,abdilahrf]
             
         </div>
     </article>
+    {% endif %}
 	{% endfor %}
     <nav class="pagination" role="navigation">
     {% if paginator.previous_page %}
