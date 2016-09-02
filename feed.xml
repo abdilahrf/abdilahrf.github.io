@@ -22,7 +22,7 @@ layout: none
   <uri>{{ site_url }}/</uri>
   <email>{{ site.owner.email }}</email>
 </author>
-{% for post in site.posts limit:20 %}
+{% for post in site.posts limit:1 %}
 {% if post.private != true %}
 <entry>
   <title type="html"><![CDATA[{{ post.title | cdata_escape }}]]></title>
