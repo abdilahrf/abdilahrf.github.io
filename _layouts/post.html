@@ -74,7 +74,12 @@
             </header>
 {% endif %}
         {% if page.imagefeature %}<article class="notepad-post-content post">{% else %}<article class="notepad-post-content post tag-simple">{% endif %}
-            <div>{{ content }}
+            <div>
+            {% if page.private %}
+              <input type="password" name="pass" />
+            {% else %}
+                {{ content }}
+            {% endif %}
             </div>
         </article>
         <div class="cf"></div>
