@@ -18,7 +18,7 @@ description: "An archive of posts sorted by categories."
     {% endfor %}
   {% else %}
     {% for tag in tags_list %}
-    {% if tag != "private" %}
+    {% if tag[0] != "private" %}
       <li><a href="#{{ tag[0] }}">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a></li>
     {% endif %}
     {% endfor %}
@@ -27,8 +27,9 @@ description: "An archive of posts sorted by categories."
 </ul>
 
 {% for tag in site.categories %} 
-{% if tag != "private" %}
+{% if tag[0] != "private" %}
   <h2 id="{{ tag[0] }}">{{ tag[0] | capitalize }}</h2>
+{% endif %}
   <ul class="post-list">
     {% assign pages_list = tag[1] %}  
     {% for post in pages_list  %}
@@ -44,5 +45,5 @@ description: "An archive of posts sorted by categories."
     {% assign pages_list = nil %}
     {% assign group = nil %}
   </ul>
-{% endif %}
+
 {% endfor %}
