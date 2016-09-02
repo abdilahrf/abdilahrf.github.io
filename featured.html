@@ -7,9 +7,11 @@ description: "An archive of posts sorted by date."
 {% assign featuredcount = '0' %}
 <ul class="post-list">
 {% for post in site.posts %}
-{% if post.featured and post.published %}
+{% if post.featured %}
+{% if post.published != false %}
 {% assign featuredcount = featuredcount | plus:'1' %}
   <li><article><i class="fa fa-star-half-o"></i> <a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
+{% endif %}
 {% endif %}
 {% endfor %}
 </ul>
