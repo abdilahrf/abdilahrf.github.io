@@ -1,11 +1,9 @@
 ---
 layout: post
 title: "Test"
-description: "Writeup Idsecconf CTF 2016 Online"
+description: "Test"
 headline: 
 modified: 2016-08-29
-category: idsecconf
-tags: [idsecconf,ctf,web]
 imagefeature: /images/idsecconf.jpg
 mathjax: 
 chart: 
