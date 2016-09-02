@@ -7,6 +7,7 @@ modified: 2016-08-29
 imagefeature: /images/idsecconf.jpg
 mathjax: 
 chart: 
+category: private
 private: true
 comments: true
 featured: false
