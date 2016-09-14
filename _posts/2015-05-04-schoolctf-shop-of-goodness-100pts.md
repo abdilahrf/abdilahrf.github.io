@@ -20,7 +20,7 @@ categories:
 websitenya ternyata menggunakan bahasa rusia jadi kita translate , kebetulan di google chrome autotranslate jadi bahasa ingris
 
 <div id="attachment_573" style="width: 1009px" class="wp-caption aligncenter">
-  <a href="http://www.hasnydes.us/wp-content/uploads/2015/05/home.png"><img class="size-full wp-image-573" src="http://www.hasnydes.us/wp-content/uploads/2015/05/home.png" alt="SchoolCTF : Shop of goodness" width="999" height="545" /></a>
+  <a href="http://abdilahrf.me/images/2015/05/home.png"><img class="size-full wp-image-573" src="http://abdilahrf.me/images/2015/05/home.png" alt="SchoolCTF : Shop of goodness" width="999" height="545" /></a>
   
   <p class="wp-caption-text">
     Homepage
@@ -34,7 +34,7 @@ setelah diperhatikan ternyata variabel &#8220;st&#8221; mewakili step di page te
 http://sibears.ru:11011/buy.php?tid=1&st=5
 
 <div id="attachment_574" style="width: 1007px" class="wp-caption aligncenter">
-  <a href="http://www.hasnydes.us/wp-content/uploads/2015/05/flag5.png"><img class="size-full wp-image-574" src="http://www.hasnydes.us/wp-content/uploads/2015/05/flag5.png" alt="SchoolCTF : Shop of goodness" width="997" height="343" /></a>
+  <a href="http://abdilahrf.me/images/2015/05/flag5.png"><img class="size-full wp-image-574" src="http://abdilahrf.me/images/2015/05/flag5.png" alt="SchoolCTF : Shop of goodness" width="997" height="343" /></a>
   
   <p class="wp-caption-text">
     Flag

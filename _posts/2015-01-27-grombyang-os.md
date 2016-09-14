@@ -14,7 +14,7 @@ categories:
 Apa itu grombyang os ? grombyang os adalah , os yang di kembangkan oleh developer dari indonesia dengan tujuan untuk menjadikan grobyang os sebagai os edukasi di indonesia
 
 <div id="attachment_504" style="width: 730px" class="wp-caption aligncenter">
-  <a href="http://www.hasnydes.us/wp-content/uploads/2015/01/gros1.jpg"><img class="size-full wp-image-504" src="http://www.hasnydes.us/wp-content/uploads/2015/01/gros1.jpg" alt="Grombyang Os" width="720" height="365" /></a>
+  <a href="http://abdilahrf.me/images/2015/01/gros1.jpg"><img class="size-full wp-image-504" src="http://abdilahrf.me/images/2015/01/gros1.jpg" alt="Grombyang Os" width="720" height="365" /></a>
   
   <p class="wp-caption-text">
     Grombyang Os
@@ -24,7 +24,7 @@ Apa itu grombyang os ? grombyang os adalah , os yang di kembangkan oleh develope
 <!--more-->Perahu Kertasku Awalnya, simbol/Ikon perahu ini berasal dari sebuah ide sayembara yang diselenggarakan rekan-rekan Pemalang-Cyber (Jordan Andrean, Sumitro Aji Prabowo, Danu, Bara, dan lainnya) untuk digunakan pada ikon Forum-Pemalang. Saya pribadi ikut serta dan berusaha memaknai Kota/Kabupaten Pemalang yang bisa ditransformasikan dalam sebuah ikon.
 
 <div id="attachment_505" style="width: 209px" class="wp-caption aligncenter">
-  <a href="http://www.hasnydes.us/wp-content/uploads/2015/01/gros2.jpg"><img class="size-full wp-image-505" src="http://www.hasnydes.us/wp-content/uploads/2015/01/gros2.jpg" alt="Grombyang OS" width="199" height="253" /></a>
+  <a href="http://abdilahrf.me/images/2015/01/gros2.jpg"><img class="size-full wp-image-505" src="http://abdilahrf.me/images/2015/01/gros2.jpg" alt="Grombyang OS" width="199" height="253" /></a>
   
   <p class="wp-caption-text">
     Grombyang OS
@@ -56,7 +56,7 @@ Sehingga, jika ditarik benang merah antara Perahu dan GrombyangOS ini ijinkanlah
 Contoh tampilan desktopnya
 
 <div id="attachment_506" style="width: 810px" class="wp-caption aligncenter">
-  <a href="http://www.hasnydes.us/wp-content/uploads/2015/01/contohss.png"><img class="size-full wp-image-506" src="http://www.hasnydes.us/wp-content/uploads/2015/01/contohss.png" alt="Desktop Grombyang OS" width="800" height="400" /></a>
+  <a href="http://abdilahrf.me/images/2015/01/contohss.png"><img class="size-full wp-image-506" src="http://abdilahrf.me/images/2015/01/contohss.png" alt="Desktop Grombyang OS" width="800" height="400" /></a>
   
   <p class="wp-caption-text">
     Desktop Grombyang OS

@@ -20,7 +20,7 @@ categories:
 <!--more-->
 
 <div id="attachment_555" style="width: 730px" class="wp-caption aligncenter">
-  <a href="http://www.hasnydes.us/wp-content/uploads/2015/05/11086654_979505172060841_830857777_n.jpg"><img class="size-full wp-image-555" src="http://www.hasnydes.us/wp-content/uploads/2015/05/11086654_979505172060841_830857777_n.jpg" alt="Not weird selfie" width="720" height="960" /></a>
+  <a href="http://abdilahrf.me/images/2015/05/11086654_979505172060841_830857777_n.jpg"><img class="size-full wp-image-555" src="http://abdilahrf.me/images/2015/05/11086654_979505172060841_830857777_n.jpg" alt="Not weird selfie" width="720" height="960" /></a>
   
   <p class="wp-caption-text">
     Not weird selfie
@@ -30,7 +30,7 @@ categories:
 Tweet ke @Schoolctf dengan hastag #Schoolctf dan di dapatkan flag via direct message
 
 <div id="attachment_586" style="width: 653px" class="wp-caption aligncenter">
-  <a href="http://www.hasnydes.us/wp-content/uploads/2015/05/flag8.png"><img class="size-full wp-image-586" src="http://www.hasnydes.us/wp-content/uploads/2015/05/flag8.png" alt="SchoolCTF : Not weird selfie" width="643" height="580" /></a>
+  <a href="http://abdilahrf.me/images/2015/05/flag8.png"><img class="size-full wp-image-586" src="http://abdilahrf.me/images/2015/05/flag8.png" alt="SchoolCTF : Not weird selfie" width="643" height="580" /></a>
   
   <p class="wp-caption-text">
     Flag

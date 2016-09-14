@@ -15,7 +15,7 @@ tags:
   - themeforest
   - website
 ---
-[<img class="aligncenter size-full wp-image-497" src="http://www.hasnydes.us/wp-content/uploads/2015/01/preview_0.jpg" alt="preview_0" width="590" height="300" />](http://www.hasnydes.us/wp-content/uploads/2015/01/preview_0.jpg)
+[<img class="aligncenter size-full wp-image-497" src="http://abdilahrf.me/images/2015/01/preview_0.jpg" alt="preview_0" width="590" height="300" />](http://abdilahrf.me/images/2015/01/preview_0.jpg)
 
 <a href="http://themeforest.net/item/kappas-responsive-ghost-theme/9701591?ref=hasnydesign" target="_blank">Kappas Responsive Ghost Theme</a> is a theme for anyone , who want to make a website using ghost for blogging or another the theme can be used for any kind of purpose like business,personal notes,school,medical,organisation<!--more-->
 

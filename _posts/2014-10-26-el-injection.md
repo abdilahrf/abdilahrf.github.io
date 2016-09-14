@@ -35,13 +35,13 @@ Bagaimana cara penyerangannya ? contohnya seperti ini
 
 kita kirim dengan get unauth dan kita isi proses aritmatika 100 x 3 **<a class="bbc_link" href="https://target-site/login!input.jspa?unauth" target="_blank">https://target-site/login!input.jspa?unauth=</a>${100*3}**. dan nanti pada source nya akan muncul hasil dari 100*3
 
-[<img class="aligncenter size-full wp-image-275" src="http://www.hasnydes.us/wp-content/uploads/2014/10/s652sx.png" alt="s652sx" width="638" height="222" />](http://www.hasnydes.us/wp-content/uploads/2014/10/s652sx.png)
+[<img class="aligncenter size-full wp-image-275" src="http://abdilahrf.me/images/2014/10/s652sx.png" alt="s652sx" width="638" height="222" />](http://abdilahrf.me/images/2014/10/s652sx.png)
 
 &nbsp;
 
 dan kita coba dengan query yang lain  **<a class="bbc_link" href="https://target-site/login!input.jspa?unauth" target="_blank">https://target-site/login!input.jspa?unauth=</a>${99999+1}**
 
-[<img class="aligncenter size-full wp-image-276" src="http://www.hasnydes.us/wp-content/uploads/2014/10/oye.png" alt="oye" width="637" height="203" />](http://www.hasnydes.us/wp-content/uploads/2014/10/oye.png)
+[<img class="aligncenter size-full wp-image-276" src="http://abdilahrf.me/images/2014/10/oye.png" alt="oye" width="637" height="203" />](http://abdilahrf.me/images/2014/10/oye.png)
 
 dari hasil seperti ini mungkin bisa di explore sampai bisa maitening access atau sebagainya
 
