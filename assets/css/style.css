@@ -133,6 +133,12 @@ main, .notepad-share-icons, .notepad-disqus {
             .notepad-blog-menu ul li a:hover {
               border-bottom: 0.1875rem solid #e51843; } }
 
+
+
+.notepad-site-head-overlay{
+    background: rgba(0,0,0,0.4);
+}
+
 .notepad-site-head .notepad-site-head-menu {
   background: white; }
   .notepad-site-head .notepad-site-head-menu .notepad-blog-logo {
