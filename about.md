@@ -7,7 +7,7 @@ imagefeature: http://abdilahrf.github.io/images/cdc2014.jpg
 chart: true
 ---
 
-<img src="/images/cdc2014.jpg" alt="Kurawa In Disorder" />
+<img src="/images/ixia.jpg" alt="Kurawa In Disorder" />
 
 An ordinary man with a passion in Information secutiry. 
 Part of Cyber Security Community at Binus University and active moderator on the [Indonesian backtrack team](http://indonesianbacktrack.or.id). 
