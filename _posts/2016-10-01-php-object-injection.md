@@ -6,14 +6,12 @@ headline:
 modified: 2016-10-01
 category: Web Exploitation
 tags: [webExploitation]
-#imagefeature: /images/php.jpg
+imagefeature: /images/php.jpg
 mathjax: 
 chart: 
 comments: true
 featured: true
 ---
-
-![PHP_Object_Injection](/images/php.jpg)
 
 PHP Unserialize bisa menjadi petaka ketika kita mengambil atau menggunakan input
 dari user untuk di eksekusi ke unserialize(), dalam dokumentasi fungsi [unserialize()](http://php.net/manual/en/function.unserialize.php) di php.net
