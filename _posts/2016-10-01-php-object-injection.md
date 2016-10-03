@@ -83,16 +83,8 @@ php juga mempunyai beberapa magic method seperti __construct/__destruct.
 Contoh beberapa magic function di php : __construct(), __destruct(), __call(), __callSt
 atic(), __get(), __set(), __isset(), __unset(), __sleep(), __wakeup(), __toString(), __invoke(), __set_state(), __clone(), and __autoload().
 
-Magic method : 
-```php
-
-Exception::__toStringErrorException::
-__toStringDateTime::__wakeupReflectionException::__toStringReflectionFunctionAbstract::__toStringReflectionFunction::__toStringReflectionParameter::__toStringReflectionMethod::__toStringReflectionClass::__toStringReflectionObject::__toStringReflectionProperty::__toStringReflectionExtension::__toStringLogicException::__toStringBadFunctionCallException::__toStringBadMethodCallException::__toStringDomainException::__toStringInvalidArgumentException::__toStringLengthException::__toStringOutOfRangeException::__toStringRuntimeException::__toString`
-
-```
 
 Ref: http://www.programmerinterview.com/index.php/php-questions/php-what-are-magic-functions/
-
 
 
 ## Object Instantiation
