@@ -149,7 +149,7 @@ pada fungsi `add_post` terlihat bahwa author name yang kita input akan di simpan
 `name = session.get('name', 'anonymous')[:10]`. kemungkinan kita bisa melakukan template string injection.
 
 namun kita tidak bisa menggunakan payload yang lebih dari 10 karakter awalnya kita coba 
-"{{config.items()}}" tapi tidak menghasilkan apa karena > 10 karakter. dan setelah beberapa lama akhirnya di temukan flag dengan "{{config}}"
+"\{\{config.items()\}\} " tapi tidak menghasilkan apa karena > 10 karakter. dan setelah beberapa lama akhirnya di temukan flag dengan "\{\{config\}\}"
 pas 10 karakter. 
 
 ```html
