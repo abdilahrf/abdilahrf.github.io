@@ -147,8 +147,9 @@ def get_source():
 pada fungsi `add_post` terlihat bahwa author name yang kita input akan di simpan ke dalam session.
 `session["name"] = name` dan pada fungsi `render_template` session kita di ambil 10 karakter pertamanya
 `name = session.get('name', 'anonymous')[:10]`. kemungkinan kita bisa melakukan template string injection.
-namun kita tidak bisa menggunakan payload yang lebih dari 10 karakter awalnya kita coba `{{config.items()}}`
-tapi tidak menghasilkan apa karena > 10 karakter. dan setelah beberapa lama akhirnya di temukan flag dengan `{{config}}`
+
+namun kita tidak bisa menggunakan payload yang lebih dari 10 karakter awalnya kita coba 
+"{{config.items()}}" tapi tidak menghasilkan apa karena > 10 karakter. dan setelah beberapa lama akhirnya di temukan flag dengan "{{config}}"
 pas 10 karakter. 
 
 ```html
