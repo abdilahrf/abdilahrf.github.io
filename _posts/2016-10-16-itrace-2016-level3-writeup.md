@@ -164,6 +164,19 @@ Huruf V posisinya +2 dari T
 Huruf G posisinya +2 dari E
 ```
 
+```python
+
+a = 'K' 'V' 'T' 'C' 'E' 'G' '}' 'd' '6' 'f' 'a' 'e' '2' 'f' '5' '7' 'a' 'j' '3' 'f' '3' 'p' '8' 'a' '3' 'P' 'a' 'r' '6' 'e' ''
+flag = ""
+for x in a:
+	flag += chr(ord(x)-2)
+	pass
+
+print flag
+
+```
+
+
 Semua ascii di kurang 2 dan di temukan flagnya : `ITRACE{b4d_c0d35_h1d1n6_1N_p4ck}`
 
 
