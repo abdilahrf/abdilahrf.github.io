@@ -75,7 +75,7 @@ flag : `ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}`
 
 ## AJAX XAJA
 
-Title : AJAX XAJA
+> Title : AJAX XAJA
 Point : 25
 Category : #web
 Description :
@@ -89,7 +89,7 @@ ketik command flag di website dan cek ajax response via developer tools
 
 ## Not Heart Bleed
 
-Title : Not Heart Bleed
+> Title : Not Heart Bleed
 Point : 43
 Category : #web
 Description :
@@ -104,7 +104,7 @@ Flag : `ITRACE{Y4Y_TO_345Y}`
 
 ## Lorem is not Ipsum
 
-Title : Lorem is not Ipsum
+> Title : Lorem is not Ipsum
 Point : 13
 Category : #forensic #warmup
 Description :
@@ -167,7 +167,7 @@ Huruf G posisinya +2 dari E
 Semua ascii di kurang 2 dan di temukan flagnya : `ITRACE{b4d_c0d35_h1d1n6_1N_p4ck}`
 
 
-## 
+## Square Them
 
 > Title : Square Them
 Point : 60
