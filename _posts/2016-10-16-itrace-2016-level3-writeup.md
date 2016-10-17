@@ -14,8 +14,7 @@ featured: true
 ---
 
 ## Website : Compare Us - 40 Point
-<br /><br />
-
+<br />
 
 
 > Title : Compare Us
@@ -82,7 +81,8 @@ flag : `ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}`
 
 
 ## Website: AJAX XAJA - 25 Point
-<br /><br />
+<br />
+
 
 > Title : AJAX XAJA
 Point : 25
@@ -102,7 +102,8 @@ ketik command flag di website dan cek ajax response via developer tools
 
 
 ## Website: Not Heart Bleed - 43 Point
-<br /><br />
+<br />
+
 
 > Title : Not Heart Bleed
 Point : 43
@@ -123,7 +124,8 @@ Flag : `ITRACE{Y4Y_TO_345Y}`
 
 
 ## Forensic: Lorem is not Ipsum - 13 Point
-<br /><br />
+<br />
+
 
 > Title : Lorem is not Ipsum
 Point : 13
@@ -168,7 +170,8 @@ Flag : `ITRACE{similiriti_similikiti}`
 
 
 ## Reversing: Brute Self - 35 Point
-<br /><br />
+<br />
+
 
 > Title : Brute Self
 Point : 35
@@ -212,7 +215,8 @@ Semua ascii di kurang 2 dan di temukan flagnya : `ITRACE{b4d_c0d35_h1d1n6_1N_p4c
 
 
 ## Website: Square Them - 60 Point
-<br /><br />
+<br />
+
 
 > Title : Square Them
 Point : 60
@@ -304,7 +308,8 @@ Flag : `ITRACE{m4g1c_squ4r3_is_s0_m4th}`
 
 
 ## Forensic: Binary Typ0 - 45 Point
-<br /><br />
+<br />
+
 
 > Title : Binary Typ0
 Point : 45
@@ -362,7 +367,8 @@ Flag : `ITRACE{FROM.0-F}`
 
 
 ## Recon: Ping Me - 50.1 Point
-<br /><br />
+<br />
+
 
 > Title : Ping Me
 Point : 50.1
@@ -383,7 +389,8 @@ Flag : `ITRACE{http_www.cafelinux.info_ping.me}`
 
 
 ## Recon: Copy Pasta - 100.2 Point
-<br /><br />
+<br />
+
 
 > Title : Copy Pasta
 Point : 100.2
@@ -411,7 +418,8 @@ akses ke url nya dengan actually-heartbeat-opposite maka akan mendapatkan flag d
 
 
 ## PPC: Pixel Racist = 70 Point
-<br /><br />
+<br />
+
 
 > Title : Pixel Racist
 Point : 70
@@ -466,7 +474,8 @@ Flag : `ITRACE{y0u_6uy5_4r3_4wes0m3}`
 
 
 ## PPC: Scazzy - 88 Point
-<br /><br />
+<br />
+
 
 > Title : Scazzy
 Point : 88
@@ -550,7 +559,8 @@ Flag : `Congratulations. This is your flag: ITRACE{b0t_tele6r4m_i5_m0d3rn_typ3_0
 
 
 ## Misc : Print The Flag - 21 Point
-<br /><br />
+<br />
+
 
 > Title : Print The Flag
 Point : 21
@@ -572,7 +582,8 @@ Flag : `ITRACE{s0m3t1m35_j4v4_is_s0_t3xty`
 
 
 ## Trivia: Ternate Maluku Utara Indonesia Timur - 10 Point
-<br /><br />
+<br />
+
 
 > Title : Ternate Maluku Utara Indonesia Timur
 Point : 10
