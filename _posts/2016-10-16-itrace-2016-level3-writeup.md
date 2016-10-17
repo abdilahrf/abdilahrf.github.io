@@ -74,8 +74,7 @@ Full payload : `curl "http://task-00000001.itrace.systems/compare-us.php?key=302
 flag : `ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}`
 
 
-
-
+---
 
 
 ## AJAX XAJA
@@ -91,6 +90,9 @@ ketik command flag di website dan cek ajax response via developer tools
 ```ajax
 {command: "flag", flag: "Congratulations. This is your flag: ITRACE{Asynchronous_Javascript_And_XML}",…}
 ```
+
+---
+
 
 ## Not Heart Bleed
 
