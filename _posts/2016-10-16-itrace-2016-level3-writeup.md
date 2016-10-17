@@ -74,10 +74,11 @@ Full payload : `curl "http://task-00000001.itrace.systems/compare-us.php?key=302
 flag : `ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}`
 
 
----
+--- 
+<br><br>
 
 
-## AJAX XAJA
+##Website: AJAX XAJA - 25 Point
 
 > Title : AJAX XAJA
 Point : 25
@@ -91,10 +92,11 @@ ketik command flag di website dan cek ajax response via developer tools
 {command: "flag", flag: "Congratulations. This is your flag: ITRACE{Asynchronous_Javascript_And_XML}",â€¦}
 ```
 
----
+--- 
+<br><br>
 
 
-## Not Heart Bleed
+## Website: Not Heart Bleed - 43 Point
 
 > Title : Not Heart Bleed
 Point : 43
@@ -109,7 +111,12 @@ Full payload : `curl -X POST --data "request=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿
 
 Flag : `ITRACE{Y4Y_TO_345Y}`
 
-## Lorem is not Ipsum
+
+--- 
+<br><br>
+
+
+## Forensic: Lorem is not Ipsum - 13 Point
 
 > Title : Lorem is not Ipsum
 Point : 13
@@ -148,8 +155,11 @@ for i in range(1,63):
 Flag : `ITRACE{similiriti_similikiti}`
 
 
+--- 
+<br><br>
 
-## Brute Self
+
+## Reversing: Brute Self - 35 Point
 
 > Title : Brute Self
 Point : 35
@@ -187,7 +197,11 @@ print flag
 Semua ascii di kurang 2 dan di temukan flagnya : `ITRACE{b4d_c0d35_h1d1n6_1N_p4ck}`
 
 
-## Square Them
+--- 
+<br><br>
+
+
+## Website: Square Them - 60 Point
 
 > Title : Square Them
 Point : 60
@@ -273,8 +287,11 @@ while count <= 10:
 Flag : `ITRACE{m4g1c_squ4r3_is_s0_m4th}`
 
 
+--- 
+<br><br>
 
-## Binary Typ0
+
+## Forensic: Binary Typ0 - 45 Point
 
 > Title : Binary Typ0
 Point : 45
@@ -326,7 +343,11 @@ with open('hexm') as f, open('test.jpg', 'wb') as fout:
 Flag : `ITRACE{FROM.0-F}`
 
 
-## Ping Me
+--- 
+<br><br>
+
+
+## Recon: Ping Me - 50.1 Point
 
 > Title : Ping Me
 Point : 50.1
@@ -341,7 +362,11 @@ Hasil googling di temukan `http://cafelinux.info/pingme`
 Flag : `ITRACE{http_www.cafelinux.info_ping.me}`
 
 
-## Copy Pasta
+--- 
+<br><br>
+
+
+## Recon: Copy Pasta - 100.2 Point
 > Title : Copy Pasta
 Point : 100.2
 Category : #recon
@@ -362,9 +387,11 @@ seperti kata random yang di generate ketika membuat raw.
 akses ke url nya dengan actually-heartbeat-opposite maka akan mendapatkan flag di address bar.
 
 
+--- 
+<br><br>
 
 
-## Pixel Racist
+##PPC: Pixel Racist = 70 Point
 
 > Title : Pixel Racist
 Point : 70
@@ -413,7 +440,11 @@ while 1:
 Flag : `ITRACE{y0u_6uy5_4r3_4wes0m3}`
 
 
-## Scazzy
+--- 
+<br><br>
+
+
+## PPC: Scazzy - 88 Point
 
 > Title : Scazzy
 Point : 88
@@ -491,7 +522,11 @@ setelah 20 stage menjawab pertanyaan di dapatkan flag
 Flag : `Congratulations. This is your flag: ITRACE{b0t_tele6r4m_i5_m0d3rn_typ3_0f_ircs_b0t}`
 
 
-## Print The Flag
+--- 
+<br><br>
+
+
+## Misc : Print The Flag - 21 Point
 
 > Title : Print The Flag
 Point : 21
@@ -507,7 +542,11 @@ dan di dapatkan flagnya
 Flag : `ITRACE{s0m3t1m35_j4v4_is_s0_t3xty`
 
 
-##  Ternate Maluku Utara Indonesia Timur
+--- 
+<br><br>
+
+
+##Trivia: Ternate Maluku Utara Indonesia Timur - 10 Point
 
 > Title : Ternate Maluku Utara Indonesia Timur
 Point : 10
