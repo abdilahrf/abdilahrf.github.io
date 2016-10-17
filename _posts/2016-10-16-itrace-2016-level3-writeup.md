@@ -14,7 +14,7 @@ featured: true
 ---
 
 ## Website : Compare Us - 40 Point
-<br />
+---
 
 
 > Title : Compare Us
@@ -76,12 +76,11 @@ Full payload : `curl "http://task-00000001.itrace.systems/compare-us.php?key=302
 flag : `ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}`
 
 <br />
---- 
 <br />
 
 
 ## Website: AJAX XAJA - 25 Point
-<br />
+---
 
 
 > Title : AJAX XAJA
@@ -97,12 +96,11 @@ ketik command flag di website dan cek ajax response via developer tools
 ```
 
 <br />
---- 
 <br />
 
 
 ## Website: Not Heart Bleed - 43 Point
-<br />
+---
 
 
 > Title : Not Heart Bleed
@@ -119,12 +117,11 @@ Full payload : `curl -X POST --data "request=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿
 Flag : `ITRACE{Y4Y_TO_345Y}`
 
 <br />
---- 
 <br />
 
 
 ## Forensic: Lorem is not Ipsum - 13 Point
-<br />
+---
 
 
 > Title : Lorem is not Ipsum
@@ -165,12 +162,11 @@ Flag : `ITRACE{similiriti_similikiti}`
 
 
 <br />
---- 
 <br />
 
 
 ## Reversing: Brute Self - 35 Point
-<br />
+---
 
 
 > Title : Brute Self
@@ -210,12 +206,11 @@ Semua ascii di kurang 2 dan di temukan flagnya : `ITRACE{b4d_c0d35_h1d1n6_1N_p4c
 
 
 <br />
---- 
 <br />
 
 
 ## Website: Square Them - 60 Point
-<br />
+---
 
 
 > Title : Square Them
@@ -303,12 +298,11 @@ Flag : `ITRACE{m4g1c_squ4r3_is_s0_m4th}`
 
 
 <br />
---- 
 <br />
 
 
 ## Forensic: Binary Typ0 - 45 Point
-<br />
+---
 
 
 > Title : Binary Typ0
@@ -362,12 +356,11 @@ Flag : `ITRACE{FROM.0-F}`
 
 
 <br />
---- 
 <br />
 
 
 ## Recon: Ping Me - 50.1 Point
-<br />
+---
 
 
 > Title : Ping Me
@@ -384,12 +377,11 @@ Flag : `ITRACE{http_www.cafelinux.info_ping.me}`
 
 
 <br />
---- 
 <br />
 
 
 ## Recon: Copy Pasta - 100.2 Point
-<br />
+---
 
 
 > Title : Copy Pasta
@@ -413,12 +405,11 @@ akses ke url nya dengan actually-heartbeat-opposite maka akan mendapatkan flag d
 
 
 <br />
---- 
 <br />
 
 
 ## PPC: Pixel Racist = 70 Point
-<br />
+---
 
 
 > Title : Pixel Racist
@@ -469,12 +460,11 @@ Flag : `ITRACE{y0u_6uy5_4r3_4wes0m3}`
 
 
 <br />
---- 
 <br />
 
 
 ## PPC: Scazzy - 88 Point
-<br />
+---
 
 
 > Title : Scazzy
@@ -554,12 +544,11 @@ Flag : `Congratulations. This is your flag: ITRACE{b0t_tele6r4m_i5_m0d3rn_typ3_0
 
 
 <br />
---- 
 <br />
 
 
 ## Misc : Print The Flag - 21 Point
-<br />
+---
 
 
 > Title : Print The Flag
@@ -577,12 +566,13 @@ Flag : `ITRACE{s0m3t1m35_j4v4_is_s0_t3xty`
 
 
 <br />
---- 
+<br />
+<br />
 <br />
 
 
 ## Trivia: Ternate Maluku Utara Indonesia Timur - 10 Point
-<br />
+---
 
 
 > Title : Ternate Maluku Utara Indonesia Timur
