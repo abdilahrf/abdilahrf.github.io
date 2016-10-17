@@ -10,6 +10,6 @@ chart: true
 <img src="/images/ixia.jpg" width="600px" alt="Kurawa In Disorder" />
 
 An ordinary man with a passion in Information secutiry. 
-Part of Cyber Security Community at Binus University and active moderator on the [Indonesian backtrack team](http://indonesianbacktrack.or.id). 
+Part of <a href="http://cscbinus.org">Cyber Security Community</a> at Binus University and active moderator on the [Indonesian backtrack team](http://indonesianbacktrack.or.id). 
 Like much coffee, Introvert, Lefty, CTF addicted, love to learn about new things, turn EIP into 0x424242.
 
