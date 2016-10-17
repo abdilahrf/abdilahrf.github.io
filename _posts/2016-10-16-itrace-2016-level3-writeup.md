@@ -14,7 +14,7 @@ featured: true
 ---
 
 ## Website : Compare Us - 40 Point
-
+<br><br>
 > Title : Compare Us
 Point : 40
 Category : #web
@@ -73,13 +73,13 @@ Full payload : `curl "http://task-00000001.itrace.systems/compare-us.php?key=302
 
 flag : `ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}`
 
-
+<br>
 --- 
+<br>
+
+
+## Website: AJAX XAJA - 25 Point
 <br><br>
-
-
-##Website: AJAX XAJA - 25 Point
-
 > Title : AJAX XAJA
 Point : 25
 Category : #web
@@ -92,12 +92,13 @@ ketik command flag di website dan cek ajax response via developer tools
 {command: "flag", flag: "Congratulations. This is your flag: ITRACE{Asynchronous_Javascript_And_XML}",â€¦}
 ```
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Website: Not Heart Bleed - 43 Point
-
+<br><br>
 > Title : Not Heart Bleed
 Point : 43
 Category : #web
@@ -111,13 +112,13 @@ Full payload : `curl -X POST --data "request=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿
 
 Flag : `ITRACE{Y4Y_TO_345Y}`
 
-
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Forensic: Lorem is not Ipsum - 13 Point
-
+<br><br>
 > Title : Lorem is not Ipsum
 Point : 13
 Category : #forensic #warmup
@@ -155,12 +156,13 @@ for i in range(1,63):
 Flag : `ITRACE{similiriti_similikiti}`
 
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Reversing: Brute Self - 35 Point
-
+<br><br>
 > Title : Brute Self
 Point : 35
 Category : #reversing
@@ -197,12 +199,13 @@ print flag
 Semua ascii di kurang 2 dan di temukan flagnya : `ITRACE{b4d_c0d35_h1d1n6_1N_p4ck}`
 
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Website: Square Them - 60 Point
-
+<br><br>
 > Title : Square Them
 Point : 60
 Category : #web #ppc
@@ -287,12 +290,13 @@ while count <= 10:
 Flag : `ITRACE{m4g1c_squ4r3_is_s0_m4th}`
 
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Forensic: Binary Typ0 - 45 Point
-
+<br><br>
 > Title : Binary Typ0
 Point : 45
 Category : #forensic
@@ -343,12 +347,13 @@ with open('hexm') as f, open('test.jpg', 'wb') as fout:
 Flag : `ITRACE{FROM.0-F}`
 
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Recon: Ping Me - 50.1 Point
-
+<br><br>
 > Title : Ping Me
 Point : 50.1
 Category : #recon
@@ -362,11 +367,13 @@ Hasil googling di temukan `http://cafelinux.info/pingme`
 Flag : `ITRACE{http_www.cafelinux.info_ping.me}`
 
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Recon: Copy Pasta - 100.2 Point
+<br><br>
 > Title : Copy Pasta
 Point : 100.2
 Category : #recon
@@ -387,12 +394,13 @@ seperti kata random yang di generate ketika membuat raw.
 akses ke url nya dengan actually-heartbeat-opposite maka akan mendapatkan flag di address bar.
 
 
+<br>
 --- 
+<br>
+
+
+## PPC: Pixel Racist = 70 Point
 <br><br>
-
-
-##PPC: Pixel Racist = 70 Point
-
 > Title : Pixel Racist
 Point : 70
 Category : #ppc
@@ -440,12 +448,13 @@ while 1:
 Flag : `ITRACE{y0u_6uy5_4r3_4wes0m3}`
 
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## PPC: Scazzy - 88 Point
-
+<br><br>
 > Title : Scazzy
 Point : 88
 Category : #ppc
@@ -522,12 +531,13 @@ setelah 20 stage menjawab pertanyaan di dapatkan flag
 Flag : `Congratulations. This is your flag: ITRACE{b0t_tele6r4m_i5_m0d3rn_typ3_0f_ircs_b0t}`
 
 
+<br>
 --- 
-<br><br>
+<br>
 
 
 ## Misc : Print The Flag - 21 Point
-
+<br><br>
 > Title : Print The Flag
 Point : 21
 Category : #misc
@@ -542,12 +552,13 @@ dan di dapatkan flagnya
 Flag : `ITRACE{s0m3t1m35_j4v4_is_s0_t3xty`
 
 
+<br>
 --- 
+<br>
+
+
+## Trivia: Ternate Maluku Utara Indonesia Timur - 10 Point
 <br><br>
-
-
-##Trivia: Ternate Maluku Utara Indonesia Timur - 10 Point
-
 > Title : Ternate Maluku Utara Indonesia Timur
 Point : 10
 Category : #trivia
