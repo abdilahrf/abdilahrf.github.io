@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Rangkuman UTS"
-description: "Rangkuman UTS"
+title: "Writeup AkiCTF"
+description: "Writeup AkiCTF"
 headline: 
 modified: 2016-11-09
 imagefeature: 
@@ -12,10 +12,10 @@ comments: true
 featured: false
 ---
 
-## Writeup Akictf
+## Writeup AkiCTF
 
 ini sebenernya ctf yang udah lama kayaknya ini mulai pas tahun 2013, tapi 
-challenge nya menurut gw masih legit buat di cobain link nya di sini [Katsudon CTF](http://ctf.katsudon.org/)
+challenge nya menurut gw masih legit buat di cobain link nya di sini [AkiCTF](http://ctf.katsudon.org/)
 
 
 ### Game #1 - 70 Points
