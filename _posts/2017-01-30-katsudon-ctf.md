@@ -75,3 +75,9 @@ jadi kita bisa langsung kirim ke register dan atur duitnya sesuka kita :
 
 flag bakal muncul di response nya 
 `{"message":"Congrats! The flag is "XXXXXXXXX"."}`
+
+
+
+### From login form - 120 Points
+
+To be continue,
