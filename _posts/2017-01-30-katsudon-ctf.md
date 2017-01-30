@@ -20,7 +20,7 @@ challenge nya menurut gw masih legit buat di cobain link nya di sini [AkiCTF](ht
 
 ### Game #1 - 70 Points
 
-Deskripsi soal nya gak ada sama sekali, kita cuma di kasih link [q6.ctf](q6.ctf.katsudon.org)
+Deskripsi soal nya gak ada sama sekali, kita cuma di kasih link [q6.ctf](http://q6.ctf.katsudon.org)
 
 Dari website nya kita bisa liat di situ ada game RPS(rock, papper,scissor) dan di bagian bawahnya ada 
 rangking yang kalau sepertinya kalau duit kita cukup untuk beli ranking nya flagnya bakal muncul
