@@ -27,8 +27,7 @@ rangking yang kalau sepertinya kalau duit kita cukup untuk beli ranking nya flag
 
 view pagesource nya kita bisa liat di situ ada kode javascript berikut :
 
-```
-javascript 
+``` javascript 
 
 <script>
     $(function() {
