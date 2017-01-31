@@ -116,7 +116,7 @@ Cross-site scripting isn't just about correctly escaping data. Sometimes, attack
 
 ### Solution
 
-Input kita di parameter ?next= itu masuk ke dalam tag <a href="{next}">
+Input kita di parameter ?next= itu masuk ke dalam tag `<a href="{next}">`
 simple kita bisa inject javascriptnya
 
 `javascript:alert(1)`
