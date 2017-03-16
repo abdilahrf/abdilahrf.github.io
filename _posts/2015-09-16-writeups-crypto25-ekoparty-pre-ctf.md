@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1837
 permalink: /2015/09/writeups-crypto25-ekoparty-pre-ctf/
-categories: Crypto
+category: Crypto
 tags: [IceCTF]
 ---
 > # BASE unknown

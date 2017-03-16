@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://hasnydes.us/?p=127
 permalink: /2014/06/ghost-developer-cheatsheet/
-categories: WebApplication
+category: Web Application
 tags: [Others]
 ---
 <div id="attachment_128" style="width: 1359px" class="wp-caption aligncenter">

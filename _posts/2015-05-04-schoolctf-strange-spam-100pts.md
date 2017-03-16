@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=565
 permalink: /2015/05/schoolctf-strange-spam-100pts/
-categories: Stegano
+category: Stegano
 tags: [SchoolCTF]
 ---
 > ### SchoolCTF : Strange spam 100pts

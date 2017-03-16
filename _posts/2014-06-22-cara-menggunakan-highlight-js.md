@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://hasnydes.us/?p=134
 permalink: /2014/06/cara-menggunakan-highlight-js/
-categories: WebApplication
+category: Web Application
 tags: [WebApp]
 ---
 Cara menggunakan highlight.js untuk mewarnai kode di website atau blog anda <img src="https://www.hasnydes.us/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" />

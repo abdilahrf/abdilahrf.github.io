@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=401
 permalink: /2014/12/seccon-wars-flag-awakens-qr-300pts/
-categories: Programming
+category: Programming
 tags: [SecconCTF]
 ---
 > http://youtu.be/1pC56S17-_A

@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://hasnydes.us/?p=107
 permalink: /2014/05/hasil-akhir-cyber-defense-competition/
-categories: CTF
+category: CTF
 tags: [Others]
 ---
 <div style="text-align: center;">

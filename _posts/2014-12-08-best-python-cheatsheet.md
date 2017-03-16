@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=378
 permalink: /2014/12/best-python-cheatsheet/
-categories: Cheatsheet
+category: Cheatsheet
 tags: [Python]
 ---
 Best Python Cheatsheet

@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=323
 permalink: /2014/11/latihan-soal-c-part-1/
-categories: Programming
+category: Programming
 tags: [C]
 ---
 latihan soal c part 1 untuk mengasah logika coding kita harus banyak latihan dengan soal-soal maka saya coba mengerjakan soal dari online judge untuk mengasah logika untuk coding  <img src="https://www.hasnydes.us/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> soalnya seperti berikut :

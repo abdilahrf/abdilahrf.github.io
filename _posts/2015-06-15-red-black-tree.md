@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=611
 permalink: /2015/06/red-black-tree/
-categories: DataStructure
+category: DataStructure
 tags: [Kuliah]
 ---
 Red black tree sebenarnya memiliki beberapa rule yang masih sama dengan AVL tree , seperti jika lebih kecil cek ke sub-tree sebelah kiri jika lebih besar cek ke sub-tree sebelah kanan , tapi bedanya di RBT ini menggunakan warna hitam dan merah

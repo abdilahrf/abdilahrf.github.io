@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=363
 permalink: /2014/12/belajar-bahasa-c-part-3/
-categories: Programming
+category: Programming
 tags: [C]
 ---
 ### Function & Recursif , Parsing parameter by value dan Parsing parameter by location ( reference )

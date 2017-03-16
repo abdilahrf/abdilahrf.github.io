@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=246
 permalink: /2014/09/install-de-ice-virtual-hacking-lab/
-categories: Pentest
+category: Pentest
 tags: [Others]
 ---
 Install De-ice for Virtual Hacking Lab , apa itu De-Ice ? [hackingdojo.com](http://hackingdojo.com)

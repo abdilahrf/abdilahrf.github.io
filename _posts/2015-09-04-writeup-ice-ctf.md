@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1813
 permalink: /2015/09/writeup-ice-ctf/
-categories: Misc
+category: Misc
 tags: [IceCTF]
 ---
 #### Warm Up &#8211; 10 

@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=191
 permalink: /2014/07/bermain-dengan-bash-1/
-categories: Programming
+category: Programming
 tags: [bash]
 ---
 Kali ini coba kita bermain dengan bash , cara grab domain dan subdomain dari file html

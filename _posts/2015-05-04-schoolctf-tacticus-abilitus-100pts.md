@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=568
 permalink: /2015/05/schoolctf-tacticus-abilitus-100pts/
-categories: Crypto
+category: Crypto
 tags: [SchoolCTF]
 ---
 > ### SchoolCTF : Tacticus abilitus 100pts

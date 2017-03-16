@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=513
 permalink: /2015/02/ibteam-blackvalentine-hack-the-dragon/
-categories: CTF
+category: CTF
 tags: [IBTeam]
 ---
 <div id="attachment_514" style="width: 510px" class="wp-caption aligncenter">

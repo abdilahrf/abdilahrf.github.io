@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=628
 permalink: /2015/06/review-deap-tree/
-categories: DataStructure
+category: Data Structure
 tags: [Kuliah]
 ---
 Review Deap Tree , Deap Tree bisa di sebut gabungan dari max / min heap tree karena di sub-tree sebelah kiri adalah min heap  dan di sebelah kanan sub-tree adalah max heap rootnya kosong

@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=455
 permalink: /2014/12/get-the-key-seccon-ctf-2014-100pts/
-categories: Forensic
+category: Forensic
 tags: [SecconCTF]
 ---
 Get The Key Seccon CTF 2014 100pts

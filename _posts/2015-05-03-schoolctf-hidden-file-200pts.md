@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=542
 permalink: /2015/05/schoolctf-hidden-file-200pts/
-categories: Forensic
+category: Forensic
 tags: [SchoolCTF]
 ---
 > SchoolCTF : Hidden File 200pts ( Forensic )

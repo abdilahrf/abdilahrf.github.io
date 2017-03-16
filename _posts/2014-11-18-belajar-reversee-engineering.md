@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=341
 permalink: /2014/11/belajar-reversee-engineering/
-categories: Reverse
+category: Reverse
 tags: [Others]
 ---
 <div style="width: 490px" class="wp-caption aligncenter">

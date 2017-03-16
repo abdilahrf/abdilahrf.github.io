@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=374
 permalink: /2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/
-categories: Misc
+category: Misc
 tags: [SecconCTF]
 ---
 ### Get curious FTP server Network 300pts Seccon Writeups
