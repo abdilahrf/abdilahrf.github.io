@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=408
 permalink: /2014/12/rea-juu-watch-seccon-ctf-web-200pts/
-categories: Web Exploitation
+categories: WebExploitation
 tags: [SecconCTF]
 ---
 <span style="color: #ffffff;"><strong>REA-JUU</strong> <strong>WATCH</strong> <strong>Seccon</strong> <strong>CTF</strong></span>

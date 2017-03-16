@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=370
 permalink: /2014/12/jspuzzle-web-200pts-writeups-seccon-ctf/
-categories: Web Exploitation
+categories: WebExploitation
 tags: [SecconCTF]
 ---
 Jspuzzle Web 200pts Seccon CTF

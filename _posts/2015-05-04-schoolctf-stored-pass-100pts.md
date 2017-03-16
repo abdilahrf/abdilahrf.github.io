@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=576
 permalink: /2015/05/schoolctf-stored-pass-100pts/
-categories: Web Exploitation
+categories: WebExploitation
 tags: [SchoolCTF]
 ---
 > ### SchoolCTF : Stored pass

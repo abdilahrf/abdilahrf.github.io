@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=496
 permalink: /2015/01/kappas-responsive-ghost-theme/
-categories: Web Application
+categories: WebApplication
 tags: [WebApp]
 ---
 [<img class="aligncenter size-full wp-image-497" src="http://abdilahrf.me/images/2015/01/preview_0.jpg" alt="preview_0" width="590" height="300" />](http://abdilahrf.me/images/2015/01/preview_0.jpg)

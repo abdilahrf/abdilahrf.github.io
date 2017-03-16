@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=256
 permalink: /2014/10/wayang-cms-alpha-1/
-categories: Web Application
+categories: WebApplication
 tags: [WebApp]
 ---
 <img class="aligncenter" src="http://www.wayang-cms.org/assets/img/wayang.png" alt="" border="0" />

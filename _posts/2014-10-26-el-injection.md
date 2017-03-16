@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=274
 permalink: /2014/10/el-injection/
-categories: Web Exploitation
+categories: WebExploitation
 tags: [Others]
 ---
 <span style="color: #000000;"><strong>El injection(Expression Language Injection)</strong></span>

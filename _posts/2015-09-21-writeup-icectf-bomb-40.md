@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1867
 permalink: /2015/09/writeup-icectf-bomb-40/
-categories: Web Exploitation
+categories: WebExploitation
 tags: [IceCTF]
 ---
 > #### Bomb! &#8211; 40 

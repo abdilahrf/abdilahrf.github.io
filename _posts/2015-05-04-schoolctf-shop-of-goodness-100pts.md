@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=572
 permalink: /2015/05/schoolctf-shop-of-goodness-100pts/
-categories: Web Exploitation
+categories: WebExploitation
 tags: [SchoolCTF]
 ---
 > ### SchoolCTF : Shop of goodness
