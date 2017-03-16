@@ -1,22 +1,23 @@
 ---
 layout: post
-title: "Writeup SQLinjection Challenge"
-description: "Writeup SQLinjection Challenge"
-headline: 
-modified: 2017-02-11
+title: Writeup SQLinjection Challenge
+description: Writeup SQLinjection Challenge
+modified: 'Sat Feb 11 2017 07:00:00 GMT+0700 (WIB)'
 category: Web Exploitation
-tags: [Others]
+tags: Others
 imagefeature: /images/sqli-corb.PNG
-mathjax: 
-chart: 
+mathjax: false
+chart: null
 comments: true
 featured: false
+published: false
+private: 'false'
 ---
 
 
 ## Level 1
 
-
+dawdawdw
 ### Problem
 
 
@@ -89,6 +90,3 @@ featured: false
 
 
 ### Solution
-
-
- 
