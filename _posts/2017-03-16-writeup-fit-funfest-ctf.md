@@ -1,16 +1,17 @@
 ---
 layout: post
-title: "Writeup FIT FUNFEST 2017 : EncryptedELF"
-description: "Writeup EncryptedELF FIT FUNFEST CTF"
-headline: 
-modified: 2017-03-16
+title: 'Writeup FIT FUNFEST 2017 : EncryptedELF'
+description: Writeup EncryptedELF FIT FUNFEST CTF
+modified: 'Thu Mar 16 2017 07:00:00 GMT+0700 (WIB)'
 category: Crypto
-tags: [FIT CTF]
+tags: FIT CTF
 imagefeature: /images/fit-funfest.png
-mathjax: 
-chart: 
+mathjax: false
+chart: null
 comments: true
 featured: false
+published: true
+private: 'false'
 ---
 
 
@@ -61,8 +62,8 @@ def decrypt_file(in_filename, out_filename, chunksize=64*1024):
             
 decrypt_file('encryptedelf','origelf')
 ```
+![encryptedelf-flag.png]({{site.baseurl}}/images/encryptedelf-flag.png)
 
 Kemudian di jalankan scriptnya untuk melakukan decrypt.
 
 **Flag : FIT2017{this_time_is_modern_cipher}**
-            
