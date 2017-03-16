@@ -16,14 +16,15 @@ featured: false
 
 ### Soal
 
->$ file myelf
+```sh
+$ file myelf
 myelf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked,
 interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32,
 BuildID[sha1]=a117956f8826f8ccb19ac6be9d48808c66d1f357, not stripped
 Dapatkan kembali file myelf yang telah dienkripsi menggunakan encrypt.py!
 http://139.59.233.122/soal/crypto/encrypted-elf-revised/encrypt.py
 http://139.59.233.122/soal/crypto/encrypted-elf-revised/encryptedelf
-
+```
 
 ### Solusi
 
