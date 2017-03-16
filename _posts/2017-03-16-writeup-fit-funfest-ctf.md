@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writeup EncryptedELF FIT FUNFEST CTF"
+title: "Writeup FIT FUNFEST 2017 : EncryptedELF"
 description: "Writeup EncryptedELF FIT FUNFEST CTF"
 headline: 
 modified: 2017-03-16
