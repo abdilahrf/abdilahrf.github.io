@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=532
 permalink: /2015/04/cyber-defense-competition-2015/
-category: Ctf
+category: CTF
 tags: [CDC]
 ---
 [<img class="aligncenter size-full wp-image-533" src="http://abdilahrf.me/images/2015/04/slider-3.jpg" alt="slider-3" width="960" height="350" />](http://abdilahrf.me/images/2015/04/slider-3.jpg)
