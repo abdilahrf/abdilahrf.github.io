@@ -62,7 +62,7 @@ def decrypt_file(in_filename, out_filename, chunksize=64*1024):
             
 decrypt_file('encryptedelf','origelf')
 ```
-![encryptedelf-flag.png]({{site.baseurl}}/images/encryptedelf-flag.png)
+![encryptedelf-flag.png](/images/encryptedelf-flag.png)
 
 Kemudian di jalankan scriptnya untuk melakukan decrypt.
 
