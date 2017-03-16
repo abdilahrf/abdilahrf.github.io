@@ -6,11 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=177
 permalink: /2014/07/basic-linux-priviliage-escalation/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - CheatSheet
-  - Linux
+categories: Priviliage Escalation
+tags: [Linux]
 ---
 <img class="alignnone" src="http://linoxide.com/guide/linux-cheat-sheet.png" alt="" width="1218" height="2038" />
   

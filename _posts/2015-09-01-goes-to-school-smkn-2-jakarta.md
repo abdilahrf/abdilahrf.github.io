@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1761
 permalink: /2015/09/goes-to-school-smkn-2-jakarta/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - IBTeam
+categories: IBTeam
+tags: [IBTeam]
 ---
 Kegiatan Indonesian Backtrack Team Goes To School SMKN2 Jakarta
 

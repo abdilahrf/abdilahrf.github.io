@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=413
 permalink: /2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - seccon
+categories: Web Exploitation
+tags: [SecconCTF]
 ---
 > <http://bleeding.pwn.seccon.jp/>
 

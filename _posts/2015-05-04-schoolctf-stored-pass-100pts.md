@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=576
 permalink: /2015/05/schoolctf-stored-pass-100pts/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - schoolctf
+categories: Web Exploitation
+tags: [SchoolCTF]
 ---
 > ### SchoolCTF : Stored pass
 > 

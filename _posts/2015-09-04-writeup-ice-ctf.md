@@ -6,12 +6,10 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1813
 permalink: /2015/09/writeup-ice-ctf/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - ice ctf
+categories: Misc
+tags: [IceCTF]
 ---
-#### Warm Up &#8211; 10 {.panel-title}
+#### Warm Up &#8211; 10 
 
 > &#8216;`_ the Planet!`&#8216; Fill in the blank
 > 

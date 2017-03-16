@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=256
 permalink: /2014/10/wayang-cms-alpha-1/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - WayangCMS
+categories: Web Application
+tags: [WebApp]
 ---
 <img class="aligncenter" src="http://www.wayang-cms.org/assets/img/wayang.png" alt="" border="0" />
   

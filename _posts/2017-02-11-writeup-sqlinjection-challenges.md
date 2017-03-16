@@ -4,8 +4,8 @@ title: "Writeup SQLinjection Challenge"
 description: "Writeup SQLinjection Challenge"
 headline: 
 modified: 2017-02-11
-category: Web exploitation
-tags: [sqlinjection,ctf,web]
+category: Web Exploitation
+tags: [Others]
 imagefeature: /images/sqli-corb.PNG
 mathjax: 
 chart: 

@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://hasnydes.us/?p=107
 permalink: /2014/05/hasil-akhir-cyber-defense-competition/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - Linux
+categories: CTF
+tags: [Others]
 ---
 <div style="text-align: center;">
   <dl id="attachment_133">

@@ -8,10 +8,8 @@ guid: https://www.hasnydes.us/?p=593
 permalink: /2015/06/pengenalan-binary-search-tree/
 factory_shortcodes_assets:
   - 'a:0:{}'
-categories:
-  - Data Structure
-tags:
-  - algorithm
+categories: Algorithm
+tags: [Kuliah]
 ---
 **Pengenalan Binary Search Tree** &#8211; Binary Search Tree bisa di singkat (BST) adalah sebuat binary tree , biasanya memiliki ciri-ciri seperti berikut :
 

@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1873
 permalink: /2015/09/writeup-icectf-statistics-50/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - ice ctf
+categories: Programming
+tags: [IceCTF]
 ---
 
 > IceCTF Statistics &#8211; 50
@@ -68,14 +66,4 @@ print r.recv(4096)
 
 ```
     
-```ruby
-def show
-  @widget = Widget(params[:id])
-  respond_to do |format|
-    format.html # show.html.erb
-    format.json { render json: @widget }
-  end
-end
-```
-
-[<img class="aligncenter size-large wp-image-1876" src="http://abdilahrf.github.io/images/2015/09/statistic-1024x576.png" alt="statistic" width="1024" height="576" />](http://abdilahrf.github.io/images/2015/09/statistic.png)
+![](http://abdilahrf.github.io/images/2015/09/statistic.png)

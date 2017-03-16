@@ -4,8 +4,8 @@ title: "Writeup Gemastik 2016 : Evote System - 150"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
-category: gemastik
-tags: [gemastik,ctf]
+category: Web Exploitation
+tags: [gemastik]
 imagefeature: /images/gemastik.png
 mathjax: 
 chart: 

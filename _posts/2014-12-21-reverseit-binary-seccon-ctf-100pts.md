@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=458
 permalink: /2014/12/reverseit-binary-seccon-ctf-100pts/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - seccon
+categories: Reverse
+tags: [SecconCTF]
 ---
 Reverseit Binary 100pts Seccon CTF
 

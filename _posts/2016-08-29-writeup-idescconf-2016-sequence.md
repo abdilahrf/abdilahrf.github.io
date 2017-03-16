@@ -4,8 +4,8 @@ title: "Writeup Idsecconf CTF 2016 : Sequence - 100"
 description: "Writeup Idsecconf CTF 2016 Online"
 headline: 
 modified: 2016-08-29
-category: idsecconf
-tags: [idsecconf,ctf,misc]
+category: Programming
+tags: [idsecconf]
 imagefeature: /images/idsecconf.jpg
 mathjax: 
 chart: 

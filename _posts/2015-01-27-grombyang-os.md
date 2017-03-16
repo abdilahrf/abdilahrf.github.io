@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=503
 permalink: /2015/01/grombyang-os/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - Linux
+categories: Linux
+tags: [Distro]
 ---
 Apa itu grombyang os ? grombyang os adalah , os yang di kembangkan oleh developer dari indonesia dengan tujuan untuk menjadikan grobyang os sebagai os edukasi di indonesia
 

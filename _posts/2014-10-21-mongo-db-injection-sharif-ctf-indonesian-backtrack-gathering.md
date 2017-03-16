@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=262
 permalink: /2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - Pentest
+categories: Web Exploitation
+tags: [SharifCTF]
 ---
 ctf.sharif.edu kompetisi ctf internasional yang gk sengaja ane temuin di google dan menemukan challange mongodb injection + writeupnya yang sangat menarik dalam soal itu seperti ini instruksinya
 

@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=398
 permalink: /2014/12/index-writeups-seccon-ctf-2014-quals/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - seccon
+categories: CTF
+tags: [SecconCTF]
 ---
 # SECCON CTF 2014
 

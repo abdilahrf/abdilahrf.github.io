@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=513
 permalink: /2015/02/ibteam-blackvalentine-hack-the-dragon/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - Pentest
+categories: CTF
+tags: [IBTeam]
 ---
 <div id="attachment_514" style="width: 510px" class="wp-caption aligncenter">
   <a href="http://www.hasnydes.us/wp-content/uploads/2015/02/1010587_810849262315176_8068105827803486212_n.jpg"><img class="size-full wp-image-514" src="http://www.hasnydes.us/wp-content/uploads/2015/02/1010587_810849262315176_8068105827803486212_n.jpg" alt="IBTeam CTF : Hack The Dragon" width="500" height="600" /></a>

@@ -6,12 +6,10 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1867
 permalink: /2015/09/writeup-icectf-bomb-40/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - ice ctf
+categories: Web Exploitation
+tags: [IceCTF]
 ---
-> #### Bomb! &#8211; 40 {.panel-title}
+> #### Bomb! &#8211; 40 
 > 
 > <div class="pull-right">
 >   Web Exploitation

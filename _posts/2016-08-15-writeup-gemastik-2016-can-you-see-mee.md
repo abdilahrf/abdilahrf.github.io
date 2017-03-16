@@ -4,7 +4,7 @@ title: "Writeup Gemastik 2016 : Can You See Mee - 50"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
-category: gemastik
+category: Misc
 tags: [gemastik,ctf]
 imagefeature: /images/gemastik.png
 mathjax: 

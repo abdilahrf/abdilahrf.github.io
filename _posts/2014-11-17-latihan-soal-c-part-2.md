@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=334
 permalink: /2014/11/latihan-soal-c-part-2/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - C
+categories: Programming
+tags: [C]
 ---
 Lanjut lagi latihan kita dengan bahasa C &#8230; soal ini sebenarnya menimplementasikan nested for dengan selection sehingga menjadi kotak dengan dalam yang kosong soalnya seperti berikut
 

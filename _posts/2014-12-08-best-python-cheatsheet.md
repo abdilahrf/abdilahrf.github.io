@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=378
 permalink: /2014/12/best-python-cheatsheet/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - CheatSheet
+categories: Cheatsheet
+tags: [Python]
 ---
 Best Python Cheatsheet
 

@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=579
 permalink: /2015/05/schoolctf-unusual-redirection-300pts/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - schoolctf
+categories: Web Exploitation
+tags: [SchoolCTF]
 ---
 > ### Unusual redirection
 > 
@@ -32,9 +30,6 @@ coba untuk melihat isi dari flag dengan menggunakan &#8220;view-source:sibears.r
 <div id="attachment_581" style="width: 681px" class="wp-caption aligncenter">
   <a href="http://abdilahrf.me/images/2015/05/flag7.png"><img class="size-full wp-image-581" src="http://abdilahrf.me/images/2015/05/flag7.png" alt="SchoolCTF : Unusual Redirect" width="671" height="119" /></a>
   
-  <p class="wp-caption-text">
-    Flag
-  </p>
 </div>
 
 Flag : **old\_link\_is\_cool\_link**

@@ -7,7 +7,8 @@ modified: 2016-11-09
 imagefeature: 
 mathjax: 
 chart: 
-category: akictf
+category: Web Exploitation
+tags: [AkiCTF]
 comments: true
 featured: false
 ---

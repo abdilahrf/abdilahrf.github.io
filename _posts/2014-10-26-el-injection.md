@@ -6,10 +6,8 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=274
 permalink: /2014/10/el-injection/
-factory_shortcodes_assets:
-  - 'a:0:{}'
-categories:
-  - Pentest
+categories: Web Exploitation
+tags: [Others]
 ---
 <span style="color: #000000;"><strong>El injection(Expression Language Injection)</strong></span>
 
