@@ -94,3 +94,4 @@ setelah membaca writeup dari [Cyber Security IPB](https://drive.google.com/drive
 karena input kita awalnya adalah array karena di dalam script melakukan pengecekan 
 berdasarkan tiap index maka jika tiap index yang akan di cek adalah array maka akan
 membuahkan hasil True.
+

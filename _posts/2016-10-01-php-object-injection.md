@@ -69,7 +69,7 @@ Note : $options parameter baru ada di changelog php 7.0.0
 
 ```php
 <?php
-$value='a:1:{s:4:"Test";s:17:"Unserializationhere!";}'
+$value='a:1:{s:4:"Test";s:17:"Unserializationhere!";}'
 unserialize($value);
 ?>
 ```
