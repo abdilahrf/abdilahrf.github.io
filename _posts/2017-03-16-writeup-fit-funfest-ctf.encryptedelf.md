@@ -64,7 +64,7 @@ decrypt_file('encryptedelf','origelf')
 
 ![encryptedelf-flag.png](/images/encryptedelf-flag.png)
 
-Kemudian di jalankan scriptnya untuk melakukan decrypt binarny tersebut.
+Kemudian di jalankan scriptnya untuk melakukan decrypt binary tersebut.
 
 **Flag : FIT2017{this\_time\_is\_modern\_cipher}**
 
