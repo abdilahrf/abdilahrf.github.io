@@ -5,14 +5,26 @@ layout: post
 featured: false
 published: true
 comments: true
-title: 'Writeup FIT FUNFEST 2017 : EncryptedELF'
+title: Writeup SQLInjection Corb3nik Challenges
 tags: FIT CTF
 mathjax: false
 imagefeature: /images/fit-funfest.png
-description: Writeup EncryptedELF FIT FUNFEST CTF
-category: Crypto
+description: Writeup SQLInjection Corb3nik Challenges
+category: Web Exploitation
 chart: null
 ---
+
+### Soal
+
+Ipsum
+
+
+
+
+
+### Solusi
+
+Lorem
 
 
 
