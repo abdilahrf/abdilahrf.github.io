@@ -10,7 +10,7 @@ tags: FIT CTF
 mathjax: false
 imagefeature: /images/fit-funfest.png
 description: Writeup EncryptedELF FIT FUNFEST CTF
-category: Crypto
+category: Web Exploitation
 chart: null
 ---
 
