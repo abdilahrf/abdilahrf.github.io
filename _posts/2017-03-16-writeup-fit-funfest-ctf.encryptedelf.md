@@ -1,19 +1,18 @@
 ---
-layout: post
-title: 'Writeup FIT FUNFEST 2017 : EncryptedELF'
-description: Writeup EncryptedELF FIT FUNFEST CTF
+private: 'false'
 modified: 'Thu Mar 16 2017 07:00:00 GMT+0700 (WIB)'
-category: Crypto
-tags: FIT CTF
-imagefeature: /images/fit-funfest.png
-mathjax: false
-chart: null
-comments: true
+layout: post
 featured: false
 published: true
-private: 'false'
+comments: true
+title: 'Writeup FIT FUNFEST 2017 : EncryptedELF'
+tags: FIT CTF
+mathjax: false
+imagefeature: /images/fit-funfest.png
+description: Writeup EncryptedELF FIT FUNFEST CTF
+category: Crypto
+chart: null
 ---
-
 
 ### Soal
 
@@ -29,13 +28,13 @@ http://139.59.233.122/soal/crypto/encrypted-elf-revised/encryptedelf
 
 ### Solusi
 
-Goals nya Membuat fungsi untuk melakukan dekripsi ELF nya dengan memanfaatkan IV dan
-KEY yang ada di append ke akhir binary dan di XOR dengan magic header ELF
+Goals nya Membuat fungsi untuk melakukan dekripsi ELF nya dengan memanfaatkan IV dan  
+KEY yang ada di append ke akhir binary dan di XOR dengan magic header ELF  
 binary
 
-Kami membuat script python untuk mengambil IV dan KEY dari bawah file yang
-terencrypt kemudian memisahkan chunks dengan filesize yang ada pada 8 byte
-awal file encryptedelf​ dan kemudian kami melakukan recovery IV dan KEY dengan
+Kami membuat script python untuk mengambil IV dan KEY dari bawah file yang  
+terencrypt kemudian memisahkan chunks dengan filesize yang ada pada 8 byte  
+awal file encryptedelf​ dan kemudian kami melakukan recovery IV dan KEY dengan  
 melakukan XOR dengan magic header ELF Binary
 
 ```python
@@ -59,11 +58,13 @@ def decrypt_file(in_filename, out_filename, chunksize=64*1024):
 
             handler = AES.new(key, AES.MODE_CBC, iv)
             outfile.write(handler.decrypt(ch))
-            
+
 decrypt_file('encryptedelf','origelf')
 ```
+
 ![encryptedelf-flag.png](/images/encryptedelf-flag.png)
 
-Kemudian di jalankan scriptnya untuk melakukan decrypt.
+Kemudian di jalankan scriptnya untuk melakukan decrypt binary tersebut.
 
-**Flag : FIT2017{this_time_is_modern_cipher}**
+**Flag : FIT2017{this\_time\_is\_modern\_cipher}**
+
