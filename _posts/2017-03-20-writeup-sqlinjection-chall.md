@@ -5,10 +5,10 @@ layout: post
 featured: false
 published: true
 comments: true
-title: Writeup SQLInjection Corb3nik Challenges
+title: Writeup SQLInjection Challenges
 tags: sqlinjection
 mathjax: false
-description: Writeup SQLInjection Corb3nik Challenges
+description: Writeup SQLInjection Challenges
 category: Web Exploitation
 chart: null
 ---
