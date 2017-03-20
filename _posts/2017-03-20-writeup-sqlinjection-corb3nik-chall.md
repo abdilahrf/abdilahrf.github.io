@@ -1,21 +1,18 @@
 ---
+private: 'false'
+modified: 'Thu Mar 16 2017 07:00:00 GMT+0700 (WIB)'
 layout: post
-title: 'Writeup SQL Injection Corb3nik Challenges: Lvl1-8'
-description: Writeup SQL Injection Corb3nik Challenges: Lvl1-8
-modified: 'Thu Mar 20 2017 07:00:00 GMT+0700 (WIB)'
-category: Crypto
-tags: FIT CTF
-#imagefeature: /images/fit-funfest.png
-mathjax: false
-chart: null
-comments: true
 featured: false
 published: true
-private: 'false'
+comments: true
+title: 'Writeup FIT FUNFEST 2017 : EncryptedELF'
+tags: FIT CTF
+mathjax: false
+imagefeature: /images/fit-funfest.png
+description: Writeup EncryptedELF FIT FUNFEST CTF
+category: Crypto
+chart: null
 ---
 
 
-### Soal
 
-
-### Solusi
