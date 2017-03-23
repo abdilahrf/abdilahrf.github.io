@@ -103,7 +103,7 @@ if (isset($_POST['session_id'])) {
             <div class="col-md-2"></div>
         </div>
     </div>
-    
+
     <br/>
     <br/>
     <br/>
@@ -141,7 +141,7 @@ if (isset($_POST['session_id'])) {
               crossorigin="anonymous"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
 
 </body>
 </html>
@@ -156,7 +156,7 @@ dengan simple `a' OR 1=1#` kita bisa mendapatkan flagnya
 
 ### Level 2
 
-Diberikan soal yang meminta kita untuk melakukan login dan kita juga diberikan akses ke source code nya 
+Diberikan soal yang meminta kita untuk melakukan login dan kita juga diberikan akses ke source code nya
 
 ![](/images/sqli-lv2.png)
 
@@ -171,7 +171,7 @@ error_reporting(0);
 if (isset($_POST['username']) && isset($_POST['password'])) {
 
     // $query = "SELECT flag FROM my_secret_table"; We leave commented code in production because we're cool.
- 
+
     $query = "SELECT username FROM users where username = '" . $_POST['username'] . "' and password = ?";
 
     // We use prepared statements, it must be secure.
@@ -216,7 +216,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
           /* bring your own prefixes */
           transform: translate(-50%, -50%);
         }
-        
+
         .corb-login-length { width: 500px;}
         .corb-submit { position: relative; left: auto; right: -420px;}
         .corb-flag { color: #0F0; }
@@ -261,7 +261,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
               crossorigin="anonymous"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
 
     </body>
 </html>
@@ -276,7 +276,7 @@ Lagi-lagi di level2 ini mereka juga menggunakan prepared statement nya tidak sec
 
 ![](/images/flag-sqli-lv2-1.png)
 
-pada soal ini diberitahu bahwa ada 2 flag, berarti kita harus coba dig more ke source code yang diberikan dan ada clue di komentar `// $query = "SELECT flag FROM my_secret_table"; We leave commented code in production because we're cool.` 
+pada soal ini diberitahu bahwa ada 2 flag, berarti kita harus coba dig more ke source code yang diberikan dan ada clue di komentar `// $query = "SELECT flag FROM my_secret_table"; We leave commented code in production because we're cool.`
 
 dan karena username yang di select dari database di simpan kedalam session dan ditampilkan saat login maka kita bisa menggunakan union untuk mereplace username yang sebenarnya dengan hasil dari query yang kita mau dengan menggunakan union `' union select flag from my_secret_table #` sebagai username dan di dapatkan flagnya
 
@@ -299,7 +299,7 @@ error_reporting(0);
 
 
 if (isset($_GET['q'])) {
-    
+
     $filter = array('union', 'select');
 
     // Remove all banned characters
@@ -341,7 +341,7 @@ if (isset($_GET['q'])) {
 
     <?php
     if (isset($_GET['q'])) {
-        
+
         $query = "SELECT * FROM search_engine WHERE title LIKE '%" . $_GET['q'].  "%' OR description LIKE '%" . $_GET['q'] .  "%' OR link LIKE '%" . $_GET['q'] . "%';";
         $result = $conn->query($query);
 
@@ -395,7 +395,22 @@ kemudian `' uniunionon selselectect concat(column_name),1,1 from information_sch
 
 ### Level 4
 
-Ipsum
+Soal yang di berikan sama seperti soal di lvl 3 tapi sekarang blacklist nya diperbaharui 
+
+```php
+if (isset($_GET['q'])) {
+    
+    $filter = array('UNION', 'SELECT');
+
+    // Remove all banned characters
+    foreach ($filter as $banned) {
+        if (strpos($_GET['q'], $banned) !== false) die("Hacker detected"); 
+        if (strpos($_GET['q'], strtolower($banned)) !== false) die("Hacker detected"); 
+    } 
+}
+```
+
+
 
 ### Level 5
 
