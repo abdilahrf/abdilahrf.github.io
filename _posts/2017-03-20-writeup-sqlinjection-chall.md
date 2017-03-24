@@ -420,22 +420,32 @@ Di level5 kali ini di filter kita tidak boleh menggunakan space.
 
 ```php
 if (isset($_GET['q'])) {
-	// Ban space character
-	if (strpos($_GET['q'], " ") !== false) die("Hacker detected"); 
+    // Ban space character
+    if (strpos($_GET['q'], " ") !== false) die("Hacker detected"); 
 }
 ```
 
-ada beberapa trik yang bisa di gunakan untuk menggantikan space di SQL contohya `/**/` kita mengunakan komentar untuk mengantikan spasi. dengan menggunakan cara yang sama dengan level sebelumnya kita bisa mendapatkan flagnya 
+ada beberapa trik yang bisa di gunakan untuk menggantikan space di SQL contohya `/**/` kita mengunakan komentar untuk mengantikan spasi. dengan menggunakan cara yang sama dengan level sebelumnya kita bisa mendapatkan flagnya
 
 `'/**/UNION/**/SELECT/**/flag,1,1/**/FROM/**/secret#`
 
 ### Level 6
 
+Kita diberikan soal yang sama lagi dengan level sebelumnya tapi kali ini single quote dan double quote di blacklist jadi kita harus melakukan SQLinjection tanpa single quote dan double quote.
+
+```php
+if (isset($_GET['q'])) {
+	// Ban space character
+	if (strpos($_GET['q'], "'") !== false) die("Hacker detected"); 
+	if (strpos($_GET['q'], '"') !== false) die("Hacker detected"); 
+}
+```
+
 
 
 ### Level 7
 
-Ipsum
+
 
 ### Level 8
 
