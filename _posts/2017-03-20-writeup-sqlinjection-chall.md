@@ -412,7 +412,9 @@ if (isset($_GET['q'])) {
 
 Singkat cerita jadi itu yang di blacklist adalah "UNION,union,SELECT,SELECT" sehingga kita bisa menggunakan "UNiON,SElECT" dengan cara yang sama dengan level3 kita bisa mendapatkan flagnya
 
-`3' UNiON SElECT flag,1,1 from secret#`
+`3' UNiON SElECT concat(username,password),1,1 from users#`
+
+![](/images/flag-sqli-lv4.png)
 
 ### Level 5
 
@@ -435,19 +437,15 @@ Kita diberikan soal yang sama lagi dengan level sebelumnya tapi kali ini single 
 
 ```php
 if (isset($_GET['q'])) {
-	// Ban space character
-	if (strpos($_GET['q'], "'") !== false) die("Hacker detected"); 
-	if (strpos($_GET['q'], '"') !== false) die("Hacker detected"); 
+    // Ban space character
+    if (strpos($_GET['q'], "'") !== false) die("Hacker detected"); 
+    if (strpos($_GET['q'], '"') !== false) die("Hacker detected"); 
 }
 ```
 
-
-
 ### Level 7
-
-
 
 ### Level 8
 
-Ipsum
+Ipsumbdkw
 
