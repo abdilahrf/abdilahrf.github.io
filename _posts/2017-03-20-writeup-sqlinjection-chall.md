@@ -19,6 +19,8 @@ Kita dapet soal ada 8 soal SQL injection yang cara untuk solvenya beragam, beber
 
 ### Level 1
 
+> My friend created a website where we can store secrets... Unfortunately, we can only see our own. Help me find all of my friend's secrets.
+
 Diberikan soal dan disertakan source code nya berikut :
 
 ```php
@@ -156,6 +158,10 @@ dengan simple `a' OR 1=1#` kita bisa mendapatkan flagnya
 
 ### Level 2
 
+> I think an administrator blocked my account. Can you help me steal someone else's account?
+>
+> **Note**: There are two flags in this challenge.
+
 Diberikan soal yang meminta kita untuk melakukan login dan kita juga diberikan akses ke source code nya
 
 ![](/images/sqli-lv2.png)
@@ -284,6 +290,8 @@ dan karena username yang di select dari database di simpan kedalam session dan d
 
 ### Level 3
 
+> Time for bug bounties! This multinational technology company has been hacked so many times, we might be able find a new bug and make some money out of it...
+
 Diberikan soal seperti search engine `Google` tapi ini namanya `Gogol`
 
 ![](/images/soal-sqli-lv3.png)
@@ -395,6 +403,8 @@ kemudian `' uniunionon selselectect concat(column_name),1,1 from information_sch
 
 ### Level 4
 
+> Seems like our previous bug has been patched now... Let's double check that they did their job properly.
+
 Soal yang di berikan sama seperti soal di lvl 3 tapi sekarang blacklist nya diperbaharui
 
 ```php
@@ -418,6 +428,8 @@ Singkat cerita jadi itu yang di blacklist adalah "UNION,union,SELECT,SELECT" seh
 
 ### Level 5
 
+> These developers are sloppy... They claim that their website is secure now \(for the second time\), I hope they are right this time...
+
 Di level5 kali ini di filter kita tidak boleh menggunakan space.
 
 ```php
@@ -433,6 +445,10 @@ ada beberapa trik yang bisa di gunakan untuk menggantikan space di SQL contohya 
 
 ### Level 6
 
+> I'm starting to believe that these developers are complete idiots. They just claimed that blacklisting single-quotes and double-quotes solve every SQL injection issue.
+>
+> Let's prove them wrong.
+
 Kita diberikan soal yang sama lagi dengan level sebelumnya tapi kali ini single quote dan double quote di blacklist jadi kita harus melakukan SQLinjection tanpa single quote dan double quote.
 
 ```php
@@ -444,6 +460,8 @@ if (isset($_GET['q'])) {
 ```
 
 ### Level 7
+
+
 
 ### Level 8
 
