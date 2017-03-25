@@ -8,6 +8,7 @@ comments: true
 title: Writeup SQLInjection Challenges
 tags: sqlinjection
 mathjax: false
+imagefeature: /images/sqlinjection.jpg
 description: Writeup SQLInjection Challenges
 category: Web Exploitation
 chart: null
