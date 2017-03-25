@@ -461,9 +461,25 @@ if (isset($_GET['q'])) {
 
 ### Level 7
 
+> My teacher has this weird website. I doubt there's any useful information in the database. Maybe we can leak the /etc/passwd file instead?
 
+Setelah di enumurasi ternyata beberapa keyword di blacklist, seperti : **Union,Select,Load\_File,From. **Dan Spasi juga di blacklist ternyata ketika di coba kita bisa melakukan bypass pada keyword yang di filter dengan cara yang di level sebelumnya yaitu ketika match dengan suatu keyword dia akan mereplace dengan empty string maka kita bisa mengunakan payload `' UNIunionON SELselectECT concat(table_name) frfromom information_schema.tables#` namun masih error ternyata karena kita masih mengunakan spasi modifikasi payload tanpa menggunakan spasi `level7.php?id=6565656/**/UNIunionON/**/SELselectECT/**/LOAD_load_fileFILE(%27/etc/passwd%27)#`
+
+![](/images/lvl8-sqli.png)
 
 ### Level 8
 
-Ipsumbdkw
+> I have no idea how I landed here, but this website is making me doubt everything I know.
+>
+> Is global warming real???
+>
+> Can Trump control the weather???
+>
+> Is the Earth flat???
+>
+> There's only one way to find out : let's pop a shell.
+
+
+
+
 
