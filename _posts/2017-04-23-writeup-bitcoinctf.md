@@ -6,12 +6,14 @@ featured: false
 published: true
 comments: true
 title: Writeup BitcointCTF
-tags: Others
+tags: sqlinjection
 mathjax: false
+imagefeature: /images/sqlinjection.jpg
 description: Writeup BitcointCTF Challenge
 category: Web Exploitation
 chart: null
 ---
+
 
 ## Bitcoin CTF
 
