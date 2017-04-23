@@ -25,7 +25,7 @@ what: capture the flag \(CTF\)
 
 when: 1490349600 irc: \#bitcoinctf on freenode questions: @bitcoinctf or &lt;bitcoinctf \[at\] gmail.com&gt;
 
-## 
+
 
 ### Level 1
 
@@ -92,14 +92,6 @@ query sebenarnya : `SELECT * from users where username='aaa\' and pasword = ' OR
 ![](/images/level6-bitcoinctf.png)
 
 
-
-### Level 7
-
-not yet
-
-### Level 8
-
-not yet
 
 
 
