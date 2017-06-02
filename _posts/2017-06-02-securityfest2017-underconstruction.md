@@ -7,7 +7,7 @@ comments: true
 title: SecurityFest2017 - Underconstruction
 tags: JWT
 mathjax: false
-#imagefeature: /images/express.jpg
+imagefeature: 
 description: SecurityFest2017 - Underconstruction
 category: Web Exploitation
 chart: null
