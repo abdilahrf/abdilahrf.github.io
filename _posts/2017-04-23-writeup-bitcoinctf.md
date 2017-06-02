@@ -15,7 +15,7 @@ chart: null
 ---
 
 
-## Bitcoin CTF
+## Bitcoin CTF ($)
 
 FIRST LEVEL: http://188.166.248.215/ 
 
