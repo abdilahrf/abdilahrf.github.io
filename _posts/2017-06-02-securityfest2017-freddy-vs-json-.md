@@ -7,7 +7,7 @@ comments: true
 title: SecurityFest2017 - Freddy Vs JSON
 tags: schemainjection
 mathjax: false
-#imagefeature: /images/sqlinjection.jpg
+imagefeature: /images/express.jpg
 description: SecurityFest2017 - Freddy Vs JSON Writeup
 category: Web Exploitation
 chart: null
@@ -26,7 +26,7 @@ Author: avlidienbrunn
 
 ## Writeup
 
-First impression i though that was SQL Injection challenges to get into login bypass but after a while
+First impression i thought that was SQL Injection challenges to get into login bypass but after a while
 i just figure it they using Express that was node web framework.
 
 ```
