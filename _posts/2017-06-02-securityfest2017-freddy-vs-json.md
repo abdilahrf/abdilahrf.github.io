@@ -14,7 +14,7 @@ chart: null
 ---
 
 
-## Problems
+## Problem
 
 ```
 Can you hack my friends facebook? no? what about this then?
