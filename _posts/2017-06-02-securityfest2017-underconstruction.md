@@ -5,7 +5,7 @@ featured: false
 published: true
 comments: true
 title: SecurityFest2017 - Underconstruction
-tags: JWT
+tags: jwt
 mathjax: false
 imagefeature: 
 description: SecurityFest2017 - Underconstruction

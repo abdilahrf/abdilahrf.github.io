@@ -5,7 +5,7 @@ featured: false
 published: true
 comments: true
 title: SecurityFest2017 - A Temple Jest
-tags: rce
+tags: schemainjection
 mathjax: false
 imagefeature: /images/express.jpg
 description: SecurityFest2017 - A Temple Jest
