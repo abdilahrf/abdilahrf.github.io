@@ -1,6 +1,6 @@
 ---
 private: 'false'
-modified: 'Sat Feb 11 2017 07:00:00 GMT+0700 (WIB)'
+modified: 2017-03-23
 layout: post
 featured: false
 published: true

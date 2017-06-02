@@ -2,7 +2,7 @@
 layout: post
 title: 'Writeup FIT FUNFEST 2017 : Proxy'
 description: Writeup Proxy FIT FUNFEST CTF
-modified: 'Thu Mar 16 2017 07:00:00 GMT+0700 (WIB)'
+modified: 2017-03-16
 category: Web Exploitation
 tags: FIT CTF
 imagefeature: /images/fit-funfest.png
