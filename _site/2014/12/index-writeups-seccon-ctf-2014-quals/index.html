@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<!--
+====================================================
+       _         _ _ _       _            ___ 
+      | |       | (_) |     | |          / __)
+  ____| | _   _ | |_| | ____| | _   ____| |__ 
+ / _  | || \ / || | | |/ _  | || \ / ___)  __)
+( ( | | |_) | (_| | | ( ( | | | | | |   | |   
+ \_||_|____/ \____|_|_|\_||_|_| |_|_|   |_|  
+ 
+====================================================
+@ABDILAHRF
+====================================================
+-->
+<head>
+<meta charset="utf-8">
+<title>INDEX WRITEUPS SECCON CTF 2014 QUALS &vert; @ABDILAHRF</title>
+<meta name="description" content="Coffe Make you like a hero">
+<meta name="keywords" content="SecconCTF">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/logo.png">
+<meta name="twitter:title" content="Index Writeups Seccon CTF 2014 Quals">
+<meta name="twitter:description" content="Coffe Make you like a hero">
+<meta name="twitter:creator" content="@abdilahrf">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Index Writeups Seccon CTF 2014 Quals">
+<meta property="og:description" content="Coffe Make you like a hero">
+<meta property="og:url" content="http://localhost:4000/2014/12/index-writeups-seccon-ctf-2014-quals/">
+<meta property="og:site_name" content="@abdilahrf">
+<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/2014/12/index-writeups-seccon-ctf-2014-quals/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="@abdilahrf Feed">
+<link rel="author" href="https://plus.google.com/?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/post.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/code/monokai.css">
+
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://localhost:4000">
+                        <img src="http://localhost:4000/images/logo.png" alt="Blog Logo" />
+                    </a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="http://localhost:4000/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/featured">Featured Posts</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/about">About</a>
+                 </li>
+            
+           <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h1>Index Writeups Seccon CTF 2014 Quals</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#SecconCTF" data-toggle="tooltip" title="Posts tagged with SecconCTF" rel="tag">SecconCTF</a> <strong><!-- <time datetime="2014-12-09T02:54:07+07:00">09 Dec 2014</time> --></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        <article class="notepad-post-content post tag-simple">
+            <div><h1 id="seccon-ctf-2014">SECCON CTF 2014</h1>
+
+<p>seccon ctf 2014 index writeups</p>
+
+<ul class="task-list">
+  <li>
+    <a href="http://ctf.seccon.jp/">http://ctf.seccon.jp/</a>
+  </li>
+  <li>
+    <a href="http://ctf.seccon.jp/rank/">Scoreboard</a>
+  </li>
+  <li>
+    <a href="http://pastebin.com/raw.php?i=0aKPTrsY">Number of solves per challenge</a>
+  </li>
+  <li>
+    <a href="https://twitter.com/secconctf">@secconctf on Twitter</a>
+  </li>
+</ul>
+
+<h2 id="user-content-completed-write-upsanchorcompleted-write-ups"><a href="https://github.com/ctfs/write-ups/tree/master/seccon-ctf-2014#completed-write-ups"></a>{#user-content-completed-write-ups.anchor}Completed write-ups</h2>
+
+<h3 id="binary">Binary</h3>
+
+<ul>
+  <li><a title="Reverse It Seccon CTF" href="http://www.hasnydes.us/2014/12/reverseit-binary-seccon-ctf-100pts/" target="_blank">Reverse it 100Pts</a></li>
+</ul>
+
+<h3 id="network">Network</h3>
+
+<ul class="task-list">
+  <li>
+    <a href="http://www.hasnydes.us/2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/">Get from curious “FTP” server Network (300pts)</a>
+  </li>
+  <li>
+    <a title="Get The Key" href="http://www.hasnydes.us/2014/12/get-the-key-seccon-ctf-2014-100pts/" target="_blank">Get The Key</a>
+  </li>
+</ul>
+
+<h3 id="website">Website</h3>
+
+<ul class="task-list">
+  <li>
+    <a href="http://www.hasnydes.us/2014/12/jspuzzle-web-200pts-writeups-seccon-ctf/" target="_blank">jspuzzle Web(200pts)</a>
+  </li>
+  <li>
+    <a href="http://www.hasnydes.us/2014/12/rea-juu-watch-seccon-ctf-web-200pts/" target="_blank">REA-JUU WATCH Seccon CTF Web 200pts</a>
+  </li>
+  <li>
+    <a href="http://www.hasnydes.us/2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/" target="_blank">Bleeding “Heartbleed” Test Web 300 pts Seccon CTF</a>
+  </li>
+  <li>
+    XSS Bonsai (aka. Hakoniwa XSS Reloaded)
+  </li>
+</ul>
+
+<h3 id="qr">QR</h3>
+
+<ul>
+  <li><a href="http://www.hasnydes.us/2014/12/seccon-wars-flag-awakens-qr-300pts/" target="_blank">SECCON WARS: THE FLAG AWAKENS QR 300PTS</a></li>
+</ul>
+
+<h3 id="programming">Programming</h3>
+
+<ul>
+  <li><a title="CHOOSE THE NUMBER 100PTS SECCON CTF 2014" href="http://www.hasnydes.us/2014/12/choose-number-100pts-seccon-ctf-2014/" target="_blank">CHOOSE THE NUMBER 100PTS SECCON CTF 2014</a></li>
+</ul>
+
+<h3 id="forensic">Forensic</h3>
+
+<ul>
+  <li><a title="GET THE KEY.TXT SECCON CTF WRITEUPS 100PTS" href="http://www.hasnydes.us/2014/12/get-key-txt-seccon-ctf-writeups-100pts/" target="_blank">GET THE KEY.TXT SECCON CTF WRITEUPS 100PTS</a></li>
+</ul>
+
+<h3 id="crypto">Crypto</h3>
+
+<ul>
+  <li><a title="EASY CIPHER 100PTS CRYPTO SECCON CTF 2014" href="http://www.hasnydes.us/2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/" target="_blank">Easy Cipher 100pts Crypto Seccon Ctf 2014</a></li>
+</ul>
+
+<h3 id="other">Other</h3>
+
+<ul class="task-list">
+  <li>
+    <a title="Welcome to Seccon CTF" href="http://www.hasnydes.us/2014/12/welcome-to-seccon-ctf-100pts-writeups/" target="_blank">Welcome to SECCON (100pts)</a>
+  </li>
+</ul>
+
+<h2 id="user-content-incomplete-write-upsanchorincomplete-write-ups"><a href="https://github.com/ctfs/write-ups/tree/master/seccon-ctf-2014#incomplete-write-ups"></a>{#user-content-incomplete-write-ups.anchor}Incomplete write-ups</h2>
+
+<ul class="task-list">
+  <li>
+    Advanced RISC Machine
+  </li>
+  <li>
+    BBQR
+  </li>
+  <li>
+    Binary Karuta
+  </li>
+  <li>
+    Confused analyte
+  </li>
+  <li>
+    Decrypt it (Easy)
+  </li>
+  <li>
+    Decrypt it (Hard)
+  </li>
+  <li>
+    Holy shellcode
+  </li>
+  <li>
+    Impossible
+  </li>
+  <li>
+    Japanese super micro-controller
+  </li>
+  <li>
+    Let’s disassemble
+  </li>
+  <li>
+    Ms. Fortune? Misfortune. 4096-bit RSA
+  </li>
+  <li>
+    QR (Easy)
+  </li>
+  <li>
+    Read it
+  </li>
+  <li>
+    The Golden Gate
+  </li>
+  <li>
+    UnknownFS
+  </li>
+  <li>
+    version2
+  </li>
+  <li>
+    Shuffle
+  </li>
+</ul>
+
+<p> </p>
+
+<p>Note : Semua writeup tidak murni penyelesaian kita sendiri</p>
+
+<p>Source :</p>
+
+<p><a href="https://wiki.mma.club.uec.ac.jp/CTF/Writeup/SECCON%202014%20Quals%20Online%20Winter" target="_blank" rel="nofollow" data-reactid=".8o.$mid=11417961148853=2af18fb5a4c667a2e96.2:0.0.0.0.0.0.$range0:0">https://wiki.mma.club.uec.ac.jp/CTF/Writeup/SECCON%202014%20Quals%20Online%20Winter</a></p>
+
+<p><a href="https://github.com/ctfs/write-ups/tree/master/seccon-ctf-2014" target="_blank">https://github.com/ctfs/write-ups/tree/master/seccon-ctf-2014</a></p>
+
+<p> </p>
+</div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Index Writeups Seccon CTF 2014 Quals&quot;%20http://localhost:4000/2014/12/index-writeups-seccon-ctf-2014-quals/%20via%20&#64;abdilahrf"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2014/12/index-writeups-seccon-ctf-2014-quals/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=http://localhost:4000/2014/12/index-writeups-seccon-ctf-2014-quals/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <img src="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460" class="notepad-post-author-avatar" alt="Abdillah Muhamad's photo">
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Abdillah Muhamad</h1>
+                        
+                        
+                            <p><a href="mailto:hasny1337@gmail.com" class="author-website">hasny1337@gmail.com</a></p>
+                        
+                        
+                            <p>Coffe make you like a hero</p>
+                        
+                    </section>
+                </div>
+            </div>
+ 
+        
+        <div class="cf"></div>
+        
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/abdilahrf">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        <a href="https://plus.google.com/">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-google-plus fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        <a href="http://github.com/abdilahrf">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        <a href="http://facebook.com/abdilah.jk">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-facebook fa-stack-1x"></i>
+            </span>
+        </a>
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="http://localhost:4000/assets/js/vendor/modernizr.js"></script>
+    <script src="http://localhost:4000/assets/js/foundation.min.js"></script>
+    
+    <script src="http://localhost:4000/assets/js/notepad.js"></script>
+    <script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+    <script src="http://localhost:4000/assets/js/vendor/nprogress.js"></script>
+
+    <script>
+      $(document).foundation();
+    </script>
+    <script type='text/javascript'>console.log("@abdilahrf");</script>
+    <script type='text/javascript'>console.log("https://abdilahrf.me");</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96190645-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+<script>NProgress.start();var interval=setInterval(function(){NProgress.inc()},1000);jQuery(window).load(function(){clearInterval(interval);NProgress.done()});jQuery(window).unload(function(){NProgress.start()});</script>
+ 
+</body>
+</html>

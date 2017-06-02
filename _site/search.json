@@ -1,0 +1,739 @@
+[
+	
+		{
+		  "title"      : "Writeup SQLInjection Challenges",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-sqlinjection-chall",
+		  "date"       : "2017-03-20 00:00:00 +0700",
+		  "shortdate"  : "March 20, 2017"
+		} ,
+	
+		{
+		  "title"      : "Writeup FIT FUNFEST 2017 : EncryptedELF",
+		  "category"   : "Crypto",
+		  "url"        : "http://localhost:4000/crypto/writeup-fit-funfest-ctf.encryptedelf",
+		  "date"       : "2017-03-16 00:00:00 +0700",
+		  "shortdate"  : "March 16, 2017"
+		} ,
+	
+		{
+		  "title"      : "Writeup FIT FUNFEST 2017 : Proxy",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-fit-funfest-ctf-proxy",
+		  "date"       : "2017-03-16 00:00:00 +0700",
+		  "shortdate"  : "March 16, 2017"
+		} ,
+	
+		{
+		  "title"      : "Writeup XSS Appspot",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-xss-appspot",
+		  "date"       : "2017-01-31 00:00:00 +0700",
+		  "shortdate"  : "January 31, 2017"
+		} ,
+	
+		{
+		  "title"      : "Writeup AkiCTF",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/katsudon-ctf",
+		  "date"       : "2017-01-30 00:00:00 +0700",
+		  "shortdate"  : "January 30, 2017"
+		} ,
+	
+		{
+		  "title"      : "Rangkuman UTS",
+		  "category"   : "private",
+		  "url"        : "http://localhost:4000/private/uts-sem5",
+		  "date"       : "2016-11-09 00:00:00 +0700",
+		  "shortdate"  : "November 09, 2016"
+		} ,
+	
+		{
+		  "title"      : "ITRACE 2016 Level 3: Writeups",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/ctf/itrace-2016-level3-writeup",
+		  "date"       : "2016-10-10 00:00:00 +0700",
+		  "shortdate"  : "October 10, 2016"
+		} ,
+	
+		{
+		  "title"      : "Hitcon 2016 : Secure Post",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/hitcon-secure-post",
+		  "date"       : "2016-10-10 00:00:00 +0700",
+		  "shortdate"  : "October 10, 2016"
+		} ,
+	
+		{
+		  "title"      : "Hitcon 2016 : Are you rich",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/hitcon-are-you-rich",
+		  "date"       : "2016-10-10 00:00:00 +0700",
+		  "shortdate"  : "October 10, 2016"
+		} ,
+	
+		{
+		  "title"      : "PHP Object Injection Via Unserialize",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/php-object-injection",
+		  "date"       : "2016-10-01 00:00:00 +0700",
+		  "shortdate"  : "October 01, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Pwnerrank CTF 2016 : Web Challenges",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-pwnerrank-2016-web",
+		  "date"       : "2016-09-14 00:00:00 +0700",
+		  "shortdate"  : "September 14, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Idsecconf CTF 2016 : Webwob - 100",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-idescconf-2016-webwob",
+		  "date"       : "2016-08-29 00:00:00 +0700",
+		  "shortdate"  : "August 29, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Idsecconf CTF 2016 : Signal - 150",
+		  "category"   : "Reverse",
+		  "url"        : "http://localhost:4000/reverse/writeup-idescconf-2016-signal",
+		  "date"       : "2016-08-29 00:00:00 +0700",
+		  "shortdate"  : "August 29, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Idsecconf CTF 2016 : Sequence - 100",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/programming/writeup-idescconf-2016-sequence",
+		  "date"       : "2016-08-29 00:00:00 +0700",
+		  "shortdate"  : "August 29, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Idsecconf CTF 2016 : Kopi - 50",
+		  "category"   : "Reverse",
+		  "url"        : "http://localhost:4000/reverse/writeup-idescconf-2016-kopi",
+		  "date"       : "2016-08-29 00:00:00 +0700",
+		  "shortdate"  : "August 29, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Idsecconf CTF 2016 : Headshoot - 200",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-idescconf-2016-headshoot",
+		  "date"       : "2016-08-29 00:00:00 +0700",
+		  "shortdate"  : "August 29, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Idsecconf CTF 2016 : Bit - 100",
+		  "category"   : "Reverse",
+		  "url"        : "http://localhost:4000/reverse/writeup-idescconf-2016-bit",
+		  "date"       : "2016-08-29 00:00:00 +0700",
+		  "shortdate"  : "August 29, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Compfest CTF 2016 : Maze - 90",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-compfest-2016-maze.1",
+		  "date"       : "2016-08-27 00:00:00 +0700",
+		  "shortdate"  : "August 27, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Cyber Jawara 2016 : Web Info - 50",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-cyber-jawara-2016-web-info",
+		  "date"       : "2016-08-25 00:00:00 +0700",
+		  "shortdate"  : "August 25, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : RSA Factorization - 100",
+		  "category"   : "Crypto",
+		  "url"        : "http://localhost:4000/crypto/writeup-gemastik-2016-rsa-factorization",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Python Server - 100",
+		  "category"   : "Pwnable",
+		  "url"        : "http://localhost:4000/pwnable/writeup-gemastik-2016-python-server",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Power Plant - 125",
+		  "category"   : "Reverse",
+		  "url"        : "http://localhost:4000/reverse/writeup-gemastik-2016-power-plant",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Malware Scanning - 125",
+		  "category"   : "Forensic",
+		  "url"        : "http://localhost:4000/forensic/writeup-gemastik-2016-malware-scanning",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Lottery Machine - 125",
+		  "category"   : "Pwnable",
+		  "url"        : "http://localhost:4000/pwnable/writeup-gemastik-2016-lottery-machine",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Java Authentication - 50",
+		  "category"   : "Reverse",
+		  "url"        : "http://localhost:4000/reverse/writeup-gemastik-2016-java-authentication",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Intranet Maintenance - 125",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-gemastik-2016-intranet-maintenance",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Insider Threat - 150",
+		  "category"   : "Forensic",
+		  "url"        : "http://localhost:4000/forensic/writeup-gemastik-2016-insider-threat",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Incident Analysis - 100",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-gemastik-2016-incident-analysis",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Evote System - 150",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-gemastik-2016-evote-system",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Encrypted Picture - 75",
+		  "category"   : "Crypto",
+		  "url"        : "http://localhost:4000/crypto/writeup-gemastik-2016-encrypted-picture",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : E-Government Repository - 75",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-gemastik-2016-egovernment-repository",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Classic Crypto - 50",
+		  "category"   : "Crypto",
+		  "url"        : "http://localhost:4000/crypto/writeup-gemastik-2016-classic-crypto",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Can You See Mee - 50",
+		  "category"   : "Misc",
+		  "url"        : "http://localhost:4000/misc/writeup-gemastik-2016-can-you-see-mee",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Writeup Gemastik 2016 : Administrator Login - 50",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-gemastik-2016-administrator-login",
+		  "date"       : "2016-08-15 00:00:00 +0700",
+		  "shortdate"  : "August 15, 2016"
+		} ,
+	
+		{
+		  "title"      : "Jollybeoj: 18-Duel Maut",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/programming/duel-maut",
+		  "date"       : "2016-08-03 00:00:00 +0700",
+		  "shortdate"  : "August 03, 2016"
+		} ,
+	
+		{
+		  "title"      : "writeup IceCTF Statistics &amp;#8211; 50",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/2015/09/writeup-icectf-statistics-50/",
+		  "date"       : "2015-09-22 05:47:35 +0700",
+		  "shortdate"  : "September 22, 2015"
+		} ,
+	
+		{
+		  "title"      : "writeup IceCTF Logoventures 2: Reloaded &amp;#8211; 40",
+		  "category"   : "Forensic",
+		  "url"        : "http://localhost:4000/2015/09/writeup-icectf-logoventures-2-reloaded-40/",
+		  "date"       : "2015-09-22 05:32:29 +0700",
+		  "shortdate"  : "September 22, 2015"
+		} ,
+	
+		{
+		  "title"      : "writeup IceCTF Bomb! &amp;#8211; 40",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2015/09/writeup-icectf-bomb-40/",
+		  "date"       : "2015-09-22 05:25:02 +0700",
+		  "shortdate"  : "September 22, 2015"
+		} ,
+	
+		{
+		  "title"      : "Writeups Crypto50 EkoParty Pre CTF",
+		  "category"   : "",
+		  "url"        : "http://localhost:4000/2015/09/writeups-crypto50-ekoparty-pre-ctf/",
+		  "date"       : "2015-09-16 19:05:17 +0700",
+		  "shortdate"  : "September 16, 2015"
+		} ,
+	
+		{
+		  "title"      : "Writeups Crypto25 EkoParty Pre ctf",
+		  "category"   : "Crypto",
+		  "url"        : "http://localhost:4000/2015/09/writeups-crypto25-ekoparty-pre-ctf/",
+		  "date"       : "2015-09-16 18:49:48 +0700",
+		  "shortdate"  : "September 16, 2015"
+		} ,
+	
+		{
+		  "title"      : "Writeup ICE CTF",
+		  "category"   : "Misc",
+		  "url"        : "http://localhost:4000/2015/09/writeup-ice-ctf/",
+		  "date"       : "2015-09-04 23:06:58 +0700",
+		  "shortdate"  : "September 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "GOES TO SCHOOL SMKN 2 JAKARTA",
+		  "category"   : "IBTeam",
+		  "url"        : "http://localhost:4000/2015/09/goes-to-school-smkn-2-jakarta/",
+		  "date"       : "2015-09-01 14:15:44 +0700",
+		  "shortdate"  : "September 01, 2015"
+		} ,
+	
+		{
+		  "title"      : "Review 2-3 Tree",
+		  "category"   : "Data Structure",
+		  "url"        : "http://localhost:4000/2015/06/review-2-3-tree/",
+		  "date"       : "2015-06-16 06:30:42 +0700",
+		  "shortdate"  : "June 16, 2015"
+		} ,
+	
+		{
+		  "title"      : "Review Deap Tree",
+		  "category"   : "Data Structure",
+		  "url"        : "http://localhost:4000/2015/06/review-deap-tree/",
+		  "date"       : "2015-06-16 05:29:25 +0700",
+		  "shortdate"  : "June 16, 2015"
+		} ,
+	
+		{
+		  "title"      : "Review Red Black Tree",
+		  "category"   : "Data Structure",
+		  "url"        : "http://localhost:4000/2015/06/red-black-tree/",
+		  "date"       : "2015-06-16 04:25:59 +0700",
+		  "shortdate"  : "June 16, 2015"
+		} ,
+	
+		{
+		  "title"      : "Pengenalan Binary Search Tree",
+		  "category"   : "Algorithm",
+		  "url"        : "http://localhost:4000/2015/06/pengenalan-binary-search-tree/",
+		  "date"       : "2015-06-04 02:43:47 +0700",
+		  "shortdate"  : "June 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Unusual redirection 300pts",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-unusual-redirection-300pts/",
+		  "date"       : "2015-05-04 08:16:03 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Stored Pass 100pts",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-stored-pass-100pts/",
+		  "date"       : "2015-05-04 08:04:55 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Shop of goodness 100pts",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-shop-of-goodness-100pts/",
+		  "date"       : "2015-05-04 07:59:49 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Tacticus abilitus 100pts",
+		  "category"   : "Crypto",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-tacticus-abilitus-100pts/",
+		  "date"       : "2015-05-04 07:50:30 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Strange spam 100pts",
+		  "category"   : "Stegano",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-strange-spam-100pts/",
+		  "date"       : "2015-05-04 07:41:15 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : School Incident 150pts",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-school-incident-150pts/",
+		  "date"       : "2015-05-04 07:34:45 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Tricky Authorization 200pts",
+		  "category"   : "Forensic",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-tricky-authorization-200pts/",
+		  "date"       : "2015-05-04 07:22:59 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Weird Selfie 100pts",
+		  "category"   : "Misc",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-weird-selfie-100pts/",
+		  "date"       : "2015-05-04 06:57:10 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "SchoolCTF : Hidden File 200pts",
+		  "category"   : "Forensic",
+		  "url"        : "http://localhost:4000/2015/05/schoolctf-hidden-file-200pts/",
+		  "date"       : "2015-05-04 06:47:39 +0700",
+		  "shortdate"  : "May 04, 2015"
+		} ,
+	
+		{
+		  "title"      : "Cyber Defense Competition 2015",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/2015/04/cyber-defense-competition-2015/",
+		  "date"       : "2015-04-05 04:44:16 +0700",
+		  "shortdate"  : "April 05, 2015"
+		} ,
+	
+		{
+		  "title"      : "IBTeam Blackvalentine : Hack The Dragon",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/2015/02/ibteam-blackvalentine-hack-the-dragon/",
+		  "date"       : "2015-02-01 19:47:05 +0700",
+		  "shortdate"  : "February 01, 2015"
+		} ,
+	
+		{
+		  "title"      : "Grombyang OS",
+		  "category"   : "Linux",
+		  "url"        : "http://localhost:4000/2015/01/grombyang-os/",
+		  "date"       : "2015-01-28 02:39:52 +0700",
+		  "shortdate"  : "January 28, 2015"
+		} ,
+	
+		{
+		  "title"      : "Kappas &amp;#8211; Responsive Ghost Theme",
+		  "category"   : "Web Application",
+		  "url"        : "http://localhost:4000/2015/01/kappas-responsive-ghost-theme/",
+		  "date"       : "2015-01-08 00:30:22 +0700",
+		  "shortdate"  : "January 08, 2015"
+		} ,
+	
+		{
+		  "title"      : "Report Lomba Pentest Universitas Jember",
+		  "category"   : "Pentest",
+		  "url"        : "http://localhost:4000/2014/12/report-lomba-pentest-universitas-jember/",
+		  "date"       : "2014-12-22 08:45:56 +0700",
+		  "shortdate"  : "December 22, 2014"
+		} ,
+	
+		{
+		  "title"      : "Reverseit Binary Seccon CTF 100pts",
+		  "category"   : "Reverse",
+		  "url"        : "http://localhost:4000/2014/12/reverseit-binary-seccon-ctf-100pts/",
+		  "date"       : "2014-12-21 22:59:17 +0700",
+		  "shortdate"  : "December 21, 2014"
+		} ,
+	
+		{
+		  "title"      : "Get The Key Seccon CTF 2014 100pts",
+		  "category"   : "Forensic",
+		  "url"        : "http://localhost:4000/2014/12/get-the-key-seccon-ctf-2014-100pts/",
+		  "date"       : "2014-12-21 22:43:58 +0700",
+		  "shortdate"  : "December 21, 2014"
+		} ,
+	
+		{
+		  "title"      : "Easy Cipher 100pts Crypto Seccon Ctf 2014",
+		  "category"   : "Crypto",
+		  "url"        : "http://localhost:4000/2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/",
+		  "date"       : "2014-12-21 22:35:19 +0700",
+		  "shortdate"  : "December 21, 2014"
+		} ,
+	
+		{
+		  "title"      : "Choose the number 100Pts SECCON CTF 2014",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/2014/12/choose-number-100pts-seccon-ctf-2014/",
+		  "date"       : "2014-12-21 22:16:37 +0700",
+		  "shortdate"  : "December 21, 2014"
+		} ,
+	
+		{
+		  "title"      : "Get The Key.txt Seccon CTF Writeups 100Pts",
+		  "category"   : "Forensic",
+		  "url"        : "http://localhost:4000/2014/12/get-key-txt-seccon-ctf-writeups-100pts/",
+		  "date"       : "2014-12-19 12:57:30 +0700",
+		  "shortdate"  : "December 19, 2014"
+		} ,
+	
+		{
+		  "title"      : "Bleeding “Heartbleed” Web 300 pts Seccon CTF",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/",
+		  "date"       : "2014-12-09 17:15:04 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "REA-JUU WATCH Seccon CTF Web 200pts",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2014/12/rea-juu-watch-seccon-ctf-web-200pts/",
+		  "date"       : "2014-12-09 16:38:02 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "SECCON Wars: The Flag Awakens QR 300pts",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/2014/12/seccon-wars-flag-awakens-qr-300pts/",
+		  "date"       : "2014-12-09 16:18:08 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "Best Python Cheatsheet",
+		  "category"   : "Cheatsheet",
+		  "url"        : "http://localhost:4000/2014/12/best-python-cheatsheet/",
+		  "date"       : "2014-12-09 04:20:11 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "Get curious &amp;#8220;FTP&amp;#8221; server Network 300pts Seccon Writeups",
+		  "category"   : "Misc",
+		  "url"        : "http://localhost:4000/2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/",
+		  "date"       : "2014-12-09 03:52:07 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "Jspuzzle Web 200pts Seccon CTF",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2014/12/jspuzzle-web-200pts-writeups-seccon-ctf/",
+		  "date"       : "2014-12-09 03:44:50 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "Welcome to SECCON CTF Writeups",
+		  "category"   : "Misc",
+		  "url"        : "http://localhost:4000/2014/12/welcome-to-seccon-ctf-100pts-writeups/",
+		  "date"       : "2014-12-09 03:38:58 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "Index Writeups Seccon CTF 2014 Quals",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/2014/12/index-writeups-seccon-ctf-2014-quals/",
+		  "date"       : "2014-12-09 02:54:07 +0700",
+		  "shortdate"  : "December 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "BELAJAR BAHASA C PART 3",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/2014/12/belajar-bahasa-c-part-3/",
+		  "date"       : "2014-12-04 16:04:25 +0700",
+		  "shortdate"  : "December 04, 2014"
+		} ,
+	
+		{
+		  "title"      : "Multiple Vulnerability xEpan 1.0.4",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2014/11/multiple-vulnerability-xepan-1-0-4/",
+		  "date"       : "2014-11-28 01:09:59 +0700",
+		  "shortdate"  : "November 28, 2014"
+		} ,
+	
+		{
+		  "title"      : "Belajar Reversee Engineering",
+		  "category"   : "Reverse",
+		  "url"        : "http://localhost:4000/2014/11/belajar-reversee-engineering/",
+		  "date"       : "2014-11-18 17:23:50 +0700",
+		  "shortdate"  : "November 18, 2014"
+		} ,
+	
+		{
+		  "title"      : "Latihan Soal C Part 2",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/2014/11/latihan-soal-c-part-2/",
+		  "date"       : "2014-11-18 01:42:01 +0700",
+		  "shortdate"  : "November 18, 2014"
+		} ,
+	
+		{
+		  "title"      : "Latihan Soal C Part 1",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/2014/11/latihan-soal-c-part-1/",
+		  "date"       : "2014-11-16 07:11:13 +0700",
+		  "shortdate"  : "November 16, 2014"
+		} ,
+	
+		{
+		  "title"      : "EL Injection",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2014/10/el-injection/",
+		  "date"       : "2014-10-26 20:02:16 +0700",
+		  "shortdate"  : "October 26, 2014"
+		} ,
+	
+		{
+		  "title"      : "Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/",
+		  "date"       : "2014-10-21 14:46:21 +0700",
+		  "shortdate"  : "October 21, 2014"
+		} ,
+	
+		{
+		  "title"      : "Wayang CMS &amp;#8211; Alpha-1",
+		  "category"   : "Web Application",
+		  "url"        : "http://localhost:4000/2014/10/wayang-cms-alpha-1/",
+		  "date"       : "2014-10-09 17:16:15 +0700",
+		  "shortdate"  : "October 09, 2014"
+		} ,
+	
+		{
+		  "title"      : "Shellshock Exploit Bash Code Injection Live Demo",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/2014/10/shellshock-exploit-bash-code-injection-live-demo/",
+		  "date"       : "2014-10-07 08:55:08 +0700",
+		  "shortdate"  : "October 07, 2014"
+		} ,
+	
+		{
+		  "title"      : "Install De-ice for Virtual Hacking Lab",
+		  "category"   : "Pentest",
+		  "url"        : "http://localhost:4000/2014/09/install-de-ice-virtual-hacking-lab/",
+		  "date"       : "2014-09-29 10:30:59 +0700",
+		  "shortdate"  : "September 29, 2014"
+		} ,
+	
+		{
+		  "title"      : "Bermain Dengan Bash #1",
+		  "category"   : "Programming",
+		  "url"        : "http://localhost:4000/2014/07/bermain-dengan-bash-1/",
+		  "date"       : "2014-07-17 23:14:11 +0700",
+		  "shortdate"  : "July 17, 2014"
+		} ,
+	
+		{
+		  "title"      : "Basic Linux Privilage Escalation",
+		  "category"   : "Privilage Escalation",
+		  "url"        : "http://localhost:4000/2014/07/basic-linux-privilage-escalation/",
+		  "date"       : "2014-07-17 20:42:42 +0700",
+		  "shortdate"  : "July 17, 2014"
+		} ,
+	
+		{
+		  "title"      : "Cara Menggunakan Highlight.js",
+		  "category"   : "Web Application",
+		  "url"        : "http://localhost:4000/2014/06/cara-menggunakan-highlight-js/",
+		  "date"       : "2014-06-22 07:06:28 +0700",
+		  "shortdate"  : "June 22, 2014"
+		} ,
+	
+		{
+		  "title"      : "Ghost Developer CheatSheet",
+		  "category"   : "Web Application",
+		  "url"        : "http://localhost:4000/2014/06/ghost-developer-cheatsheet/",
+		  "date"       : "2014-06-22 06:35:10 +0700",
+		  "shortdate"  : "June 22, 2014"
+		} ,
+	
+		{
+		  "title"      : "SecurityFest2017 - Underconstruction",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/securityfest2017-underconstruction",
+		  "date"       : "2014-05-13 20:56:49 +0700",
+		  "shortdate"  : "May 13, 2014"
+		} ,
+	
+		{
+		  "title"      : "SecurityFest2017 - Freddy Vs JSON",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/securityfest2017-freddy-vs-json",
+		  "date"       : "2014-05-13 20:56:49 +0700",
+		  "shortdate"  : "May 13, 2014"
+		} ,
+	
+		{
+		  "title"      : "SecurityFest2017 - A Temple Jest",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/securityfest2017-a-temple-jest",
+		  "date"       : "2014-05-13 20:56:49 +0700",
+		  "shortdate"  : "May 13, 2014"
+		} ,
+	
+		{
+		  "title"      : "Writeup BitcointCTF",
+		  "category"   : "Web Exploitation",
+		  "url"        : "http://localhost:4000/web%20exploitation/writeup-bitcoinctf",
+		  "date"       : "2014-05-13 20:56:49 +0700",
+		  "shortdate"  : "May 13, 2014"
+		} ,
+	
+		{
+		  "title"      : "Hasil Akhir Cyber Defense Competition",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/2014/05/hasil-akhir-cyber-defense-competition/",
+		  "date"       : "2014-05-13 20:56:49 +0700",
+		  "shortdate"  : "May 13, 2014"
+		} 
+	
+]
