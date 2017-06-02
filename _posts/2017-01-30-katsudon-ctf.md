@@ -4,6 +4,7 @@ title: "Writeup AkiCTF"
 description: "Writeup AkiCTF"
 headline: 
 modified: 2016-11-09
+date: 2017-01-30
 imagefeature: 
 mathjax: 
 chart: 

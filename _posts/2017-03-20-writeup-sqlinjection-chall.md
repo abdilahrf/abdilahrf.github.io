@@ -1,6 +1,7 @@
 ---
 private: 'false'
 modified: 2017-03-20
+date: 2017-03-20
 layout: post
 featured: false
 published: true

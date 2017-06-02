@@ -4,6 +4,7 @@ title: "PHP Object Injection Via Unserialize"
 description: "PHP Object Injection Via Unserialize"
 headline: 
 modified: 2016-10-01
+date: 2016-10-01
 category: Web Exploitation
 tags: [Web Exploitation]
 imagefeature: /images/php.jpg

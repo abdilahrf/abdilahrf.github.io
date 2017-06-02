@@ -4,6 +4,7 @@ title: "Writeup Idsecconf CTF 2016 : Signal - 150"
 description: "Writeup Idsecconf CTF 2016 Online"
 headline: 
 modified: 2016-08-29
+date: 2016-08-29
 category: Reverse
 tags: [idsecconf]
 imagefeature: /images/idsecconf.jpg

@@ -4,6 +4,8 @@ layout: post
 featured: false
 published: true
 comments: true
+modified: 2017-06-02
+date: 2014-05-13T13:56:49+00:00
 title: SecurityFest2017 - Underconstruction
 tags: jwt
 mathjax: false

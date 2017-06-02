@@ -4,6 +4,7 @@ title: "Hitcon 2016 : Secure Post"
 description: "Hitcon 2016 : Secure Post"
 headline: 
 modified: 2016-10-10
+date: 2016-10-10
 category: Web Exploitation
 tags: [Hitcon 2016]
 imagefeature: /images/php.jpg

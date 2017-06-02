@@ -4,6 +4,7 @@ title: "ITRACE 2016 Level 3: Writeups"
 description: "ITRACE 2016 Level 3 : Writeups"
 headline: 
 modified: 2016-10-10
+date: 2016-10-10
 category: CTF
 tags: [ITRACE 2016]
 imagefeature: /images/itrace.jpg

@@ -3,6 +3,7 @@ layout: post
 title: Writeup SQLinjection Challenge
 description: Writeup SQLinjection Challenge
 modified: 2017-02-11
+date: 2017-02-11
 category: Web Exploitation
 tags: Others
 imagefeature: /images/sqli-corb.PNG

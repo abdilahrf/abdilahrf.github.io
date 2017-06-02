@@ -4,6 +4,7 @@ title: "Writeup Gemastik 2016 : Insider Threat - 150"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
+date: 2016-08-15
 category: Forensic
 tags: [gemastik,ctf]
 imagefeature: /images/gemastik.png

@@ -4,6 +4,7 @@ title: "Writeup Compfest CTF 2016 : Maze - 90"
 description: "Writeup Compfest CTF 2016 Qualification"
 headline: 
 modified: 2016-08-27
+date: 2016-08-27
 category: Web Exploitation
 tags: [compfest]
 imagefeature: /images/compfest.png

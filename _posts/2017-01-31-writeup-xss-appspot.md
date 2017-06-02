@@ -4,6 +4,7 @@ title: "Writeup XSS Appspot"
 description: "Writeup XSS Appspot"
 headline: 
 modified: 2017-01-31
+date: 2017-01-31
 category: Web Exploitation
 tags: [xss,ctf,web]
 imagefeature: /images/xss-appspot.PNG
