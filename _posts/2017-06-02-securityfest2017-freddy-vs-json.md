@@ -4,7 +4,7 @@ layout: post
 featured: false
 published: true
 modified: 2017-06-02
-date: 2014-05-13T13:56:49+00:00
+date: 2017-06-02
 comments: true
 title: SecurityFest2017 - Freddy Vs JSON
 tags: schemainjection
