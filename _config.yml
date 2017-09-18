@@ -49,7 +49,8 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/Jakarta
 future:      true
-highlighter: pygments
+highlighter: rouge
+#highlighter: pygments
 # highlighter: true
 markdown:    kramdown
 paginate:    5
