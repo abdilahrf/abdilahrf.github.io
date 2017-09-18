@@ -103,7 +103,7 @@ $query akan jadi seperti berikut
 
 ```php
 
-SELECT * from `littlequery`.`user`#`foobar`
+SELECT * from `littlequery`.`user`#`.`foobar`
 
 //query yang tereksekusi adalah => SELECT * from `littlequery`.`user`
 
