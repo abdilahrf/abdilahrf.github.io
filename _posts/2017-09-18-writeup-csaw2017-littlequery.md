@@ -4,10 +4,10 @@ layout: post
 featured: false
 published: true
 comments: true
-modified: 2017-08-21
-date: 2017-08-21
+modified: 2017-09-18
+date: 2017-09-18
 title: Writeup CSAW 2017 LittleQuery - 200
-tags: beefest
+tags: csaw2017
 mathjax: false
 imagefeature: 
 description: Writeup CSAW 2017 LittleQuery - 200
