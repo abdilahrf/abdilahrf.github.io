@@ -417,7 +417,7 @@ PIE: PIE enabled
 RWX: Has RWX segments
 ```
 
-![Ida Decompile](images/ida.png)
+![Ida Decompile](/images/ida.png)
 
 this binary prompt access code before we can access their menu, you can found the access code using `ltrace` because 
 the binary is using `strcmp` to compare with our input
