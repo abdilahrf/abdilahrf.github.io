@@ -18,7 +18,7 @@ tags: [SchoolCTF]
 seteleah di buka websitenya menampilkan halaman login dengan password yang sudah tersimpan , dengan inspect element kita bisa membuat input type=&#8221;password&#8221; menjadi input type=&#8221;text&#8221; agar bisa di baca dan menemukan flagnya
 
 <div id="attachment_577" style="width: 929px" class="wp-caption aligncenter">
-  <a href="http://abdilahrf.me/images/2015/05/flag6.png"><img class="size-full wp-image-577" src="http://abdilahrf.me/images/2015/05/flag6.png" alt="SchoolCTF : Stored Pass" width="919" height="575" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/05/flag6.png"><img class="size-full wp-image-577" src="http://abdilahrf.github.io/images/2015/05/flag6.png" alt="SchoolCTF : Stored Pass" width="919" height="575" /></a>
   
   <p class="wp-caption-text">
     Flag

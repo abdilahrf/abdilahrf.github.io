@@ -9,7 +9,7 @@ permalink: /2015/04/cyber-defense-competition-2015/
 category: CTF
 tags: [CDC]
 ---
-[<img class="aligncenter size-full wp-image-533" src="http://abdilahrf.me/images/2015/04/slider-3.jpg" alt="slider-3" width="960" height="350" />](http://abdilahrf.me/images/2015/04/slider-3.jpg)
+[<img class="aligncenter size-full wp-image-533" src="http://abdilahrf.github.io/images/2015/04/slider-3.jpg" alt="slider-3" width="960" height="350" />](http://abdilahrf.github.io/images/2015/04/slider-3.jpg)
 
 Cyber Defense Competition 2015 &#8211; Di Selenggarakan oleh kementrian pertahanan indonesia dengan tujuan mengembangkan kemampuan pemuda indonesia dalam bidang security komputer dari tahun ke tahun sudah rutin diadakan lomba CDC , dan sekarang tahun 2015 di adakan kembali untuk lomba CDC 2015
 

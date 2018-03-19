@@ -17,7 +17,7 @@ tags: [SecconCTF]
 
 kunci dari menyelesaikan soal ini ada di source codenya , untuk menyelesaikannya kita login dulu dengan user yang di dapatkan dari create new account . selesaikan sampai mendapatkan point , pilihannya bebas
 
-[<img class="aligncenter wp-image-409" src="http://abdilahrf.me/images/2014/12/Untitled-1024x332.png" alt="Untitled" width="700" height="227" />](http://abdilahrf.me/images/2014/12/Untitled.png)
+[<img class="aligncenter wp-image-409" src="http://abdilahrf.github.io/images/2014/12/Untitled-1024x332.png" alt="Untitled" width="700" height="227" />](http://abdilahrf.github.io/images/2014/12/Untitled.png)
 
 &nbsp;
 
@@ -44,7 +44,7 @@ hasilnya muncul username , password dan point kita untuk mendapatkan admin yang 
 
 nah kita dapat username dan password adminnya , kita coba bermain sampai selesai lagi dengan id tersebut dan liat point nya
 
-[<img class="aligncenter wp-image-410" src="http://abdilahrf.me/images/2014/12/Untitled1.png" alt="Untitled" width="828" height="197" />](http://abdilahrf.me/images/2014/12/Untitled1.png)
+[<img class="aligncenter wp-image-410" src="http://abdilahrf.github.io/images/2014/12/Untitled1.png" alt="Untitled" width="828" height="197" />](http://abdilahrf.github.io/images/2014/12/Untitled1.png)
 
 &nbsp;
 

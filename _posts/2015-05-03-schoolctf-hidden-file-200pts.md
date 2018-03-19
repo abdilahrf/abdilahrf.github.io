@@ -26,19 +26,19 @@ tags: [SchoolCTF]
 Setelah di download dan mendapatkan file winrar<!--more-->
 
 <div id="attachment_543" style="width: 120px" class="wp-caption aligncenter">
-  <a href="http://abdilahrf.me/images/2015/05/soal.png"><img class="size-full wp-image-543" src="http://abdilahrf.me/images/2015/05/soal.png" alt="SchoolCTF : Hidden File" width="110" height="167" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/05/soal.png"><img class="size-full wp-image-543" src="http://abdilahrf.github.io/images/2015/05/soal.png" alt="SchoolCTF : Hidden File" width="110" height="167" /></a>
   
   <p class="wp-caption-text">
     archive.rar
   </p>
 </div>
 
-[<img class="aligncenter size-full wp-image-544" src="http://abdilahrf.me/images/2015/05/hasilextract.png" alt="SchoolCTF : Hidden File" width="767" height="128" />](http://abdilahrf.me/images/2015/05/hasilextract.png)
+[<img class="aligncenter size-full wp-image-544" src="http://abdilahrf.github.io/images/2015/05/hasilextract.png" alt="SchoolCTF : Hidden File" width="767" height="128" />](http://abdilahrf.github.io/images/2015/05/hasilextract.png)
 
 ada file &#8220;Thumbs.db&#8221; yang terhidden , seperti yang kita ketahui file Thumbs.db adalah file yang menyimpan cache dari beberapa format file seperti &#8220;\*.jpg/\*.png&#8221; kemudian untuk menganalisa Thumbs.db dengan menggunakan thumbs viewer
 
 <div id="attachment_545" style="width: 830px" class="wp-caption aligncenter">
-  <a href="http://abdilahrf.me/images/2015/05/thumbsviewer.png"><img class="size-full wp-image-545" src="http://abdilahrf.me/images/2015/05/thumbsviewer.png" alt="SchoolCTF : Hidden File" width="820" height="597" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/05/thumbsviewer.png"><img class="size-full wp-image-545" src="http://abdilahrf.github.io/images/2015/05/thumbsviewer.png" alt="SchoolCTF : Hidden File" width="820" height="597" /></a>
   
   <p class="wp-caption-text">
     Thumbs Viewer
@@ -48,7 +48,7 @@ ada file &#8220;Thumbs.db&#8221; yang terhidden , seperti yang kita ketahui file
 disitu terlihat ada banyak gambar pecahan dari flag yang di cari jadi export semua gambar itu
 
 <div id="attachment_546" style="width: 1192px" class="wp-caption aligncenter">
-  <a href="http://abdilahrf.me/images/2015/05/flag.png"><img class="size-full wp-image-546" src="http://abdilahrf.me/images/2015/05/flag.png" alt="SchoolCTF: Writeups" width="1182" height="357" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/05/flag.png"><img class="size-full wp-image-546" src="http://abdilahrf.github.io/images/2015/05/flag.png" alt="SchoolCTF: Writeups" width="1182" height="357" /></a>
   
   <p class="wp-caption-text">
     Flag

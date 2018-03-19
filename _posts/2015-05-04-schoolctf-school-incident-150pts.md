@@ -30,7 +30,7 @@ adm:*:14425:0:99999:7:::
 hasil decode md5 adalah flagnya
 
 <div id="attachment_563" style="width: 1061px" class="wp-caption aligncenter">
-  <a href="http://abdilahrf.me/images/2015/05/flag3.png"><img class="size-full wp-image-563" src="http://abdilahrf.me/images/2015/05/flag3.png" alt="SchoolCTF : School Incident" width="1051" height="77" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/05/flag3.png"><img class="size-full wp-image-563" src="http://abdilahrf.github.io/images/2015/05/flag3.png" alt="SchoolCTF : School Incident" width="1051" height="77" /></a>
   
   <p class="wp-caption-text">
     Flag

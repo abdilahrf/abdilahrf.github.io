@@ -11,4 +11,4 @@ tags: [Python]
 ---
 Best Python Cheatsheet
 
-[<img class="aligncenter size-full wp-image-379" src="http://abdilahrf.me/images/2014/12/best-python-cheatsheet.png" alt="best-python-cheatsheet" width="636" height="864" />](http://abdilahrf.me/images/2014/12/best-python-cheatsheet.png)
+[<img class="aligncenter size-full wp-image-379" src="http://abdilahrf.github.io/images/2014/12/best-python-cheatsheet.png" alt="best-python-cheatsheet" width="636" height="864" />](http://abdilahrf.github.io/images/2014/12/best-python-cheatsheet.png)

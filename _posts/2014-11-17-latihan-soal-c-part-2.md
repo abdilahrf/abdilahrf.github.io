@@ -11,7 +11,7 @@ tags: [C]
 ---
 Lanjut lagi latihan kita dengan bahasa C &#8230; soal ini sebenarnya menimplementasikan nested for dengan selection sehingga menjadi kotak dengan dalam yang kosong soalnya seperti berikut
 
-[<img class="aligncenter wp-image-335" src="http://abdilahrf.me/images/2014/11/soal10-1024x415.png" alt="soal10" width="1200" height="487" />](http://abdilahrf.me/images/2014/11/soal10.png)
+[<img class="aligncenter wp-image-335" src="http://abdilahrf.github.io/images/2014/11/soal10-1024x415.png" alt="soal10" width="1200" height="487" />](http://abdilahrf.github.io/images/2014/11/soal10.png)
 
 <pre data-src="kotak.cpp"><code class="language-c">#include
 
@@ -36,4 +36,4 @@ int main(){
 
 &nbsp;
 
-[<img class="aligncenter size-full wp-image-336" src="http://abdilahrf.me/images/2014/11/test.png" alt="test" width="679" height="339" />](http://abdilahrf.me/images/2014/11/test.png)
+[<img class="aligncenter size-full wp-image-336" src="http://abdilahrf.github.io/images/2014/11/test.png" alt="test" width="679" height="339" />](http://abdilahrf.github.io/images/2014/11/test.png)

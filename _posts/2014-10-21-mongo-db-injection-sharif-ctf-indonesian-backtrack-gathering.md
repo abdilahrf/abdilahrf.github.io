@@ -17,7 +17,7 @@ http://ctf.sharif.edu:25489
 
 tampilan websitenya seperti ini  :
 
-[<img class="aligncenter size-full wp-image-263" src="http://abdilahrf.me/images/2014/10/sharif14_beginning.png" alt="sharif14_beginning" width="580" height="321" />](http://abdilahrf.me/images/2014/10/sharif14_beginning.png)
+[<img class="aligncenter size-full wp-image-263" src="http://abdilahrf.github.io/images/2014/10/sharif14_beginning.png" alt="sharif14_beginning" width="580" height="321" />](http://abdilahrf.github.io/images/2014/10/sharif14_beginning.png)
 
 &nbsp;
 
@@ -49,7 +49,7 @@ Menarik file png yang jadi favicon itu ternyata hasil conver dari file .svg , co
 
 <!--more-->
 
-[<img class="aligncenter size-full wp-image-264" src="http://abdilahrf.me/images/2014/10/sharif14_google_svg.png" alt="sharif14_google_svg" width="774" height="272" />](http://abdilahrf.me/images/2014/10/sharif14_google_svg.png)
+[<img class="aligncenter size-full wp-image-264" src="http://abdilahrf.github.io/images/2014/10/sharif14_google_svg.png" alt="sharif14_google_svg" width="774" height="272" />](http://abdilahrf.github.io/images/2014/10/sharif14_google_svg.png)
 
 &nbsp;
 
@@ -105,7 +105,7 @@ selain dengan tamper data , juga bisa menggunakan inspect element atau firebug u
 
 setelah login akan muncul dashboard seperti ini
 
-[<img class="aligncenter wp-image-265 size-large" src="http://abdilahrf.me/images/2014/10/panel-1024x467.png" alt="panel" width="1024" height="467" />](http://abdilahrf.me/images/2014/10/panel.png)
+[<img class="aligncenter wp-image-265 size-large" src="http://abdilahrf.github.io/images/2014/10/panel-1024x467.png" alt="panel" width="1024" height="467" />](http://abdilahrf.github.io/images/2014/10/panel.png)
 
 &nbsp;
 

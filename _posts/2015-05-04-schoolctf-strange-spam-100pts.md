@@ -55,7 +55,7 @@ a friend and you'll get a discount of 60% . Best regards
 setelah mencari cari ternyata ini pesan spam yang di encode jadi kita decode untuk mendapatkan flagnya
 
 <div id="attachment_566" style="width: 570px" class="wp-caption aligncenter">
-  <a href="http://abdilahrf.me/images/2015/05/flag4.png"><img class="size-full wp-image-566" src="http://abdilahrf.me/images/2015/05/flag4.png" alt="SchoolCTF : Strange Spam" width="560" height="248" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/05/flag4.png"><img class="size-full wp-image-566" src="http://abdilahrf.github.io/images/2015/05/flag4.png" alt="SchoolCTF : Strange Spam" width="560" height="248" /></a>
   
   <p class="wp-caption-text">
     Flag

@@ -19,12 +19,12 @@ tags: [SchoolCTF]
 
 tipe soal berbentuk file .pcap kebetulan datanya tidak terlalu banyak jadi tidak terlalu sulit menemukan stream yang di cari
 
-[<img class="aligncenter size-full wp-image-559" src="http://abdilahrf.me/images/2015/05/authorization.png" alt="SchoolCTF : Tricky Authorization" width="1366" height="768" />](http://abdilahrf.me/images/2015/05/authorization.png)
+[<img class="aligncenter size-full wp-image-559" src="http://abdilahrf.github.io/images/2015/05/authorization.png" alt="SchoolCTF : Tricky Authorization" width="1366" height="768" />](http://abdilahrf.github.io/images/2015/05/authorization.png)
 
 yang biru adalah dari server yang merah adalah response dari user dan termasuk kunci authorization nya , kita coba ikuti connect ke nc sibears.ru 11811
 
 <div id="attachment_560" style="width: 689px" class="wp-caption aligncenter">
-  <a href="http://abdilahrf.me/images/2015/05/flag2.png"><img class="size-full wp-image-560" src="http://abdilahrf.me/images/2015/05/flag2.png" alt="SchoolCTF : Tricky Authorization" width="679" height="417" /></a>
+  <a href="http://abdilahrf.github.io/images/2015/05/flag2.png"><img class="size-full wp-image-560" src="http://abdilahrf.github.io/images/2015/05/flag2.png" alt="SchoolCTF : Tricky Authorization" width="679" height="417" /></a>
   
   <p class="wp-caption-text">
     Flag
