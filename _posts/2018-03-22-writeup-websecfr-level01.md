@@ -6,7 +6,7 @@ published: true
 comments: true
 modified: 2018-03-22
 date: 2018-03-22
-title: 'Websec.fr Easy: Level 01 - 1pts'
+title: 'Websec.fr babysteps: Level 01 - 1pts'
 tags: [hackthebox]
 mathjax: false
 imagefeature: 
