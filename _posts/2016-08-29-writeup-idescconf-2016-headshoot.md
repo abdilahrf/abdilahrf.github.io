@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup Idsecconf CTF 2016 : Headshoot - 200"
-description: "Writeup Idsecconf CTF 2016 Online"
+title: "Idsecconf CTF 2016 : Headshoot - 200"
+description: "Idsecconf CTF 2016 Online"
 headline: 
 modified: 2016-08-29
 date: 2016-08-29
-category: Web Exploitation
-tags: [idsecconf]
+category: CTF
+tags: [idsecconf,Web Exploitation]
 imagefeature: /images/idsecconf.jpg
 mathjax: 
 chart: 

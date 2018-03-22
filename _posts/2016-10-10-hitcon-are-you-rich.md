@@ -5,8 +5,8 @@ description: "Hitcon 2016 : Are you rich"
 headline: 
 modified: 2016-10-10
 date: 2016-10-10
-category: Web Exploitation
-tags: [Hitcon 2016]
+category: CTF
+tags: [Hitcon,Web Exploitation]
 imagefeature: /images/php.jpg
 mathjax: 
 chart: 

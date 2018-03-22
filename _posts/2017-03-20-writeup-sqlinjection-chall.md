@@ -6,8 +6,8 @@ layout: post
 featured: false
 published: true
 comments: true
-title: Writeup SQLInjection Challenges
-tags: sqlinjection
+title: 'SQLInjection Challenges Writeup: Level 1 - 8'
+tags: [sqlinjection]
 mathjax: false
 imagefeature: /images/sqlinjection.jpg
 description: Writeup SQLInjection Challenges

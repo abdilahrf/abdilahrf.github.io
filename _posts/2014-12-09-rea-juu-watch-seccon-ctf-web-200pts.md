@@ -1,13 +1,13 @@
 ---
 id: 408
-title: REA-JUU WATCH Seccon CTF Web 200pts
+title: 'Seccon CTF 2014: REA-JUU WATCH  Web 200pts'
 date: 2014-12-09T09:38:02+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=408
 permalink: /2014/12/rea-juu-watch-seccon-ctf-web-200pts/
-category: Web Exploitation
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Web Exploitation]
 ---
 <span style="color: #ffffff;"><strong>REA-JUU</strong> <strong>WATCH</strong> <strong>Seccon</strong> <strong>CTF</strong></span>
 

@@ -1,13 +1,13 @@
 ---
 id: 1837
-title: Writeups Crypto25 EkoParty Pre ctf
+title: 'EkoParty Pre-CTF 2015: Crypto 25'
 date: 2015-09-16T11:49:48+00:00
 author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1837
 permalink: /2015/09/writeups-crypto25-ekoparty-pre-ctf/
-category: Crypto
-tags: [IceCTF]
+category: CTF
+tags: [IceCTF,Crypto]
 ---
 > # BASE unknown
 > 

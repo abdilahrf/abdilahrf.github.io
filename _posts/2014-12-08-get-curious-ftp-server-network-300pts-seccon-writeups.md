@@ -1,13 +1,13 @@
 ---
 id: 374
-title: 'Get curious &#8220;FTP&#8221; server Network 300pts Seccon Writeups'
+title: 'Seccon CTF 2014: Get curious &#8220;FTP&#8221; server - Network 300pts'
 date: 2014-12-08T20:52:07+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=374
 permalink: /2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/
-category: Misc
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Misc]
 ---
 ### Get curious FTP server Network 300pts Seccon Writeups
 

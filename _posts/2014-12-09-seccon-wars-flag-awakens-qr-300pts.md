@@ -1,13 +1,13 @@
 ---
 id: 401
-title: 'SECCON Wars: The Flag Awakens QR 300pts'
+title: 'Seccon CTF 2014: The Flag Awakens - QR 300pts'
 date: 2014-12-09T09:18:08+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=401
 permalink: /2014/12/seccon-wars-flag-awakens-qr-300pts/
-category: Programming
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Programming]
 ---
 > http://youtu.be/1pC56S17-_A
 > 

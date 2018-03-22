@@ -1,13 +1,13 @@
 ---
 id: 455
-title: Get The Key Seccon CTF 2014 100pts
+title: 'Seccon CTF 2014: Get The Key - Forensic 100pts'
 date: 2014-12-21T15:43:58+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=455
 permalink: /2014/12/get-the-key-seccon-ctf-2014-100pts/
-category: Forensic
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Forensic]
 ---
 Get The Key Seccon CTF 2014 100pts
 

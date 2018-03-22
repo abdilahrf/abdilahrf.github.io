@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup Pwnerrank CTF 2016 : Web Challenges"
-description: "Writeup Pwnerrank CTF 2016 Online"
+title: "Pwnerrank CTF 2016 : Web Challenges"
+description: "Pwnerrank CTF 2016 Online"
 headline: 
 modified: 2016-09-14
 date: 2016-09-14
-category: Web Exploitation
-tags: [pwnerrank]
+category: CTF
+tags: [pwnerrank,Web Exploitation]
 imagefeature: /images/pwnerrank.jpg
 mathjax: 
 chart: 
@@ -17,7 +17,7 @@ featured: false
 ## Nama Soal
 
 ### Problem
-    sadwa
+    Coming soon
     
 ### Solution
-    kdoawdk
+    Coming soon

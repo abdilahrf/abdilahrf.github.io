@@ -1,13 +1,13 @@
 ---
 id: 413
-title: Bleeding “Heartbleed” Web 300 pts Seccon CTF
+title: 'Seccon CTF 2014: Bleeding “Heartbleed” - Web 300 pts'
 date: 2014-12-09T10:15:04+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=413
 permalink: /2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/
-category: Web Exploitation
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Web Exploitation]
 ---
 > <http://bleeding.pwn.seccon.jp/>
 

@@ -7,11 +7,11 @@ comments: true
 modified: 2018-03-18
 date: 2018-03-18
 title: Writeup Hackthebox - Enterprise
-tags: hackthebox
+tags: [hackthebox]
 mathjax: false
 imagefeature: 
 description: Writeup Hackthebox - Enterprise
-category: Pentests
+category: Pentest
 chart: null
 ---
 

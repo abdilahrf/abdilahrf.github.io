@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PHP Object Injection Via Unserialize"
+title: "Penjelasan PHP Object Injection Via Unserialize"
 description: "PHP Object Injection Via Unserialize"
 headline: 
 modified: 2016-10-01

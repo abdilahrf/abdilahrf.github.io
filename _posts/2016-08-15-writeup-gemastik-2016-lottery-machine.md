@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup Gemastik 2016 : Lottery Machine - 125"
+title: "Gemastik CTF 2016 : Lottery Machine - 125"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
 date: 2016-08-15
-category: Pwnable
-tags: [gemastik]
+category: CTF
+tags: [gemastik,Pwnable]
 imagefeature: /images/gemastik.png
 mathjax: 
 chart: 

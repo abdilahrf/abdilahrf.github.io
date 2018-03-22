@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 'Writeup FIT FUNFEST 2017 : Proxy'
+title: 'FIT FUNFEST 2017 : Proxy'
 description: Writeup Proxy FIT FUNFEST CTF
 modified: 2017-03-16
 date: 2017-03-16
-category: Web Exploitation
-tags: FIT CTF
+category: CTF
+tags: [FITCTF,Web Exploitation]
 imagefeature: /images/fit-funfest.png
 mathjax: false
 chart: null

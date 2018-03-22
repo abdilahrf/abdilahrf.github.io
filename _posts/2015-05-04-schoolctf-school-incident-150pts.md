@@ -1,13 +1,13 @@
 ---
 id: 562
-title: 'SchoolCTF : School Incident 150pts'
+title: 'SchoolCTF 2014 : School Incident 150pts'
 date: 2015-05-04T00:34:45+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=562
 permalink: /2015/05/schoolctf-school-incident-150pts/
-category: Web Exploitation
-tags: [SchoolCTF]
+category: CTF
+tags: [Web Exploitation]
 ---
 > ### SchoolCTF : School Incident 150pts
 > 

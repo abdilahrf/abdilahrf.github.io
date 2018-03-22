@@ -7,7 +7,7 @@ layout: post
 guid: http://www.hasnydes.us/?p=341
 permalink: /2014/11/belajar-reversee-engineering/
 category: Reverse
-tags: [Others]
+tags: [Reverse]
 ---
 <div style="width: 490px" class="wp-caption aligncenter">
   <img src="http://anzaholyman.files.wordpress.com/2011/02/defend-reverse-engineering.jpg" alt="Belajar Reverse Engineering" width="480" height="360" />

@@ -1,13 +1,13 @@
 ---
 id: 458
-title: Reverseit Binary Seccon CTF 100pts
+title: 'Seccon CTF 2014: Reverseit - Binary 100pts'
 date: 2014-12-21T15:59:17+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=458
 permalink: /2014/12/reverseit-binary-seccon-ctf-100pts/
-category: Reverse
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Reverse]
 ---
 Reverseit Binary 100pts Seccon CTF
 

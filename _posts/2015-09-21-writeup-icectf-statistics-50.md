@@ -1,13 +1,13 @@
 ---
 id: 1873
-title: 'writeup IceCTF Statistics &#8211; 50'
+title: 'IceCTF 2015: Statistics - Programming 50'
 date: 2015-09-21T22:47:35+00:00
 author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1873
 permalink: /2015/09/writeup-icectf-statistics-50/
-category: Programming
-tags: [IceCTF]
+category: CTF
+tags: [IceCTF,Programming]
 ---
 
 > IceCTF Statistics &#8211; 50

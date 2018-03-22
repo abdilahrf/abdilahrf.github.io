@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup Gemastik 2016 : Can You See Mee - 50"
+title: "Gemastik CTF 2016 : Can You See Mee - 50"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
 date: 2016-08-15
-category: Misc
-tags: [gemastik,ctf]
+category: CTF
+tags: [gemastik,Misc]
 imagefeature: /images/gemastik.png
 mathjax: 
 chart: 

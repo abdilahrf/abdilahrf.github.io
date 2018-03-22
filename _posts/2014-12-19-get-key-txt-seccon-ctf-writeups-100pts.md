@@ -1,13 +1,13 @@
 ---
 id: 443
-title: Get The Key.txt Seccon CTF Writeups 100Pts
+title: 'Seccon CTF 2014: Get The Key.txt - Forensic 100Pts'
 date: 2014-12-19T05:57:30+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=443
 permalink: /2014/12/get-key-txt-seccon-ctf-writeups-100pts/
-category: Forensic
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Forensic]
 ---
 Get The Key.txt Seccon CTF Writeups 100Pts
 

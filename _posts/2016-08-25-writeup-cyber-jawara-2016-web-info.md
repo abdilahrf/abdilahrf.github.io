@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Writeup Cyber Jawara 2016 : Web Info - 50"
+title: "Cyber Jawara 2016 : Web Info - 50Pts"
 description: "Writeup Cyber Jawara 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
 date: 2016-08-25
-category: Web Exploitation
+category: CTF
 tags: [cyberjawara]
 imagefeature: http://vignette2.wikia.nocookie.net/animaljam/images/4/40/623px-Genius-meme.png
 mathjax: 

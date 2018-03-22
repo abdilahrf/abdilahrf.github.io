@@ -1,13 +1,13 @@
 ---
 id: 542
-title: 'SchoolCTF : Hidden File 200pts'
+title: 'SchoolCTF 2014 : Hidden File 200pts'
 date: 2015-05-03T23:47:39+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=542
 permalink: /2015/05/schoolctf-hidden-file-200pts/
-category: Forensic
-tags: [SchoolCTF]
+category: CTF
+tags: [Forensic]
 ---
 > SchoolCTF : Hidden File 200pts ( Forensic )
 > 

@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup Gemastik 2016 : Classic Crypto - 50"
+title: "Gemastik CTF 2016 : Classic Crypto - 50"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
 date: 2016-08-15
-category: Crypto
-tags: [gemastik]
+category: CTF
+tags: [gemastik,Crypto]
 imagefeature: /images/gemastik.png
 mathjax: 
 chart: 

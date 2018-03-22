@@ -6,12 +6,12 @@ date: 2017-06-02
 featured: false
 published: true
 comments: true
-title: SecurityFest2017 - A Temple Jest
-tags: rce
+title: 'SecurityFest CTF 2017 : A Temple Jest'
+tags: [rce,Web Exploitation]
 mathjax: false
 imagefeature: /images/express.jpg
 description: SecurityFest2017 - A Temple Jest
-category: Web Exploitation
+category: CTF
 chart: null
 ---
 

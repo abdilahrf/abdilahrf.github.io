@@ -1,13 +1,13 @@
 ---
 id: 565
-title: 'SchoolCTF : Strange spam 100pts'
+title: 'SchoolCTF 2014 : Strange spam 100pts'
 date: 2015-05-04T00:41:15+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=565
 permalink: /2015/05/schoolctf-strange-spam-100pts/
-category: Stegano
-tags: [SchoolCTF]
+category: CTF
+tags: [Stegano]
 ---
 > ### SchoolCTF : Strange spam 100pts
 > 

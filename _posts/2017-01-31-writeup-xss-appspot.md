@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup XSS Appspot"
+title: "XSS Appspot Writeup: Level 1 - 5"
 description: "Writeup XSS Appspot"
 headline: 
 modified: 2017-01-31
 date: 2017-01-31
 category: Web Exploitation
-tags: [xss,ctf,web]
+tags: [xss,Web Exploitation]
 imagefeature: /images/xss-appspot.PNG
 mathjax: 
 chart: 

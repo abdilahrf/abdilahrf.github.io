@@ -6,12 +6,12 @@ layout: post
 featured: false
 published: true
 comments: true
-title: 'Writeup FIT FUNFEST 2017 : EncryptedELF'
-tags: FIT CTF
+title: 'FIT FUNFEST 2017 : EncryptedELF'
+tags: [FITCTF,Reverse]
 mathjax: false
 imagefeature: /images/fit-funfest.png
 description: Writeup EncryptedELF FIT FUNFEST CTF
-category: Crypto
+category: CTF
 chart: null
 ---
 

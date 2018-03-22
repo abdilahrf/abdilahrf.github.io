@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup Compfest CTF 2016 : Maze - 90"
+title: "Compfest CTF 2016 : Maze - Web 90Pts"
 description: "Writeup Compfest CTF 2016 Qualification"
 headline: 
 modified: 2016-08-27
 date: 2016-08-27
-category: Web Exploitation
-tags: [compfest]
+category: CTF
+tags: [compfest,Web Exploitation]
 imagefeature: /images/compfest.png
 mathjax: 
 chart: 

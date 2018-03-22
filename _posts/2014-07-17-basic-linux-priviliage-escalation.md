@@ -4,10 +4,9 @@ title: Basic Linux Privilage Escalation
 date: 2014-07-17T13:42:42+00:00
 author: abdilahrf
 layout: post
-guid: http://www.hasnydes.us/?p=177
 permalink: /2014/07/basic-linux-privilage-escalation/
-category: Privilage Escalation
-tags: [Linux]
+category: Pentest
+tags: [Privilage Escalation]
 ---
 <img class="alignnone" src="http://linoxide.com/guide/linux-cheat-sheet.png" alt="" width="1218" height="2038" />
   

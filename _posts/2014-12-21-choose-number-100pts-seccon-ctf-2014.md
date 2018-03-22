@@ -1,13 +1,13 @@
 ---
 id: 446
-title: Choose the number 100Pts SECCON CTF 2014
+title: 'Seccon CTF 2014: Choose the number - Programming 100Pts'
 date: 2014-12-21T15:16:37+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=446
 permalink: /2014/12/choose-number-100pts-seccon-ctf-2014/
-category: Programming
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Programming]
 ---
 Choose the number SECCON CTF 2014 Programming 100pts
 

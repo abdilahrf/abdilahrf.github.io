@@ -1,13 +1,13 @@
 ---
 id: 576
-title: 'SchoolCTF : Stored Pass 100pts'
+title: 'SchoolCTF 2014 : Stored Pass 100pts'
 date: 2015-05-04T01:04:55+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=576
 permalink: /2015/05/schoolctf-stored-pass-100pts/
-category: Web Exploitation
-tags: [SchoolCTF]
+category: CTF
+tags: [Web Exploitation]
 ---
 > ### SchoolCTF : Stored pass
 > 

@@ -1,6 +1,6 @@
 ---
 id: 274
-title: EL Injection
+title: Exploitasi EL Injection
 date: 2014-10-26T13:02:16+00:00
 author: abdilahrf
 layout: post

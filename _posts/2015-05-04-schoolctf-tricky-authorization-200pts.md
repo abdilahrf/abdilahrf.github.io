@@ -1,13 +1,13 @@
 ---
 id: 558
-title: 'SchoolCTF : Tricky Authorization 200pts'
+title: 'SchoolCTF 2014 : Tricky Authorization 200pts'
 date: 2015-05-04T00:22:59+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=558
 permalink: /2015/05/schoolctf-tricky-authorization-200pts/
-category: Forensic
-tags: [SchoolCTF]
+category: CTF
+tags: [Forensic]
 ---
 > ### SchoolCTF : Tricky Authorization 200pts
 > 

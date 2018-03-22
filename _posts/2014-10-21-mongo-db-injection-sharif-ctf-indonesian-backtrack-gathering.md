@@ -1,13 +1,13 @@
 ---
 id: 262
-title: Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering
+title: 'Sharif CTF: Mongo Db Injection'
 date: 2014-10-21T07:46:21+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=262
 permalink: /2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/
-category: Web Exploitation
-tags: [SharifCTF]
+category: CTF
+tags: [CTF,Web Exploitation]
 ---
 ctf.sharif.edu kompetisi ctf internasional yang gk sengaja ane temuin di google dan menemukan challange mongodb injection + writeupnya yang sangat menarik dalam soal itu seperti ini instruksinya
 

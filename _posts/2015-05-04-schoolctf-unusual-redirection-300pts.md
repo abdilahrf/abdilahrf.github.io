@@ -1,13 +1,13 @@
 ---
 id: 579
-title: 'SchoolCTF : Unusual redirection 300pts'
+title: 'SchoolCTF 2014 : Unusual redirection 300pts'
 date: 2015-05-04T01:16:03+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=579
 permalink: /2015/05/schoolctf-unusual-redirection-300pts/
-category: Web Exploitation
-tags: [SchoolCTF]
+category: CTF
+tags: [Web]
 ---
 > ### Unusual redirection
 > 

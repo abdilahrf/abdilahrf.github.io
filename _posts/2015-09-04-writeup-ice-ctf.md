@@ -1,13 +1,13 @@
 ---
 id: 1813
-title: Writeup ICE CTF
+title: 'IceCTF 2015: Writeups'
 date: 2015-09-04T16:06:58+00:00
 author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1813
 permalink: /2015/09/writeup-ice-ctf/
-category: Misc
-tags: [IceCTF]
+category: CTF
+tags: [IceCTF,Misc]
 ---
 #### Warm Up &#8211; 10 
 

@@ -6,12 +6,12 @@ layout: post
 featured: false
 published: true
 comments: true
-title: Writeup BitcointCTF
-tags: sqlinjection
+title: 'BitcointCTF 2017: Writeups'
+tags: [sqlinjection,bitcoinctf]
 mathjax: false
 imagefeature: /images/sqlinjection.jpg
 description: Writeup BitcointCTF Challenge
-category: Web Exploitation
+category: CTF
 chart: null
 ---
 

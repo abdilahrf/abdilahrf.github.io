@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Writeup Gemastik 2016 : Power Plant - 125"
+title: "Gemastik CTF 2016 : Power Plant - 125"
 description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
 date: 2016-08-15
-category: Reverse
-tags: [gemastik]
+category: CTF
+tags: [gemastik,Reverse]
 imagefeature: /images/gemastik.png
 mathjax: 
 chart: 

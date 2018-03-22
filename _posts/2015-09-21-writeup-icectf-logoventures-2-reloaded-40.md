@@ -1,13 +1,13 @@
 ---
 id: 1870
-title: 'writeup IceCTF Logoventures 2: Reloaded &#8211; 40'
+title: 'IceCTF 2015: Logoventures 2 Reloaded - Forensic 40pts'
 date: 2015-09-21T22:32:29+00:00
 author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1870
 permalink: /2015/09/writeup-icectf-logoventures-2-reloaded-40/
-category: Forensic
-tags: [IceCTF]
+category: CTF
+tags: [Forensic,IceCTF]
 ---
 > IceCTF Logoventures 2: Reloaded &#8211; 40
 > 

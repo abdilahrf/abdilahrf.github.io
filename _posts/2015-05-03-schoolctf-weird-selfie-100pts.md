@@ -1,13 +1,13 @@
 ---
 id: 550
-title: 'SchoolCTF : Weird Selfie 100pts'
+title: 'SchoolCTF 2014 : Weird Selfie 100pts'
 date: 2015-05-03T23:57:10+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=550
 permalink: /2015/05/schoolctf-weird-selfie-100pts/
-category: Misc
-tags: [SchoolCTF]
+category: CTF
+tags: [Misc]
 ---
 > **SchoolCTF : Weird Selfie 100pts**
 > 

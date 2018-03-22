@@ -6,12 +6,12 @@ published: true
 comments: true
 modified: 2017-08-21
 date: 2017-08-21
-title: Writeup final beefest 2017
-tags: beefest
+title: 'BeeFest CTF 2017: Writeups'
+tags: CTF
 mathjax: false
 imagefeature: 
 description: Writeup final beefest 2017
-category: Writeup
+category: CTF
 chart: null
 ---
 

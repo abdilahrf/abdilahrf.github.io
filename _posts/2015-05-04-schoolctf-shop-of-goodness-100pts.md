@@ -1,13 +1,13 @@
 ---
 id: 572
-title: 'SchoolCTF : Shop of goodness 100pts'
+title: 'SchoolCTF 2014 : Shop of goodness 100pts'
 date: 2015-05-04T00:59:49+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=572
 permalink: /2015/05/schoolctf-shop-of-goodness-100pts/
-category: Web Exploitation
-tags: [SchoolCTF]
+category: CTF
+tags: [Web Exploitation]
 ---
 > ### SchoolCTF : Shop of goodness
 > 

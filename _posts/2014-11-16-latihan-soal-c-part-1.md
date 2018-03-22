@@ -9,7 +9,7 @@ permalink: /2014/11/latihan-soal-c-part-1/
 category: Programming
 tags: [C]
 ---
-latihan soal c part 1 untuk mengasah logika coding kita harus banyak latihan dengan soal-soal maka saya coba mengerjakan soal dari online judge untuk mengasah logika untuk coding  <img src="https://www.hasnydes.us/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> soalnya seperti berikut :
+latihan soal c part 1 untuk mengasah logika coding kita harus banyak latihan dengan soal-soal maka saya coba mengerjakan soal dari online judge untuk mengasah logika untuk coding soalnya seperti berikut :
 
 Indonesia memiliki cukup banyak pemain bulutangkis yang handal dan setiap tahunnya PBSI selalu merekrut dan membina puluhan ribu bibit muda dari seluruh nusantara. Saat ini terdapat N peserta putra dan M peserta putri yang sedang mengikuti pelatihan dasar bulutangkis yang diselenggarakan PBSI. Setiap peserta pelatihan sudah dinilai kemampuannya oleh pelatih dengan setiap nilai (rating) berada pada rentang 1 hingga 100.000. Untuk mengukur kemajuan pelatihan ini, sang pelatih ingin mengetahui ada berapa banyak cara membentuk sebuah tim yang terdiri dari 1 putra dan 1 putri (ganda campuran) sedemikian sehingga jumlah rating mereka setidaknya sebesar K.
 
@@ -98,59 +98,48 @@ Kasus #3: 0
 
 &nbsp;
 
-<pre data-src="adaw.cpp"><code class="language-cpp">
+```c
 
-#include&lt;stdio.h&gt;
-#include&lt;string.h&gt;
-#include&lt;windows.h&gt;
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
 int t,m,k1[1001],k2[1001],n,max[20],temp[5];
 
 int main(){
 	
-	do{
-	scanf("%d",&t);
-	fflush(stdin);
-	}while(t &gt; 20 || t &lt;= 0);
-	
-	for(int c=0;c&lt;t;c++)
-	{
-		do{
-		scanf("%d %d %d",&n,&m,&max[c]);
-		}while(n&lt;=1 || n&gt;= 40000 || m&lt;= 1 || m&gt;= 40000 || max[c]&lt;=1 || max[c]&gt;=100000);
-			for(int i=0;i&lt;n;i++)
-				{
-					scanf("%d",&k1[i]);	
-				}
-			for(int i=0;i&lt;m;i++)
-				{
-					scanf("%d",&k2[i]);
-				}
-		/*	
-			for(int j=0;j&lt;n;j++)	
-			{
-			printf("Laki Array[%d] : %d\n",j,k1[j]);
-			}
-			for(int j=0;j&lt;m;j++)
-			{
-			printf("Cewe Array[%d] : %d\n",j,k2[j]);
-			}
-		*/
+do{
+    scanf("%d",&t);
+    fflush(stdin);
+}while(t > 20 || t <= 0);
 
-			for(int j=0;j&lt;n;j++){
-				for(int n=0;n&lt;m;n++){
-				if(k1[j] + k2[n] &gt; max[c]){
-			//	printf("K1[%d] + K2[%d] &gt; 100 = %d\n",k1[j],k2[n],k1[j]+k2[n]);
-					temp[c] += 1;
-					}
-				}
-			}	
-	}
-	for(int c=0;c&lt;t;c++){
-		printf("Kasus #%d: %d\n",c+1,temp[c]);
-	}	
-	system("pause");
-	return 0;
+for(int c=0;c<t;c++)
+{
+    do{
+       scanf("%d %d %d",&n,&m,&max[c]);
+    }while(n<=1 || n>= 40000 || m<= 1 || m>= 40000 || max[c]<=1 || max[c]>=100000);
+    
+    for(int i=0;i<n;i++){
+        scanf("%d",&k1[i]);	
+    }
+    for(int i=0;i<m;i++){
+        scanf("%d",&k2[i]);
+    }
+
+    for(int j=0;j<n;j++){
+        for(int n=0;n<m;n++){
+        if(k1[j] + k2[n] > max[c]){
+            temp[c] += 1;
+            }
+        }
+    }	
 }
-</code></pre>
+
+for(int c=0;c<t;c++){
+    printf("Kasus #%d: %d\n",c+1,temp[c]);
+}	
+system("pause");
+return 0;
+}
+```
 
 &nbsp;

@@ -6,12 +6,12 @@ published: true
 modified: 2017-06-02
 date: 2017-06-02
 comments: true
-title: SecurityFest2017 - Freddy Vs JSON
-tags: schemainjection
+title: 'SecurityFest CTF 2017 : Freddy Vs JSON'
+tags: [Web Exploitation]
 mathjax: false
 imagefeature: /images/express.jpg
 description: SecurityFest2017 - Freddy Vs JSON Writeup
-category: Web Exploitation
+category: CTF
 chart: null
 ---
 

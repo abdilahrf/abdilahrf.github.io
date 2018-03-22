@@ -6,12 +6,12 @@ published: true
 comments: true
 modified: 2017-06-02
 date: 2017-06-02
-title: SecurityFest2017 - Underconstruction
-tags: jwt
+title: 'SecurityFest CTF 2017 : Underconstruction'
+tags: [Web Exploitation]
 mathjax: false
 imagefeature: 
 description: SecurityFest2017 - Underconstruction
-category: Web Exploitation
+category: CTF
 chart: null
 ---
 

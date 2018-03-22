@@ -1,13 +1,13 @@
 ---
 id: 568
-title: 'SchoolCTF : Tacticus abilitus 100pts'
+title: 'SchoolCTF 2014 : Tacticus abilitus 100pts'
 date: 2015-05-04T00:50:30+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=568
 permalink: /2015/05/schoolctf-tacticus-abilitus-100pts/
-category: Crypto
-tags: [SchoolCTF]
+category: CTF
+tags: [Crypto]
 ---
 > ### SchoolCTF : Tacticus abilitus 100pts
 > 

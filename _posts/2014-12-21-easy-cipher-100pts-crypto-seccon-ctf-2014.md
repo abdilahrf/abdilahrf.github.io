@@ -1,13 +1,13 @@
 ---
 id: 452
-title: Easy Cipher 100pts Crypto Seccon Ctf 2014
+title: 'Seccon CTF 2014: Easy Cipher - Crypto 100pts'
 date: 2014-12-21T15:35:19+00:00
 author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=452
 permalink: /2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/
-category: Crypto
-tags: [SecconCTF]
+category: CTF
+tags: [SecconCTF,Crypto]
 ---
 ## Easy Cipher
 
