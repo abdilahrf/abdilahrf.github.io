@@ -11,7 +11,7 @@ tags: [hackthebox]
 mathjax: false
 imagefeature: 
 description: Writeup Hackthebox - Enterprise
-category: Pentest
+category: Hackthebox
 chart: null
 ---
 
