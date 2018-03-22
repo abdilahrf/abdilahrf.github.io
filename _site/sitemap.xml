@@ -64,15 +64,47 @@
 
     
     <url>
+        <loc>http://localhost:4000/pentest/writeup-hackthebox-enterprise</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/pentest/writeup-hackthebox-valentine</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/writeup-csaw2017-littlequery</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/writeup-final-beefest-2017.1</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/securityfest2017-underconstruction</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/securityfest2017-freddy-vs-json</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/securityfest2017-a-temple-jest</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/writeup-bitcoinctf</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/web%20exploitation/writeup-sqlinjection-chall</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/crypto/writeup-fit-funfest-ctf.encryptedelf</loc>
+        <loc>http://localhost:4000/ctf/writeup-fit-funfest-ctf.encryptedelf</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-fit-funfest-ctf-proxy</loc>
+        <loc>http://localhost:4000/ctf/writeup-fit-funfest-ctf-proxy</loc>
     </url>
     
     <url>
@@ -80,7 +112,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/katsudon-ctf</loc>
+        <loc>http://localhost:4000/ctf/katsudon-ctf</loc>
     </url>
     
     <url>
@@ -92,11 +124,11 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/hitcon-secure-post</loc>
+        <loc>http://localhost:4000/ctf/hitcon-secure-post</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/hitcon-are-you-rich</loc>
+        <loc>http://localhost:4000/ctf/hitcon-are-you-rich</loc>
     </url>
     
     <url>
@@ -104,99 +136,99 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-pwnerrank-2016-web</loc>
+        <loc>http://localhost:4000/ctf/writeup-pwnerrank-2016-web</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-idescconf-2016-webwob</loc>
+        <loc>http://localhost:4000/ctf/writeup-idescconf-2016-webwob</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/reverse/writeup-idescconf-2016-signal</loc>
+        <loc>http://localhost:4000/ctf/writeup-idescconf-2016-signal</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/programming/writeup-idescconf-2016-sequence</loc>
+        <loc>http://localhost:4000/ctf/writeup-idescconf-2016-sequence</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/reverse/writeup-idescconf-2016-kopi</loc>
+        <loc>http://localhost:4000/ctf/writeup-idescconf-2016-kopi</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-idescconf-2016-headshoot</loc>
+        <loc>http://localhost:4000/ctf/writeup-idescconf-2016-headshoot</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/reverse/writeup-idescconf-2016-bit</loc>
+        <loc>http://localhost:4000/ctf/writeup-idescconf-2016-bit</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-compfest-2016-maze.1</loc>
+        <loc>http://localhost:4000/ctf/writeup-compfest-2016-maze.1</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-cyber-jawara-2016-web-info</loc>
+        <loc>http://localhost:4000/ctf/writeup-cyber-jawara-2016-web-info</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/crypto/writeup-gemastik-2016-rsa-factorization</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-rsa-factorization</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/pwnable/writeup-gemastik-2016-python-server</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-python-server</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/reverse/writeup-gemastik-2016-power-plant</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-power-plant</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/forensic/writeup-gemastik-2016-malware-scanning</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-malware-scanning</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/pwnable/writeup-gemastik-2016-lottery-machine</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-lottery-machine</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/reverse/writeup-gemastik-2016-java-authentication</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-java-authentication</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-gemastik-2016-intranet-maintenance</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-intranet-maintenance</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/forensic/writeup-gemastik-2016-insider-threat</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-insider-threat</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-gemastik-2016-incident-analysis</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-incident-analysis</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-gemastik-2016-evote-system</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-evote-system</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/crypto/writeup-gemastik-2016-encrypted-picture</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-encrypted-picture</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-gemastik-2016-egovernment-repository</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-egovernment-repository</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/crypto/writeup-gemastik-2016-classic-crypto</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-classic-crypto</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/misc/writeup-gemastik-2016-can-you-see-mee</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-can-you-see-mee</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-gemastik-2016-administrator-login</loc>
+        <loc>http://localhost:4000/ctf/writeup-gemastik-2016-administrator-login</loc>
     </url>
     
     <url>
@@ -225,10 +257,6 @@
     
     <url>
         <loc>http://localhost:4000/2015/09/writeup-ice-ctf/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2015/09/goes-to-school-smkn-2-jakarta/</loc>
     </url>
     
     <url>
@@ -284,22 +312,6 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/2015/04/cyber-defense-competition-2015/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2015/02/ibteam-blackvalentine-hack-the-dragon/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2015/01/grombyang-os/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2015/01/kappas-responsive-ghost-theme/</loc>
-    </url>
-    
-    <url>
         <loc>http://localhost:4000/2014/12/report-lomba-pentest-universitas-jember/</loc>
     </url>
     
@@ -336,7 +348,7 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/2014/12/best-python-cheatsheet/</loc>
+        <loc>http://localhost:4000/2014/12/python-cheatsheet/</loc>
     </url>
     
     <url>
@@ -349,10 +361,6 @@
     
     <url>
         <loc>http://localhost:4000/2014/12/welcome-to-seccon-ctf-100pts-writeups/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2014/12/index-writeups-seccon-ctf-2014-quals/</loc>
     </url>
     
     <url>
@@ -384,14 +392,6 @@
     </url>
     
     <url>
-        <loc>http://localhost:4000/2014/10/wayang-cms-alpha-1/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2014/10/shellshock-exploit-bash-code-injection-live-demo/</loc>
-    </url>
-    
-    <url>
         <loc>http://localhost:4000/2014/09/install-de-ice-virtual-hacking-lab/</loc>
     </url>
     
@@ -401,34 +401,6 @@
     
     <url>
         <loc>http://localhost:4000/2014/07/basic-linux-privilage-escalation/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2014/06/cara-menggunakan-highlight-js/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2014/06/ghost-developer-cheatsheet/</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/web%20exploitation/securityfest2017-underconstruction</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/web%20exploitation/securityfest2017-freddy-vs-json</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/web%20exploitation/securityfest2017-a-temple-jest</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/web%20exploitation/writeup-bitcoinctf</loc>
-    </url>
-    
-    <url>
-        <loc>http://localhost:4000/2014/05/hasil-akhir-cyber-defense-competition/</loc>
     </url>
     
 </urlset>

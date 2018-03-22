@@ -15,21 +15,21 @@
 -->
 <head>
 <meta charset="utf-8">
-<title>MONGO DB INJECTION | SHARIF CTF | INDONESIAN BACKTRACK GATHERING &vert; @ABDILAHRF</title>
+<title>SHARIF CTF: MONGO DB INJECTION &vert; @ABDILAHRF</title>
 <meta name="description" content="Coffe Make you like a hero">
-<meta name="keywords" content="SharifCTF">
+<meta name="keywords" content="CTF, Web Exploitation">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://localhost:4000/images/logo.png">
-<meta name="twitter:title" content="Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering">
+<meta name="twitter:title" content="Sharif CTF: Mongo Db Injection">
 <meta name="twitter:description" content="Coffe Make you like a hero">
 <meta name="twitter:creator" content="@abdilahrf">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering">
+<meta property="og:title" content="Sharif CTF: Mongo Db Injection">
 <meta property="og:description" content="Coffe Make you like a hero">
 <meta property="og:url" content="http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/">
 <meta property="og:site_name" content="@abdilahrf">
@@ -122,8 +122,8 @@
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h1>Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#SharifCTF" data-toggle="tooltip" title="Posts tagged with SharifCTF" rel="tag">SharifCTF</a> <strong><!-- <time datetime="2014-10-21T14:46:21+07:00">21 Oct 2014</time> --></strong></p>
+                            <h1>Sharif CTF: Mongo Db Injection</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#CTF" data-toggle="tooltip" title="Posts tagged with CTF" rel="tag">CTF</a>&nbsp;&comma;&nbsp;<a href="http://localhost:4000/tags/index.html#Web Exploitation" data-toggle="tooltip" title="Posts tagged with Web Exploitation" rel="tag">Web Exploitation</a> <strong><time datetime="2014-10-21T14:46:21+07:00">21 Oct 2014</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@ http://ctf.sharif.edu:25489
 
 <p>tampilan websitenya seperti ini  :</p>
 
-<p><a href="http://abdilahrf.me/images/2014/10/sharif14_beginning.png"><img class="aligncenter size-full wp-image-263" src="http://abdilahrf.me/images/2014/10/sharif14_beginning.png" alt="sharif14_beginning" width="580" height="321" /></a></p>
+<p><a href="http://abdilahrf.github.io/images/2014/10/sharif14_beginning.png"><img class="aligncenter size-full wp-image-263" src="http://abdilahrf.github.io/images/2014/10/sharif14_beginning.png" alt="sharif14_beginning" width="580" height="321" /></a></p>
 
 <p> </p>
 
@@ -175,7 +175,7 @@ MIME Type         : image/png</p>
 
 <!--more-->
 
-<p><a href="http://abdilahrf.me/images/2014/10/sharif14_google_svg.png"><img class="aligncenter size-full wp-image-264" src="http://abdilahrf.me/images/2014/10/sharif14_google_svg.png" alt="sharif14_google_svg" width="774" height="272" /></a></p>
+<p><a href="http://abdilahrf.github.io/images/2014/10/sharif14_google_svg.png"><img class="aligncenter size-full wp-image-264" src="http://abdilahrf.github.io/images/2014/10/sharif14_google_svg.png" alt="sharif14_google_svg" width="774" height="272" /></a></p>
 
 <p> </p>
 
@@ -243,7 +243,7 @@ MIME Type         : image/png</p>
 
 <p>setelah login akan muncul dashboard seperti ini</p>
 
-<p><a href="http://abdilahrf.me/images/2014/10/panel.png"><img class="aligncenter wp-image-265 size-large" src="http://abdilahrf.me/images/2014/10/panel-1024x467.png" alt="panel" width="1024" height="467" /></a></p>
+<p><a href="http://abdilahrf.github.io/images/2014/10/panel.png"><img class="aligncenter wp-image-265 size-large" src="http://abdilahrf.github.io/images/2014/10/panel-1024x467.png" alt="panel" width="1024" height="467" /></a></p>
 
 <p> </p>
 
@@ -252,48 +252,48 @@ MIME Type         : image/png</p>
 <p>coba kita lihat ke login.php</p>
 
 <blockquote>
-  <pre><code>&lt;?php
-/**
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="sd">/**
  * User: some one
  * Date: 8/25/14
  * Time: 11:03 AM
- */
-session_start();
-$m = new MongoClient();
-$db = $m-&gt;ctf5;
-$users_col = $db-&gt;users;
-$username = $_POST['username'];
-$password = $_POST['password'];
-$q = array(
-    'username' =&gt; $username,
-    'password' =&gt; $password
-);
+ */</span>
+<span class="nb">session_start</span><span class="p">();</span>
+<span class="nv">$m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MongoClient</span><span class="p">();</span>
+<span class="nv">$db</span> <span class="o">=</span> <span class="nv">$m</span><span class="o">-&gt;</span><span class="na">ctf5</span><span class="p">;</span>
+<span class="nv">$users_col</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">users</span><span class="p">;</span>
+<span class="nv">$username</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'username'</span><span class="p">];</span>
+<span class="nv">$password</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'password'</span><span class="p">];</span>
+<span class="nv">$q</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="nv">$username</span><span class="p">,</span>
+    <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="nv">$password</span>
+<span class="p">);</span>
 
-include 'Captcha.php';
-$v = Captcha::validate($_POST['captcha']);
-if ($v) {
-    $_SESSION['time'] = intval(time() / 60);
-    $_SESSION['count'] = 25;
-}else{
-    die('invalid captcha');
-}
+<span class="k">include</span> <span class="s1">'Captcha.php'</span><span class="p">;</span>
+<span class="nv">$v</span> <span class="o">=</span> <span class="nx">Captcha</span><span class="o">::</span><span class="na">validate</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'captcha'</span><span class="p">]);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">intval</span><span class="p">(</span><span class="nb">time</span><span class="p">()</span> <span class="o">/</span> <span class="mi">60</span><span class="p">);</span>
+    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'count'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="k">die</span><span class="p">(</span><span class="s1">'invalid captcha'</span><span class="p">);</span>
+<span class="p">}</span>
 
-$user = $users_col-&gt;findOne($q);
-if(is_null($user)){
-    #header("Location: login-failed.html");
-    die('invalid username or password');
-}else{
-    $_SESSION['id'] = $user['_id']-&gt;{'$id'};
-    header("Location: panel.php");
-    die();
-}
-</code></pre>
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$users_col</span><span class="o">-&gt;</span><span class="na">findOne</span><span class="p">(</span><span class="nv">$q</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">is_null</span><span class="p">(</span><span class="nv">$user</span><span class="p">)){</span>
+    <span class="c1">#header("Location: login-failed.html");</span>
+    <span class="k">die</span><span class="p">(</span><span class="s1">'invalid username or password'</span><span class="p">);</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$user</span><span class="p">[</span><span class="s1">'_id'</span><span class="p">]</span><span class="o">-&gt;</span><span class="p">{</span><span class="s1">'$id'</span><span class="p">};</span>
+    <span class="nb">header</span><span class="p">(</span><span class="s2">"Location: panel.php"</span><span class="p">);</span>
+    <span class="k">die</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
 </blockquote>
 
 <p>kalau di script login.php kita bisa liat array nya dipisah</p>
 
 <blockquote>
-  <p><code>$q = array(&lt;br /&gt;
+  <p><code class="highlighter-rouge">$q = array(&lt;br /&gt;
 'username' =&gt; $username,&lt;br /&gt;
 'password' =&gt; $password&lt;br /&gt;
 );&lt;br /&gt;
@@ -517,8 +517,8 @@ Kesimpulannya kita mencari : - $id dari admin user , - masukan $id untuk dapatka
             &lt;span class=”k”&gt;print&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”s”&gt;”“&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
             &lt;span class=”k”&gt;break&lt;/span&gt;</p>
 
-<pre><code>    &amp;lt;span class="n"&gt;time&amp;lt;/span&gt;&amp;lt;span class="o"&gt;.&amp;lt;/span&gt;&amp;lt;span class="n"&gt;sleep&amp;lt;/span&gt;&amp;lt;span class="p"&gt;(&amp;lt;/span&gt;&amp;lt;span class="mi"&gt;1&amp;lt;/span&gt;&amp;lt;span class="p"&gt;)&amp;lt;/span&gt;
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    &amp;lt;span class="n"&gt;time&amp;lt;/span&gt;&amp;lt;span class="o"&gt;.&amp;lt;/span&gt;&amp;lt;span class="n"&gt;sleep&amp;lt;/span&gt;&amp;lt;span class="p"&gt;(&amp;lt;/span&gt;&amp;lt;span class="mi"&gt;1&amp;lt;/span&gt;&amp;lt;span class="p"&gt;)&amp;lt;/span&gt;
+</code></pre></div></div>
 
 <p>&lt;span class=”c”&gt;# Getting the flag&lt;/span&gt;
 &lt;span class=”k”&gt;print&lt;/span&gt;&lt;span class=”p”&gt;(&lt;/span&gt;&lt;span class=”s”&gt;”[*] Go for the flag!”&lt;/span&gt;&lt;span class=”p”&gt;)&lt;/span&gt;
@@ -564,7 +564,7 @@ Kesimpulannya kita mencari : - $id dari admin user , - masukan $id untuk dapatka
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering&quot;%20http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/%20via%20&#64;abdilahrf"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Sharif CTF: Mongo Db Injection&quot;%20http://localhost:4000/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/%20via%20&#64;abdilahrf"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
@@ -607,7 +607,7 @@ Kesimpulannya kita mencari : - $id dari admin user , - masukan $id untuk dapatka
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

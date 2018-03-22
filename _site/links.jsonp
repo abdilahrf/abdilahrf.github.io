@@ -2,263 +2,143 @@ callback([
 
 
   {
-    "text": "writeup IceCTF Statistics &#8211; 50",
-    "href": "/2015/09/writeup-icectf-statistics-50/"
-  } ,
-
-  {
-    "text": "writeup IceCTF Logoventures 2: Reloaded &#8211; 40",
-    "href": "/2015/09/writeup-icectf-logoventures-2-reloaded-40/"
-  } ,
-
-  {
-    "text": "writeup IceCTF Bomb! &#8211; 40",
-    "href": "/2015/09/writeup-icectf-bomb-40/"
-  } ,
-
-  {
-    "text": "Writeups Crypto50 EkoParty Pre CTF",
-    "href": "/2015/09/writeups-crypto50-ekoparty-pre-ctf/"
-  } ,
-
-  {
-    "text": "Writeups Crypto25 EkoParty Pre ctf",
-    "href": "/2015/09/writeups-crypto25-ekoparty-pre-ctf/"
-  } ,
-
-  {
-    "text": "Writeup XSS Appspot",
+    "text": "XSS Appspot Writeup: Level 1 - 5",
     "href": "/web%20exploitation/writeup-xss-appspot"
   } ,
 
   {
-    "text": "Writeup SQLInjection Challenges",
-    "href": "/web%20exploitation/writeup-sqlinjection-chall"
+    "text": "Writeup Hackthebox - Valentine",
+    "href": "/pentest/writeup-hackthebox-valentine"
   } ,
 
   {
-    "text": "Writeup Pwnerrank CTF 2016 : Web Challenges",
-    "href": "/web%20exploitation/writeup-pwnerrank-2016-web"
+    "text": "Writeup Hackthebox - Enterprise",
+    "href": "/pentest/writeup-hackthebox-enterprise"
   } ,
 
   {
-    "text": "Writeup Idsecconf CTF 2016 : Webwob - 100",
-    "href": "/web%20exploitation/writeup-idescconf-2016-webwob"
+    "text": "Sharif CTF: Mongo Db Injection",
+    "href": "/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/"
   } ,
 
   {
-    "text": "Writeup Idsecconf CTF 2016 : Signal - 150",
-    "href": "/reverse/writeup-idescconf-2016-signal"
+    "text": "SecurityFest CTF 2017 : Underconstruction",
+    "href": "/ctf/securityfest2017-underconstruction"
   } ,
 
   {
-    "text": "Writeup Idsecconf CTF 2016 : Sequence - 100",
-    "href": "/programming/writeup-idescconf-2016-sequence"
+    "text": "SecurityFest CTF 2017 : Freddy Vs JSON",
+    "href": "/ctf/securityfest2017-freddy-vs-json"
   } ,
 
   {
-    "text": "Writeup Idsecconf CTF 2016 : Kopi - 50",
-    "href": "/reverse/writeup-idescconf-2016-kopi"
+    "text": "SecurityFest CTF 2017 : A Temple Jest",
+    "href": "/ctf/securityfest2017-a-temple-jest"
   } ,
 
   {
-    "text": "Writeup Idsecconf CTF 2016 : Headshoot - 200",
-    "href": "/web%20exploitation/writeup-idescconf-2016-headshoot"
-  } ,
-
-  {
-    "text": "Writeup Idsecconf CTF 2016 : Bit - 100",
-    "href": "/reverse/writeup-idescconf-2016-bit"
-  } ,
-
-  {
-    "text": "Writeup ICE CTF",
-    "href": "/2015/09/writeup-ice-ctf/"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : RSA Factorization - 100",
-    "href": "/crypto/writeup-gemastik-2016-rsa-factorization"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Python Server - 100",
-    "href": "/pwnable/writeup-gemastik-2016-python-server"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Power Plant - 125",
-    "href": "/reverse/writeup-gemastik-2016-power-plant"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Malware Scanning - 125",
-    "href": "/forensic/writeup-gemastik-2016-malware-scanning"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Lottery Machine - 125",
-    "href": "/pwnable/writeup-gemastik-2016-lottery-machine"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Java Authentication - 50",
-    "href": "/reverse/writeup-gemastik-2016-java-authentication"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Intranet Maintenance - 125",
-    "href": "/web%20exploitation/writeup-gemastik-2016-intranet-maintenance"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Insider Threat - 150",
-    "href": "/forensic/writeup-gemastik-2016-insider-threat"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Incident Analysis - 100",
-    "href": "/web%20exploitation/writeup-gemastik-2016-incident-analysis"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Evote System - 150",
-    "href": "/web%20exploitation/writeup-gemastik-2016-evote-system"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Encrypted Picture - 75",
-    "href": "/crypto/writeup-gemastik-2016-encrypted-picture"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : E-Government Repository - 75",
-    "href": "/web%20exploitation/writeup-gemastik-2016-egovernment-repository"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Classic Crypto - 50",
-    "href": "/crypto/writeup-gemastik-2016-classic-crypto"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Can You See Mee - 50",
-    "href": "/misc/writeup-gemastik-2016-can-you-see-mee"
-  } ,
-
-  {
-    "text": "Writeup Gemastik 2016 : Administrator Login - 50",
-    "href": "/web%20exploitation/writeup-gemastik-2016-administrator-login"
-  } ,
-
-  {
-    "text": "Writeup FIT FUNFEST 2017 : Proxy",
-    "href": "/web%20exploitation/writeup-fit-funfest-ctf-proxy"
-  } ,
-
-  {
-    "text": "Writeup FIT FUNFEST 2017 : EncryptedELF",
-    "href": "/crypto/writeup-fit-funfest-ctf.encryptedelf"
-  } ,
-
-  {
-    "text": "Writeup Cyber Jawara 2016 : Web Info - 50",
-    "href": "/web%20exploitation/writeup-cyber-jawara-2016-web-info"
-  } ,
-
-  {
-    "text": "Writeup Compfest CTF 2016 : Maze - 90",
-    "href": "/web%20exploitation/writeup-compfest-2016-maze.1"
-  } ,
-
-  {
-    "text": "Writeup BitcointCTF",
-    "href": "/web%20exploitation/writeup-bitcoinctf"
-  } ,
-
-  {
-    "text": "Writeup AkiCTF",
-    "href": "/web%20exploitation/katsudon-ctf"
-  } ,
-
-  {
-    "text": "Welcome to SECCON CTF Writeups",
+    "text": "Seccon CTF 2014: Welcome to SECCON CTF",
     "href": "/2014/12/welcome-to-seccon-ctf-100pts-writeups/"
   } ,
 
   {
-    "text": "Wayang CMS &#8211; Alpha-1",
-    "href": "/2014/10/wayang-cms-alpha-1/"
+    "text": "Seccon CTF 2014: The Flag Awakens - QR 300pts",
+    "href": "/2014/12/seccon-wars-flag-awakens-qr-300pts/"
   } ,
 
   {
-    "text": "Shellshock Exploit Bash Code Injection Live Demo",
-    "href": "/2014/10/shellshock-exploit-bash-code-injection-live-demo/"
+    "text": "Seccon CTF 2014: Reverseit - Binary 100pts",
+    "href": "/2014/12/reverseit-binary-seccon-ctf-100pts/"
   } ,
 
   {
-    "text": "SecurityFest2017 - Underconstruction",
-    "href": "/web%20exploitation/securityfest2017-underconstruction"
+    "text": "Seccon CTF 2014: REA-JUU WATCH  Web 200pts",
+    "href": "/2014/12/rea-juu-watch-seccon-ctf-web-200pts/"
   } ,
 
   {
-    "text": "SecurityFest2017 - Freddy Vs JSON",
-    "href": "/web%20exploitation/securityfest2017-freddy-vs-json"
+    "text": "Seccon CTF 2014: Jspuzzle - Web 200pts",
+    "href": "/2014/12/jspuzzle-web-200pts-writeups-seccon-ctf/"
   } ,
 
   {
-    "text": "SecurityFest2017 - A Temple Jest",
-    "href": "/web%20exploitation/securityfest2017-a-temple-jest"
+    "text": "Seccon CTF 2014: Get curious &#8220;FTP&#8221; server - Network 300pts",
+    "href": "/2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/"
   } ,
 
   {
-    "text": "SchoolCTF : Weird Selfie 100pts",
+    "text": "Seccon CTF 2014: Get The Key.txt - Forensic 100Pts",
+    "href": "/2014/12/get-key-txt-seccon-ctf-writeups-100pts/"
+  } ,
+
+  {
+    "text": "Seccon CTF 2014: Get The Key - Forensic 100pts",
+    "href": "/2014/12/get-the-key-seccon-ctf-2014-100pts/"
+  } ,
+
+  {
+    "text": "Seccon CTF 2014: Easy Cipher - Crypto 100pts",
+    "href": "/2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/"
+  } ,
+
+  {
+    "text": "Seccon CTF 2014: Choose the number - Programming 100Pts",
+    "href": "/2014/12/choose-number-100pts-seccon-ctf-2014/"
+  } ,
+
+  {
+    "text": "Seccon CTF 2014: Bleeding “Heartbleed” - Web 300 pts",
+    "href": "/2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/"
+  } ,
+
+  {
+    "text": "SchoolCTF 2014 : Weird Selfie 100pts",
     "href": "/2015/05/schoolctf-weird-selfie-100pts/"
   } ,
 
   {
-    "text": "SchoolCTF : Unusual redirection 300pts",
+    "text": "SchoolCTF 2014 : Unusual redirection 300pts",
     "href": "/2015/05/schoolctf-unusual-redirection-300pts/"
   } ,
 
   {
-    "text": "SchoolCTF : Tricky Authorization 200pts",
+    "text": "SchoolCTF 2014 : Tricky Authorization 200pts",
     "href": "/2015/05/schoolctf-tricky-authorization-200pts/"
   } ,
 
   {
-    "text": "SchoolCTF : Tacticus abilitus 100pts",
+    "text": "SchoolCTF 2014 : Tacticus abilitus 100pts",
     "href": "/2015/05/schoolctf-tacticus-abilitus-100pts/"
   } ,
 
   {
-    "text": "SchoolCTF : Strange spam 100pts",
+    "text": "SchoolCTF 2014 : Strange spam 100pts",
     "href": "/2015/05/schoolctf-strange-spam-100pts/"
   } ,
 
   {
-    "text": "SchoolCTF : Stored Pass 100pts",
+    "text": "SchoolCTF 2014 : Stored Pass 100pts",
     "href": "/2015/05/schoolctf-stored-pass-100pts/"
   } ,
 
   {
-    "text": "SchoolCTF : Shop of goodness 100pts",
+    "text": "SchoolCTF 2014 : Shop of goodness 100pts",
     "href": "/2015/05/schoolctf-shop-of-goodness-100pts/"
   } ,
 
   {
-    "text": "SchoolCTF : School Incident 150pts",
+    "text": "SchoolCTF 2014 : School Incident 150pts",
     "href": "/2015/05/schoolctf-school-incident-150pts/"
   } ,
 
   {
-    "text": "SchoolCTF : Hidden File 200pts",
+    "text": "SchoolCTF 2014 : Hidden File 200pts",
     "href": "/2015/05/schoolctf-hidden-file-200pts/"
   } ,
 
   {
-    "text": "SECCON Wars: The Flag Awakens QR 300pts",
-    "href": "/2014/12/seccon-wars-flag-awakens-qr-300pts/"
+    "text": "SQLInjection Challenges Writeup: Level 1 - 8",
+    "href": "/web%20exploitation/writeup-sqlinjection-chall"
   } ,
 
   {
@@ -277,11 +157,6 @@ callback([
   } ,
 
   {
-    "text": "Reverseit Binary Seccon CTF 100pts",
-    "href": "/2014/12/reverseit-binary-seccon-ctf-100pts/"
-  } ,
-
-  {
     "text": "Report Lomba Pentest Universitas Jember",
     "href": "/2014/12/report-lomba-pentest-universitas-jember/"
   } ,
@@ -292,8 +167,18 @@ callback([
   } ,
 
   {
-    "text": "REA-JUU WATCH Seccon CTF Web 200pts",
-    "href": "/2014/12/rea-juu-watch-seccon-ctf-web-200pts/"
+    "text": "Python Cheatsheet",
+    "href": "/2014/12/python-cheatsheet/"
+  } ,
+
+  {
+    "text": "Pwnerrank CTF 2016 : Web Challenges",
+    "href": "/ctf/writeup-pwnerrank-2016-web"
+  } ,
+
+  {
+    "text": "Penjelasan PHP Object Injection Via Unserialize",
+    "href": "/web%20exploitation/php-object-injection"
   } ,
 
   {
@@ -302,18 +187,13 @@ callback([
   } ,
 
   {
-    "text": "PHP Object Injection Via Unserialize",
-    "href": "/web%20exploitation/php-object-injection"
-  } ,
-
-  {
     "text": "Multiple Vulnerability xEpan 1.0.4",
     "href": "/2014/11/multiple-vulnerability-xepan-1-0-4/"
   } ,
 
   {
-    "text": "Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering",
-    "href": "/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/"
+    "text": "Latihan Soal C Part 3",
+    "href": "/2014/12/belajar-bahasa-c-part-3/"
   } ,
 
   {
@@ -327,16 +207,6 @@ callback([
   } ,
 
   {
-    "text": "Kappas &#8211; Responsive Ghost Theme",
-    "href": "/2015/01/kappas-responsive-ghost-theme/"
-  } ,
-
-  {
-    "text": "Jspuzzle Web 200pts Seccon CTF",
-    "href": "/2014/12/jspuzzle-web-200pts-writeups-seccon-ctf/"
-  } ,
-
-  {
     "text": "Jollybeoj: 18-Duel Maut",
     "href": "/programming/duel-maut"
   } ,
@@ -347,98 +217,188 @@ callback([
   } ,
 
   {
-    "text": "Index Writeups Seccon CTF 2014 Quals",
-    "href": "/2014/12/index-writeups-seccon-ctf-2014-quals/"
+    "text": "Idsecconf CTF 2016 : Webwob - 100",
+    "href": "/ctf/writeup-idescconf-2016-webwob"
   } ,
 
   {
-    "text": "ITRACE 2016 Level 3: Writeups",
+    "text": "Idsecconf CTF 2016 : Signal - 150",
+    "href": "/ctf/writeup-idescconf-2016-signal"
+  } ,
+
+  {
+    "text": "Idsecconf CTF 2016 : Sequence - 100",
+    "href": "/ctf/writeup-idescconf-2016-sequence"
+  } ,
+
+  {
+    "text": "Idsecconf CTF 2016 : Kopi - 50",
+    "href": "/ctf/writeup-idescconf-2016-kopi"
+  } ,
+
+  {
+    "text": "Idsecconf CTF 2016 : Headshoot - 200",
+    "href": "/ctf/writeup-idescconf-2016-headshoot"
+  } ,
+
+  {
+    "text": "Idsecconf CTF 2016 : Bit - Reverse 100pts",
+    "href": "/ctf/writeup-idescconf-2016-bit"
+  } ,
+
+  {
+    "text": "IceCTF 2015: Writeups",
+    "href": "/2015/09/writeup-ice-ctf/"
+  } ,
+
+  {
+    "text": "IceCTF 2015: Statistics - Programming 50",
+    "href": "/2015/09/writeup-icectf-statistics-50/"
+  } ,
+
+  {
+    "text": "IceCTF 2015: Logoventures 2 Reloaded - Forensic 40pts",
+    "href": "/2015/09/writeup-icectf-logoventures-2-reloaded-40/"
+  } ,
+
+  {
+    "text": "IceCTF 2015: Bomb - Web 40pts",
+    "href": "/2015/09/writeup-icectf-bomb-40/"
+  } ,
+
+  {
+    "text": "ITRACE 2016 : Writeups",
     "href": "/ctf/itrace-2016-level3-writeup"
   } ,
 
   {
-    "text": "IBTeam Blackvalentine : Hack The Dragon",
-    "href": "/2015/02/ibteam-blackvalentine-hack-the-dragon/"
-  } ,
-
-  {
     "text": "Hitcon 2016 : Secure Post",
-    "href": "/web%20exploitation/hitcon-secure-post"
+    "href": "/ctf/hitcon-secure-post"
   } ,
 
   {
     "text": "Hitcon 2016 : Are you rich",
-    "href": "/web%20exploitation/hitcon-are-you-rich"
+    "href": "/ctf/hitcon-are-you-rich"
   } ,
 
   {
-    "text": "Hasil Akhir Cyber Defense Competition",
-    "href": "/2014/05/hasil-akhir-cyber-defense-competition/"
+    "text": "Gemastik CTF 2016 : RSA Factorization - 100",
+    "href": "/ctf/writeup-gemastik-2016-rsa-factorization"
   } ,
 
   {
-    "text": "Grombyang OS",
-    "href": "/2015/01/grombyang-os/"
+    "text": "Gemastik CTF 2016 : Python Server - 100",
+    "href": "/ctf/writeup-gemastik-2016-python-server"
   } ,
 
   {
-    "text": "Ghost Developer CheatSheet",
-    "href": "/2014/06/ghost-developer-cheatsheet/"
+    "text": "Gemastik CTF 2016 : Power Plant - 125",
+    "href": "/ctf/writeup-gemastik-2016-power-plant"
   } ,
 
   {
-    "text": "Get curious &#8220;FTP&#8221; server Network 300pts Seccon Writeups",
-    "href": "/2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/"
+    "text": "Gemastik CTF 2016 : Malware Scanning - 125",
+    "href": "/ctf/writeup-gemastik-2016-malware-scanning"
   } ,
 
   {
-    "text": "Get The Key.txt Seccon CTF Writeups 100Pts",
-    "href": "/2014/12/get-key-txt-seccon-ctf-writeups-100pts/"
+    "text": "Gemastik CTF 2016 : Lottery Machine - 125",
+    "href": "/ctf/writeup-gemastik-2016-lottery-machine"
   } ,
 
   {
-    "text": "Get The Key Seccon CTF 2014 100pts",
-    "href": "/2014/12/get-the-key-seccon-ctf-2014-100pts/"
+    "text": "Gemastik CTF 2016 : Java Authentication - 50",
+    "href": "/ctf/writeup-gemastik-2016-java-authentication"
   } ,
 
   {
-    "text": "GOES TO SCHOOL SMKN 2 JAKARTA",
-    "href": "/2015/09/goes-to-school-smkn-2-jakarta/"
+    "text": "Gemastik CTF 2016 : Intranet Maintenance - 125",
+    "href": "/ctf/writeup-gemastik-2016-intranet-maintenance"
   } ,
 
   {
-    "text": "Easy Cipher 100pts Crypto Seccon Ctf 2014",
-    "href": "/2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/"
+    "text": "Gemastik CTF 2016 : Insider Threat - 150",
+    "href": "/ctf/writeup-gemastik-2016-insider-threat"
   } ,
 
   {
-    "text": "EL Injection",
+    "text": "Gemastik CTF 2016 : Incident Analysis - 100",
+    "href": "/ctf/writeup-gemastik-2016-incident-analysis"
+  } ,
+
+  {
+    "text": "Gemastik CTF 2016 : Evote System - 150",
+    "href": "/ctf/writeup-gemastik-2016-evote-system"
+  } ,
+
+  {
+    "text": "Gemastik CTF 2016 : Encrypted Picture - 75",
+    "href": "/ctf/writeup-gemastik-2016-encrypted-picture"
+  } ,
+
+  {
+    "text": "Gemastik CTF 2016 : E-Government Repository - 75",
+    "href": "/ctf/writeup-gemastik-2016-egovernment-repository"
+  } ,
+
+  {
+    "text": "Gemastik CTF 2016 : Classic Crypto - 50",
+    "href": "/ctf/writeup-gemastik-2016-classic-crypto"
+  } ,
+
+  {
+    "text": "Gemastik CTF 2016 : Can You See Mee - 50",
+    "href": "/ctf/writeup-gemastik-2016-can-you-see-mee"
+  } ,
+
+  {
+    "text": "Gemastik CTF 2016 : Administrator Login - 50",
+    "href": "/ctf/writeup-gemastik-2016-administrator-login"
+  } ,
+
+  {
+    "text": "FIT FUNFEST 2017 : Proxy",
+    "href": "/ctf/writeup-fit-funfest-ctf-proxy"
+  } ,
+
+  {
+    "text": "FIT FUNFEST 2017 : EncryptedELF",
+    "href": "/ctf/writeup-fit-funfest-ctf.encryptedelf"
+  } ,
+
+  {
+    "text": "Exploitasi EL Injection",
     "href": "/2014/10/el-injection/"
   } ,
 
   {
-    "text": "Cyber Defense Competition 2015",
-    "href": "/2015/04/cyber-defense-competition-2015/"
+    "text": "EkoParty Pre-CTF 2015: Crypto50",
+    "href": "/2015/09/writeups-crypto50-ekoparty-pre-ctf/"
   } ,
 
   {
-    "text": "Choose the number 100Pts SECCON CTF 2014",
-    "href": "/2014/12/choose-number-100pts-seccon-ctf-2014/"
+    "text": "EkoParty Pre-CTF 2015: Crypto 25",
+    "href": "/2015/09/writeups-crypto25-ekoparty-pre-ctf/"
   } ,
 
   {
-    "text": "Cara Menggunakan Highlight.js",
-    "href": "/2014/06/cara-menggunakan-highlight-js/"
+    "text": "Cyber Jawara 2016 : Web Info - 50Pts",
+    "href": "/ctf/writeup-cyber-jawara-2016-web-info"
   } ,
 
   {
-    "text": "Bleeding “Heartbleed” Web 300 pts Seccon CTF",
-    "href": "/2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/"
+    "text": "Compfest CTF 2016 : Maze - Web 90Pts",
+    "href": "/ctf/writeup-compfest-2016-maze.1"
   } ,
 
   {
-    "text": "Best Python Cheatsheet",
-    "href": "/2014/12/best-python-cheatsheet/"
+    "text": "CSAW CTF 2017: LittleQuery - 200",
+    "href": "/ctf/writeup-csaw2017-littlequery"
+  } ,
+
+  {
+    "text": "BitcointCTF 2017: Writeups",
+    "href": "/ctf/writeup-bitcoinctf"
   } ,
 
   {
@@ -452,13 +412,18 @@ callback([
   } ,
 
   {
+    "text": "BeeFest CTF 2017: Writeups",
+    "href": "/ctf/writeup-final-beefest-2017.1"
+  } ,
+
+  {
     "text": "Basic Linux Privilage Escalation",
     "href": "/2014/07/basic-linux-privilage-escalation/"
   } ,
 
   {
-    "text": "BELAJAR BAHASA C PART 3",
-    "href": "/2014/12/belajar-bahasa-c-part-3/"
+    "text": "AkiCTF Writeups",
+    "href": "/ctf/katsudon-ctf"
   } 
 
 
@@ -466,365 +431,197 @@ callback([
 
   
   {
-    "text": "writeup IceCTF Statistics &#8211; 50",
-    "href": "/2015/09/writeup-icectf-statistics-50/"
-  } ,
-  
-
-  
-  {
-    "text": "writeup IceCTF Logoventures 2: Reloaded &#8211; 40",
-    "href": "/2015/09/writeup-icectf-logoventures-2-reloaded-40/"
-  } ,
-  
-
-  
-  {
-    "text": "writeup IceCTF Bomb! &#8211; 40",
-    "href": "/2015/09/writeup-icectf-bomb-40/"
-  } ,
-  
-
-  
-  {
-    "text": "Writeups Crypto50 EkoParty Pre CTF",
-    "href": "/2015/09/writeups-crypto50-ekoparty-pre-ctf/"
-  } ,
-  
-
-  
-  {
-    "text": "Writeups Crypto25 EkoParty Pre ctf",
-    "href": "/2015/09/writeups-crypto25-ekoparty-pre-ctf/"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup XSS Appspot",
+    "text": "XSS Appspot Writeup: Level 1 - 5",
     "href": "/web%20exploitation/writeup-xss-appspot"
   } ,
   
 
   
   {
-    "text": "Writeup SQLInjection Challenges",
-    "href": "/web%20exploitation/writeup-sqlinjection-chall"
+    "text": "Writeup Hackthebox - Valentine",
+    "href": "/pentest/writeup-hackthebox-valentine"
   } ,
   
 
   
   {
-    "text": "Writeup Pwnerrank CTF 2016 : Web Challenges",
-    "href": "/web%20exploitation/writeup-pwnerrank-2016-web"
+    "text": "Writeup Hackthebox - Enterprise",
+    "href": "/pentest/writeup-hackthebox-enterprise"
   } ,
   
 
   
   {
-    "text": "Writeup Idsecconf CTF 2016 : Webwob - 100",
-    "href": "/web%20exploitation/writeup-idescconf-2016-webwob"
+    "text": "Sharif CTF: Mongo Db Injection",
+    "href": "/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/"
   } ,
   
 
   
   {
-    "text": "Writeup Idsecconf CTF 2016 : Signal - 150",
-    "href": "/reverse/writeup-idescconf-2016-signal"
+    "text": "SecurityFest CTF 2017 : Underconstruction",
+    "href": "/ctf/securityfest2017-underconstruction"
   } ,
   
 
   
   {
-    "text": "Writeup Idsecconf CTF 2016 : Sequence - 100",
-    "href": "/programming/writeup-idescconf-2016-sequence"
+    "text": "SecurityFest CTF 2017 : Freddy Vs JSON",
+    "href": "/ctf/securityfest2017-freddy-vs-json"
   } ,
   
 
   
   {
-    "text": "Writeup Idsecconf CTF 2016 : Kopi - 50",
-    "href": "/reverse/writeup-idescconf-2016-kopi"
+    "text": "SecurityFest CTF 2017 : A Temple Jest",
+    "href": "/ctf/securityfest2017-a-temple-jest"
   } ,
   
 
   
   {
-    "text": "Writeup Idsecconf CTF 2016 : Headshoot - 200",
-    "href": "/web%20exploitation/writeup-idescconf-2016-headshoot"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Idsecconf CTF 2016 : Bit - 100",
-    "href": "/reverse/writeup-idescconf-2016-bit"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup ICE CTF",
-    "href": "/2015/09/writeup-ice-ctf/"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : RSA Factorization - 100",
-    "href": "/crypto/writeup-gemastik-2016-rsa-factorization"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Python Server - 100",
-    "href": "/pwnable/writeup-gemastik-2016-python-server"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Power Plant - 125",
-    "href": "/reverse/writeup-gemastik-2016-power-plant"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Malware Scanning - 125",
-    "href": "/forensic/writeup-gemastik-2016-malware-scanning"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Lottery Machine - 125",
-    "href": "/pwnable/writeup-gemastik-2016-lottery-machine"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Java Authentication - 50",
-    "href": "/reverse/writeup-gemastik-2016-java-authentication"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Intranet Maintenance - 125",
-    "href": "/web%20exploitation/writeup-gemastik-2016-intranet-maintenance"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Insider Threat - 150",
-    "href": "/forensic/writeup-gemastik-2016-insider-threat"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Incident Analysis - 100",
-    "href": "/web%20exploitation/writeup-gemastik-2016-incident-analysis"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Evote System - 150",
-    "href": "/web%20exploitation/writeup-gemastik-2016-evote-system"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Encrypted Picture - 75",
-    "href": "/crypto/writeup-gemastik-2016-encrypted-picture"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : E-Government Repository - 75",
-    "href": "/web%20exploitation/writeup-gemastik-2016-egovernment-repository"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Classic Crypto - 50",
-    "href": "/crypto/writeup-gemastik-2016-classic-crypto"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Can You See Mee - 50",
-    "href": "/misc/writeup-gemastik-2016-can-you-see-mee"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Gemastik 2016 : Administrator Login - 50",
-    "href": "/web%20exploitation/writeup-gemastik-2016-administrator-login"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup FIT FUNFEST 2017 : Proxy",
-    "href": "/web%20exploitation/writeup-fit-funfest-ctf-proxy"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup FIT FUNFEST 2017 : EncryptedELF",
-    "href": "/crypto/writeup-fit-funfest-ctf.encryptedelf"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Cyber Jawara 2016 : Web Info - 50",
-    "href": "/web%20exploitation/writeup-cyber-jawara-2016-web-info"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup Compfest CTF 2016 : Maze - 90",
-    "href": "/web%20exploitation/writeup-compfest-2016-maze.1"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup BitcointCTF",
-    "href": "/web%20exploitation/writeup-bitcoinctf"
-  } ,
-  
-
-  
-  {
-    "text": "Writeup AkiCTF",
-    "href": "/web%20exploitation/katsudon-ctf"
-  } ,
-  
-
-  
-  {
-    "text": "Welcome to SECCON CTF Writeups",
+    "text": "Seccon CTF 2014: Welcome to SECCON CTF",
     "href": "/2014/12/welcome-to-seccon-ctf-100pts-writeups/"
   } ,
   
 
   
   {
-    "text": "Wayang CMS &#8211; Alpha-1",
-    "href": "/2014/10/wayang-cms-alpha-1/"
+    "text": "Seccon CTF 2014: The Flag Awakens - QR 300pts",
+    "href": "/2014/12/seccon-wars-flag-awakens-qr-300pts/"
   } ,
   
 
   
   {
-    "text": "Shellshock Exploit Bash Code Injection Live Demo",
-    "href": "/2014/10/shellshock-exploit-bash-code-injection-live-demo/"
+    "text": "Seccon CTF 2014: Reverseit - Binary 100pts",
+    "href": "/2014/12/reverseit-binary-seccon-ctf-100pts/"
   } ,
   
 
   
   {
-    "text": "SecurityFest2017 - Underconstruction",
-    "href": "/web%20exploitation/securityfest2017-underconstruction"
+    "text": "Seccon CTF 2014: REA-JUU WATCH  Web 200pts",
+    "href": "/2014/12/rea-juu-watch-seccon-ctf-web-200pts/"
   } ,
   
 
   
   {
-    "text": "SecurityFest2017 - Freddy Vs JSON",
-    "href": "/web%20exploitation/securityfest2017-freddy-vs-json"
+    "text": "Seccon CTF 2014: Jspuzzle - Web 200pts",
+    "href": "/2014/12/jspuzzle-web-200pts-writeups-seccon-ctf/"
   } ,
   
 
   
   {
-    "text": "SecurityFest2017 - A Temple Jest",
-    "href": "/web%20exploitation/securityfest2017-a-temple-jest"
+    "text": "Seccon CTF 2014: Get curious &#8220;FTP&#8221; server - Network 300pts",
+    "href": "/2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Weird Selfie 100pts",
+    "text": "Seccon CTF 2014: Get The Key.txt - Forensic 100Pts",
+    "href": "/2014/12/get-key-txt-seccon-ctf-writeups-100pts/"
+  } ,
+  
+
+  
+  {
+    "text": "Seccon CTF 2014: Get The Key - Forensic 100pts",
+    "href": "/2014/12/get-the-key-seccon-ctf-2014-100pts/"
+  } ,
+  
+
+  
+  {
+    "text": "Seccon CTF 2014: Easy Cipher - Crypto 100pts",
+    "href": "/2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/"
+  } ,
+  
+
+  
+  {
+    "text": "Seccon CTF 2014: Choose the number - Programming 100Pts",
+    "href": "/2014/12/choose-number-100pts-seccon-ctf-2014/"
+  } ,
+  
+
+  
+  {
+    "text": "Seccon CTF 2014: Bleeding “Heartbleed” - Web 300 pts",
+    "href": "/2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/"
+  } ,
+  
+
+  
+  {
+    "text": "SchoolCTF 2014 : Weird Selfie 100pts",
     "href": "/2015/05/schoolctf-weird-selfie-100pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Unusual redirection 300pts",
+    "text": "SchoolCTF 2014 : Unusual redirection 300pts",
     "href": "/2015/05/schoolctf-unusual-redirection-300pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Tricky Authorization 200pts",
+    "text": "SchoolCTF 2014 : Tricky Authorization 200pts",
     "href": "/2015/05/schoolctf-tricky-authorization-200pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Tacticus abilitus 100pts",
+    "text": "SchoolCTF 2014 : Tacticus abilitus 100pts",
     "href": "/2015/05/schoolctf-tacticus-abilitus-100pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Strange spam 100pts",
+    "text": "SchoolCTF 2014 : Strange spam 100pts",
     "href": "/2015/05/schoolctf-strange-spam-100pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Stored Pass 100pts",
+    "text": "SchoolCTF 2014 : Stored Pass 100pts",
     "href": "/2015/05/schoolctf-stored-pass-100pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Shop of goodness 100pts",
+    "text": "SchoolCTF 2014 : Shop of goodness 100pts",
     "href": "/2015/05/schoolctf-shop-of-goodness-100pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : School Incident 150pts",
+    "text": "SchoolCTF 2014 : School Incident 150pts",
     "href": "/2015/05/schoolctf-school-incident-150pts/"
   } ,
   
 
   
   {
-    "text": "SchoolCTF : Hidden File 200pts",
+    "text": "SchoolCTF 2014 : Hidden File 200pts",
     "href": "/2015/05/schoolctf-hidden-file-200pts/"
   } ,
   
 
   
   {
-    "text": "SECCON Wars: The Flag Awakens QR 300pts",
-    "href": "/2014/12/seccon-wars-flag-awakens-qr-300pts/"
+    "text": "SQLInjection Challenges Writeup: Level 1 - 8",
+    "href": "/web%20exploitation/writeup-sqlinjection-chall"
   } ,
   
 
@@ -851,13 +648,6 @@ callback([
 
   
   {
-    "text": "Reverseit Binary Seccon CTF 100pts",
-    "href": "/2014/12/reverseit-binary-seccon-ctf-100pts/"
-  } ,
-  
-
-  
-  {
     "text": "Report Lomba Pentest Universitas Jember",
     "href": "/2014/12/report-lomba-pentest-universitas-jember/"
   } ,
@@ -872,8 +662,22 @@ callback([
 
   
   {
-    "text": "REA-JUU WATCH Seccon CTF Web 200pts",
-    "href": "/2014/12/rea-juu-watch-seccon-ctf-web-200pts/"
+    "text": "Python Cheatsheet",
+    "href": "/2014/12/python-cheatsheet/"
+  } ,
+  
+
+  
+  {
+    "text": "Pwnerrank CTF 2016 : Web Challenges",
+    "href": "/ctf/writeup-pwnerrank-2016-web"
+  } ,
+  
+
+  
+  {
+    "text": "Penjelasan PHP Object Injection Via Unserialize",
+    "href": "/web%20exploitation/php-object-injection"
   } ,
   
 
@@ -886,13 +690,6 @@ callback([
 
   
   {
-    "text": "PHP Object Injection Via Unserialize",
-    "href": "/web%20exploitation/php-object-injection"
-  } ,
-  
-
-  
-  {
     "text": "Multiple Vulnerability xEpan 1.0.4",
     "href": "/2014/11/multiple-vulnerability-xepan-1-0-4/"
   } ,
@@ -900,8 +697,8 @@ callback([
 
   
   {
-    "text": "Mongo Db Injection | Sharif CTF | Indonesian Backtrack Gathering",
-    "href": "/2014/10/mongo-db-injection-sharif-ctf-indonesian-backtrack-gathering/"
+    "text": "Latihan Soal C Part 3",
+    "href": "/2014/12/belajar-bahasa-c-part-3/"
   } ,
   
 
@@ -921,20 +718,6 @@ callback([
 
   
   {
-    "text": "Kappas &#8211; Responsive Ghost Theme",
-    "href": "/2015/01/kappas-responsive-ghost-theme/"
-  } ,
-  
-
-  
-  {
-    "text": "Jspuzzle Web 200pts Seccon CTF",
-    "href": "/2014/12/jspuzzle-web-200pts-writeups-seccon-ctf/"
-  } ,
-  
-
-  
-  {
     "text": "Jollybeoj: 18-Duel Maut",
     "href": "/programming/duel-maut"
   } ,
@@ -949,134 +732,260 @@ callback([
 
   
   {
-    "text": "Index Writeups Seccon CTF 2014 Quals",
-    "href": "/2014/12/index-writeups-seccon-ctf-2014-quals/"
+    "text": "Idsecconf CTF 2016 : Webwob - 100",
+    "href": "/ctf/writeup-idescconf-2016-webwob"
   } ,
   
 
   
   {
-    "text": "ITRACE 2016 Level 3: Writeups",
+    "text": "Idsecconf CTF 2016 : Signal - 150",
+    "href": "/ctf/writeup-idescconf-2016-signal"
+  } ,
+  
+
+  
+  {
+    "text": "Idsecconf CTF 2016 : Sequence - 100",
+    "href": "/ctf/writeup-idescconf-2016-sequence"
+  } ,
+  
+
+  
+  {
+    "text": "Idsecconf CTF 2016 : Kopi - 50",
+    "href": "/ctf/writeup-idescconf-2016-kopi"
+  } ,
+  
+
+  
+  {
+    "text": "Idsecconf CTF 2016 : Headshoot - 200",
+    "href": "/ctf/writeup-idescconf-2016-headshoot"
+  } ,
+  
+
+  
+  {
+    "text": "Idsecconf CTF 2016 : Bit - Reverse 100pts",
+    "href": "/ctf/writeup-idescconf-2016-bit"
+  } ,
+  
+
+  
+  {
+    "text": "IceCTF 2015: Writeups",
+    "href": "/2015/09/writeup-ice-ctf/"
+  } ,
+  
+
+  
+  {
+    "text": "IceCTF 2015: Statistics - Programming 50",
+    "href": "/2015/09/writeup-icectf-statistics-50/"
+  } ,
+  
+
+  
+  {
+    "text": "IceCTF 2015: Logoventures 2 Reloaded - Forensic 40pts",
+    "href": "/2015/09/writeup-icectf-logoventures-2-reloaded-40/"
+  } ,
+  
+
+  
+  {
+    "text": "IceCTF 2015: Bomb - Web 40pts",
+    "href": "/2015/09/writeup-icectf-bomb-40/"
+  } ,
+  
+
+  
+  {
+    "text": "ITRACE 2016 : Writeups",
     "href": "/ctf/itrace-2016-level3-writeup"
   } ,
   
 
   
   {
-    "text": "IBTeam Blackvalentine : Hack The Dragon",
-    "href": "/2015/02/ibteam-blackvalentine-hack-the-dragon/"
-  } ,
-  
-
-  
-  {
     "text": "Hitcon 2016 : Secure Post",
-    "href": "/web%20exploitation/hitcon-secure-post"
+    "href": "/ctf/hitcon-secure-post"
   } ,
   
 
   
   {
     "text": "Hitcon 2016 : Are you rich",
-    "href": "/web%20exploitation/hitcon-are-you-rich"
+    "href": "/ctf/hitcon-are-you-rich"
   } ,
   
 
   
   {
-    "text": "Hasil Akhir Cyber Defense Competition",
-    "href": "/2014/05/hasil-akhir-cyber-defense-competition/"
+    "text": "Gemastik CTF 2016 : RSA Factorization - 100",
+    "href": "/ctf/writeup-gemastik-2016-rsa-factorization"
   } ,
   
 
   
   {
-    "text": "Grombyang OS",
-    "href": "/2015/01/grombyang-os/"
+    "text": "Gemastik CTF 2016 : Python Server - 100",
+    "href": "/ctf/writeup-gemastik-2016-python-server"
   } ,
   
 
   
   {
-    "text": "Ghost Developer CheatSheet",
-    "href": "/2014/06/ghost-developer-cheatsheet/"
+    "text": "Gemastik CTF 2016 : Power Plant - 125",
+    "href": "/ctf/writeup-gemastik-2016-power-plant"
   } ,
   
 
   
   {
-    "text": "Get curious &#8220;FTP&#8221; server Network 300pts Seccon Writeups",
-    "href": "/2014/12/get-curious-ftp-server-network-300pts-seccon-writeups/"
+    "text": "Gemastik CTF 2016 : Malware Scanning - 125",
+    "href": "/ctf/writeup-gemastik-2016-malware-scanning"
   } ,
   
 
   
   {
-    "text": "Get The Key.txt Seccon CTF Writeups 100Pts",
-    "href": "/2014/12/get-key-txt-seccon-ctf-writeups-100pts/"
+    "text": "Gemastik CTF 2016 : Lottery Machine - 125",
+    "href": "/ctf/writeup-gemastik-2016-lottery-machine"
   } ,
   
 
   
   {
-    "text": "Get The Key Seccon CTF 2014 100pts",
-    "href": "/2014/12/get-the-key-seccon-ctf-2014-100pts/"
+    "text": "Gemastik CTF 2016 : Java Authentication - 50",
+    "href": "/ctf/writeup-gemastik-2016-java-authentication"
   } ,
   
 
   
   {
-    "text": "GOES TO SCHOOL SMKN 2 JAKARTA",
-    "href": "/2015/09/goes-to-school-smkn-2-jakarta/"
+    "text": "Gemastik CTF 2016 : Intranet Maintenance - 125",
+    "href": "/ctf/writeup-gemastik-2016-intranet-maintenance"
   } ,
   
 
   
   {
-    "text": "Easy Cipher 100pts Crypto Seccon Ctf 2014",
-    "href": "/2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/"
+    "text": "Gemastik CTF 2016 : Insider Threat - 150",
+    "href": "/ctf/writeup-gemastik-2016-insider-threat"
   } ,
   
 
   
   {
-    "text": "EL Injection",
+    "text": "Gemastik CTF 2016 : Incident Analysis - 100",
+    "href": "/ctf/writeup-gemastik-2016-incident-analysis"
+  } ,
+  
+
+  
+  {
+    "text": "Gemastik CTF 2016 : Evote System - 150",
+    "href": "/ctf/writeup-gemastik-2016-evote-system"
+  } ,
+  
+
+  
+  {
+    "text": "Gemastik CTF 2016 : Encrypted Picture - 75",
+    "href": "/ctf/writeup-gemastik-2016-encrypted-picture"
+  } ,
+  
+
+  
+  {
+    "text": "Gemastik CTF 2016 : E-Government Repository - 75",
+    "href": "/ctf/writeup-gemastik-2016-egovernment-repository"
+  } ,
+  
+
+  
+  {
+    "text": "Gemastik CTF 2016 : Classic Crypto - 50",
+    "href": "/ctf/writeup-gemastik-2016-classic-crypto"
+  } ,
+  
+
+  
+  {
+    "text": "Gemastik CTF 2016 : Can You See Mee - 50",
+    "href": "/ctf/writeup-gemastik-2016-can-you-see-mee"
+  } ,
+  
+
+  
+  {
+    "text": "Gemastik CTF 2016 : Administrator Login - 50",
+    "href": "/ctf/writeup-gemastik-2016-administrator-login"
+  } ,
+  
+
+  
+  {
+    "text": "FIT FUNFEST 2017 : Proxy",
+    "href": "/ctf/writeup-fit-funfest-ctf-proxy"
+  } ,
+  
+
+  
+  {
+    "text": "FIT FUNFEST 2017 : EncryptedELF",
+    "href": "/ctf/writeup-fit-funfest-ctf.encryptedelf"
+  } ,
+  
+
+  
+  {
+    "text": "Exploitasi EL Injection",
     "href": "/2014/10/el-injection/"
   } ,
   
 
   
   {
-    "text": "Cyber Defense Competition 2015",
-    "href": "/2015/04/cyber-defense-competition-2015/"
+    "text": "EkoParty Pre-CTF 2015: Crypto50",
+    "href": "/2015/09/writeups-crypto50-ekoparty-pre-ctf/"
   } ,
   
 
   
   {
-    "text": "Choose the number 100Pts SECCON CTF 2014",
-    "href": "/2014/12/choose-number-100pts-seccon-ctf-2014/"
+    "text": "EkoParty Pre-CTF 2015: Crypto 25",
+    "href": "/2015/09/writeups-crypto25-ekoparty-pre-ctf/"
   } ,
   
 
   
   {
-    "text": "Cara Menggunakan Highlight.js",
-    "href": "/2014/06/cara-menggunakan-highlight-js/"
+    "text": "Cyber Jawara 2016 : Web Info - 50Pts",
+    "href": "/ctf/writeup-cyber-jawara-2016-web-info"
   } ,
   
 
   
   {
-    "text": "Bleeding “Heartbleed” Web 300 pts Seccon CTF",
-    "href": "/2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/"
+    "text": "Compfest CTF 2016 : Maze - Web 90Pts",
+    "href": "/ctf/writeup-compfest-2016-maze.1"
   } ,
   
 
   
   {
-    "text": "Best Python Cheatsheet",
-    "href": "/2014/12/best-python-cheatsheet/"
+    "text": "CSAW CTF 2017: LittleQuery - 200",
+    "href": "/ctf/writeup-csaw2017-littlequery"
+  } ,
+  
+
+  
+  {
+    "text": "BitcointCTF 2017: Writeups",
+    "href": "/ctf/writeup-bitcoinctf"
   } ,
   
 
@@ -1096,6 +1005,13 @@ callback([
 
   
   {
+    "text": "BeeFest CTF 2017: Writeups",
+    "href": "/ctf/writeup-final-beefest-2017.1"
+  } ,
+  
+
+  
+  {
     "text": "Basic Linux Privilage Escalation",
     "href": "/2014/07/basic-linux-privilage-escalation/"
   } ,
@@ -1103,8 +1019,8 @@ callback([
 
   
   {
-    "text": "BELAJAR BAHASA C PART 3",
-    "href": "/2014/12/belajar-bahasa-c-part-3/"
+    "text": "AkiCTF Writeups",
+    "href": "/ctf/katsudon-ctf"
   } 
   
 

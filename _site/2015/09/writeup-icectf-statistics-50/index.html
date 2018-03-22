@@ -15,21 +15,21 @@
 -->
 <head>
 <meta charset="utf-8">
-<title>WRITEUP ICECTF STATISTICS &#8211; 50 &vert; @ABDILAHRF</title>
+<title>ICECTF 2015: STATISTICS - PROGRAMMING 50 &vert; @ABDILAHRF</title>
 <meta name="description" content="Coffe Make you like a hero">
-<meta name="keywords" content="IceCTF">
+<meta name="keywords" content="IceCTF, Programming">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://localhost:4000/images/logo.png">
-<meta name="twitter:title" content="writeup IceCTF Statistics &#8211; 50">
+<meta name="twitter:title" content="IceCTF 2015: Statistics - Programming 50">
 <meta name="twitter:description" content="Coffe Make you like a hero">
 <meta name="twitter:creator" content="@abdilahrf">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="writeup IceCTF Statistics &#8211; 50">
+<meta property="og:title" content="IceCTF 2015: Statistics - Programming 50">
 <meta property="og:description" content="Coffe Make you like a hero">
 <meta property="og:url" content="http://localhost:4000/2015/09/writeup-icectf-statistics-50/">
 <meta property="og:site_name" content="@abdilahrf">
@@ -122,8 +122,8 @@
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h1>writeup IceCTF Statistics &#8211; 50</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#IceCTF" data-toggle="tooltip" title="Posts tagged with IceCTF" rel="tag">IceCTF</a> <strong><!-- <time datetime="2015-09-22T05:47:35+07:00">22 Sep 2015</time> --></strong></p>
+                            <h1>IceCTF 2015: Statistics - Programming 50</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#IceCTF" data-toggle="tooltip" title="Posts tagged with IceCTF" rel="tag">IceCTF</a>&nbsp;&comma;&nbsp;<a href="http://localhost:4000/tags/index.html#Programming" data-toggle="tooltip" title="Posts tagged with Programming" rel="tag">Programming</a> <strong><time datetime="2015-09-22T05:47:35+07:00">22 Sep 2015</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -138,52 +138,52 @@
 
 <p>ceritanya di sini daniel login tanpa menggunakan password , tapi menggunakan pertanyaan2 , kalau di tidak salah ini mirip juga dengan problem <a href="https://github.com/ctfs/write-ups-2014/tree/master/seccon-ctf-2014/choose-the-number">chose the number seccon</a> bedanya di sini ada sum dan average, dengan bantuan dari om <a href="https://www.facebook.com/muhammad.abrari?fref=ts">Muhammad abrar istiadi</a> , kami menggunakan <a href="https://github.com/Gallopsled/pwntools">pwntools</a> untuk menyelesaikan problem ini dengan python</p>
 
-<pre><code class="language-python">
-from pwn import *
-import numpy
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
 
-r = remote("vuln2015.icec.tf", 9000)
+<span class="n">r</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s">"vuln2015.icec.tf"</span><span class="p">,</span> <span class="mi">9000</span><span class="p">)</span>
 
-i = 1
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 
-for a in range(0, 200):
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">):</span>
 
-    recv = r.recvuntil("the numbers:")
+    <span class="n">recv</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">recvuntil</span><span class="p">(</span><span class="s">"the numbers:"</span><span class="p">)</span>
 
-    recv = recv.split("\n")
+    <span class="n">recv</span> <span class="o">=</span> <span class="n">recv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
 
-    num = recv[0].strip()
-    soal = recv[1]
+    <span class="n">num</span> <span class="o">=</span> <span class="n">recv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">soal</span> <span class="o">=</span> <span class="n">recv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-    print "[receiving] " + num
-    print "[receiving] " + soal
+    <span class="k">print</span> <span class="s">"[receiving] "</span> <span class="o">+</span> <span class="n">num</span>
+    <span class="k">print</span> <span class="s">"[receiving] "</span> <span class="o">+</span> <span class="n">soal</span>
 
-    num = [int(x) for x in num.split(" ")]
+    <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">num</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)]</span>
 
-    answer = 0
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
 
-    if "maximum" in soal:
-        answer = max(num)
-    elif "minimum" in soal:
-        answer = min(num)
-    elif "average" in soal:
-        answer = numpy.average(num)
-    elif "sum" in soal:
-        answer = numpy.sum(num)
+    <span class="k">if</span> <span class="s">"maximum"</span> <span class="ow">in</span> <span class="n">soal</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s">"minimum"</span> <span class="ow">in</span> <span class="n">soal</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s">"average"</span> <span class="ow">in</span> <span class="n">soal</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s">"sum"</span> <span class="ow">in</span> <span class="n">soal</span><span class="p">:</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 
-    print "[answer] " + str(answer)
-    print "[count] " + str(i)
+    <span class="k">print</span> <span class="s">"[answer] "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">"[count] "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
-    i += 1
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    r.send(str(answer) + "\n")
+    <span class="n">r</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">+</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
 
-print r.recv(4096)
-print r.recv(4096)
-print r.recv(4096)
-print r.recv(4096)
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p><img src="http://abdilahrf.github.io/images/2015/09/statistic.png" alt="" /></p>
 </div>
@@ -191,7 +191,7 @@ print r.recv(4096)
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;writeup IceCTF Statistics &#8211; 50&quot;%20http://localhost:4000/2015/09/writeup-icectf-statistics-50/%20via%20&#64;abdilahrf"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;IceCTF 2015: Statistics - Programming 50&quot;%20http://localhost:4000/2015/09/writeup-icectf-statistics-50/%20via%20&#64;abdilahrf"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
@@ -234,7 +234,7 @@ print r.recv(4096)
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

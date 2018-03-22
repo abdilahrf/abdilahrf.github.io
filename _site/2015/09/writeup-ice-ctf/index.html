@@ -15,21 +15,21 @@
 -->
 <head>
 <meta charset="utf-8">
-<title>WRITEUP ICE CTF &vert; @ABDILAHRF</title>
+<title>ICECTF 2015: WRITEUPS &vert; @ABDILAHRF</title>
 <meta name="description" content="Coffe Make you like a hero">
-<meta name="keywords" content="IceCTF">
+<meta name="keywords" content="IceCTF, Misc">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://localhost:4000/images/logo.png">
-<meta name="twitter:title" content="Writeup ICE CTF">
+<meta name="twitter:title" content="IceCTF 2015: Writeups">
 <meta name="twitter:description" content="Coffe Make you like a hero">
 <meta name="twitter:creator" content="@abdilahrf">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Writeup ICE CTF">
+<meta property="og:title" content="IceCTF 2015: Writeups">
 <meta property="og:description" content="Coffe Make you like a hero">
 <meta property="og:url" content="http://localhost:4000/2015/09/writeup-ice-ctf/">
 <meta property="og:site_name" content="@abdilahrf">
@@ -122,8 +122,8 @@
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h1>Writeup ICE CTF</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#IceCTF" data-toggle="tooltip" title="Posts tagged with IceCTF" rel="tag">IceCTF</a> <strong><!-- <time datetime="2015-09-04T23:06:58+07:00">04 Sep 2015</time> --></strong></p>
+                            <h1>IceCTF 2015: Writeups</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#IceCTF" data-toggle="tooltip" title="Posts tagged with IceCTF" rel="tag">IceCTF</a>&nbsp;&comma;&nbsp;<a href="http://localhost:4000/tags/index.html#Misc" data-toggle="tooltip" title="Posts tagged with Misc" rel="tag">Misc</a> <strong><time datetime="2015-09-04T23:06:58+07:00">04 Sep 2015</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
             <div><h4 id="warm-up--10">Warm Up – 10</h4>
 
 <blockquote>
-  <p>‘<code>_ the Planet!</code>‘ Fill in the blank</p>
+  <p>‘<code class="highlighter-rouge">_ the Planet!</code>‘ Fill in the blank</p>
 
   <p>Hint : You should probably watch the movie <a href="http://www.imdb.com/title/tt0113243/" target="_blank">Hackers</a>, go on… we’ll wait</p>
 
@@ -227,19 +227,19 @@
 <h4 id="simple--30-panel-title">Simple – 30 {.panel-title}</h4>
 
 <blockquote>
-  <p>Simple, right? <code>nc vuln2015.icec.tf 10000</code>.</p>
+  <p>Simple, right? <code class="highlighter-rouge">nc vuln2015.icec.tf 10000</code>.</p>
 
   <p>Hint : What is at the other end?</p>
 </blockquote>
 
 <p> </p>
 
-<pre><code>abdilahrf@hasnydes:~$ nc vuln2015.icec.tf 10000
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abdilahrf@hasnydes:~$ nc vuln2015.icec.tf 10000
 My character is j(0x6a)
 Can you add some (positive) number larger than 100 to turn it into the letter i(0x69)? (i like it)
 255
 Great job! The flag is: very_simple_right
-</code></pre>
+</code></pre></div></div>
 
 <h4 id="liar--30-panel-title">Liar – 30 {.panel-title}</h4>
 
@@ -253,15 +253,15 @@ Great job! The flag is: very_simple_right
 
 <p>ternyata</p>
 
-<pre><code>window.s=[0x32, 0x66, 0x32, 0x65, 0x65, 0x35, 0x30, 0x63, 0x38, 0x39, 0x65, 0x36, 0x38, 0x35, 0x32, 0x33, 0x30, 0x64, 0x33, 0x61, 0x35, 0x61, 0x36, 0x64, 0x36, 0x37, 0x35, 0x63, 0x36, 0x35, 0x63, 0x31, 0x70, 0x72, 0x69, 0x6e, 0x74, 0x46, 0x6c, 0x61, 0x67, 0x32, 0x66, 0x32, 0x65, 0x65, 0x35, 0x30, 0x63, 0x38, 0x39, 0x65, 0x36, 0x38, 0x35, 0x32, 0x33, 0x30, 0x64, 0x33, 0x61, 0x35, 0x61, 0x36, 0x64, 0x36, 0x37, 0x35, 0x63, 0x36, 0x35, 0x63, 0x31];
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>window.s=[0x32, 0x66, 0x32, 0x65, 0x65, 0x35, 0x30, 0x63, 0x38, 0x39, 0x65, 0x36, 0x38, 0x35, 0x32, 0x33, 0x30, 0x64, 0x33, 0x61, 0x35, 0x61, 0x36, 0x64, 0x36, 0x37, 0x35, 0x63, 0x36, 0x35, 0x63, 0x31, 0x70, 0x72, 0x69, 0x6e, 0x74, 0x46, 0x6c, 0x61, 0x67, 0x32, 0x66, 0x32, 0x65, 0x65, 0x35, 0x30, 0x63, 0x38, 0x39, 0x65, 0x36, 0x38, 0x35, 0x32, 0x33, 0x30, 0x64, 0x33, 0x61, 0x35, 0x61, 0x36, 0x64, 0x36, 0x37, 0x35, 0x63, 0x36, 0x35, 0x63, 0x31];
+</code></pre></div></div>
 
 <p>setelah di decode itu adalah “printFlagprintFlagprintFlag”</p>
 
 <p>dan ternyata kalau</p>
 
-<pre><code>String.fromCharCode.apply(null,window.s.slice(0x20,0x29))
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String.fromCharCode.apply(null,window.s.slice(0x20,0x29))
+</code></pre></div></div>
 
 <p>di jalankan di console dia mengambil kata printFlag sebagai nama fungsi , dan tinggal kita jalankan fungsi printFlag() untuk memunculkan flagnya</p>
 
@@ -283,21 +283,21 @@ Great job! The flag is: very_simple_right
 
 <p>sepertinya itu adalah subtitution cipher</p>
 
-<pre><code>watvkljanvct vamla kl kcr ilhrae njr fnz ruurwkmxrbt zteletiloz fmkc rewatvkmle, kcr wlexrazmle lu meulainkmle uali n arnhnsbr zknkr kl nvvnarek elezrezr. kcr lamjmenkla lu ne rewatvkrh irzznjr zcnarh kcr hrwlhmej krwcemyor errhrh kl arwlxra kcr lamjmenb meulainkmle lebt fmkc mekrehrh arwmvmrekz, kcrarst varwbohmej oefnekrh vrazlez uali hlmej kcr znir. zmewr flabh fna m neh kcr nhxrek lu kcr wlivokra, kcr irkclhz ozrh kl wnaat lok watvklbljt cnxr srwlir mewarnzmejbt wlivbrp neh mkz nvvbmwnkmle ilar fmhrzvarnh.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>watvkljanvct vamla kl kcr ilhrae njr fnz ruurwkmxrbt zteletiloz fmkc rewatvkmle, kcr wlexrazmle lu meulainkmle uali n arnhnsbr zknkr kl nvvnarek elezrezr. kcr lamjmenkla lu ne rewatvkrh irzznjr zcnarh kcr hrwlhmej krwcemyor errhrh kl arwlxra kcr lamjmenb meulainkmle lebt fmkc mekrehrh arwmvmrekz, kcrarst varwbohmej oefnekrh vrazlez uali hlmej kcr znir. zmewr flabh fna m neh kcr nhxrek lu kcr wlivokra, kcr irkclhz ozrh kl wnaat lok watvklbljt cnxr srwlir mewarnzmejbt wlivbrp neh mkz nvvbmwnkmle ilar fmhrzvarnh.
 
 ilhrae watvkljanvct mz crnxmbt snzrh le inkcrinkmwnb kcrlat neh wlivokra zwmrewr vanwkmwr; watvkljanvcmw nbjlamkciz nar hrzmjerh naloeh wlivoknkmlenb cnaherzz nzzoivkmlez, inqmej zowc nbjlamkciz cnah kl sarnq me vanwkmwr st net nhxraznat. mk mz kcrlarkmwnbbt vlzzmsbr kl sarnq zowc n ztzkri, sok mk mz meurnzmsbr kl hl zl st net qelfe vanwkmwnb irnez. kcrzr zwcrirz nar kcrarular krairh wlivoknkmlenbbt zrwoar; kcrlarkmwnb nhxnewrz, r.j., mivalxrirekz me mekrjra unwklamgnkmle nbjlamkciz, neh unzkra wlivokmej krwcelbljt aryomar kcrzr zlbokmlez kl sr wlekmeonbbt nhnvkrh. kcrar rpmzk meulainkmle-kcrlarkmwnbbt zrwoar zwcrirz kcnk valxnsbt wneelk sr salqre rxre fmkc oebmimkrh wlivokmej vlfraâ€”ne rpnivbr mz kcr ler-kmir vnhâ€”sok kcrzr zwcrirz nar ilar hmuumwobk kl mivbrirek kcne kcr srzk kcrlarkmwnbbt sarnqnsbr sok wlivoknkmlenbbt zrwoar irwcnemziz.
 
 kcr jalfkc lu watvkljanvcmw krwcelbljt cnz anmzrh n eoisra lu brjnb mzzorz me kcr meulainkmle njr. watvkljanvct'z vlkrekmnb ula ozr nz n kllb ula rzvmlenjr neh zrhmkmle cnz brh inet jlxraeirekz kl wbnzzmut mk nz n frnvle neh kl bmimk la rxre valcmsmk mkz ozr neh rpvlak. me zlir doamzhmwkmlez fcrar kcr ozr lu watvkljanvct mz brjnb, bnfz vraimk mexrzkmjnklaz kl wlivrb kcr hmzwblzoar lu rewatvkmle qrtz ula hlwoirekz arbrxnek kl ne mexrzkmjnkmle. watvkljanvct nbzl vbntz n indla albr me hmjmknb amjckz inenjrirek neh vmanwt lu hmjmknb irhmn.
 
 ubnj_zoszkmkokmle_wmvcraz_nar_snh
-</code></pre>
+</code></pre></div></div>
 
 <p>decode menggunakan tools</p>
 
 <p>http://rumkin.com/tools/cipher/cryptogram-solver.php</p>
 
-<pre><code>CRYPTOGRAPHY PRIOR TO THE MODERN AGE WAS EFFECTIVELY SYNONYMOUS WITH ENCRYPTION THE CONVERSION OF INFORMATION FROM A READABLE STATE TO APPARENT NONSENSE THE ORIGINATOR OF AN ENCRYPTED MESSAGE SHARED THE DECODING TECHNIQUE NEEDED TO RECOVER THE ORIGINAL INFORMATION ONLY WITH INTENDED RECIPIENTS THEREBY PRECLUDING UNWANTED PERSONS FROM DOING THE SAME SINCE WORLD WAR I AND THE ADVENT OF THE COMPUTER THE METHODS USED TO CARRY OUT CRYPTOLOGY HAVE BECOME INCREASINGLY COMPLEX AND ITS APPLICATION MORE WIDESPREAD MODERN CRYPTOGRAPHY IS HEAVILY BASED ON MATHEMATICAL THEORY AND COMPUTER SCIENCE PRACTICE CRYPTOGRAPHIC ALGORITHMS ARE DESIGNED AROUND COMPUTATIONAL HARDNESS ASSUMPTIONS MAKING SUCH ALGORITHMS HARD TO BREAK IN PRACTICE BY ANY ADVERSARY IT IS THEORETICALLY POSSIBLE TO BREAK SUCH A SYSTEM BUT IT IS INFEASIBLE TO DO SO BY ANY KNOWN PRACTICAL MEANS THESE SCHEMES ARE THEREFORE TERMED COMPUTATIONALLY SECURE THEORETICAL ADVANCES E G IMPROVEMENTS IN INTEGER FACTORIZATION ALGORITHMS AND FASTER COMPUTING TECHNOLOGY REQUIRE THESE SOLUTIONS TO BE CONTINUALLY ADAPTED THERE EXIST INFORMATION THEORETICALLY SECURE SCHEMES THAT PROVABLY CANNOT BE BROKEN EVEN WITH UNLIMITED COMPUTING POWER AN EXAMPLE IS THE ONE TIME PAD BUT THESE SCHEMES ARE MORE DIFFICULT TO IMPLEMENT THAN THE BEST THEORETICALLY BREAKABLE BUT COMPUTATIONALLY SECURE MECHANISMS THE GROWTH OF CRYPTOGRAPHIC TECHNOLOGY HAS RAISED A NUMBER OF LEGAL ISSUES IN THE INFORMATION AGE CRYPTOGRAPHY'S POTENTIAL FOR USE AS A TOOL FOR ESPIONAGE AND SEDITION HAS LED MANY GOVERNMENTS TO CLASSIFY IT AS A WEAPON AND TO LIMIT OR EVEN PROHIBIT ITS USE AND EXPORT IN SOME JURISDICTIONS WHERE THE USE OF CRYPTOGRAPHY IS LEGAL LAWS PERMIT INVESTIGATORS TO COMPEL THE DISCLOSURE OF ENCRYPTION KEYS FOR DOCUMENTS RELEVANT TO AN INVESTIGATION CRYPTOGRAPHY ALSO PLAYS A MAJOR ROLE IN DIGITAL RIGHTS MANAGEMENT AND PIRACY OF DIGITAL MEDIA FLAG SUBSTITUTION CIPHERS ARE BAD
-</code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CRYPTOGRAPHY PRIOR TO THE MODERN AGE WAS EFFECTIVELY SYNONYMOUS WITH ENCRYPTION THE CONVERSION OF INFORMATION FROM A READABLE STATE TO APPARENT NONSENSE THE ORIGINATOR OF AN ENCRYPTED MESSAGE SHARED THE DECODING TECHNIQUE NEEDED TO RECOVER THE ORIGINAL INFORMATION ONLY WITH INTENDED RECIPIENTS THEREBY PRECLUDING UNWANTED PERSONS FROM DOING THE SAME SINCE WORLD WAR I AND THE ADVENT OF THE COMPUTER THE METHODS USED TO CARRY OUT CRYPTOLOGY HAVE BECOME INCREASINGLY COMPLEX AND ITS APPLICATION MORE WIDESPREAD MODERN CRYPTOGRAPHY IS HEAVILY BASED ON MATHEMATICAL THEORY AND COMPUTER SCIENCE PRACTICE CRYPTOGRAPHIC ALGORITHMS ARE DESIGNED AROUND COMPUTATIONAL HARDNESS ASSUMPTIONS MAKING SUCH ALGORITHMS HARD TO BREAK IN PRACTICE BY ANY ADVERSARY IT IS THEORETICALLY POSSIBLE TO BREAK SUCH A SYSTEM BUT IT IS INFEASIBLE TO DO SO BY ANY KNOWN PRACTICAL MEANS THESE SCHEMES ARE THEREFORE TERMED COMPUTATIONALLY SECURE THEORETICAL ADVANCES E G IMPROVEMENTS IN INTEGER FACTORIZATION ALGORITHMS AND FASTER COMPUTING TECHNOLOGY REQUIRE THESE SOLUTIONS TO BE CONTINUALLY ADAPTED THERE EXIST INFORMATION THEORETICALLY SECURE SCHEMES THAT PROVABLY CANNOT BE BROKEN EVEN WITH UNLIMITED COMPUTING POWER AN EXAMPLE IS THE ONE TIME PAD BUT THESE SCHEMES ARE MORE DIFFICULT TO IMPLEMENT THAN THE BEST THEORETICALLY BREAKABLE BUT COMPUTATIONALLY SECURE MECHANISMS THE GROWTH OF CRYPTOGRAPHIC TECHNOLOGY HAS RAISED A NUMBER OF LEGAL ISSUES IN THE INFORMATION AGE CRYPTOGRAPHY'S POTENTIAL FOR USE AS A TOOL FOR ESPIONAGE AND SEDITION HAS LED MANY GOVERNMENTS TO CLASSIFY IT AS A WEAPON AND TO LIMIT OR EVEN PROHIBIT ITS USE AND EXPORT IN SOME JURISDICTIONS WHERE THE USE OF CRYPTOGRAPHY IS LEGAL LAWS PERMIT INVESTIGATORS TO COMPEL THE DISCLOSURE OF ENCRYPTION KEYS FOR DOCUMENTS RELEVANT TO AN INVESTIGATION CRYPTOGRAPHY ALSO PLAYS A MAJOR ROLE IN DIGITAL RIGHTS MANAGEMENT AND PIRACY OF DIGITAL MEDIA FLAG SUBSTITUTION CIPHERS ARE BAD
+</code></pre></div></div>
 
 <p><strong>Flag :</strong> FLAG_SUBSTITUTION_CIPHERS_ARE_BAD</p>
 
@@ -333,7 +333,7 @@ ubnj_zoszkmkokmle_wmvcraz_nar_snh
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Writeup ICE CTF&quot;%20http://localhost:4000/2015/09/writeup-ice-ctf/%20via%20&#64;abdilahrf"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;IceCTF 2015: Writeups&quot;%20http://localhost:4000/2015/09/writeup-ice-ctf/%20via%20&#64;abdilahrf"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
@@ -376,7 +376,7 @@ ubnj_zoszkmkokmle_wmvcraz_nar_snh
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

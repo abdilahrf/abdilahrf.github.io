@@ -123,7 +123,7 @@
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
                             <h1>Rangkuman UTS</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212;  <strong><!-- <time datetime="2016-11-09T00:00:00+07:00">09 Nov 2016</time> --></strong></p>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212;  <strong><time datetime="2016-11-09T00:00:00+07:00">09 Nov 2016</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -134,11 +134,11 @@
 
 <p>Kisi-Kisi</p>
 
-<pre><code>SOLID Principle
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SOLID Principle
 Basic OOP &amp; UML
 Introduction Design Pattern
 Factory, Prototype, Adapter
-</code></pre>
+</code></pre></div></div>
 
 <h3 id="rangkuman-materi-pertemuan-1">Rangkuman Materi Pertemuan 1</h3>
 
@@ -159,39 +159,39 @@ Jadi 1 Class memiliki tanggung jawab kepada 1 job.</p>
 
 <p>Problem :</p>
 
-<pre><code class="language-java">public class UserService{
-    public void Register(String email, String password){
-        if(!email.Contains("@")) 
-            throw new ValidationException("Email is not an email!");
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">Register</span><span class="o">(</span><span class="n">String</span> <span class="n">email</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">email</span><span class="o">.</span><span class="na">Contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> 
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ValidationException</span><span class="o">(</span><span class="s">"Email is not an email!"</span><span class="o">);</span>
         
-        var user = new User(email, password);
-        _database.Save(user);
+        <span class="n">var</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
+        <span class="n">_database</span><span class="o">.</span><span class="na">Save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
         
-        _smtpClient.Send(new MailMessage("mysite@nowhere.com", email){Subject="Hello fool!"});
-    }
-}
+        <span class="n">_smtpClient</span><span class="o">.</span><span class="na">Send</span><span class="o">(</span><span class="k">new</span> <span class="n">MailMessage</span><span class="o">(</span><span class="s">"mysite@nowhere.com"</span><span class="o">,</span> <span class="n">email</span><span class="o">){</span><span class="n">Subject</span><span class="o">=</span><span class="s">"Hello fool!"</span><span class="o">});</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p>Solution :</p>
 
-<pre><code class="language-java">public class UserService{
-    public void Register(String email, String password){
-        if(!ValidateEmail(email)) 
-            throw new ValidationException("Email is not an email!");
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">Register</span><span class="o">(</span><span class="n">String</span> <span class="n">email</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">ValidateEmail</span><span class="o">(</span><span class="n">email</span><span class="o">))</span> 
+            <span class="k">throw</span> <span class="k">new</span> <span class="nf">ValidationException</span><span class="o">(</span><span class="s">"Email is not an email!"</span><span class="o">);</span>
         
-        var user = new User(email, password);
-        _database.Save(user);
+        <span class="n">var</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
+        <span class="n">_database</span><span class="o">.</span><span class="na">Save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
         
-        _smtpClient.Send(new MailMessage("mysite@nowhere.com", email){Subject="Hello fool!"});
-    }
+        <span class="n">_smtpClient</span><span class="o">.</span><span class="na">Send</span><span class="o">(</span><span class="k">new</span> <span class="n">MailMessage</span><span class="o">(</span><span class="s">"mysite@nowhere.com"</span><span class="o">,</span> <span class="n">email</span><span class="o">){</span><span class="n">Subject</span><span class="o">=</span><span class="s">"Hello fool!"</span><span class="o">});</span>
+    <span class="o">}</span>
     
-    public bool ValidateEmail(String email){
-        return email.Contains("@");    
-    }
-}
+    <span class="kd">public</span> <span class="n">bool</span> <span class="nf">ValidateEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">email</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">email</span><span class="o">.</span><span class="na">Contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">);</span>    
+    <span class="o">}</span>
+<span class="o">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <h4 id="open-closed-principle">Open-closed principle</h4>
 
@@ -201,41 +201,41 @@ dari programmer lain tapi tertutup untuk perubahan.</p>
 <p>Problem : 
 Checkout function only accept cash, what if there is another payment methods?</p>
 
-<pre><code class="language-java">
-void checkOut(Receipt receipt){
-    Money total = Money.zero;
-    for(item : items){
-        total += item.getPrice();
-        receipt.addItem(item);
-    }
-    Payment p = acceptCash(total);
-    receipt.addPayment(p);
-}
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kt">void</span> <span class="nf">checkOut</span><span class="o">(</span><span class="n">Receipt</span> <span class="n">receipt</span><span class="o">){</span>
+    <span class="n">Money</span> <span class="n">total</span> <span class="o">=</span> <span class="n">Money</span><span class="o">.</span><span class="na">zero</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">item</span> <span class="o">:</span> <span class="n">items</span><span class="o">){</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="na">getPrice</span><span class="o">();</span>
+        <span class="n">receipt</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">Payment</span> <span class="n">p</span> <span class="o">=</span> <span class="n">acceptCash</span><span class="o">(</span><span class="n">total</span><span class="o">);</span>
+    <span class="n">receipt</span><span class="o">.</span><span class="na">addPayment</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+<span class="o">}</span>
 
-Payment p ;  
-if (credit)
-    p = acceptCredit(total);
-else 
-    p = acceptCash(total);  
+<span class="n">Payment</span> <span class="n">p</span> <span class="o">;</span>  
+<span class="k">if</span> <span class="o">(</span><span class="n">credit</span><span class="o">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">acceptCredit</span><span class="o">(</span><span class="n">total</span><span class="o">);</span>
+<span class="k">else</span> 
+    <span class="n">p</span> <span class="o">=</span> <span class="n">acceptCash</span><span class="o">(</span><span class="n">total</span><span class="o">);</span>  
     
-receipt.addPayment(p);
-</code></pre>
+<span class="n">receipt</span><span class="o">.</span><span class="na">addPayment</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+</code></pre></div></div>
 <p>Add if statement to check credit or cash that violate open-close principle</p>
 
 <p>Solution :</p>
 
-<pre><code class="language-java">public interface PaymentMethod{void acceptPayment(Money total);}
-void checkOut(Receipt receipt, PaymentMethod pm){
-    Money total = Money.zero;
-    for(item : items){
-        total += item.getPrice();
-        receipt.addItem(item);
-    }
-    Payment p = pm.acceptPayment(total);
-    receipt.addPayment(p);
-}
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">PaymentMethod</span><span class="o">{</span><span class="kt">void</span> <span class="nf">acceptPayment</span><span class="o">(</span><span class="n">Money</span> <span class="n">total</span><span class="o">);}</span>
+<span class="kt">void</span> <span class="nf">checkOut</span><span class="o">(</span><span class="n">Receipt</span> <span class="n">receipt</span><span class="o">,</span> <span class="n">PaymentMethod</span> <span class="n">pm</span><span class="o">){</span>
+    <span class="n">Money</span> <span class="n">total</span> <span class="o">=</span> <span class="n">Money</span><span class="o">.</span><span class="na">zero</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">item</span> <span class="o">:</span> <span class="n">items</span><span class="o">){</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="na">getPrice</span><span class="o">();</span>
+        <span class="n">receipt</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">Payment</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="na">acceptPayment</span><span class="o">(</span><span class="n">total</span><span class="o">);</span>
+    <span class="n">receipt</span><span class="o">.</span><span class="na">addPayment</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+<span class="o">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <h4 id="liskov-substitution-principle">Liskov substitution principle</h4>
 
@@ -245,56 +245,56 @@ void checkOut(Receipt receipt, PaymentMethod pm){
 
 <p>Contohnya :</p>
 
-<pre><code class="language-java">
-class Vehicle {
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">class</span> <span class="nc">Vehicle</span> <span class="o">{</span>
  
-    function startEngine() {
-        // Default engine start functionality
-    }
+    <span class="n">function</span> <span class="nf">startEngine</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Default engine start functionality</span>
+    <span class="o">}</span>
  
-    function accelerate() {
-        // Default acceleration functionality
-    }
-}
+    <span class="n">function</span> <span class="nf">accelerate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Default acceleration functionality</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-class Car extends Vehicle {
+<span class="kd">class</span> <span class="nc">Car</span> <span class="kd">extends</span> <span class="n">Vehicle</span> <span class="o">{</span>
  
-    function startEngine() {
-        $this-&gt;engageIgnition();
-        parent::startEngine();
-    }
+    <span class="n">function</span> <span class="nf">startEngine</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">$this</span><span class="o">-&gt;</span><span class="n">engageIgnition</span><span class="o">();</span>
+        <span class="nl">parent:</span><span class="o">:</span><span class="n">startEngine</span><span class="o">();</span>
+    <span class="o">}</span>
  
-    private function engageIgnition() {
-        // Ignition procedure
-    }
+    <span class="kd">private</span> <span class="n">function</span> <span class="nf">engageIgnition</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Ignition procedure</span>
+    <span class="o">}</span>
  
-}
+<span class="o">}</span>
  
-class ElectricBus extends Vehicle {
+<span class="kd">class</span> <span class="nc">ElectricBus</span> <span class="kd">extends</span> <span class="n">Vehicle</span> <span class="o">{</span>
  
-    function accelerate() {
-        $this-&gt;increaseVoltage();
-        $this-&gt;connectIndividualEngines();
-    }
+    <span class="n">function</span> <span class="nf">accelerate</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">$this</span><span class="o">-&gt;</span><span class="n">increaseVoltage</span><span class="o">();</span>
+        <span class="n">$this</span><span class="o">-&gt;</span><span class="n">connectIndividualEngines</span><span class="o">();</span>
+    <span class="o">}</span>
  
-    private function increaseVoltage() {
-        // Electric logic
-    }
+    <span class="kd">private</span> <span class="n">function</span> <span class="nf">increaseVoltage</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Electric logic</span>
+    <span class="o">}</span>
  
-    private function connectIndividualEngines() {
-        // Connection logic
-    }
+    <span class="kd">private</span> <span class="n">function</span> <span class="nf">connectIndividualEngines</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Connection logic</span>
+    <span class="o">}</span>
  
-}
+<span class="o">}</span>
 
-class Driver {
-    function go(Vehicle $v) {
-        $v-&gt;startEngine();
-        $v-&gt;accelerate();
-    }
-}
+<span class="kd">class</span> <span class="nc">Driver</span> <span class="o">{</span>
+    <span class="n">function</span> <span class="nf">go</span><span class="o">(</span><span class="n">Vehicle</span> <span class="n">$v</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">$v</span><span class="o">-&gt;</span><span class="n">startEngine</span><span class="o">();</span>
+        <span class="n">$v</span><span class="o">-&gt;</span><span class="n">accelerate</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <h4 id="interface-segregation-principle">Interface segregation principle</h4>
 
@@ -302,39 +302,39 @@ class Driver {
 
 <p>Contohnya :</p>
 
-<pre><code class="language-java">
-interface ShapeInterface {
-    public function area();
-    public function volume();
-}  
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">interface</span> <span class="nc">ShapeInterface</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">area</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">volume</span><span class="o">();</span>
+<span class="o">}</span>  
 
-</code></pre>
+</code></pre></div></div>
 
 <p>jika kita membuat interface ShapeInterface semua class yang mengimplementasikannya
 terpaksa harus menggunakan fungsi volume, sementara square tidak mempunyai volume.</p>
 
 <p>untuk memperbaiki ini kita bisa buat seperti ini</p>
 
-<pre><code class="language-java">
-interface ShapeInterface {
-    public function area();
-}
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">interface</span> <span class="nc">ShapeInterface</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">area</span><span class="o">();</span>
+<span class="o">}</span>
 
-interface SolidShapeInterface {
-    public function volume();
-}
+<span class="kd">interface</span> <span class="nc">SolidShapeInterface</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">volume</span><span class="o">();</span>
+<span class="o">}</span>
 
-class Cuboid implements ShapeInterface, SolidShapeInterface {
-    public function area() {
-        // calculate the surface area of the cuboid
-    }
+<span class="kd">class</span> <span class="nc">Cuboid</span> <span class="kd">implements</span> <span class="n">ShapeInterface</span><span class="o">,</span> <span class="n">SolidShapeInterface</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// calculate the surface area of the cuboid</span>
+    <span class="o">}</span>
 
-    public function volume() {
-        // calculate the volume of the cuboid
-    }
-}
+    <span class="kd">public</span> <span class="n">function</span> <span class="nf">volume</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// calculate the volume of the cuboid</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <h4 id="dependency-inversion-principle">Dependency Inversion Principle</h4>
 
@@ -347,20 +347,20 @@ class Cuboid implements ShapeInterface, SolidShapeInterface {
 
 <p>Contohnya :</p>
 
-<pre><code class="language-php">
-&lt;?php
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;?php</span>
 
-class PasswordReminder {
-    private $dbConnection;
+<span class="k">class</span> <span class="nc">PasswordReminder</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$dbConnection</span><span class="p">;</span>
 
-    public function __construct(MySQLConnection $dbConnection) {
-        $this-&gt;dbConnection = $dbConnection;
-    }
-}
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">MySQLConnection</span> <span class="nv">$dbConnection</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbConnection</span> <span class="o">=</span> <span class="nv">$dbConnection</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-?&gt;
+<span class="cp">?&gt;</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p>MySQLConnection adalah low-level module , sementara PasswordReminder is High-level
 Karena PasswordReminder Tergantung kepada MySQLConnection maka ini melanggar prinsip dari Dependency Inversion</p>
@@ -369,34 +369,34 @@ Karena PasswordReminder Tergantung kepada MySQLConnection maka ini melanggar pri
 untuk memperbaiki ini kita bisa menambahkan interface karena low-level dengan high-level modul harus tergantung kepada abstraction.
 kita bisa buat :</p>
 
-<pre><code class="language-php">&lt;? 
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?</span> 
 
-interface DBConnectionInterface {
-    public function connect();
-}
+<span class="k">interface</span> <span class="nx">DBConnectionInterface</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">connect</span><span class="p">();</span>
+<span class="p">}</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <p>Dari pada menulis langsung MySQLConnection di constructor dari PasswordReminder, lebih baik kita input interface nya
 dan tidak peduli apa aplikasi database yang di gunakan ReminderPassword bisa konek ke database tanpa masalah dan tidak melanggar prinsip Open-Close Principle</p>
 
-<pre><code class="language-php">&lt;? 
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?</span> 
 
-class MySQLConnection implements DBConnectionInterface {
-    public function connect() {
-        return "Database connection";
-    }
-}
+<span class="k">class</span> <span class="nc">MySQLConnection</span> <span class="k">implements</span> <span class="nx">DBConnectionInterface</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">connect</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">"Database connection"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class PasswordReminder {
-    private $dbConnection;
+<span class="k">class</span> <span class="nc">PasswordReminder</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$dbConnection</span><span class="p">;</span>
 
-    public function __construct(DBConnectionInterface $dbConnection) {
-        $this-&gt;dbConnection = $dbConnection;
-    }
-}  
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nx">DBConnectionInterface</span> <span class="nv">$dbConnection</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dbConnection</span> <span class="o">=</span> <span class="nv">$dbConnection</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>  
 
-</code></pre>
+</code></pre></div></div>
 
 <p>Dari kode di atas kita bisa lihat bahwa low-level dan high-level module sudah bergantung kepada abstraction.</p>
 
@@ -454,10 +454,10 @@ Contoh : Seperti Kita Search di google.</p>
   <li>Setelah proses selesai servlet return html code using prinln method ke dalam sebuah object.</li>
 </ul>
 
-<pre><code class="language-java">
-// get parameter from request ?nama=Abdillah
-String nama = request.getParameter("nama");
-</code></pre>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// get parameter from request ?nama=Abdillah</span>
+<span class="n">String</span> <span class="n">nama</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"nama"</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>IDE ( Integrated Development Environment )</p>
 
@@ -489,13 +489,13 @@ String nama = request.getParameter("nama");
 
 <h4 id="5-type-of-jsp-tags">5 Type of JSP TAGS:</h4>
 
-<pre><code class="language-java">
-&lt;% %&gt; // Insert Block Of Java Statement (JSP Scriplet)
-&lt;%= %&gt; // Display the string value of an expession (JSP Expression)
-&lt;%@ %&gt; // Set Condition that apply to the entire JSP (JSP Directive)
-&lt;%-- --%&gt; // To Tell JSP Ignore (JSP Comment)
-&lt;%! %&gt; // To declare Instance variables and method for JSP (JSP Declaration)
-</code></pre>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="o">&lt;%</span> <span class="o">%&gt;</span> <span class="c1">// Insert Block Of Java Statement (JSP Scriplet)</span>
+<span class="o">&lt;%=</span> <span class="o">%&gt;</span> <span class="c1">// Display the string value of an expession (JSP Expression)</span>
+<span class="o">&lt;%</span><span class="err">@</span> <span class="o">%&gt;</span> <span class="c1">// Set Condition that apply to the entire JSP (JSP Directive)</span>
+<span class="o">&lt;%--</span> <span class="o">--%&gt;</span> <span class="c1">// To Tell JSP Ignore (JSP Comment)</span>
+<span class="o">&lt;%!</span> <span class="o">%&gt;</span> <span class="c1">// To declare Instance variables and method for JSP (JSP Declaration)</span>
+</code></pre></div></div>
 
 <h4 id="php-web-introduction">PHP Web Introduction</h4>
 
@@ -698,26 +698,26 @@ Bisa di gunakan untuk memodelkan berbagai sistem : software system, bisnis syste
 
 <p>Contoh : fungsi untuk open image</p>
 
-<pre><code class="language-java">
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
     
-    public Image CreateImage(String type){
-        if(type.isEqual("png"))
-            return new PNGImage();
-        if(type.isEqual("jpg"))
-            return new JPGImage();
-        if(type.isEqual("gif"))
-            return new GIFImage();
-    }
+    <span class="kd">public</span> <span class="n">Image</span> <span class="nf">CreateImage</span><span class="o">(</span><span class="n">String</span> <span class="n">type</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">isEqual</span><span class="o">(</span><span class="s">"png"</span><span class="o">))</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">PNGImage</span><span class="o">();</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">isEqual</span><span class="o">(</span><span class="s">"jpg"</span><span class="o">))</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">JPGImage</span><span class="o">();</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">type</span><span class="o">.</span><span class="na">isEqual</span><span class="o">(</span><span class="s">"gif"</span><span class="o">))</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">GIFImage</span><span class="o">();</span>
+    <span class="o">}</span>
     
-    public void NewImage(String type){
-        Image im = CreateImage(type);
-        Images.add(im);
-        im.open();
-    }
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">NewImage</span><span class="o">(</span><span class="n">String</span> <span class="n">type</span><span class="o">){</span>
+        <span class="n">Image</span> <span class="n">im</span> <span class="o">=</span> <span class="n">CreateImage</span><span class="o">(</span><span class="n">type</span><span class="o">);</span>
+        <span class="n">Images</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">im</span><span class="o">);</span>
+        <span class="n">im</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>
+    <span class="o">}</span>
     
-    //NewImage("jpg");    
+    <span class="c1">//NewImage("jpg");    </span>
 
-</code></pre>
+</code></pre></div></div>
 
 <h4 id="when-to-use-abstract-factory-method">When to use Abstract Factory Method</h4>
 
@@ -792,7 +792,7 @@ Bisa di gunakan untuk memodelkan berbagai sistem : software system, bisnis syste
 
 <h2 id="operating-sistem---12-nov-2016">Operating Sistem - 12 Nov 2016</h2>
 
-<pre><code>Kisi-Kisi
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kisi-Kisi
 Operating Sistem
 - PG 10 Soal(20 %)
 &gt; Session 1-7
@@ -827,7 +827,7 @@ Perbandingan Keuntungan Process &amp; Thread
 Bagaimana Flow Pada Process
 Bagaimana Process Flow dalam Thread
 Scheduling (FirstComeFirstServe,Shortest Job First,Round-Robin) Gambar Terus itung rata2 waiting time dan rata2 turn around time
-</code></pre>
+</code></pre></div></div>
 
 </div>
         </article>
@@ -877,7 +877,7 @@ Scheduling (FirstComeFirstServe,Shortest Job First,Round-Robin) Gambar Terus itu
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

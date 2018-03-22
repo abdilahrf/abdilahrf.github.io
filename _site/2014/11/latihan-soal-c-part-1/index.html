@@ -123,14 +123,14 @@
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
                             <h1>Latihan Soal C Part 1</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#C" data-toggle="tooltip" title="Posts tagged with C" rel="tag">C</a> <strong><!-- <time datetime="2014-11-16T07:11:13+07:00">16 Nov 2014</time> --></strong></p>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#C" data-toggle="tooltip" title="Posts tagged with C" rel="tag">C</a> <strong><time datetime="2014-11-16T07:11:13+07:00">16 Nov 2014</time></strong></p>
                         </div>
                     </div>
                 </div>
             </header>
 
         <article class="notepad-post-content post tag-simple">
-            <div><p>latihan soal c part 1 untuk mengasah logika coding kita harus banyak latihan dengan soal-soal maka saya coba mengerjakan soal dari online judge untuk mengasah logika untuk coding  <img src="https://www.hasnydes.us/wp-includes/images/smilies/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;" /> soalnya seperti berikut :</p>
+            <div><p>latihan soal c part 1 untuk mengasah logika coding kita harus banyak latihan dengan soal-soal maka saya coba mengerjakan soal dari online judge untuk mengasah logika untuk coding soalnya seperti berikut :</p>
 
 <p>Indonesia memiliki cukup banyak pemain bulutangkis yang handal dan setiap tahunnya PBSI selalu merekrut dan membina puluhan ribu bibit muda dari seluruh nusantara. Saat ini terdapat N peserta putra dan M peserta putri yang sedang mengikuti pelatihan dasar bulutangkis yang diselenggarakan PBSI. Setiap peserta pelatihan sudah dinilai kemampuannya oleh pelatih dengan setiap nilai (rating) berada pada rentang 1 hingga 100.000. Untuk mengukur kemajuan pelatihan ini, sang pelatih ingin mengetahui ada berapa banyak cara membentuk sebuah tim yang terdiri dari 1 putra dan 1 putri (ganda campuran) sedemikian sehingga jumlah rating mereka setidaknya sebesar K.</p>
 
@@ -225,60 +225,48 @@ Kasus #3: 0
 
 <p> </p>
 
-<pre data-src="adaw.cpp"><code class="language-cpp">
-
-#include&lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">#include&lt;stdio.h&gt;
 #include&lt;string.h&gt;
 #include&lt;windows.h&gt;
-int t,m,k1[1001],k2[1001],n,max[20],temp[5];
+</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">k1</span><span class="p">[</span><span class="mi">1001</span><span class="p">],</span><span class="n">k2</span><span class="p">[</span><span class="mi">1001</span><span class="p">],</span><span class="n">n</span><span class="p">,</span><span class="n">max</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span><span class="n">temp</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
 
-int main(){
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
 	
-	do{
-	scanf("%d",&amp;t);
-	fflush(stdin);
-	}while(t &gt; 20 || t &lt;= 0);
-	
-	for(int c=0;c&lt;t;c++)
-	{
-		do{
-		scanf("%d %d %d",&amp;n,&amp;m,&amp;max[c]);
-		}while(n&lt;=1 || n&gt;= 40000 || m&lt;= 1 || m&gt;= 40000 || max[c]&lt;=1 || max[c]&gt;=100000);
-			for(int i=0;i&lt;n;i++)
-				{
-					scanf("%d",&amp;k1[i]);	
-				}
-			for(int i=0;i&lt;m;i++)
-				{
-					scanf("%d",&amp;k2[i]);
-				}
-		/*	
-			for(int j=0;j&lt;n;j++)	
-			{
-			printf("Laki Array[%d] : %d\n",j,k1[j]);
-			}
-			for(int j=0;j&lt;m;j++)
-			{
-			printf("Cewe Array[%d] : %d\n",j,k2[j]);
-			}
-		*/
+<span class="k">do</span><span class="p">{</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+    <span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+<span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="o">||</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">);</span>
 
-			for(int j=0;j&lt;n;j++){
-				for(int n=0;n&lt;m;n++){
-				if(k1[j] + k2[n] &gt; max[c]){
-			//	printf("K1[%d] + K2[%d] &gt; 100 = %d\n",k1[j],k2[n],k1[j]+k2[n]);
-					temp[c] += 1;
-					}
-				}
-			}	
-	}
-	for(int c=0;c&lt;t;c++){
-		printf("Kasus #%d: %d\n",c+1,temp[c]);
-	}	
-	system("pause");
-	return 0;
-}
-</code></pre>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">c</span><span class="o">&lt;</span><span class="n">t</span><span class="p">;</span><span class="n">c</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">do</span><span class="p">{</span>
+       <span class="n">scanf</span><span class="p">(</span><span class="s">"%d %d %d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m</span><span class="p">,</span><span class="o">&amp;</span><span class="n">max</span><span class="p">[</span><span class="n">c</span><span class="p">]);</span>
+    <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">&lt;=</span><span class="mi">1</span> <span class="o">||</span> <span class="n">n</span><span class="o">&gt;=</span> <span class="mi">40000</span> <span class="o">||</span> <span class="n">m</span><span class="o">&lt;=</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">m</span><span class="o">&gt;=</span> <span class="mi">40000</span> <span class="o">||</span> <span class="n">max</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">&lt;=</span><span class="mi">1</span> <span class="o">||</span> <span class="n">max</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">100000</span><span class="p">);</span>
+    
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">k1</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>	
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">m</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">k2</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">n</span><span class="o">&lt;</span><span class="n">m</span><span class="p">;</span><span class="n">n</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">k1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">k2</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">[</span><span class="n">c</span><span class="p">]){</span>
+            <span class="n">temp</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>	
+<span class="p">}</span>
+
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">c</span><span class="o">&lt;</span><span class="n">t</span><span class="p">;</span><span class="n">c</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Kasus #%d: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">temp</span><span class="p">[</span><span class="n">c</span><span class="p">]);</span>
+<span class="p">}</span>	
+<span class="n">system</span><span class="p">(</span><span class="s">"pause"</span><span class="p">);</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p> </p>
 </div>
@@ -329,7 +317,7 @@ int main(){
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

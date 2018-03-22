@@ -15,21 +15,21 @@
 -->
 <head>
 <meta charset="utf-8">
-<title>BELAJAR BAHASA C PART 3 &vert; @ABDILAHRF</title>
+<title>LATIHAN SOAL C PART 3 &vert; @ABDILAHRF</title>
 <meta name="description" content="Coffe Make you like a hero">
 <meta name="keywords" content="C">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://localhost:4000/images/logo.png">
-<meta name="twitter:title" content="BELAJAR BAHASA C PART 3">
+<meta name="twitter:title" content="Latihan Soal C Part 3">
 <meta name="twitter:description" content="Coffe Make you like a hero">
 <meta name="twitter:creator" content="@abdilahrf">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BELAJAR BAHASA C PART 3">
+<meta property="og:title" content="Latihan Soal C Part 3">
 <meta property="og:description" content="Coffe Make you like a hero">
 <meta property="og:url" content="http://localhost:4000/2014/12/belajar-bahasa-c-part-3/">
 <meta property="og:site_name" content="@abdilahrf">
@@ -122,8 +122,8 @@
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h1>BELAJAR BAHASA C PART 3</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#C" data-toggle="tooltip" title="Posts tagged with C" rel="tag">C</a> <strong><!-- <time datetime="2014-12-04T16:04:25+07:00">04 Dec 2014</time> --></strong></p>
+                            <h1>Latihan Soal C Part 3</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#C" data-toggle="tooltip" title="Posts tagged with C" rel="tag">C</a> <strong><time datetime="2014-12-04T16:04:25+07:00">04 Dec 2014</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -134,120 +134,125 @@
 
 <p>di bahasa c kita juga bisa membuat function untuk mempermudah dan menghemat tenaga untuk coding karena hanya di tulis 1x dan bisa di gunakan seterusnya contohnya fungsi seperti ini</p>
 
-<pre><code class="language-c">// tipedata namafunction(Parameter (tipedata namaparameter),(tipedata namaparameter)){
-//block statement
-}
-int functionCoba(int angka){
-//Block statement
-//Return namavariable atau angka
-}</code></pre>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// tipedata namafunction(Parameter (tipedata namaparameter),(tipedata namaparameter)){</span>
+<span class="c1">//block statement</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="n">functionCoba</span><span class="p">(</span><span class="kt">int</span> <span class="n">angka</span><span class="p">){</span>
+<span class="c1">//Block statement</span>
+<span class="c1">//Return namavariable atau angka</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>untuk function bisa menggunakan semua tipe data termasuk void tapi kalau void tidak dapat mengembalikan nilai dan tidak dapat menggunakan return coba kita buat function sederhana untuk menghitung selisih nilai anda dengan nilai teman</p>
 
-<pre><code class="language-c">#include &lt;stdio.h&gt;
-int hitungSelisihNilai(int nilaiSaya,int nilaiTeman){
-	int selisih = nilaiSaya - nilaiTeman;
-	return selisih;
-}
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &amp;lt;stdio.h&amp;gt;
+</span><span class="kt">int</span> <span class="n">hitungSelisihNilai</span><span class="p">(</span><span class="kt">int</span> <span class="n">nilaiSaya</span><span class="p">,</span><span class="kt">int</span> <span class="n">nilaiTeman</span><span class="p">){</span>
+	<span class="kt">int</span> <span class="n">selisih</span> <span class="o">=</span> <span class="n">nilaiSaya</span> <span class="o">-</span> <span class="n">nilaiTeman</span><span class="p">;</span>
+	<span class="k">return</span> <span class="n">selisih</span><span class="p">;</span>
+<span class="p">}</span>
 
-int main(){
-int nilaiSaya,nilaiTeman;
-printf("masukan nilai anda : ");
-scanf("%d",&amp;nilaiSaya);
-fflush(stdin);
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+<span class="kt">int</span> <span class="n">nilaiSaya</span><span class="p">,</span><span class="n">nilaiTeman</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"masukan nilai anda : "</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">nilaiSaya</span><span class="p">);</span>
+<span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
 
-printf("masukan nilai teman : ");
-scanf("%d",&amp;nilaiTeman);
-fflush(stdin);
+<span class="n">printf</span><span class="p">(</span><span class="s">"masukan nilai teman : "</span><span class="p">);</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">nilaiTeman</span><span class="p">);</span>
+<span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
 
-printf("Selisih Nilai Anda Dengan Teman : %d ",hitungSelisihNilai(nilaiSaya,nilaiTeman));
-getchar();
-return 0;
+<span class="n">printf</span><span class="p">(</span><span class="s">"Selisih Nilai Anda Dengan Teman : %d "</span><span class="p">,</span><span class="n">hitungSelisihNilai</span><span class="p">(</span><span class="n">nilaiSaya</span><span class="p">,</span><span class="n">nilaiTeman</span><span class="p">));</span>
+<span class="n">getchar</span><span class="p">();</span>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 
-}</code></pre>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>dan kemudian kita buat contoh parsing parameter with value dan parsing parameter with reference</p>
 
-<pre><code class="language-c">void ubahNilaiByValue(int nilai){
-	nilai = nilai + 11;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">ubahNilaiByValue</span><span class="p">(</span><span class="kt">int</span> <span class="n">nilai</span><span class="p">){</span>
+	<span class="n">nilai</span> <span class="o">=</span> <span class="n">nilai</span> <span class="o">+</span> <span class="mi">11</span><span class="p">;</span>
 	
-}
+<span class="p">}</span>
 
-void ubahNilaiByRef(int *nilai){
-	*nilai = *nilai + 22;
-} 
+<span class="kt">void</span> <span class="n">ubahNilaiByRef</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">nilai</span><span class="p">){</span>
+	<span class="o">*</span><span class="n">nilai</span> <span class="o">=</span> <span class="o">*</span><span class="n">nilai</span> <span class="o">+</span> <span class="mi">22</span><span class="p">;</span>
+<span class="p">}</span> 
 
-int main(){
- //Parsing parameter by value 
- int number = 50;
- printf("Number Before : %d \n",number);
- ubahNilaiByValue(number);
- printf("Number After : %d \n",number);
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+ <span class="c1">//Parsing parameter by value </span>
+ <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s">"Number Before : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">number</span><span class="p">);</span>
+ <span class="n">ubahNilaiByValue</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s">"Number After : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">number</span><span class="p">);</span>
  
- //Parsing parameter by refference / addres / location
- int number2 = 30;
- printf("Number2 Before : %d \n",number2);
- ubahNilaiByRef(&amp;number2);
- printf("Number2 After : %d \n",number2);
-}
-</code></pre>
+ <span class="c1">//Parsing parameter by refference / addres / location</span>
+ <span class="kt">int</span> <span class="n">number2</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s">"Number2 Before : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">number2</span><span class="p">);</span>
+ <span class="n">ubahNilaiByRef</span><span class="p">(</span><span class="o">&amp;</span><span class="n">number2</span><span class="p">);</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s">"Number2 After : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">number2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Parsing parameter by value number akan tetap 50 setelah atau sebelum di masukan ke function karena function tidak mengetahui adress dari number tersebut kecuali yang menggunakan parsing parameter by reference kita memberikan “&amp;number2” yang berarti kita memberikan adress kita maka function dapat merubah value kita tambahan ini ada contoh untuk parsing array</p>
 
-<pre><code class="language-c">void printArray(int arr[] , int index){
- printf("Array ke %d Adalah %d \n",index,arr[index]);
-}
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="p">,</span> <span class="kt">int</span> <span class="n">index</span><span class="p">){</span>
+ <span class="n">printf</span><span class="p">(</span><span class="s">"Array ke %d Adalah %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
+<span class="p">}</span>
 
-int main(){
-//parsing parameter array
-  int numb_arr[] = {10,15,20,25,30};
-  printArray(numb_arr,0); // Maka akan keluar array index ke [0] = 10
-  getchar();  
-  return 0;
-}</code></pre>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+<span class="c1">//parsing parameter array</span>
+  <span class="kt">int</span> <span class="n">numb_arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">30</span><span class="p">};</span>
+  <span class="n">printArray</span><span class="p">(</span><span class="n">numb_arr</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// Maka akan keluar array index ke [0] = 10</span>
+  <span class="n">getchar</span><span class="p">();</span>  
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 
-<p>Kemudian contoh rekrusif function yaitu function yang dapat memanggil dirinya sendiri di dalam function itu</p>
+<span class="n">Kemudian</span> <span class="n">contoh</span> <span class="n">rekrusif</span> <span class="n">function</span> <span class="n">yaitu</span> <span class="n">function</span> <span class="n">yang</span> <span class="n">dapat</span> <span class="n">memanggil</span> <span class="n">dirinya</span> <span class="n">sendiri</span> <span class="n">di</span> <span class="n">dalam</span> <span class="n">function</span> <span class="n">itu</span>
 
-<pre><code class="language-c">int faktorial(int angka){
+<span class="err">```</span><span class="n">c</span>
+<span class="kt">int</span> <span class="n">faktorial</span><span class="p">(</span><span class="kt">int</span> <span class="n">angka</span><span class="p">){</span>
 
-	if(angka &lt;= 1)
-		return 1;
-	else
-		return angka * faktorial(angka-1);
-}
+	<span class="k">if</span><span class="p">(</span><span class="n">angka</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="k">else</span>
+		<span class="k">return</span> <span class="n">angka</span> <span class="o">*</span> <span class="n">faktorial</span><span class="p">(</span><span class="n">angka</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
 
-int main(){
-	printf("Faktorial dari 6 : %d\n",faktorial(6));
-        getchar();
-        return 0;
-}</code></pre>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Faktorial dari 6 : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">faktorial</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span>
+        <span class="n">getchar</span><span class="p">();</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p> </p>
 
 <p>dan lagi ada contoh rekrusif function yaitu untuk menyelesaikan fibonnaci</p>
 
-<pre><code class="language-c">//fibonaci
-// 1 1 2 3 5 8 13 21
-int fibonaci(int angka){
-	if(angka &lt;=2 )
-		return 1;
-	else
-		fibonaci(angka-1);//1
-		return fibonaci(angka-1) + fibonaci(angka-2); //4
-}
-int totalFibo(int angka){
-		if(angka &lt;=1)
-			return 1;
-		else
-		return fibonaci(angka)+totalFibo(angka-1); 
-}
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//fibonaci</span>
+<span class="c1">// 1 1 2 3 5 8 13 21</span>
+<span class="kt">int</span> <span class="n">fibonaci</span><span class="p">(</span><span class="kt">int</span> <span class="n">angka</span><span class="p">){</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">angka</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span><span class="mi">2</span> <span class="p">)</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="k">else</span>
+		<span class="n">fibonaci</span><span class="p">(</span><span class="n">angka</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="c1">//1</span>
+		<span class="k">return</span> <span class="n">fibonaci</span><span class="p">(</span><span class="n">angka</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonaci</span><span class="p">(</span><span class="n">angka</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//4</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="n">totalFibo</span><span class="p">(</span><span class="kt">int</span> <span class="n">angka</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="n">angka</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+			<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">else</span>
+		<span class="k">return</span> <span class="n">fibonaci</span><span class="p">(</span><span class="n">angka</span><span class="p">)</span><span class="o">+</span><span class="n">totalFibo</span><span class="p">(</span><span class="n">angka</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> 
+<span class="p">}</span>
 
-int main(){
-	printf("Fibonacci dari 8 : %d\n",fibonaci(8));
-	printf("Jumlah Fibonacci dari 5 : %d \n",totalFibo(4));
-	getchar();
-	return 0;
-} </code></pre>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Fibonacci dari 8 : %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">fibonaci</span><span class="p">(</span><span class="mi">8</span><span class="p">));</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"Jumlah Fibonacci dari 5 : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">totalFibo</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
+	<span class="n">getchar</span><span class="p">();</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> 
+</code></pre></div></div>
 
 <p> </p>
 
@@ -259,7 +264,7 @@ int main(){
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;BELAJAR BAHASA C PART 3&quot;%20http://localhost:4000/2014/12/belajar-bahasa-c-part-3/%20via%20&#64;abdilahrf"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Latihan Soal C Part 3&quot;%20http://localhost:4000/2014/12/belajar-bahasa-c-part-3/%20via%20&#64;abdilahrf"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
@@ -302,7 +307,7 @@ int main(){
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

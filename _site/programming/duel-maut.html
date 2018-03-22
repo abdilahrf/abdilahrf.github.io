@@ -124,7 +124,7 @@
 
             <div class="notepad-post-title bg-check">
                 <h1>Jollybeoj: 18-Duel Maut</h1>
-                <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#OnlineJudge" data-toggle="tooltip" title="Posts tagged with OnlineJudge" rel="tag">OnlineJudge</a> <strong><!-- <time datetime="2016-08-03 00:00:00 +0700">2016-08-03 00:00:00 +0700</time> --></strong></p>
+                <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#OnlineJudge" data-toggle="tooltip" title="Posts tagged with OnlineJudge" rel="tag">OnlineJudge</a> <strong><time datetime="2016-08-03 00:00:00 +0700">2016-08-03 00:00:00 +0700</time></strong></p>
             </div>
             <div class="bg-img"></div>
         </header>
@@ -241,60 +241,60 @@ Pirate group B have 4 fighters: 50, 19, 29, 51.</p>
   </table>
 </blockquote>
 
-<pre><code class="language-c">#include&lt;stdio.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;
+</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+<span class="kt">int</span> <span class="n">lenA</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">lenB</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">tc</span><span class="p">,</span><span class="n">jml</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span><span class="n">powerA</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span><span class="n">powerB</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">Res</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">calc</span><span class="p">;</span>
+
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">tc</span><span class="p">);</span>
 
 
-int main(){
-int lenA;
-int lenB;
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">z</span><span class="o">&lt;</span><span class="n">tc</span><span class="p">;</span><span class="n">z</span><span class="o">++</span><span class="p">){</span>
 
-int tc,jml[100],powerA[100],powerB[100];
-int Res;
-int calc;
+<span class="c1">// Jumlah Pirate A</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">jml</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
 
-scanf("%d",&amp;tc);
+<span class="c1">// Jumlah Pirate B</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">jml</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 
 
-for(int z=0;z&lt;tc;z++){
+<span class="c1">// Power tiap Pirate</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">r</span><span class="o">&lt;</span><span class="n">jml</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="n">r</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">powerA</span><span class="p">[</span><span class="n">r</span><span class="p">]);</span>
 
-// Jumlah Pirate A
-scanf("%d",&amp;jml[0]);
+<span class="p">}</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">h</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">h</span><span class="o">&lt;</span><span class="n">jml</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="n">h</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">powerB</span><span class="p">[</span><span class="n">h</span><span class="p">]);</span>
 
-// Jumlah Pirate B
-scanf("%d",&amp;jml[1]);
+<span class="p">}</span>
 
-
-// Power tiap Pirate
-for(int r=0;r&lt;jml[0];r++){
-    scanf("%d",&amp;powerA[r]);
-
-}
-for(int h=0;h&lt;jml[1];h++){
-    scanf("%d",&amp;powerB[h]);
-
-}
-
-lenA = jml[0];
-lenB = jml[1];
-Res = 1337;
-for(int b=0;b&lt;lenB;b++){
-    for(int x=0;x&lt;lenA;x++){
-        if(powerA[x] &gt; powerB[b]){
-            calc = powerA[x]-powerB[b];
-        }else{
-            calc = powerB[b]-powerA[x];
-        }
+<span class="n">lenA</span> <span class="o">=</span> <span class="n">jml</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">lenB</span> <span class="o">=</span> <span class="n">jml</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">Res</span> <span class="o">=</span> <span class="mi">1337</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">b</span><span class="o">&lt;</span><span class="n">lenB</span><span class="p">;</span><span class="n">b</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="n">lenA</span><span class="p">;</span><span class="n">x</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">powerA</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">powerB</span><span class="p">[</span><span class="n">b</span><span class="p">]){</span>
+            <span class="n">calc</span> <span class="o">=</span> <span class="n">powerA</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">-</span><span class="n">powerB</span><span class="p">[</span><span class="n">b</span><span class="p">];</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">calc</span> <span class="o">=</span> <span class="n">powerB</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">-</span><span class="n">powerA</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+        <span class="p">}</span>
         
-    if(Res == 1337){Res = calc; }else{  if(calc &lt; Res) Res = calc;}
-    }
-}
-    printf("Kasus #%d: %d\n",z+1,Res);
-}
+    <span class="k">if</span><span class="p">(</span><span class="n">Res</span> <span class="o">==</span> <span class="mi">1337</span><span class="p">){</span><span class="n">Res</span> <span class="o">=</span> <span class="n">calc</span><span class="p">;</span> <span class="p">}</span><span class="k">else</span><span class="p">{</span>  <span class="k">if</span><span class="p">(</span><span class="n">calc</span> <span class="o">&lt;</span> <span class="n">Res</span><span class="p">)</span> <span class="n">Res</span> <span class="o">=</span> <span class="n">calc</span><span class="p">;}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Kasus #%d: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">Res</span><span class="p">);</span>
+<span class="p">}</span>
     
 
-return 0;
-}
-</code></pre>
+<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p><img src="/images/accepted-18.PNG" alt="18 Duel Maut" /></p>
 </div>
@@ -372,7 +372,7 @@ return 0;
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

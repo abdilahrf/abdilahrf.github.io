@@ -123,7 +123,7 @@
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
                             <h1>Latihan Soal C Part 2</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#C" data-toggle="tooltip" title="Posts tagged with C" rel="tag">C</a> <strong><!-- <time datetime="2014-11-18T01:42:01+07:00">18 Nov 2014</time> --></strong></p>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#C" data-toggle="tooltip" title="Posts tagged with C" rel="tag">C</a> <strong><time datetime="2014-11-18T01:42:01+07:00">18 Nov 2014</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -132,32 +132,31 @@
         <article class="notepad-post-content post tag-simple">
             <div><p>Lanjut lagi latihan kita dengan bahasa C … soal ini sebenarnya menimplementasikan nested for dengan selection sehingga menjadi kotak dengan dalam yang kosong soalnya seperti berikut</p>
 
-<p><a href="http://abdilahrf.me/images/2014/11/soal10.png"><img class="aligncenter wp-image-335" src="http://abdilahrf.me/images/2014/11/soal10-1024x415.png" alt="soal10" width="1200" height="487" /></a></p>
+<p><a href="http://abdilahrf.github.io/images/2014/11/soal10.png"><img class="aligncenter wp-image-335" src="http://abdilahrf.github.io/images/2014/11/soal10-1024x415.png" alt="soal10" width="1200" height="487" /></a></p>
 
-<pre data-src="kotak.cpp"><code class="language-c">#include
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;
+</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+	<span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// mendifinisikan var x dengan int</span>
+	<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span> <span class="c1">// membuat input field</span>
+	<span class="n">fflush</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span><span class="c1">// untuk menyimpan buffer input</span>
+	<span class="c1">// menggunakan nestedfor untuk membuat kotak</span>
+	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">x</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="c1">// for pertama untuk baris kebawah</span>
+		<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">x</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span> <span class="c1">// for kedua untuk kekanan</span>
+			<span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">0</span> <span class="o">||</span> <span class="n">i</span><span class="o">==</span><span class="mi">4</span> <span class="o">||</span> <span class="n">j</span><span class="o">==</span><span class="mi">0</span> <span class="o">||</span> <span class="n">j</span><span class="o">==</span><span class="mi">4</span><span class="p">){</span> <span class="c1">// validasi jika di baris tertentu munculkan *</span>
+			<span class="n">printf</span><span class="p">(</span><span class="s">"*"</span><span class="p">);</span> <span class="c1">// kondisi benar munculkan * </span>
+			<span class="p">}</span><span class="k">else</span><span class="p">{</span> <span class="c1">// kondisi else </span>
+			<span class="n">printf</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span> <span class="c1">// munculkan " "</span>
+			<span class="p">}</span> 
+		<span class="p">}</span> <span class="c1">// tutup for kedua</span>
+			<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// \n untuk memberikan enter agar menjadi 5 baris</span>
+	<span class="p">}</span> <span class="c1">// tutup for pertama</span>
+	<span class="n">getchar</span><span class="p">();</span> <span class="c1">// mendapatkan char " "</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div></div>
 
-int main(){
-	int x; // mendifinisikan var x dengan int
-	scanf("%d",&amp;x); // membuat input field
-	fflush(stdin);// untuk menyimpan buffer input
-	// menggunakan nestedfor untuk membuat kotak
-	for(int i=0;i&lt;x;i++){ // for pertama untuk baris kebawah
-		for(int j=0;j&lt;x;j++){ // for kedua untuk kekanan
-			if(i==0 || i==4 || j==0 || j==4){ // validasi jika di baris tertentu munculkan *
-			printf("*"); // kondisi benar munculkan * 
-			}else{ // kondisi else 
-			printf(" "); // munculkan " "
-			} 
-		} // tutup for kedua
-			printf("\n"); // \n untuk memberikan enter agar menjadi 5 baris
-	} // tutup for pertama
-	getchar(); // mendapatkan char " "
-	return 0; 
-}</code></pre>
-
-<p> </p>
-
-<p><a href="http://abdilahrf.me/images/2014/11/test.png"><img class="aligncenter size-full wp-image-336" src="http://abdilahrf.me/images/2014/11/test.png" alt="test" width="679" height="339" /></a></p>
+<p><a href="http://abdilahrf.github.io/images/2014/11/test.png"><img class="aligncenter size-full wp-image-336" src="http://abdilahrf.github.io/images/2014/11/test.png" alt="test" width="679" height="339" /></a></p>
 </div>
         </article>
         <div class="cf"></div>
@@ -206,7 +205,7 @@ int main(){
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

@@ -124,7 +124,7 @@
 
             <div class="notepad-post-title bg-check">
                 <h1>SecurityFest2017 - A Temple Jest</h1>
-                <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#schemainjection" data-toggle="tooltip" title="Posts tagged with schemainjection" rel="tag">schemainjection</a> <strong><!-- <time datetime=""></time> --></strong></p>
+                <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#schemainjection" data-toggle="tooltip" title="Posts tagged with schemainjection" rel="tag">schemainjection</a> <strong><time datetime=""></time></strong></p>
             </div>
             <div class="bg-img"></div>
         </header>
@@ -134,50 +134,50 @@
         <article class="notepad-post-content post">
             <div><h2 id="problems">Problems</h2>
 
-<pre><code>The target are setting up their intranet communication service. Hack it before they are done!
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The target are setting up their intranet communication service. Hack it before they are done!
 Solves: 52
 Service: http://alieni.se:3003/
 Author: avlidienbrunn
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="writeup">Writeup</h2>
 
-<p>This web app using node and expressjs framework too we can read <code>package.json</code></p>
+<p>This web app using node and expressjs framework too we can read <code class="highlighter-rouge">package.json</code></p>
 
-<pre><code class="language-js">{
-  name: "atemplejest",
-  version: "1.0.0",
-  description: "A temple jest project",
-  main: "index.js",
-  scripts: {
-    test: "echo "Error: no test specified" &amp;&amp; exit 1"
-  },
-  repository: {
-    type: "git",
-    url: "git+https://github.com/avlidienbrunn/atemplejest.git"
-  },
-  keywords: [
-  "asd"
-  ],
-  author: "avlidienbrunn",
-  license: "WTFPL",
-  bugs: {
-    url: "https://github.com/avlidienbrunn/atemplejest/issues"
-  },
-  homepage: "https://github.com/avlidienbrunn/atemplejest#readme",
-  dependencies: {
-    ejs: "^2.5.6",
-    threads: "^0.7.3"
-  }
-}
-</code></pre>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="s2">"atemplejest"</span><span class="p">,</span>
+  <span class="nx">version</span><span class="p">:</span> <span class="s2">"1.0.0"</span><span class="p">,</span>
+  <span class="nx">description</span><span class="p">:</span> <span class="s2">"A temple jest project"</span><span class="p">,</span>
+  <span class="nx">main</span><span class="p">:</span> <span class="s2">"index.js"</span><span class="p">,</span>
+  <span class="nx">scripts</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">test</span><span class="p">:</span> <span class="s2">"echo "</span><span class="nb">Error</span><span class="p">:</span> <span class="nx">no</span> <span class="nx">test</span> <span class="nx">specified</span><span class="s2">" &amp;&amp; exit 1"</span>
+  <span class="p">},</span>
+  <span class="nx">repository</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">type</span><span class="p">:</span> <span class="s2">"git"</span><span class="p">,</span>
+    <span class="nx">url</span><span class="p">:</span> <span class="s2">"git+https://github.com/avlidienbrunn/atemplejest.git"</span>
+  <span class="p">},</span>
+  <span class="nx">keywords</span><span class="p">:</span> <span class="p">[</span>
+  <span class="s2">"asd"</span>
+  <span class="p">],</span>
+  <span class="nx">author</span><span class="p">:</span> <span class="s2">"avlidienbrunn"</span><span class="p">,</span>
+  <span class="nx">license</span><span class="p">:</span> <span class="s2">"WTFPL"</span><span class="p">,</span>
+  <span class="nx">bugs</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">url</span><span class="p">:</span> <span class="s2">"https://github.com/avlidienbrunn/atemplejest/issues"</span>
+  <span class="p">},</span>
+  <span class="nx">homepage</span><span class="p">:</span> <span class="s2">"https://github.com/avlidienbrunn/atemplejest#readme"</span><span class="p">,</span>
+  <span class="nx">dependencies</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">ejs</span><span class="p">:</span> <span class="s2">"^2.5.6"</span><span class="p">,</span>
+    <span class="nx">threads</span><span class="p">:</span> <span class="s2">"^0.7.3"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Trying to get the github repo without luck, because the repo was removed,
-after tring some test <code>http://alieni.se:3003/render/&lt;var&gt;</code> i think we input in the parameter is variable then got eval’ed
-we can do some aritmathic calculation like <code>5+6</code> then we can call <code>procces.env</code> =&gt; <code>[object Object] is under construction...</code></p>
+after tring some test <code class="highlighter-rouge">http://alieni.se:3003/render/&lt;var&gt;</code> i think we input in the parameter is variable then got eval’ed
+we can do some aritmathic calculation like <code class="highlighter-rouge">5+6</code> then we can call <code class="highlighter-rouge">procces.env</code> =&gt; <code class="highlighter-rouge">[object Object] is under construction...</code></p>
 
-<p>we can leak memory using <code>Buffer()</code> to get the flag <code>https://snyk.io/blog/exploiting-buffer/</code>
-executing this <code>http://alieni.se:3003/render/Buffer(100000)</code> then simply search the flag by hand.</p>
+<p>we can leak memory using <code class="highlighter-rouge">Buffer()</code> to get the flag <code class="highlighter-rouge">https://snyk.io/blog/exploiting-buffer/</code>
+executing this <code class="highlighter-rouge">http://alieni.se:3003/render/Buffer(100000)</code> then simply search the flag by hand.</p>
 </div>
         </article>
         <div class="cf"></div>
@@ -253,7 +253,7 @@ executing this <code>http://alieni.se:3003/render/Buffer(100000)</code> then sim
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">

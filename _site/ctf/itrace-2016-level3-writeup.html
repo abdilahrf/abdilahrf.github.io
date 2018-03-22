@@ -15,22 +15,22 @@
 -->
 <head>
 <meta charset="utf-8">
-<title>ITRACE 2016 LEVEL 3: WRITEUPS &vert; @ABDILAHRF</title>
+<title>ITRACE 2016 : WRITEUPS &vert; @ABDILAHRF</title>
 <meta name="description" content="ITRACE 2016 Level 3 : Writeups">
-<meta name="keywords" content="ITRACE 2016">
+<meta name="keywords" content="ITRACE">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="/images/itrace.jpg">
 
-<meta name="twitter:title" content="ITRACE 2016 Level 3: Writeups">
+<meta name="twitter:title" content="ITRACE 2016 : Writeups">
 <meta name="twitter:description" content="ITRACE 2016 Level 3 : Writeups">
 <meta name="twitter:creator" content="@abdilahrf">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ITRACE 2016 Level 3: Writeups">
+<meta property="og:title" content="ITRACE 2016 : Writeups">
 <meta property="og:description" content="ITRACE 2016 Level 3 : Writeups">
 <meta property="og:url" content="http://localhost:4000/ctf/itrace-2016-level3-writeup">
 <meta property="og:site_name" content="@abdilahrf">
@@ -123,8 +123,8 @@
             </div>
 
             <div class="notepad-post-title bg-check">
-                <h1>ITRACE 2016 Level 3: Writeups</h1>
-                <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#ITRACE 2016" data-toggle="tooltip" title="Posts tagged with ITRACE 2016" rel="tag">ITRACE 2016</a> <strong><!-- <time datetime="2016-10-10 00:00:00 +0700">2016-10-10 00:00:00 +0700</time> --></strong></p>
+                <h1>ITRACE 2016 : Writeups</h1>
+                <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#ITRACE" data-toggle="tooltip" title="Posts tagged with ITRACE" rel="tag">ITRACE</a> <strong><time datetime="2016-10-10 00:00:00 +0700">2016-10-10 00:00:00 +0700</time></strong></p>
             </div>
             <div class="bg-img"></div>
         </header>
@@ -146,53 +146,53 @@ http://task-00000001.itrace.systems/compare-us.php</p>
 <p>Di task ini kita harus melakukan bypass terhadap beberapa validasi
 untuk mendapatkan flag. Source soal di berikan :</p>
 
-<pre><code class="language-php">&lt;?php
-    error_reporting(0);
-    include 'flag.php';
-    $check=thepassword();
-    parse_str($_SERVER['QUERY_STRING']);
-    $A=$_GET['key'];
-    if(ctype_xdigit($A)){
-        $e=implode('',array_map(function($i,$A){return chr(hexdec($A{$i+$i}.$A{$i+($i+1)}));},list($m,$n,$o)=range(0,2),array($A,$A,$A)));
-        if($e&lt;1 &amp;&amp; $e&gt;0 &amp;&amp; $e!==0){
-            if((int)(substr($A,strlen($e)*2)+0) &lt; -1){
-                if($check==$_GET['password']){
-                    echo flag();
-                } else {
-                    echo 'Bad.';
-                }
-            } else {
-                echo 'Bad.';
-            }
-        } else {
-            echo 'Bad.';
-        }
-    } else {
-        echo 'Bad.';
-    }
-    echo "&lt;pre&gt;";
-    echo htmlentities(highlight_string(file_get_contents(__FILE__)));
-    echo "&lt;/pre&gt;";
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+    <span class="nb">error_reporting</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="k">include</span> <span class="s1">'flag.php'</span><span class="p">;</span>
+    <span class="nv">$check</span><span class="o">=</span><span class="nx">thepassword</span><span class="p">();</span>
+    <span class="nb">parse_str</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'QUERY_STRING'</span><span class="p">]);</span>
+    <span class="nv">$A</span><span class="o">=</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'key'</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">ctype_xdigit</span><span class="p">(</span><span class="nv">$A</span><span class="p">)){</span>
+        <span class="nv">$e</span><span class="o">=</span><span class="nb">implode</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span><span class="nb">array_map</span><span class="p">(</span><span class="k">function</span><span class="p">(</span><span class="nv">$i</span><span class="p">,</span><span class="nv">$A</span><span class="p">){</span><span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">hexdec</span><span class="p">(</span><span class="nv">$A</span><span class="p">{</span><span class="nv">$i</span><span class="o">+</span><span class="nv">$i</span><span class="p">}</span><span class="o">.</span><span class="nv">$A</span><span class="p">{</span><span class="nv">$i</span><span class="o">+</span><span class="p">(</span><span class="nv">$i</span><span class="o">+</span><span class="mi">1</span><span class="p">)}));},</span><span class="k">list</span><span class="p">(</span><span class="nv">$m</span><span class="p">,</span><span class="nv">$n</span><span class="p">,</span><span class="nv">$o</span><span class="p">)</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="k">array</span><span class="p">(</span><span class="nv">$A</span><span class="p">,</span><span class="nv">$A</span><span class="p">,</span><span class="nv">$A</span><span class="p">)));</span>
+        <span class="k">if</span><span class="p">(</span><span class="nv">$e</span><span class="o">&lt;</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nv">$e</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nv">$e</span><span class="o">!==</span><span class="mi">0</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">((</span><span class="nx">int</span><span class="p">)(</span><span class="nb">substr</span><span class="p">(</span><span class="nv">$A</span><span class="p">,</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$e</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+                <span class="k">if</span><span class="p">(</span><span class="nv">$check</span><span class="o">==</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">'password'</span><span class="p">]){</span>
+                    <span class="k">echo</span> <span class="nx">flag</span><span class="p">();</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="k">echo</span> <span class="s1">'Bad.'</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">echo</span> <span class="s1">'Bad.'</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">'Bad.'</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Bad.'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">echo</span> <span class="s2">"&lt;pre&gt;"</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nb">htmlentities</span><span class="p">(</span><span class="nb">highlight_string</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="k">__FILE__</span><span class="p">)));</span>
+    <span class="k">echo</span> <span class="s2">"&lt;/pre&gt;"</span><span class="p">;</span>
 
-</code></pre>
-<p>pertama input kita di validasi dengan <code>ctype_xdigit($A)</code> yang di terima adalah [0-9a-f]
-kemudian ada validasi lagi nah <code>if($e&lt;1 &amp;&amp; $e&gt;0 &amp;&amp; $e!==0)</code>
-$e yang di hasilkan harus di antara 0 dan 1. <code>302e35</code> adalah hexadecimal dari 0.5 dan
+</code></pre></div></div>
+<p>pertama input kita di validasi dengan <code class="highlighter-rouge">ctype_xdigit($A)</code> yang di terima adalah [0-9a-f]
+kemudian ada validasi lagi nah <code class="highlighter-rouge">if($e&lt;1 &amp;&amp; $e&gt;0 &amp;&amp; $e!==0)</code>
+$e yang di hasilkan harus di antara 0 dan 1. <code class="highlighter-rouge">302e35</code> adalah hexadecimal dari 0.5 dan
 berhasil melewati validasi tersebut.</p>
 
-<p>kemudian <code>if((int)(substr($A,strlen($e)*2)+0) &lt; -1)</code> di tahap ini kita
+<p>kemudian <code class="highlighter-rouge">if((int)(substr($A,strlen($e)*2)+0) &lt; -1)</code> di tahap ini kita
 harus membuat hasil dari substr yang di cast ke integer memberikan output &lt; -1
 kemungkinan yang bisa kita lakukan adalah dengan melakukan integer overflow,
-dengan <code>29999999999999999999999999999</code> ternyata sudah berhasil menjadikan minus outputnya.</p>
+dengan <code class="highlighter-rouge">29999999999999999999999999999</code> ternyata sudah berhasil menjadikan minus outputnya.</p>
 
-<p>kemudian <code>if($check==$_GET['password'])</code> hampir terasa mustahil untuk menebak apa
-isi dari variable <code>$check</code> karena kita tidak bisa mengakses file <code>flag.php</code>
-tapi ternyata ada pemanggilan fungsi <code>parse_str($_SERVER['QUERY_STRING']);</code> yang memberikan kita peluang untuk melakukan
-overwrite variable yang sudah ada simply <code>?&amp;check=dor&amp;password=dor</code> maka input kita berhasil bypass validasi tersebut.</p>
+<p>kemudian <code class="highlighter-rouge">if($check==$_GET['password'])</code> hampir terasa mustahil untuk menebak apa
+isi dari variable <code class="highlighter-rouge">$check</code> karena kita tidak bisa mengakses file <code class="highlighter-rouge">flag.php</code>
+tapi ternyata ada pemanggilan fungsi <code class="highlighter-rouge">parse_str($_SERVER['QUERY_STRING']);</code> yang memberikan kita peluang untuk melakukan
+overwrite variable yang sudah ada simply <code class="highlighter-rouge">?&amp;check=dor&amp;password=dor</code> maka input kita berhasil bypass validasi tersebut.</p>
 
-<p>Full payload : <code>curl "http://task-00000001.itrace.systems/compare-us.php?key=302e3529999999999999999999999999999&amp;check=dor&amp;password=dor" |grep -o ITRACE{[a-z0-9_]*}</code></p>
+<p>Full payload : <code class="highlighter-rouge">curl "http://task-00000001.itrace.systems/compare-us.php?key=302e3529999999999999999999999999999&amp;check=dor&amp;password=dor" |grep -o ITRACE{[a-z0-9_]*}</code></p>
 
-<p>flag : <code>ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}</code></p>
+<p>flag : <code class="highlighter-rouge">ITRACE{r1d1n9_i5_34513r_th4n_r34d1n9}</code></p>
 
 <p><br />
 <br /></p>
@@ -230,9 +230,9 @@ http://task-00001110.itrace.systems/request.php</p>
 <p>Karena di server hanya menerima UTF-8 kita coba2 kirim character non-UTF
 dan server mengembalikan response hexadecimal yang di decode menghasilkan flag</p>
 
-<p>Full payload : <code>curl -X POST --data "request=���������������������" http://task-00001110.itrace.systems/request.php | cut -d"\"" -f 4 | grep 0[x][0-9a-f]* | sed -e 's/0x//g' | rev | cut -b 6-55 | rev | xxd -r &gt; a &amp;&amp; echo -n "ITR" &amp;&amp; cat a &amp;&amp; rm a</code></p>
+<p>Full payload : <code class="highlighter-rouge">curl -X POST --data "request=���������������������" http://task-00001110.itrace.systems/request.php | cut -d"\"" -f 4 | grep 0[x][0-9a-f]* | sed -e 's/0x//g' | rev | cut -b 6-55 | rev | xxd -r &gt; a &amp;&amp; echo -n "ITR" &amp;&amp; cat a &amp;&amp; rm a</code></p>
 
-<p>Flag : <code>ITRACE{Y4Y_TO_345Y}</code></p>
+<p>Flag : <code class="highlighter-rouge">ITRACE{Y4Y_TO_345Y}</code></p>
 
 <p><br />
 <br /></p>
@@ -251,30 +251,30 @@ http://task-00000100.itrace.systems/loremisnotipsum.tar.gz</p>
 <p>Setelah file soal di extract ada kurang lebih 63 file raw text yang berisi paragraf lorem ipsum, tapi 
 tiap file memikili beberapa part yang berbeda. saya gunakan python untuk mengextract flag.</p>
 
-<pre><code class="language-python">
-import sys
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">sys</span>
 
-def printf(c):
-	sys.stdout.write(c)
-	sys.stdout.flush()
+<span class="k">def</span> <span class="nf">printf</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+	<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+	<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
 
-f = open('0.loremipsum')
-x = f.read().split(' ')
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'0.loremipsum'</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
 
-for i in range(1,63):
-	k = str(i)+'.loremipsum'
-	h = open(k)
-	hh = h.read().split(' ')
-	for u in range(len(x)):
-		if x[u] == hh[u]:
-			pass
-		elif hh[u]!='semper':
-			printf(hh[u])
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">63</span><span class="p">):</span>
+	<span class="n">k</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s">'.loremipsum'</span>
+	<span class="n">h</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+	<span class="n">hh</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+		<span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">==</span> <span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">]:</span>
+			<span class="k">pass</span>
+		<span class="k">elif</span> <span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">!=</span><span class="s">'semper'</span><span class="p">:</span>
+			<span class="n">printf</span><span class="p">(</span><span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
 
 
-</code></pre>
+</code></pre></div></div>
 
-<p>Flag : <code>ITRACE{similiriti_similikiti}</code></p>
+<p>Flag : <code class="highlighter-rouge">ITRACE{similiriti_similikiti}</code></p>
 
 <p><br />
 <br /></p>
@@ -294,27 +294,27 @@ http://task-00000011.itrace.systems/password.tar.gz</p>
 berdasarkan string yang di output dari program “Bad.”. di temukan flag di simpan di dalam array.</p>
 
 <p>Ketika di convert ke ascii hasilnya adalah : 
-<code>'K' 'V' 'T' 'C' 'E' 'G' '}' 'd' '6' 'f' 'a' 'e' '2' 'f' '5' '7' 'a' 'j' '3' 'f' '3' 'p' '8' 'a' '3' 'P' 'a' 'r' '6' 'e' ''</code>
+<code class="highlighter-rouge">'K' 'V' 'T' 'C' 'E' 'G' '}' 'd' '6' 'f' 'a' 'e' '2' 'f' '5' '7' 'a' 'j' '3' 'f' '3' 'p' '8' 'a' '3' 'P' 'a' 'r' '6' 'e' ''</code>
 Seharusnya flag di mulai dengan “ITRACE”</p>
 
-<pre><code>Huruf K posisinya +2 dari I
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Huruf K posisinya +2 dari I
 Huruf V posisinya +2 dari T
 ...
 Huruf G posisinya +2 dari E
-</code></pre>
+</code></pre></div></div>
 
-<pre><code class="language-python">
-a = 'K' 'V' 'T' 'C' 'E' 'G' '}' 'd' '6' 'f' 'a' 'e' '2' 'f' '5' '7' 'a' 'j' '3' 'f' '3' 'p' '8' 'a' '3' 'P' 'a' 'r' '6' 'e' ''
-flag = ""
-for x in a:
-	flag += chr(ord(x)-2)
-	pass
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">a</span> <span class="o">=</span> <span class="s">'K'</span> <span class="s">'V'</span> <span class="s">'T'</span> <span class="s">'C'</span> <span class="s">'E'</span> <span class="s">'G'</span> <span class="s">'}'</span> <span class="s">'d'</span> <span class="s">'6'</span> <span class="s">'f'</span> <span class="s">'a'</span> <span class="s">'e'</span> <span class="s">'2'</span> <span class="s">'f'</span> <span class="s">'5'</span> <span class="s">'7'</span> <span class="s">'a'</span> <span class="s">'j'</span> <span class="s">'3'</span> <span class="s">'f'</span> <span class="s">'3'</span> <span class="s">'p'</span> <span class="s">'8'</span> <span class="s">'a'</span> <span class="s">'3'</span> <span class="s">'P'</span> <span class="s">'a'</span> <span class="s">'r'</span> <span class="s">'6'</span> <span class="s">'e'</span> <span class="s">''</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="s">""</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+	<span class="n">flag</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+	<span class="k">pass</span>
 
-print flag
+<span class="k">print</span> <span class="n">flag</span>
 
-</code></pre>
+</code></pre></div></div>
 
-<p>Semua ascii di kurang 2 dan di temukan flagnya : <code>ITRACE{b4d_c0d35_h1d1n6_1N_p4ck}</code></p>
+<p>Semua ascii di kurang 2 dan di temukan flagnya : <code class="highlighter-rouge">ITRACE{b4d_c0d35_h1d1n6_1N_p4ck}</code></p>
 
 <p><br />
 <br /></p>
@@ -332,78 +332,78 @@ http://task-00000010.itrace.systems/square.php</p>
 
 <p>di task ini kita harus bikin square yang kalau di jumlah rows dan cols nya itu sama.</p>
 
-<pre><code>2	9	4   -&gt; 15
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2	9	4   -&gt; 15
 7	5	3   -&gt; 15
 6	1	8   -&gt; 15
 -   -   -
 15  15  15
 
 
-</code></pre>
+</code></pre></div></div>
 
 <p>jika sudah dapat susunan yang benar kirim melalui 
-<code>POST numbers=2,9,4,7,5,3,6,1,8</code> ke websitenya , jika question 1 benar maka akan lanjut ke question 2 
+<code class="highlighter-rouge">POST numbers=2,9,4,7,5,3,6,1,8</code> ke websitenya , jika question 1 benar maka akan lanjut ke question 2 
 sampai 10 dan di dapatkan flag.</p>
 
-<pre><code class="language-python">
-import mechanize
-from BeautifulSoup import BeautifulSoup
-import urllib,requests
-import json
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">mechanize</span>
+<span class="kn">from</span> <span class="nn">BeautifulSoup</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib</span><span class="p">,</span><span class="n">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-def createSquare(x):
-	grid = [[0,0,0],[0,0,0],[0,0,0]]
-	x = int(x)
-	grid[1][1] = x/3
-	grid[2][0] = grid[1][1]+1
-	grid[0][2] = grid[1][1]-1
+<span class="k">def</span> <span class="nf">createSquare</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+	<span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="mi">3</span>
+	<span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+	<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
 
-	grid[0][0] = grid[1][1]-3
-	grid[1][2] = grid[1][1]-2
-	grid[2][1] = grid[1][1]-4
+	<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">3</span>
+	<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span>
+	<span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">4</span>
 
-	grid[0][1] = x - (grid[0][0] + grid[0][2])
-	grid[1][0] = x - (grid[1][1] + grid[1][2])
-	grid[2][2] = x - (grid[2][0] + grid[2][1])
+	<span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+	<span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+	<span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
 
-	return grid
-
-
-br = mechanize.Browser()
-url = 'http://task-00000010.itrace.systems/square.php'
-content = br.open_novisit(url).read()
-soup = BeautifulSoup(content)
-soal = soup.find('span').next
+	<span class="k">return</span> <span class="n">grid</span>
 
 
-count = 0
-while count &lt;= 10:
-	res = ""
-	square = createSquare(soal)
-	for x in square:
-		for val in x:
-			res += str(val) + ','
-
-	res = res[:len(res)-1]
+<span class="n">br</span> <span class="o">=</span> <span class="n">mechanize</span><span class="o">.</span><span class="n">Browser</span><span class="p">()</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'http://task-00000010.itrace.systems/square.php'</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">open_novisit</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">soal</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'span'</span><span class="p">)</span><span class="o">.</span><span class="nb">next</span>
 
 
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+	<span class="n">res</span> <span class="o">=</span> <span class="s">""</span>
+	<span class="n">square</span> <span class="o">=</span> <span class="n">createSquare</span><span class="p">(</span><span class="n">soal</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">square</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+			<span class="n">res</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">+</span> <span class="s">','</span>
 
-	print "[Recv] : " + str(soal)
-	print "[Send] : " + res
+	<span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 
-	params = {'numbers': res}
-	data = urllib.urlencode(params)
-	res = br.open(url,data).read()
-	print "[Recv]" + res 
-	res = json.loads(res)
-	soal = res['nextsum']
 
-	count += 1
+	<span class="k">print</span> <span class="s">"[Recv] : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">soal</span><span class="p">)</span>
+	<span class="k">print</span> <span class="s">"[Send] : "</span> <span class="o">+</span> <span class="n">res</span>
 
-</code></pre>
 
-<p>Flag : <code>ITRACE{m4g1c_squ4r3_is_s0_m4th}</code></p>
+	<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s">'numbers'</span><span class="p">:</span> <span class="n">res</span><span class="p">}</span>
+	<span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+	<span class="n">res</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+	<span class="k">print</span> <span class="s">"[Recv]"</span> <span class="o">+</span> <span class="n">res</span> 
+	<span class="n">res</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+	<span class="n">soal</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s">'nextsum'</span><span class="p">]</span>
+
+	<span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+</code></pre></div></div>
+
+<p>Flag : <code class="highlighter-rouge">ITRACE{m4g1c_squ4r3_is_s0_m4th}</code></p>
 
 <p><br />
 <br /></p>
@@ -419,47 +419,47 @@ Description :
 http://task-00000101.itrace.systems/raws.pcapng</p>
 </blockquote>
 
-<p>Di berikan rekaman jaringan format <code>pcapng</code>, setelah di analisa di temukan
+<p>Di berikan rekaman jaringan format <code class="highlighter-rouge">pcapng</code>, setelah di analisa di temukan
 deretan hexadecimal yang terpisah menjadi beberapa bagian yang di duga adalah gambar
-karena ada header magic <code>FF D8 FF E0</code> tapi ada karakter yang bukan hexadecimal dan ada yang 1 karakter.</p>
+karena ada header magic <code class="highlighter-rouge">FF D8 FF E0</code> tapi ada karakter yang bukan hexadecimal dan ada yang 1 karakter.</p>
 
 <p>kita gunakan script python untuk membersihkan hexadecimal tersebut.</p>
 
-<pre><code class="language-python">
-import sys,re,binascii
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">,</span><span class="n">re</span><span class="p">,</span><span class="n">binascii</span>
 
 
-def printf(c):
-    sys.stdout.write(c)
-    sys.stdout.flush()
+<span class="k">def</span> <span class="nf">printf</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
 
-pattern = re.compile("[0-9a-fA-F]{2}")
-res = ""
-for i in range(1,11):
-    k = str(i)
-    h = open(k)
-    hh = h.read().split(' ')
-    for u in range(len(hh)):
-            if pattern.match(hh[u]) and len(hh[u]) == 2:
-                res += hh[u]
-            elif len(hh[u]) == 1 :
-                 fix = "0"+hh[u]
-                 if pattern.match(fix):
-                    res += fix
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"[0-9a-fA-F]{2}"</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="s">""</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">hh</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hh</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+                 <span class="n">fix</span> <span class="o">=</span> <span class="s">"0"</span><span class="o">+</span><span class="n">hh</span><span class="p">[</span><span class="n">u</span><span class="p">]</span>
+                 <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">fix</span><span class="p">):</span>
+                    <span class="n">res</span> <span class="o">+=</span> <span class="n">fix</span>
 
-text_file = open("hexm", "w")
-text_file.write(res)
-text_file.close()
+<span class="n">text_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"hexm"</span><span class="p">,</span> <span class="s">"w"</span><span class="p">)</span>
+<span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">text_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-with open('hexm') as f, open('test.jpg', 'wb') as fout:
-    for line in f:
-        fout.write(
-            binascii.unhexlify(''.join(line.split()))
-        )
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'hexm'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s">'test.jpg'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="p">)</span>
 
-</code></pre>
+</code></pre></div></div>
 
-<p>Flag : <code>ITRACE{FROM.0-F}</code></p>
+<p>Flag : <code class="highlighter-rouge">ITRACE{FROM.0-F}</code></p>
 
 <p><br />
 <br /></p>
@@ -476,9 +476,9 @@ Ping Me. Literally.
 Hint: are mine</p>
 </blockquote>
 
-<p>Hasil googling di temukan <code>http://cafelinux.info/pingme</code></p>
+<p>Hasil googling di temukan <code class="highlighter-rouge">http://cafelinux.info/pingme</code></p>
 
-<p>Flag : <code>ITRACE{http_www.cafelinux.info_ping.me}</code></p>
+<p>Flag : <code class="highlighter-rouge">ITRACE{http_www.cafelinux.info_ping.me}</code></p>
 
 <p><br />
 <br /></p>
@@ -503,8 +503,8 @@ Hints:
 <p>WARNING: Please use TOR Browser while diving in Deep Web</p>
 
 <p>Di hidden wiki kita cari search engine untuk mencari copy pasta
-kemudian kita coba cari di <code>ahmia</code> search <code>pasta</code> dan di temukan text hosting mirip pastebin
-dan jika kita buat paste maka akan muncul kata2 random jadi url nya, dan clue nya adalah <code>actually-heartbeat-opposite</code>
+kemudian kita coba cari di <code class="highlighter-rouge">ahmia</code> search <code class="highlighter-rouge">pasta</code> dan di temukan text hosting mirip pastebin
+dan jika kita buat paste maka akan muncul kata2 random jadi url nya, dan clue nya adalah <code class="highlighter-rouge">actually-heartbeat-opposite</code>
 seperti kata random yang di generate ketika membuat raw.</p>
 
 <p>akses ke url nya dengan actually-heartbeat-opposite maka akan mendapatkan flag di address bar.</p>
@@ -526,41 +526,41 @@ http://task-00001001.itrace.systems/racist.php</p>
 <p>mencari pixel yang paling sedikit di gunakan dalam gambar kemudian mengirimkannya sebagai jawaban
 ke server, setelah 10 stage di dapatkan flag.</p>
 
-<pre><code class="language-python">from PIL import Image
-import urllib
-import urllib2
-from collections import defaultdict
-from mechanize import Browser
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">mechanize</span> <span class="kn">import</span> <span class="n">Browser</span>
 
-br = Browser()
-url = "http://task-00001001.itrace.systems/image.php"
-url2 = "http://task-00001001.itrace.systems/racist.php"
-br.open(url2)
+<span class="n">br</span> <span class="o">=</span> <span class="n">Browser</span><span class="p">()</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"http://task-00001001.itrace.systems/image.php"</span>
+<span class="n">url2</span> <span class="o">=</span> <span class="s">"http://task-00001001.itrace.systems/racist.php"</span>
+<span class="n">br</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">url2</span><span class="p">)</span>
 
-while 1:
-	im = Image.open(br.open_novisit(url))
-	by_color = defaultdict(int)
-	for pixel in im.getdata():
-	    by_color[pixel] += 1
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+	<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">br</span><span class="o">.</span><span class="n">open_novisit</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+	<span class="n">by_color</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">pixel</span> <span class="ow">in</span> <span class="n">im</span><span class="o">.</span><span class="n">getdata</span><span class="p">():</span>
+	    <span class="n">by_color</span><span class="p">[</span><span class="n">pixel</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 	    
-	res = ""
-	curr = 9999999999
-	for x,y in by_color.items():
-	    if curr&gt;y:
-	        curr = y
-	        res = x
-	res = "%02x%02x%02x" % res
-	pasam = {'color': res}
-	data = urllib.urlencode(pasam)
-	daa = br.open(url2,data)
-	c = daa.read()
-	if "flag:" in c:
-		print c
-		break
+	<span class="n">res</span> <span class="o">=</span> <span class="s">""</span>
+	<span class="n">curr</span> <span class="o">=</span> <span class="mi">9999999999</span>
+	<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="n">by_color</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+	    <span class="k">if</span> <span class="n">curr</span><span class="o">&gt;</span><span class="n">y</span><span class="p">:</span>
+	        <span class="n">curr</span> <span class="o">=</span> <span class="n">y</span>
+	        <span class="n">res</span> <span class="o">=</span> <span class="n">x</span>
+	<span class="n">res</span> <span class="o">=</span> <span class="s">"</span><span class="si">%02</span><span class="s">x</span><span class="si">%02</span><span class="s">x</span><span class="si">%02</span><span class="s">x"</span> <span class="o">%</span> <span class="n">res</span>
+	<span class="n">pasam</span> <span class="o">=</span> <span class="p">{</span><span class="s">'color'</span><span class="p">:</span> <span class="n">res</span><span class="p">}</span>
+	<span class="n">data</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="n">pasam</span><span class="p">)</span>
+	<span class="n">daa</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="n">daa</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+	<span class="k">if</span> <span class="s">"flag:"</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>
+		<span class="k">print</span> <span class="n">c</span>
+		<span class="k">break</span>
 
-</code></pre>
+</code></pre></div></div>
 
-<p>Flag : <code>ITRACE{y0u_6uy5_4r3_4wes0m3}</code></p>
+<p>Flag : <code class="highlighter-rouge">ITRACE{y0u_6uy5_4r3_4wes0m3}</code></p>
 
 <p><br />
 <br /></p>
@@ -579,70 +579,70 @@ Scazzy, bot berjenis kelamin perempuan. Suka menggoda. Tapi kalo dirayu jual mah
 <p>untuk menjawab pertanyaan bot telegram ini kita perlu melakukan decode terhadap pesannya dan kemudian calculate
 dan kirim jawabannya, tapi di saya solve dengan setengah manual tapi dengan bantuan python.</p>
 
-<pre><code class="language-python"># -*- coding: utf-8 -*-
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -*- coding: utf-8 -*-</span>
 
-import re
-
-
-def decc(data):
-	pattern = re.compile("0[xX][0-9a-fA-F]+")
-	pattern2 = re.compile("[0-1]{8}")
-
-	if pattern.match(data) :
-		#decode hex
-		data = int(data,16)
-		return data
-	elif pattern2.match(data):
-		#decode binary
-		data = int('0b'+data,2)
-		return data	
+<span class="kn">import</span> <span class="nn">re</span>
 
 
-pattern = re.compile("0[xX][0-9a-fA-F]+")
-pattern2 = re.compile("[0-1]{8}")
+<span class="k">def</span> <span class="nf">decc</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+	<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"0[xX][0-9a-fA-F]+"</span><span class="p">)</span>
+	<span class="n">pattern2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"[0-1]{8}"</span><span class="p">)</span>
 
-soal = raw_input()
-soal = soal.split(" ")
-
-num = list()
-opp = list()
-x1=0
-x2=0
-mas = ""
-for k in soal:
-	if pattern.match(k):
-		num.append(decc(k))
-		mas += str(decc(k))
-		x1+=1
-	elif pattern2.match(k):
-		num.append(decc(k))
-		mas += str(decc(k))
-		x1+=1
-
-	elif k == "add" or k == "x" or k == "+" or k == "-" or k == "/" or k == "\xc3\xb7":
-		if k == "add":
-			k = "+"
-		elif k == "x":
-			k = "*"
-		elif k == "\xc3\xb7":
-			k = "/"
-
-		opp.append(k)
-		mas += k
-		x2+=1
-
-print mas
+	<span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">:</span>
+		<span class="c">#decode hex</span>
+		<span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">data</span>
+	<span class="k">elif</span> <span class="n">pattern2</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+		<span class="c">#decode binary</span>
+		<span class="n">data</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s">'0b'</span><span class="o">+</span><span class="n">data</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">data</span>	
 
 
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"0[xX][0-9a-fA-F]+"</span><span class="p">)</span>
+<span class="n">pattern2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">"[0-1]{8}"</span><span class="p">)</span>
 
-res = eval(str(mas))
-print "/answer" , res
+<span class="n">soal</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<span class="n">soal</span> <span class="o">=</span> <span class="n">soal</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">opp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">x1</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">x2</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">mas</span> <span class="o">=</span> <span class="s">""</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">soal</span><span class="p">:</span>
+	<span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+		<span class="n">num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decc</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+		<span class="n">mas</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">decc</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+		<span class="n">x1</span><span class="o">+=</span><span class="mi">1</span>
+	<span class="k">elif</span> <span class="n">pattern2</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+		<span class="n">num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decc</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+		<span class="n">mas</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">decc</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+		<span class="n">x1</span><span class="o">+=</span><span class="mi">1</span>
+
+	<span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"add"</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"x"</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"+"</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"-"</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"/"</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"</span><span class="se">\xc3\xb7</span><span class="s">"</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"add"</span><span class="p">:</span>
+			<span class="n">k</span> <span class="o">=</span> <span class="s">"+"</span>
+		<span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"x"</span><span class="p">:</span>
+			<span class="n">k</span> <span class="o">=</span> <span class="s">"*"</span>
+		<span class="k">elif</span> <span class="n">k</span> <span class="o">==</span> <span class="s">"</span><span class="se">\xc3\xb7</span><span class="s">"</span><span class="p">:</span>
+			<span class="n">k</span> <span class="o">=</span> <span class="s">"/"</span>
+
+		<span class="n">opp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+		<span class="n">mas</span> <span class="o">+=</span> <span class="n">k</span>
+		<span class="n">x2</span><span class="o">+=</span><span class="mi">1</span>
+
+<span class="k">print</span> <span class="n">mas</span>
 
 
-</code></pre>
+
+<span class="n">res</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">mas</span><span class="p">))</span>
+<span class="k">print</span> <span class="s">"/answer"</span> <span class="p">,</span> <span class="n">res</span>
+
+
+</code></pre></div></div>
 
 <p>setelah 20 stage menjawab pertanyaan di dapatkan flag
-Flag : <code>Congratulations. This is your flag: ITRACE{b0t_tele6r4m_i5_m0d3rn_typ3_0f_ircs_b0t}</code></p>
+Flag : <code class="highlighter-rouge">Congratulations. This is your flag: ITRACE{b0t_tele6r4m_i5_m0d3rn_typ3_0f_ircs_b0t}</code></p>
 
 <p><br />
 <br /></p>
@@ -658,11 +658,11 @@ Description :
 Download PrintTheFlag.class and reupload to http://45.64.99.71:5555/upload.php</p>
 </blockquote>
 
-<p>di berikan file PrintTheFlag.class yang header nya corrupt. kita fix headernya dengan <code>hexedit</code>
-ke <code>CA FE BA BE</code> dan upload ke website <code>http://45.64.99.71:5555/upload.php</code> untuk di jalankan 
+<p>di berikan file PrintTheFlag.class yang header nya corrupt. kita fix headernya dengan <code class="highlighter-rouge">hexedit</code>
+ke <code class="highlighter-rouge">CA FE BA BE</code> dan upload ke website <code class="highlighter-rouge">http://45.64.99.71:5555/upload.php</code> untuk di jalankan 
 dan di dapatkan flagnya</p>
 
-<p>Flag : <code>ITRACE{s0m3t1m35_j4v4_is_s0_t3xty</code></p>
+<p>Flag : <code class="highlighter-rouge">ITRACE{s0m3t1m35_j4v4_is_s0_t3xty</code></p>
 
 <p><br />
 <br />
@@ -687,7 +687,7 @@ https://goo.gl/forms/c0bKCOYi3CUJXtMh2</p>
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;ITRACE 2016 Level 3: Writeups&quot;%20http://localhost:4000/ctf/itrace-2016-level3-writeup%20via%20&#64;abdilahrf"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;ITRACE 2016 : Writeups&quot;%20http://localhost:4000/ctf/itrace-2016-level3-writeup%20via%20&#64;abdilahrf"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
@@ -757,7 +757,7 @@ https://goo.gl/forms/c0bKCOYi3CUJXtMh2</p>
 
     <footer class="notepad-site-footer">
     <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2017 &bull; All rights reserved.</section>
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
          <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
     </div>
     <div class="social-icons">
