@@ -332,6 +332,22 @@ jika kita lihat lebih dekat disitu ada 2 validasi, validasi yang pertama adalah 
 adalah hash md5 dari $salt+str1  harus sama dengan hash md5 dari $salt+str2
 dengan menggunakan array kita hanya membypass untuk validasi yang ke 2, agar validasi yang pertama juga bisa terbypass kita bisa menggunakan huruf yang berbeda,
 kurang lebih url akhirnya seperti ini : `http://web.angstromctf.com:3003/?str1[]=a&str2[]=x` untuk mendapatkan flag
+
+```php
+<?php
+$salt ="S3cr3t1337";
+var_dump(hash("md5", $salt.array("JOKOWI")) === hash("md5", $salt.array("WIDODO")));
+?>
+/*
+Result True
+Sat 23:22:20 with root in /tmp/ok via 🐘 v7.1.14 took 3s 
+•% ➜ php x.php
+PHP Notice:  Array to string conversion in /tmp/ok/x.php on line 5
+PHP Notice:  Array to string conversion in /tmp/ok/x.php on line 5
+bool(true)
+*/
+```
+
 `Flag: actf{but_md5_has_charm}`
 
 
