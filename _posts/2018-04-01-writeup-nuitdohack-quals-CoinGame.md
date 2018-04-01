@@ -59,10 +59,12 @@ TFTP_OPTIONS="--secure --create"
 
 sampai ke tahap dimana kita butuh kemampuan untuk ~~guessing~~ recon
 untuk mencari akun dari author soal tersebut di internet dan kita bisa temukan di copyright 
-terlihat ada username `TOTHEYELLOWMOON` dan juga di github kita mendapatkan repository CoinGame
-`https://github.com/totheyellowmoon/CoinGame/`
+terlihat ada username di copyright `TOTHEYELLOWMOON` 
+setelah kita mencari user dengan username tersebut kita menemukan 
+username-nya ada di github dan mempunyai repository `CoinGame` itu menandakan
+kita tidak salah orang `https://github.com/totheyellowmoon/CoinGame/`
 
-Deskripsi dari repositorynya : Congrats it was the first step ! Welcome on my Github, this is my new game but I haven't pushed the modifications ...
+dan dugaan kita diperkuat oleh Deskripsi dari repositorynya : Congrats it was the first step ! Welcome on my Github, this is my new game but I haven't pushed the modifications ...
 dari deskripsinya kita bisa menebak bahwa kode yang terbarunya hanya tersimpan di servernya dan belum di push.
 
 kita clone repositorynya untuk membantu kita mengambil file yang ada diserver dengan memanfaatkan filename nya,
@@ -84,7 +86,11 @@ cd ../
 dir=("CardFiles" "Cards" "Decks" "gameAnimationImages" "photo" "photo/Drag" "photo/Moderne" "photo/New" "photo/Ogres" "photo/reve"); for d in "${dir[@]}"; do diff <(md5sum $d/* | sed "s/$d//") <(md5sum ../Server/$d/* | sed "s/\.\.\/Server\/$d//");done
 ```
 
-dan didapatkan perbedaan dari file yang ada di repository dan di server
+Ide dari kode di atas adalah mendownload ulang semua file yang 
+kita ketahui dari Repository CoinGame dan mengambil file yang ada 
+di server dan lakukan perbandingan menggunakan `md5sum` kemudian 
+didapatkan beberapa perbedaan
+dari file yang ada di repository dan di server 
 
 ![Diff](../images/coingame2.png)
 
