@@ -4,8 +4,8 @@ layout: post
 featured: false
 published: true
 comments: true
-modified: 2018-03-25
-date: 2018-03-25
+modified: 2018-04-01
+date: 2018-04-01
 title: "Nuitduhack Quals 2018: CoinGame - 200pts"
 tags: [nuitduhack]
 mathjax: false
