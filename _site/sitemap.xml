@@ -64,11 +64,31 @@
 
     
     <url>
-        <loc>http://localhost:4000/pentest/writeup-hackthebox-enterprise</loc>
+        <loc>http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/pentest/writeup-hackthebox-valentine</loc>
+        <loc>http://localhost:4000/hackthebox/writeup-hackthebox-sense</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/writeup-angstromctf-web-challenges</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/websec.fr/writeup-websecfr-level04</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/websec.fr/writeup-websecfr-level01</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/hackthebox/writeup-hackthebox-enterprise</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/hackthebox/writeup-hackthebox-valentine</loc>
     </url>
     
     <url>

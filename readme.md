@@ -1,1 +1,0 @@
-https://hasny.id

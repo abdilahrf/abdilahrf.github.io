@@ -8,12 +8,27 @@ callback([
 
   {
     "text": "Writeup Hackthebox - Valentine",
-    "href": "/pentest/writeup-hackthebox-valentine"
+    "href": "/hackthebox/writeup-hackthebox-valentine"
+  } ,
+
+  {
+    "text": "Writeup Hackthebox - Sense",
+    "href": "/hackthebox/writeup-hackthebox-sense"
   } ,
 
   {
     "text": "Writeup Hackthebox - Enterprise",
-    "href": "/pentest/writeup-hackthebox-enterprise"
+    "href": "/hackthebox/writeup-hackthebox-enterprise"
+  } ,
+
+  {
+    "text": "Websec.fr babysteps: Level 04 - 1pts",
+    "href": "/websec.fr/writeup-websecfr-level04"
+  } ,
+
+  {
+    "text": "Websec.fr babysteps: Level 01 - 1pts",
+    "href": "/websec.fr/writeup-websecfr-level01"
   } ,
 
   {
@@ -184,6 +199,11 @@ callback([
   {
     "text": "Pengenalan Binary Search Tree",
     "href": "/2015/06/pengenalan-binary-search-tree/"
+  } ,
+
+  {
+    "text": "Nuitduhack Quals 2018: CoinGame - 200pts",
+    "href": "/ctf/writeup-nuitdohack-quals-CoinGame"
   } ,
 
   {
@@ -419,6 +439,11 @@ callback([
   {
     "text": "Basic Linux Privilage Escalation",
     "href": "/2014/07/basic-linux-privilage-escalation/"
+  } ,
+
+  {
+    "text": "Angstrom CTF 2018 : Web Challenges",
+    "href": "/ctf/writeup-angstromctf-web-challenges"
   } ,
 
   {
@@ -439,14 +464,35 @@ callback([
   
   {
     "text": "Writeup Hackthebox - Valentine",
-    "href": "/pentest/writeup-hackthebox-valentine"
+    "href": "/hackthebox/writeup-hackthebox-valentine"
+  } ,
+  
+
+  
+  {
+    "text": "Writeup Hackthebox - Sense",
+    "href": "/hackthebox/writeup-hackthebox-sense"
   } ,
   
 
   
   {
     "text": "Writeup Hackthebox - Enterprise",
-    "href": "/pentest/writeup-hackthebox-enterprise"
+    "href": "/hackthebox/writeup-hackthebox-enterprise"
+  } ,
+  
+
+  
+  {
+    "text": "Websec.fr babysteps: Level 04 - 1pts",
+    "href": "/websec.fr/writeup-websecfr-level04"
+  } ,
+  
+
+  
+  {
+    "text": "Websec.fr babysteps: Level 01 - 1pts",
+    "href": "/websec.fr/writeup-websecfr-level01"
   } ,
   
 
@@ -685,6 +731,13 @@ callback([
   {
     "text": "Pengenalan Binary Search Tree",
     "href": "/2015/06/pengenalan-binary-search-tree/"
+  } ,
+  
+
+  
+  {
+    "text": "Nuitduhack Quals 2018: CoinGame - 200pts",
+    "href": "/ctf/writeup-nuitdohack-quals-CoinGame"
   } ,
   
 
@@ -1014,6 +1067,13 @@ callback([
   {
     "text": "Basic Linux Privilage Escalation",
     "href": "/2014/07/basic-linux-privilage-escalation/"
+  } ,
+  
+
+  
+  {
+    "text": "Angstrom CTF 2018 : Web Challenges",
+    "href": "/ctf/writeup-angstromctf-web-challenges"
   } ,
   
 

@@ -1,17 +1,57 @@
 [
 	
 		{
+		  "title"      : "Nuitduhack Quals 2018: CoinGame - 200pts",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame",
+		  "date"       : "2018-03-25 00:00:00 +0700",
+		  "shortdate"  : "March 25, 2018"
+		} ,
+	
+		{
+		  "title"      : "Writeup Hackthebox - Sense",
+		  "category"   : "Hackthebox",
+		  "url"        : "http://localhost:4000/hackthebox/writeup-hackthebox-sense",
+		  "date"       : "2018-03-25 00:00:00 +0700",
+		  "shortdate"  : "March 25, 2018"
+		} ,
+	
+		{
+		  "title"      : "Angstrom CTF 2018 : Web Challenges",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/ctf/writeup-angstromctf-web-challenges",
+		  "date"       : "2018-03-24 00:00:00 +0700",
+		  "shortdate"  : "March 24, 2018"
+		} ,
+	
+		{
+		  "title"      : "Websec.fr babysteps: Level 04 - 1pts",
+		  "category"   : "Websec.fr",
+		  "url"        : "http://localhost:4000/websec.fr/writeup-websecfr-level04",
+		  "date"       : "2018-03-22 00:00:00 +0700",
+		  "shortdate"  : "March 22, 2018"
+		} ,
+	
+		{
+		  "title"      : "Websec.fr babysteps: Level 01 - 1pts",
+		  "category"   : "Websec.fr",
+		  "url"        : "http://localhost:4000/websec.fr/writeup-websecfr-level01",
+		  "date"       : "2018-03-22 00:00:00 +0700",
+		  "shortdate"  : "March 22, 2018"
+		} ,
+	
+		{
 		  "title"      : "Writeup Hackthebox - Enterprise",
-		  "category"   : "Pentest",
-		  "url"        : "http://localhost:4000/pentest/writeup-hackthebox-enterprise",
+		  "category"   : "Hackthebox",
+		  "url"        : "http://localhost:4000/hackthebox/writeup-hackthebox-enterprise",
 		  "date"       : "2018-03-18 00:00:00 +0700",
 		  "shortdate"  : "March 18, 2018"
 		} ,
 	
 		{
 		  "title"      : "Writeup Hackthebox - Valentine",
-		  "category"   : "Pentest",
-		  "url"        : "http://localhost:4000/pentest/writeup-hackthebox-valentine",
+		  "category"   : "Hackthebox",
+		  "url"        : "http://localhost:4000/hackthebox/writeup-hackthebox-valentine",
 		  "date"       : "2018-03-09 00:00:00 +0700",
 		  "shortdate"  : "March 09, 2018"
 		} ,

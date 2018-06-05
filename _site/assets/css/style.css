@@ -530,8 +530,9 @@ figcaption {
     font-style:italic;
 }
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 6px;
+    width: 12px;
+    height: 8px;
+    background: white;
 }
 
 ::-webkit-scrollbar-track {
@@ -1020,3 +1021,15 @@ img.mfp-img {
   top: 0;
   right: 0;
   padding-top: 0; }
+
+.notepad-post-content p code{
+  padding: 2px 8px !important;
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+.notepad-post-content a {
+  background: none !important;
+  color: #f05f70 !important;
+}
