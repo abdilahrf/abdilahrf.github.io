@@ -18,30 +18,30 @@ chart: null
 CVE-2018-11678
 ---
 
-**Exploit Title:** Monstra CMS <= 3.0.4 Login Rate Limiting Bypass
-**CVE:**  CVE-2018-11678
-**Vendor Homepage:*** http://monstra.org/
-**Software Link:** https://bitbucket.org/Awilum/monstra/downloads/monstra-3.0.4.zip
-**Discovered by:** Abdillah Muhamad
-**Contact:** abdilah.pb@gmail.com
-**Website:** https://abdilahrf.github.io
-**Category:** webapps
-**Platform:** PHP
+- **Exploit Title:** Monstra CMS <= 3.0.4 Login Rate Limiting Bypass
+- **CVE:**  CVE-2018-11678
+- **Vendor Homepage:** http://monstra.org/
+- **Software Link:** https://bitbucket.org/Awilum/monstra/downloads/monstra-3.0.4.zip
+- **Discovered by:** Abdillah Muhamad
+- **Contact:** abdilah.pb@gmail.com
+- **Website:** https://abdilahrf.github.io
+- **Category:** webapps
+- **Platform:** PHP
+ 
  
 MonstraCMS 3.0.4 Implementing bruteforce protection in login form but we manage to bypass because we can control the cookie value.
  
-Vulnerable Code:
- 
-https://github.com/monstra-cms/monstra/blob/dev/plugins/box/users/users.plugin.php
+**Vulnerable Code:** https://github.com/monstra-cms/monstra/blob/dev/plugins/box/users/users.plugin.php
 
 line 396-400:
+
 ```php
         if (Cookie::get('login_attempts') && Cookie::get('login_attempts') >= 5) {
             
             Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
         } 
 ```
-line 437-442:
+line 422-427:
 
 ```php
         if (Cookie::get('login_attempts') < 5) {
@@ -51,6 +51,7 @@ line 437-442:
             Notification::setNow('error', __('You are banned for 10 minutes. Try again later', 'users'));
         }
 ```
+line 437-442:
 
 ```php
         if (Cookie::get('login_attempts') < 5) {
