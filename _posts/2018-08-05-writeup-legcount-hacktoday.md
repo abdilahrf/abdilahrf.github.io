@@ -1,4 +1,3 @@
-
 ---
 private: 'false'
 layout: post
@@ -7,12 +6,11 @@ published: true
 comments: true
 modified: 2018-08-05
 date: 2018-08-05
-title: "Hacktoday Quals 2018: Legcounter"
+title: "Hacktoday Quals 2018 - Legcounter"
 tags: [hacktoday]
-category: CTF
 mathjax: false
-imagefeature: 
-description: "Hacktoday Quals 2018: Legcounter"
+category: CTF
+description: "Hacktoday Quals 2018 - Legcounter"
 chart: null
 ---
 
