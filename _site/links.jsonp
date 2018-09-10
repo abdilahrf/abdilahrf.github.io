@@ -202,6 +202,11 @@ callback([
   } ,
 
   {
+    "text": "Nuitduhack Quals 2018: PixEditor - 350pts",
+    "href": "/ctf/writeup-nuitdohack-quals-PixEditor"
+  } ,
+
+  {
     "text": "Nuitduhack Quals 2018: CoinGame - 200pts",
     "href": "/ctf/writeup-nuitdohack-quals-CoinGame"
   } ,
@@ -209,6 +214,11 @@ callback([
   {
     "text": "Multiple Vulnerability xEpan 1.0.4",
     "href": "/2014/11/multiple-vulnerability-xepan-1-0-4/"
+  } ,
+
+  {
+    "text": "Monstra CMS - 3.0.4 Login Rate Limiting Bypass",
+    "href": "/login-rate-limiting-bypass"
   } ,
 
   {
@@ -292,6 +302,11 @@ callback([
   } ,
 
   {
+    "text": "How I Hack Tokopedia (third party server) with pickle object",
+    "href": "/bugbounty/tokopedia-rce-from-pickle-unserialize"
+  } ,
+
+  {
     "text": "Hitcon 2016 : Secure Post",
     "href": "/ctf/hitcon-secure-post"
   } ,
@@ -299,6 +314,11 @@ callback([
   {
     "text": "Hitcon 2016 : Are you rich",
     "href": "/ctf/hitcon-are-you-rich"
+  } ,
+
+  {
+    "text": "Hacktoday Quals 2018 - Legcounter",
+    "href": "/ctf/writeup-legcount-hacktoday-Copy"
   } ,
 
   {
@@ -736,6 +756,13 @@ callback([
 
   
   {
+    "text": "Nuitduhack Quals 2018: PixEditor - 350pts",
+    "href": "/ctf/writeup-nuitdohack-quals-PixEditor"
+  } ,
+  
+
+  
+  {
     "text": "Nuitduhack Quals 2018: CoinGame - 200pts",
     "href": "/ctf/writeup-nuitdohack-quals-CoinGame"
   } ,
@@ -745,6 +772,13 @@ callback([
   {
     "text": "Multiple Vulnerability xEpan 1.0.4",
     "href": "/2014/11/multiple-vulnerability-xepan-1-0-4/"
+  } ,
+  
+
+  
+  {
+    "text": "Monstra CMS - 3.0.4 Login Rate Limiting Bypass",
+    "href": "/login-rate-limiting-bypass"
   } ,
   
 
@@ -862,6 +896,13 @@ callback([
 
   
   {
+    "text": "How I Hack Tokopedia (third party server) with pickle object",
+    "href": "/bugbounty/tokopedia-rce-from-pickle-unserialize"
+  } ,
+  
+
+  
+  {
     "text": "Hitcon 2016 : Secure Post",
     "href": "/ctf/hitcon-secure-post"
   } ,
@@ -871,6 +912,13 @@ callback([
   {
     "text": "Hitcon 2016 : Are you rich",
     "href": "/ctf/hitcon-are-you-rich"
+  } ,
+  
+
+  
+  {
+    "text": "Hacktoday Quals 2018 - Legcounter",
+    "href": "/ctf/writeup-legcount-hacktoday-Copy"
   } ,
   
 

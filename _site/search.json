@@ -1,11 +1,43 @@
 [
 	
 		{
+		  "title"      : "How I Hack Tokopedia (third party server) with pickle object",
+		  "category"   : "Bugbounty",
+		  "url"        : "http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize",
+		  "date"       : "2018-09-10 00:00:00 +0700",
+		  "shortdate"  : "September 10, 2018"
+		} ,
+	
+		{
+		  "title"      : "Hacktoday Quals 2018 - Legcounter",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/ctf/writeup-legcount-hacktoday-Copy",
+		  "date"       : "2018-08-05 00:00:00 +0700",
+		  "shortdate"  : "August 05, 2018"
+		} ,
+	
+		{
+		  "title"      : "Monstra CMS - 3.0.4 Login Rate Limiting Bypass",
+		  "category"   : "",
+		  "url"        : "http://localhost:4000/login-rate-limiting-bypass",
+		  "date"       : "2018-04-01 00:00:00 +0700",
+		  "shortdate"  : "April 01, 2018"
+		} ,
+	
+		{
+		  "title"      : "Nuitduhack Quals 2018: PixEditor - 350pts",
+		  "category"   : "CTF",
+		  "url"        : "http://localhost:4000/ctf/writeup-nuitdohack-quals-PixEditor",
+		  "date"       : "2018-04-01 00:00:00 +0700",
+		  "shortdate"  : "April 01, 2018"
+		} ,
+	
+		{
 		  "title"      : "Nuitduhack Quals 2018: CoinGame - 200pts",
 		  "category"   : "CTF",
 		  "url"        : "http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame",
-		  "date"       : "2018-03-25 00:00:00 +0700",
-		  "shortdate"  : "March 25, 2018"
+		  "date"       : "2018-04-01 00:00:00 +0700",
+		  "shortdate"  : "April 01, 2018"
 		} ,
 	
 		{

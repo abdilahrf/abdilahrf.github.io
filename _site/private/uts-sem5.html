@@ -164,7 +164,7 @@ Jadi 1 Class memiliki tanggung jawab kepada 1 job.</p>
         <span class="k">if</span><span class="o">(!</span><span class="n">email</span><span class="o">.</span><span class="na">Contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> 
             <span class="k">throw</span> <span class="k">new</span> <span class="nf">ValidationException</span><span class="o">(</span><span class="s">"Email is not an email!"</span><span class="o">);</span>
         
-        <span class="n">var</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
+        <span class="kt">var</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
         <span class="n">_database</span><span class="o">.</span><span class="na">Save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
         
         <span class="n">_smtpClient</span><span class="o">.</span><span class="na">Send</span><span class="o">(</span><span class="k">new</span> <span class="n">MailMessage</span><span class="o">(</span><span class="s">"mysite@nowhere.com"</span><span class="o">,</span> <span class="n">email</span><span class="o">){</span><span class="n">Subject</span><span class="o">=</span><span class="s">"Hello fool!"</span><span class="o">});</span>
@@ -180,7 +180,7 @@ Jadi 1 Class memiliki tanggung jawab kepada 1 job.</p>
         <span class="k">if</span><span class="o">(!</span><span class="n">ValidateEmail</span><span class="o">(</span><span class="n">email</span><span class="o">))</span> 
             <span class="k">throw</span> <span class="k">new</span> <span class="nf">ValidationException</span><span class="o">(</span><span class="s">"Email is not an email!"</span><span class="o">);</span>
         
-        <span class="n">var</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
+        <span class="kt">var</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span><span class="n">email</span><span class="o">,</span> <span class="n">password</span><span class="o">);</span>
         <span class="n">_database</span><span class="o">.</span><span class="na">Save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
         
         <span class="n">_smtpClient</span><span class="o">.</span><span class="na">Send</span><span class="o">(</span><span class="k">new</span> <span class="n">MailMessage</span><span class="o">(</span><span class="s">"mysite@nowhere.com"</span><span class="o">,</span> <span class="n">email</span><span class="o">){</span><span class="n">Subject</span><span class="o">=</span><span class="s">"Hello fool!"</span><span class="o">});</span>

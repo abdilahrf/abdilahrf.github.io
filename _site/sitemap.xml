@@ -64,6 +64,22 @@
 
     
     <url>
+        <loc>http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/writeup-legcount-hacktoday-Copy</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/login-rate-limiting-bypass</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/ctf/writeup-nuitdohack-quals-PixEditor</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/ctf/writeup-nuitdohack-quals-CoinGame</loc>
     </url>
     
