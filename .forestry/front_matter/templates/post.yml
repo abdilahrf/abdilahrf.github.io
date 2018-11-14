@@ -8,5 +8,6 @@ fields:
   hidden: false
   label: comments
   name: comments
+- type: text
 pages:
 - _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
