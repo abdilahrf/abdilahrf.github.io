@@ -1,5 +1,5 @@
 ---
-label: comments
+label: Default
 hide_body: false
 is_partial: false
 fields:
@@ -8,5 +8,22 @@ fields:
   hidden: false
   label: comments
   name: comments
+- type: text
+  name: title
+  label: title
+- type: datetime
+  label: date
+  name: date
+  config:
+    display_utc: false
+- type: tag_list
+  label: tags
+  name: tags
+- type: tag_list
+  name: category
+  label: category
+- type: boolean
+  name: private
+  label: private
 pages:
 - _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
