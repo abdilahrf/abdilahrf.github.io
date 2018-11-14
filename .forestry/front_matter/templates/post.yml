@@ -3,11 +3,6 @@ label: Default
 hide_body: false
 is_partial: false
 fields:
-- type: boolean
-  default: true
-  hidden: false
-  label: comments
-  name: comments
 - type: text
   name: title
   label: title
@@ -22,6 +17,11 @@ fields:
 - type: tag_list
   name: category
   label: category
+- type: boolean
+  default: true
+  hidden: false
+  label: comments
+  name: comments
 - type: boolean
   name: private
   label: private
