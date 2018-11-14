@@ -26,4 +26,5 @@ fields:
   name: private
   label: private
 pages:
+- _posts/test.md
 - _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
