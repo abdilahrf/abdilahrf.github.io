@@ -3,3 +3,5 @@ label: Post
 hide_body: false
 is_partial: false
 fields: []
+pages:
+- _posts/improper-access-control-xss-on-seller-tokopedia-com.md
