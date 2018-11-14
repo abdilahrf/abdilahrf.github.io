@@ -12,7 +12,7 @@ Prosesnya untuk reproduce bug nya adalah :
 * Buat komentar disalah satu post (ambil idnya)
 
   ![](/uploads/gambar1.png)
-* Gunakan endpoint update post `[http://api-id.codemi.co.id/api/v1/post/update/](http://api-id.codemi.co.id/api/v1/post/update/ "http://api-id.codemi.co.id/api/v1/post/update/")``<commentid>` ( Seharusnya id yang dapat diterima hanya postid namun disini kita dapat mengupgrade object kita yang sebelum nya adalah komentar menjadi sebuah post dan tidak ada validasi role di endpoint tersebut )
+* Gunakan endpoint update post `http://api-id.codemi.co.id/api/v1/post/update/<commentid>` ( Seharusnya id yang dapat diterima hanya postid namun disini kita dapat mengupgrade object kita yang sebelum nya adalah komentar menjadi sebuah post dan tidak ada validasi role di endpoint tersebut )
 
   ![](/uploads/gambar2.png)
 * Done
