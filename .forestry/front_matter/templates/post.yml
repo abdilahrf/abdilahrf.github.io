@@ -1,7 +1,12 @@
 ---
-label: Post
+label: comments
 hide_body: false
 is_partial: false
-fields: []
+fields:
+- type: boolean
+  default: true
+  hidden: false
+  label: comments
+  name: comments
 pages:
 - _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
