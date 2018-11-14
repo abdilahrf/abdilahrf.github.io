@@ -1,6 +1,7 @@
 ---
 title: Improper Access Control & XSS on seller.tokopedia.com
 date: 2018-11-14 08:38:21 +0000
+comments: true
 
 ---
 **Vulnerable Endpoint :** `http://api-id.codemi.co.id/api/v1/post/update/<COMMENTID>`
