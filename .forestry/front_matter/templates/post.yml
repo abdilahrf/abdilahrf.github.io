@@ -12,11 +12,11 @@ fields:
   config:
     display_utc: false
 - type: tag_list
-  label: tags
-  name: tags
-- type: tag_list
   name: category
   label: category
+- type: tag_list
+  label: tags
+  name: tags
 - type: boolean
   default: true
   hidden: false
