@@ -4,4 +4,4 @@ hide_body: false
 is_partial: false
 fields: []
 pages:
-- _posts/improper-access-control-xss-on-seller-tokopedia-com.md
+- _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
