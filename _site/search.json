@@ -1,11 +1,19 @@
 [
 	
 		{
-		  "title"      : "How I Hack Tokopedia (third party server) with pickle object",
+		  "title"      : "How I Hack Tokopedia (3rd server) with Object de-Serialization",
 		  "category"   : "Bugbounty",
 		  "url"        : "http://localhost:4000/bugbounty/tokopedia-rce-from-pickle-unserialize",
-		  "date"       : "2018-09-10 00:00:00 +0700",
-		  "shortdate"  : "September 10, 2018"
+		  "date"       : "2018-11-21 00:00:00 +0700",
+		  "shortdate"  : "November 21, 2018"
+		} ,
+	
+		{
+		  "title"      : "Improper Access Control &amp; XSS on seller.tokopedia.com",
+		  "category"   : "Bugbounty",
+		  "url"        : "http://localhost:4000/bugbounty/improper-access-control-xss-on-seller-tokopedia-com",
+		  "date"       : "2018-11-14 08:38:00 +0700",
+		  "shortdate"  : "November 14, 2018"
 		} ,
 	
 		{

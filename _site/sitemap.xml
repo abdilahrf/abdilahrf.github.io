@@ -68,6 +68,10 @@
     </url>
     
     <url>
+        <loc>http://localhost:4000/bugbounty/improper-access-control-xss-on-seller-tokopedia-com</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/ctf/writeup-legcount-hacktoday-Copy</loc>
     </url>
     

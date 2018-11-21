@@ -168,7 +168,7 @@ main, .notepad-share-icons, .notepad-disqus {
 .notepad-site-head .notepad-site-head-content {
   width: 100%;
   text-align: center;
-    background-image: url("http://abdilahrf.github.io/images/background.png");
+    background-image: url(/images/background.png);
     background-position-x: initial;
     background-position-y: initial;
     background-size: initial;

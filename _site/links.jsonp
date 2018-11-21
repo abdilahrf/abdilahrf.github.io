@@ -247,6 +247,11 @@ callback([
   } ,
 
   {
+    "text": "Improper Access Control & XSS on seller.tokopedia.com",
+    "href": "/bugbounty/improper-access-control-xss-on-seller-tokopedia-com"
+  } ,
+
+  {
     "text": "Idsecconf CTF 2016 : Webwob - 100",
     "href": "/ctf/writeup-idescconf-2016-webwob"
   } ,
@@ -302,7 +307,7 @@ callback([
   } ,
 
   {
-    "text": "How I Hack Tokopedia (third party server) with pickle object",
+    "text": "How I Hack Tokopedia (3rd server) with Object de-Serialization",
     "href": "/bugbounty/tokopedia-rce-from-pickle-unserialize"
   } ,
 
@@ -819,6 +824,13 @@ callback([
 
   
   {
+    "text": "Improper Access Control & XSS on seller.tokopedia.com",
+    "href": "/bugbounty/improper-access-control-xss-on-seller-tokopedia-com"
+  } ,
+  
+
+  
+  {
     "text": "Idsecconf CTF 2016 : Webwob - 100",
     "href": "/ctf/writeup-idescconf-2016-webwob"
   } ,
@@ -896,7 +908,7 @@ callback([
 
   
   {
-    "text": "How I Hack Tokopedia (third party server) with pickle object",
+    "text": "How I Hack Tokopedia (3rd server) with Object de-Serialization",
     "href": "/bugbounty/tokopedia-rce-from-pickle-unserialize"
   } ,
   

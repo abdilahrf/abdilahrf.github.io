@@ -1,0 +1,31 @@
+<p><strong>Vulnerable Endpoint :</strong> <code class="highlighter-rouge">http://api-id.codemi.co.id/api/v1/post/update/&lt;COMMENTID&gt;</code></p>
+
+<p>Kelemahan yang ditemukan adalah saya menemukan cara untuk membuat post pada seller.tokopedia.com yang seharusnya hanya bisa dilakukan oleh member yang memiliki role “administrator” atau “moderator” namun saya dengan akun role “learner” dapat membuat post layaknya admin maupun moderator dan juga dapat meracik XSS pada postingan tersebut.</p>
+
+<p>Prosesnya untuk reproduce bug nya adalah :</p>
+
+<ul>
+  <li>
+    <p>Buat komentar disalah satu post (ambil idnya)</p>
+
+    <p><img src="/uploads/gambar1.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Gunakan endpoint update post <code class="highlighter-rouge">http://api-id.codemi.co.id/api/v1/post/update/&lt;commentid&gt;</code> ( Seharusnya id yang dapat diterima hanya postid namun disini kita dapat mengupgrade object kita yang sebelum nya adalah komentar menjadi sebuah post dan tidak ada validasi role di endpoint tersebut )</p>
+
+    <p><img src="/uploads/gambar2.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Done</p>
+
+    <p><img src="/uploads/gambar3.png" alt="" /></p>
+
+    <p><img src="/uploads/gambar4.png" alt="" /></p>
+  </li>
+</ul>
+
+<p>Namun sayang nya bug tersebut out of scope karena letak kelemahan ada di applikasi pihak ketiga yaitu codemi, dan tidak berhak atas reward :( tapi reward bukan akhir dari bug bounty.</p>
+
+<p><img src="/uploads/gambar5.PNG" alt="" /></p>
+
+<p>Akhir kata semoga diantara kita tidak takut untuk sharing karena sharing tidak akan membuat kita miskin melainkan sebaliknya akan membuat kita lebih dalam segala hal, semoga hari kita menyenangkan terutama yang membaca tulisan ini :D</p>
