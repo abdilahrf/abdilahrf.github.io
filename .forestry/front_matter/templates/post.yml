@@ -27,3 +27,4 @@ fields:
   label: private
 pages:
 - _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
+- _posts/open-redirect-account-takeover-pada-bukalapak-com.md
