@@ -13,4 +13,8 @@ private: false
 
 Diberikan website menggunakan `go` yang mempunyai fitur untuk mencari post dan melihat detail dari post, dengan route sebagai berikut.
 
-![](https://files.slack.com/files-pri/T7CV2QHFH-FG5HH35S7/image.png)
+![](/uploads/Capture.PNG)Kita juga diberikan akses terhadap source codenya yang bisa digunakan untuk memudahkan kita menemukan entrypoint eksploitasi pada aplikasi tersebut, dan ditemukan aplikasi sudah mengimplementasikan proteksi terhadap serangan `SQL Injection` 
+
+![](/uploads/Capture-1.PNG)
+
+Namun sayang nya filter tersebut belum cukup untuk mengamankan dari serangan `SQL Injection` karena dapat di bypass dengan memanfaatkan backslash `\` .
