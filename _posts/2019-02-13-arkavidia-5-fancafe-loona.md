@@ -17,6 +17,7 @@ Diberikan website menggunakan `go` yang mempunyai fitur untuk mencari post dan m
 
 Kita juga diberikan akses terhadap source codenya yang bisa digunakan untuk memudahkan kita menemukan entrypoint eksploitasi pada aplikasi tersebut, dan ditemukan aplikasi sudah mengimplementasikan proteksi terhadap serangan SQL Injection.
 
+  
 ![](/uploads/Capture-1.PNG)
 
 Namun sayang nya filter tersebut belum cukup untuk mengamankan dari serangan `SQL Injection` karena dapat di bypass dengan memanfaatkan backslash `\` .
