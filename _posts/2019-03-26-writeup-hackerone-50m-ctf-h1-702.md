@@ -160,7 +160,7 @@ so i able to re-implement the encrypt/decrypt function and able to send an plain
 
 after doing some fuzzing i found that the application is vulnerable to an blind sql injection boolean-based , so i made a python scripts to automate the exploit.
 
-    python
+    #!/usr/bin/env python2
     import requests
     import re
     from StringIO import StringIO
@@ -280,7 +280,7 @@ after trying to understand the application, i notice a difference when send a va
 
 the flask app is simply take an user&password and then encrypt the value using javascript function provided in the target application.
 
-    python
+    #!/usr/bin/env python2
     import requests
     import string
     from tqdm import tqdm
