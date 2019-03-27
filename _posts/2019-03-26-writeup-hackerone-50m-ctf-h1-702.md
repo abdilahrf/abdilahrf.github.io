@@ -46,7 +46,6 @@ and i got the valid zlib file, and the link is `https://bit.do/h1therm` is a sho
 
 First i try to decompile the apk using `jadx` it takes me a while to understand the application workflow, the request and response to the backend server is encrypted by an `AES` but the flaws is they stored the secret key hardcoded in the apk
 
-        java
         protected Response<String> parseNetworkResponse(NetworkResponse networkResponse) {
             try {
                 Object decode = Base64.decode(new String(networkResponse.data), 0);
