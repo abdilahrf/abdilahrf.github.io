@@ -26,7 +26,7 @@ I tried to run bunch of steganography tools and i found something with `zteg` th
     b3,r,lsb,yx         .. text: "Q.L\n4Af^"
     [..SNIP..]
 
-and i got the valid zlib file, and the link is https://bit.do/h1therm is a shortener link to and google drive files that lead us to an android apk thermostat.
+and i got the valid zlib file, and the link is `https://bit.do/h1therm` is a shortener link to and google drive files that lead us to an android apk thermostat.
 
     $ curl -v https://bit.do/h1therm
     > GET /h1therm HTTP/1.1
