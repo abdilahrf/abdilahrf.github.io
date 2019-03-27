@@ -1,7 +1,6 @@
 ---
 label: Default
 hide_body: false
-is_partial: false
 fields:
 - type: text
   name: title
@@ -26,6 +25,7 @@ fields:
   name: private
   label: private
 pages:
+- _posts/writeup-hackerone-50m-ctf-h1-702.md
 - _posts/2019-02-13-arkavidia-5-fancafe-loona.md
-- _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
 - _posts/open-redirect-account-takeover-pada-bukalapak-com.md
+- _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
