@@ -274,7 +274,7 @@ to the ipaddress list and found one `ipaddress` that accessible, which is http:/
 
 after trying to understand the application, i notice a difference when send a valid hash length (64) and send a less than 64 character and made me think there is an timing attack, i tried to fuzz the first byte of the hash and notice have one longer response (when the byte is correct)  so i made a python script to automate the exploitation proccess, i made an flask web application that act like an proxy to send the encrypted request to target server.
 
-xxxx
+ {% gist 5555251 %}
 
 the flask app is simply take an user&password and then encrypt the value using javascript function provided in the target application.
 
