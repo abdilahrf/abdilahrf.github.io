@@ -4,7 +4,6 @@ title: Writeup Secret Note Keeper (xs-leaks) Facebook CTF 2019
 date: 2019-07-03 00:00:00 +0700
 category:
 - ctf
-- facebookctf
 tags:
 - ctf
 private: false
