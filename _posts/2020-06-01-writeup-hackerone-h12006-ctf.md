@@ -87,7 +87,8 @@ Found 5 subdomains :
 - staff.bountypay.h1ctf.com
 - software.bountypay.h1ctf.com
 
-###Layer 1: Getting Credentials (CWE-538)
+### Layer 1: Getting Credentials (CWE-538)
+
 At this layer the only information we have is the target have 5 subdomains, then i perform basic enumeration for all of the domain the basic enumeration is (directory/parameter[cookie,post/get]/header/etc bruteforce).
 
 I was found at the `app.bountypay.h1ctf.com` domain is have `.git` folder, i was able to access `app.bountypay.h1ctf.com/.git/config` which is contains a public repository `(https://github.com/bounty-pay-code/request-logger)` that contains code used to logs user request then encoded it with base64 and saved it within a file `bp_web_trace.log` and the file is accessible from the website `app.bountypay.h1ctf.com/bp_web_trace.log` after decoding the request i found credentials if a customer.
@@ -113,7 +114,7 @@ I classified this vulnerability with [CWE-538: Insertion of Sensitive Informatio
 ### Layer 2: Bypassing 2FA
 After logged in into the `brian.oliver` account at `app.bountypay.h1ctf.com` got an Login 2FA prompt, but quick view on the page source code it have an hidden input named `challenge` which i just guess at the first time it was an `md5 hash` of the `challenge_answer`, so if we can  control the `md5 hash` we can generate our own `md5 hash` as the `challenge` and send the `challenge_answer` of the challenge.
 
-![2FA.png](/images/h12006/2fa.png)
+![2FA.png](/images/h12006/2FA.png)
 
 Generate the md5 hash using cli with `echo -n 1 |md5sum` will return `c4ca4238a0b923820dcc509a6f75849b` and we can use this to bypass the 2FA `username=brian.oliver&password=V7h0inzX&challenge=c4ca4238a0b923820dcc509a6f75849b&challenge_answer=1`.
 
