@@ -7,9 +7,9 @@ imagefeature: http://abdilahrf.github.io/images/cdc2014.jpg
 chart: true
 ---
 
-<img src="/images/ixia.jpg" width="600px" alt="Abdillah Muhamad" />
+<img src="/images/pic1.jpg" width="600px" alt="Abdillah Muhamad" />
 
-An ordinary man with a passion in Information security. 
-Part of <a href="http://cscbinus.org">Cyber Security Community</a> at Binus University and active moderator on the [Indonesian backtrack team](http://indonesianbacktrack.or.id). 
+An ordinary man with a passion in Information security, I have background from program development and turn out become security proffesional, CTF and BugBounty is the way I compte my skill on the security industry. 
+
 Like much coffee, Introvert, Lefty, CTF addicted, love to learn about new things, turn EIP into 0x424242.
 
