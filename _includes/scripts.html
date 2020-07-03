@@ -27,5 +27,16 @@
   ga('send', 'pageview');
 
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-52187022-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+
 {% endif %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
 <script>NProgress.start();var interval=setInterval(function(){NProgress.inc()},1000);jQuery(window).load(function(){clearInterval(interval);NProgress.done()});jQuery(window).unload(function(){NProgress.start()});</script>
