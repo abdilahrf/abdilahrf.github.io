@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1841
 permalink: /2015/09/writeups-crypto50-ekoparty-pre-ctf/
-categories: CTF
+categories: ctf
 tags: [IceCTF,Crypto]
 ---
 > # Classic crypto

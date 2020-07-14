@@ -12,15 +12,21 @@ category:
 private: false
 
 ---
+
 ### Open Redirect  
+---
 
 Open Redirect adalah kerentanan dimana aplikasi menerima input dari pengguna yang akan digunakan untuk perpindahan halaman atau redirect pada aplikasi dan biasanya input tersebut tidak mempunyai filter atau dapat dibypass, input dari user yang akan di gunakan sebagai redirect tersebut yang menyebabkan penyalahgunaan fitur tersebut.
 
+
 ### Account Takeover 
+---
 
 Account Takeover adalah mengambil alih akses akun orang lain sama seperti artinya secara harviah, untuk melakukan account takeover kita dapat menggunakan berbagai macam cara, salah satunya adalah yang akan dijelaskan pada report ini yaitu menggabungkan kerentanan *Open Redirect* dengan *Facebook Oauth* untuk mendapatkan *token* dari akun orang lain, sehingga dapat mengambil alih akses terhadap akun yang dimiliki orang lain.  
 
+
 ###  Kesimpulan Masalah   
+---
 
 Open redirect yang ditemukan ada pada domain glimpse.bukalapak.com dengan parameter link, contoh open redirect nya adalah : [https://glimpse.bukalapak.com/redirect?link=https://evil.com](https://glimpse.bukalapak.com/redirect?link=https://evil.com "https://glimpse.bukalapak.com/redirect?link=https://evil.com") tapi karena bukalapak tidak menerima *Open Redirect* yang meliki impact keamanan yang kecil, maka saya harus mencari cara untuk memanfaatkan celah yang ada untuk mendapatkan celah yang mempunyai impact lebih besar dari pada sekedar *Open Redirect*.  
 
@@ -96,10 +102,13 @@ User tidak diperlukan melakukan apapun **jika sudah terauthentikasi bukalapaknya
 
 
 ### Video POC
+---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CR3Uyw7ydhg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
 ### Timeline
+---
 
 |Description|Date|
 |----------|:-------------:|
@@ -108,6 +117,8 @@ User tidak diperlukan melakukan apapun **jika sudah terauthentikasi bukalapaknya
 | **Bukalapak Response(Known Issue)** | Jan 18, 2019, 2:34 PM |
 | **Publish Writeup** | Jul 14, 2020 9:00 PM |
 
+
 ### Saran
+---
 
 Untuk mitigasi celah keamanan ini bisa dengan menerapkan whitelist terhadap redirect yang ada pada glimpse.bukalapak.com atau merubah konfigurasi aplikasi facebook-nya agar hanya menerima domain tertentu saja untuk menerima callback token dari oauth, jangan menggunakan wildcard **\*.bukalapak.com** karena bukalapak yang memiliki banyak domain dan asset dibelakang domain tersebut jadi akan sulit untuk memastikan semua asset tidak memiliki kerentanan seperti *open redirect*.
