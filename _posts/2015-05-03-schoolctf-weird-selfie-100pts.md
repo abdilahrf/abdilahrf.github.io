@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=550
 permalink: /2015/05/schoolctf-weird-selfie-100pts/
-category: CTF
+category: ctf
 tags: [Misc]
 ---
 > **SchoolCTF : Weird Selfie 100pts**

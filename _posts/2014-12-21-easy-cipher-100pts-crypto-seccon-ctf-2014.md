@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=452
 permalink: /2014/12/easy-cipher-100pts-crypto-seccon-ctf-2014/
-category: CTF
+category: ctf
 tags: [SecconCTF,Crypto]
 ---
 ## Easy Cipher

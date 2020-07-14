@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=579
 permalink: /2015/05/schoolctf-unusual-redirection-300pts/
-category: CTF
+category: ctf
 tags: [Web]
 ---
 > ### Unusual redirection

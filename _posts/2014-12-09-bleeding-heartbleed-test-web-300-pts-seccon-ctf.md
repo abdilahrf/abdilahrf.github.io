@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=413
 permalink: /2014/12/bleeding-heartbleed-test-web-300-pts-seccon-ctf/
-category: CTF
+category: ctf
 tags: [SecconCTF,Web Exploitation]
 ---
 > <http://bleeding.pwn.seccon.jp/>

@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1870
 permalink: /2015/09/writeup-icectf-logoventures-2-reloaded-40/
-category: CTF
+category: ctf
 tags: [Forensic,IceCTF]
 ---
 > IceCTF Logoventures 2: Reloaded &#8211; 40

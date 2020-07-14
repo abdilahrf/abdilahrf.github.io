@@ -11,7 +11,7 @@ tags: [sqlinjection,bitcoinctf]
 mathjax: false
 imagefeature: /images/sqlinjection.jpg
 description: Writeup BitcointCTF Challenge
-category: CTF
+category: ctf
 chart: null
 ---
 

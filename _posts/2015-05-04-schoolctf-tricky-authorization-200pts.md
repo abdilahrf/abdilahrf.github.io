@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=558
 permalink: /2015/05/schoolctf-tricky-authorization-200pts/
-category: CTF
+category: ctf
 tags: [Forensic]
 ---
 > ### SchoolCTF : Tricky Authorization 200pts

@@ -4,8 +4,8 @@ title: 'FIT FUNFEST 2017 : Proxy'
 description: Writeup Proxy FIT FUNFEST CTF
 modified: 2017-03-16
 date: 2017-03-16
-category: CTF
-tags: [FITCTF,Web Exploitation]
+category: ctf
+tags: [fitfunfest]
 imagefeature: /images/fit-funfest.png
 mathjax: false
 chart: null

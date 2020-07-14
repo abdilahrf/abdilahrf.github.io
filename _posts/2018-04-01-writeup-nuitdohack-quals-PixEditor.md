@@ -11,7 +11,7 @@ tags: [nuitduhack]
 mathjax: false
 imagefeature: 
 description: "Nuitduhack Quals 2018: PixEditor - 350pts"
-category: CTF
+category: ctf
 chart: null
 ---
 

@@ -11,7 +11,7 @@ tags: [nuitduhack]
 mathjax: false
 imagefeature: 
 description: "Nuitduhack Quals 2018: CoinGame - 200pts"
-category: CTF
+category: ctf
 chart: null
 ---
 

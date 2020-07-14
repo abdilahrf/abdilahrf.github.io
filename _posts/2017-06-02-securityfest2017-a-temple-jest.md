@@ -7,11 +7,11 @@ featured: false
 published: true
 comments: true
 title: 'SecurityFest CTF 2017 : A Temple Jest'
-tags: [rce,Web Exploitation]
+tags: [rce,securityfest]
 mathjax: false
 imagefeature: /images/express.jpg
 description: SecurityFest2017 - A Temple Jest
-category: CTF
+category: ctf
 chart: null
 ---
 

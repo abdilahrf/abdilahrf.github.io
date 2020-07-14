@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: https://www.hasnydes.us/?p=1873
 permalink: /2015/09/writeup-icectf-statistics-50/
-category: CTF
+category: ctf
 tags: [IceCTF,Programming]
 ---
 

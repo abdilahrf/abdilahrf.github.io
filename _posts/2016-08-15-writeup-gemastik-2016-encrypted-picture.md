@@ -5,7 +5,7 @@ description: "Writeup Gemastik 2016 Online Capture The Flag Qualification"
 headline: 
 modified: 2016-08-15
 date: 2016-08-15
-category: CTF
+category: ctf
 tags: [gemastik,Crypto]
 imagefeature: /images/gemastik.png
 mathjax: 

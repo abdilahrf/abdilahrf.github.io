@@ -5,7 +5,7 @@ description: "Idsecconf CTF 2016 Online"
 headline: 
 modified: 2016-08-29
 date: 2016-08-29
-category: CTF
+category: ctf
 tags: [idsecconf,Programming]
 imagefeature: /images/idsecconf.jpg
 mathjax: 

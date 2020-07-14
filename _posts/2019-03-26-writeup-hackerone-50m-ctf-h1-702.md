@@ -3,10 +3,9 @@ comments: true
 title: Writeup Hackerone 50M CTF H1 702
 date: 2019-03-26 17:00:00 +0000
 category:
-- hackerone
-- h1-702
-tags:
 - ctf
+tags:
+- hackerone
 private: false
 
 ---

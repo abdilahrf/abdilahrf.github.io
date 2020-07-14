@@ -5,8 +5,8 @@ description: "Writeup XSS Appspot"
 headline: 
 modified: 2017-01-31
 date: 2017-01-31
-category: Web Exploitation
-tags: [xss,Web Exploitation]
+category: ctf
+tags: [xss]
 imagefeature: /images/xss-appspot.PNG
 mathjax: 
 chart: 

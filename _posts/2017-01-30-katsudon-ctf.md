@@ -8,7 +8,7 @@ date: 2017-01-30
 imagefeature: 
 mathjax: 
 chart: 
-category: CTF
+category: ctf
 tags: [AkiCTF]
 comments: true
 featured: false

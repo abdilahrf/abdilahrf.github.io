@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=562
 permalink: /2015/05/schoolctf-school-incident-150pts/
-category: CTF
+category: ctf
 tags: [Web Exploitation]
 ---
 > ### SchoolCTF : School Incident 150pts

@@ -6,7 +6,7 @@ comments: true
 modified: 2018-11-21
 date: 2018-11-21
 title: "How I Hack Tokopedia (3rd server) with Object de-Serialization"
-tags: [Bugbounty]
+tags: [tokopedia]
 mathjax: false
 category: Bugbounty
 description: "How I Hack Tokopedia (3rd server) with Object de-Serialization"

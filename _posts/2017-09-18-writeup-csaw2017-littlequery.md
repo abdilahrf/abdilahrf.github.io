@@ -7,11 +7,11 @@ comments: true
 modified: 2017-09-18
 date: 2017-09-18
 title: 'CSAW CTF 2017: LittleQuery - 200'
-tags: [csaw2017,Web Exploitation]
+tags: [csaw]
 mathjax: false
 imagefeature: 
 description: Writeup CSAW 2017 LittleQuery - 200
-category: CTF
+category: ctf
 chart: null
 ---
 

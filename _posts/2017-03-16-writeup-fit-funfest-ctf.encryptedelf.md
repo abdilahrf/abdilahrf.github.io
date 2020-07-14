@@ -11,7 +11,7 @@ tags: [FITCTF,Reverse]
 mathjax: false
 imagefeature: /images/fit-funfest.png
 description: Writeup EncryptedELF FIT FUNFEST CTF
-category: CTF
+category: ctf
 chart: null
 ---
 

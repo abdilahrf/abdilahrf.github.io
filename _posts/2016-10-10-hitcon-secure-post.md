@@ -5,7 +5,7 @@ description: "Hitcon 2016 : Secure Post"
 headline: 
 modified: 2016-10-10
 date: 2016-10-10
-category: CTF
+category: ctf
 tags: [Hitcon,Web Exploitation]
 imagefeature: /images/php.jpg
 mathjax: 

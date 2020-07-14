@@ -5,7 +5,7 @@ description: "Writeup Compfest CTF 2016 Qualification"
 headline: 
 modified: 2016-08-27
 date: 2016-08-27
-category: CTF
+category: ctf
 tags: [compfest,Web Exploitation]
 imagefeature: /images/compfest.png
 mathjax: 

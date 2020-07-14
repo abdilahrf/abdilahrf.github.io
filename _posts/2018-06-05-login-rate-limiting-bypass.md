@@ -7,7 +7,8 @@ comments: true
 modified: 2018-04-01
 date: 2018-04-01
 title: "Monstra CMS - 3.0.4 Login Rate Limiting Bypass"
-tags: [exploit]
+tags: [cve]
+category: CVE
 mathjax: false
 imagefeature: 
 description: "Monstra CMS - 3.0.4 Login Rate Limiting Bypass"

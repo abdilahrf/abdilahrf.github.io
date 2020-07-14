@@ -11,7 +11,7 @@ tags: [angstromctf]
 mathjax: false
 imagefeature: 
 description: 'Angstrom CTF 2018 : Web Challenges'
-category: CTF
+category: ctf
 chart: null
 ---
 

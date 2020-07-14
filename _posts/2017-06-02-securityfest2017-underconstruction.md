@@ -7,11 +7,11 @@ comments: true
 modified: 2017-06-02
 date: 2017-06-02
 title: 'SecurityFest CTF 2017 : Underconstruction'
-tags: [Web Exploitation]
+tags: [securityfest]
 mathjax: false
 imagefeature: 
 description: SecurityFest2017 - Underconstruction
-category: CTF
+category: ctf
 chart: null
 ---
 

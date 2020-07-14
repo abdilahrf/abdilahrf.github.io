@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=443
 permalink: /2014/12/get-key-txt-seccon-ctf-writeups-100pts/
-category: CTF
+category: ctf
 tags: [SecconCTF,Forensic]
 ---
 Get The Key.txt Seccon CTF Writeups 100Pts

@@ -7,11 +7,11 @@ comments: true
 modified: 2018-03-22
 date: 2018-03-22
 title: 'Websec.fr babysteps: Level 04 - 1pts'
-tags: [hackthebox]
+tags: [websec.fr]
 mathjax: false
 imagefeature: 
 description: 'Websec.fr Easy: Level 01'
-category: Websec.fr
+category: ctf
 chart: null
 ---
 

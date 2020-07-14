@@ -6,7 +6,7 @@ author: abdilahrf
 layout: post
 guid: http://www.hasnydes.us/?p=446
 permalink: /2014/12/choose-number-100pts-seccon-ctf-2014/
-category: CTF
+category: ctf
 tags: [SecconCTF,Programming]
 ---
 Choose the number SECCON CTF 2014 Programming 100pts

@@ -5,7 +5,7 @@ description: "ITRACE 2016 Level 3 : Writeups"
 headline: 
 modified: 2016-10-10
 date: 2016-10-10
-category: CTF
+category: ctf
 tags: [ITRACE]
 imagefeature: /images/itrace.jpg
 mathjax: 
