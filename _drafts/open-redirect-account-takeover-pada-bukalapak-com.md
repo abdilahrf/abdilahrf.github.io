@@ -102,6 +102,10 @@ User tidak diperlukan melakukan apapun **jika sudah terauthentikasi bukalapaknya
 ### Timeline
 
 **Sent Report to security@bukalapak.com:** Jan 17, 2019, 12:49 AM
+**Bukalapak Response(Verify):** Jan 17, 2019, 11:43 AM
+**Bukalapak Response(Known Issue):** Jan 18, 2019, 2:34 PM
+**Publish Writeup:** Jul 14, 2020 9:00 PM
+
 
 ### Saran
 
