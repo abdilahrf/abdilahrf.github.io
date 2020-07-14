@@ -18,7 +18,7 @@ Open Redirect adalah kerentanan dimana aplikasi menerima input dari pengguna yan
 
 ### Account Takeover 
 
-Account Takeover adalah mengambil alih akses akun orang lain sama seperti artinya secara harviah, untuk melakukan account takeover kita dapat menggunakan berbagai macam cara, salah satunya adalah yang akan dijelaskan pada report ini yaitu menggabungkan kerentanan *Open Redirect* dengan *Oauth Authentication* untuk mendapatkan *token* dari akun orang lain, sehingga dapat mengambil alih akses terhadap akun yang dimiliki orang lain.  
+Account Takeover adalah mengambil alih akses akun orang lain sama seperti artinya secara harviah, untuk melakukan account takeover kita dapat menggunakan berbagai macam cara, salah satunya adalah yang akan dijelaskan pada report ini yaitu menggabungkan kerentanan *Open Redirect* dengan *Facebook Oauth* untuk mendapatkan *token* dari akun orang lain, sehingga dapat mengambil alih akses terhadap akun yang dimiliki orang lain.  
 
 ###  Kesimpulan Masalah   
 
@@ -26,14 +26,14 @@ Open redirect yang ditemukan ada pada domain glimpse.bukalapak.com dengan parame
 
 ![Bukalapak Details](/images/bukalapak/redir.PNG)
 
-saya mencoba memanfaatkan kelemahan tersebut(open redirect) agar bisa meningkatkan tingkat resikonya dengan *oauth authentication* (facebook/google) dan dapat melakukan *account takeover*. 
+saya mencoba memanfaatkan kelemahan tersebut(open redirect) agar bisa meningkatkan tingkat resikonya dengan *oauth* (facebook/google) dan dapat melakukan *account takeover*. 
 
 fitur login dengan facebook yang berada di url berikut:   
 
     https://www.facebook.com/v3.0/dialog/oauth?client_id=727108917352926&redirect_uri
     =https%3A%2F%2Fctfs.me&response_type=token
 
-Oauth facebook memiliki 3 parameter yang seharusnya ada para requestnya yaitu **client_id** dimana **727108917352926** adalah ID milik aplikasi bukalapak di facebook , kemudian **redirect_uri** adalah url yang akan menerima callback dari facebook **Yang hanya bisa di arahkan kepada domain milik bukalapak yaitu \*.bukalapak.com** , karena kita sudah memiliki open redirect maka attack scenario ini dapat mudah dijalankan, jika kita menggunakan domain selain bukalapak sebagai **redirect_uri** nya maka kita akan mendapatkan error berikut :   
+Oauth facebook memiliki 3 parameter yang seharusnya ada pada requestnya yaitu **client_id** dimana **727108917352926** adalah ID milik aplikasi bukalapak di facebook , kemudian **redirect_uri** adalah url yang akan menerima callback dari facebook **Yang hanya bisa di arahkan kepada domain milik bukalapak yaitu \*.bukalapak.com** , karena kita sudah memiliki open redirect maka attack scenario ini dapat mudah dijalankan, jika kita menggunakan domain selain bukalapak sebagai **redirect_uri** nya maka kita akan mendapatkan error berikut :   
 
 ![Error FB Oauth](/images/bukalapak/error.PNG)
 
@@ -102,6 +102,9 @@ User tidak diperlukan melakukan apapun **jika sudah terauthentikasi bukalapaknya
 ### Timeline
 
 **Sent Report to security@bukalapak.com:** Jan 17, 2019, 12:49 AM
+**Bukalapak Response(Verify):** Jan 17, 2019, 11:43 AM
+**Bukalapak Response(Known Issue):** Jan 18, 2019, 2:34 PM
+**Publish Writeup:** Jul 14, 2020 9:00 PM
 
 ### Saran
 
