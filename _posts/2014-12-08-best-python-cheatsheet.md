@@ -5,7 +5,7 @@ date: 2014-12-08T21:20:11+00:00
 author: abdilahrf
 layout: post
 permalink: /2014/12/python-cheatsheet/
-category: Cheatsheet
+category: cheatsheet
 tags: [Python]
 ---
 Python Cheatsheet
