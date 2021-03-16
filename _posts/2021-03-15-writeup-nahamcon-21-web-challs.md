@@ -296,7 +296,7 @@ blind("group_concat(password)","FROM user where username='admin'")
 
 ```
 
-This script help me to perform the SQL Injection with boolean check every time the injection fired, and using binary search algorith to make the search efficient, at the end of the day Found the password of admin account and just login to get the flag.
+This script help me to perform the SQL Injection with boolean check every time the injection fired, and using binary search algorithm to make the search efficient, at the end of the day Found the password of admin account and just login to get the flag.
 
 ---
 # [Medium] Asserted - 301 points (283 Solves)
@@ -529,7 +529,7 @@ We found a random website in the CONSTELLATIONS network. It's all about... Fight
 
 The website is simple, only expecting a name and reflecting the name back.
 
-Back of my mind i was just thinking about that hidden LFR on express js which was quite new released by CaptainFreak.
+Back of my mind i was just thinking about that hidden LFR on express js which was quite new released by CaptainFreak, if you wanted to know more about how this could happen please check this blog post [The-Secret-Parameter-LFR-and-Potential-RCE-in-NodeJS-Apps](https://blog.shoebpatel.com/2021/01/23/The-Secret-Parameter-LFR-and-Potential-RCE-in-NodeJS-Apps/).
 
 Trying the LFR flawlessly working, and just read the flag in the root dir after that.
 
