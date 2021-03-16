@@ -11,7 +11,7 @@ chart: true
 <!-- Well, what are you looking in the source code? -->
 <!-- ZmxhZ3tIZXlfaGFja2Vyc186KX0= -->
 
-<img src="/images/pic1.jpg" width="600px" alt="Abdillah Muhamad" />
+<img src="/images/profile.jpg" width="700px" alt="Abdillah Muhamad" />
 
 An ordinary <x>m</x>an with a passion in Information sec<x>u</x>ri<x>t</x>y, My academ<x>i</x>c b<x>a</x>ckground is from<x> </x>softw<x>a</x>re deve<x>l</x>oper<x> </x>and turn out become security proffesional, CTF and BugBounty is the way I compete and keeping up my skill on the security industry. 
 
