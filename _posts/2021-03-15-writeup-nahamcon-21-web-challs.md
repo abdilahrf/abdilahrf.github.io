@@ -132,6 +132,7 @@ Sometimes, it tastes a bit odd though.
 This challenge is straigth forward we're given the source code of the apps.
 
 - index.php
+
 ```
 <?php
 
