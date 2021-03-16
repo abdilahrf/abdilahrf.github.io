@@ -113,7 +113,16 @@ The web application have a register,login,secret(create,delete,view),forgot pass
 we can construct this url to generate admin otp
 `otpauth://totp/2Password:admin?secret=MFSG22LOGEZDGNBVGY3TQOI%3D&issuer=2Password`
 
-The function of forgot pass is vulnerable to SMTP Injection, so we can add our email before the victim email and we both the forgot password email, the payload used is `{"username":"admin","email":"hacker@gmail.com\nadmin@gmail.com"}`, after reset the admin password and the otp, just login and fetch the flag like a boss 😎😎
+The function of forgot pass is vulnerable to SMTP Injection, so we can add our email before the victim email and we both the forgot password email, the payload used below:
+
+```
+POST /reset-pass HTTP/1.1
+..snip..
+
+{"username":"admin","email":"hacker@gmail.com\nadmin@gmail.com"}
+```
+
+After reset the admin password and have the admin otp, just login and fetch the flag like a boss 😎😎
 
 ---
 # [Medium] Cereal and Milk - 491 points (74 Solves)
