@@ -13,11 +13,10 @@ chart: true
 
 <img src="/images/profile.jpg" width="400px" alt="Abdillah Muhamad" />
 
-An ordinary <x>m</x>an with a passion in Information sec<x>u</x>ri<x>t</x>y, My academ<x>i</x>c b<x>a</x>ckground is from<x> </x>softw<x>a</x>re deve<x>l</x>oper<x> </x>and turn out become security proffesional, CTF and BugBounty is the way I compete and keeping up my skill on the security industry. 
+An ordinary <x>m</x>an with a passion in Information sec<x>u</x>ri<x>t</x>y, My academ<x>i</x>c b<x>a</x>ckground is from<x> </x>softw<x>a</x>re deve<x>l</x>oper<x> </x>and turn<x style="display:none">jufri</x> out become security proffesional, CTF and BugBounty is the way I compete and keeping up my skill on the security industry. 
 
 
 The best thing about hacking is the feeling when you found a vulnerability that maybe overlooked by everyone, well actually any vulnerability that have big impact is a big dopamine kick, other than that you really need to be persistent when it comes into BugBounty and finding bugs.
-
 
 
 <ul>
