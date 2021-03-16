@@ -7,9 +7,12 @@ imagefeature: http://abdilahrf.github.io/images/cdc2014.jpg
 chart: true
 ---
 
+<!-- Well, what are you looking in the source code? -->
+<!-- ZmxhZ3tIZXlfaGFja2Vyc186KX0= -->
+
 <img src="/images/pic1.jpg" width="600px" alt="Abdillah Muhamad" />
 
-An ordinary man with a passion in Information security, I have background from program development and turn out become security proffesional, CTF and BugBounty is the way I compete my skill on the security industry. 
+An ordinary <x>m</x>an with a passion in Information security, My academic background is from software developer and turn out become security proffesional, CTF and BugBounty is the way I compete and keeping up my skill on the security industry. 
 
 Like much coffee, Introvert, Lefty, CTF addicted, love to learn about new things, turn EIP into 0x424242.
 
