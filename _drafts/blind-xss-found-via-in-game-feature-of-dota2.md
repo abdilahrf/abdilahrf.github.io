@@ -1,6 +1,6 @@
 ---
 comments: true
-title: "Blind XSS Found Via In-Game Feature of Dota 2 \U0001F3AE"
+title: Gaining Access to Dota 2 Administration Panel By Exploiting In-Game Feature
 date: 2022-03-31 00:00:00 +0700
 category:
 - bugbounty
@@ -23,7 +23,7 @@ The finding started when Dota 2 is announcing the new feature for the battle pas
 
 Because i was an active player of the game and also bugbounty hunter, my idea just popped out to create guild with the Blind XSS Payload name, without even thingking the payload will executed somewhere on the valve systems.
 
-![](/uploads/create-new-guild.png)
+![](/uploads/create-new-guild-1.png)
 
 my first thought is wrong and the exploit was executed on the Dota 2 administration panel, which is a web application hosted on dota2.com which make me excited 🙀🙀🙀.
 
@@ -39,15 +39,17 @@ After my investigation to the vulnerability my conclusion is, the more guild reg
 * Report the guild name multiple times, until you feel the report amount is enough to make our guild listed on the first page.
 * Profit! `alert(1)`
 
-![](/uploads/reporting.png)
+![](/uploads/reporting-1.png)
 
 There is 3 form of report that can a guild get, `report guild name`, `report guild logo`, `report guild tag` and all of the report amount is combined to `total_reports` that will used as the sorted value when the `datatable` is loaded on the application.
 
 I was automating this process to login to the game and report my guild repeatedly to get the amount of `total_reports` i want to get my guild on the first page of the `datatable` since the table is configured to only show 50 rows for each page, to get this was not hard since i was testing when the feature is just released couple days ago.
 
-VIDEO
+### Key Takeaways
 
-Until then, see you on the next writeup :salute: .
+* Keep in mind of your input might end up anywhere that you not even expect, we never know ¯\\_(ツ)_/¯ .
+
+That is all for this writeup folks, see you on the next writeup :salute: .
 
 ***
 
