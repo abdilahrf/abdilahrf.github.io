@@ -61,8 +61,7 @@ Jun 12, 2020: Severity Changed Crit -> High ( I don't get it actually)
 Jun 16, 2020: Triaged  
 Sept 8, 2020: Severity Changed High -> Med ( Based on all the information and actions that I can do there, this is just disappointing 😪 )
 
-![](/uploads/screen-shot-2022-03-31-at-15-55-37.png)
-
+![](/uploads/screen-shot-2022-03-31-at-15-55-37.png)  
 Sept 8 2020: Rewarded 750USD + 150USD Bonus  
 Proof(UNDISCLOSED yet): [https://hackerone.com/reports/896281](https://hackerone.com/reports/896281 "https://hackerone.com/reports/896281")  
 My H1 Profile: [https://hakcerone.com/abdilahrf_](https://hakcerone.com/abdilahrf_ "https://hakcerone.com/abdilahrf_")
