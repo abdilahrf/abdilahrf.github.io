@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Gaining Access to Dota 2 Administration Panel By Exploiting In-Game Feature
+title: Got Access To Dota 2 Admin Panel By Exploiting In-Game Feature
 date: 2022-03-31 00:00:00 +0700
 category:
 - bugbounty
