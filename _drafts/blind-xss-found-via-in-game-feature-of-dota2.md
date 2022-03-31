@@ -19,7 +19,7 @@ The finding started when Dota 2 is announcing the new feature for the battle pas
 >
 > We reintroduced Guilds during the Battle Pass, and we were happy to see how many players participated in Guilds and shared their feedback with us. We are keeping the existing Guilds, but many of the rewards received only worked in the context of the Battle Pass. We've redesigned those features so that you can enjoy playing with your guild all the time.
 >
-> \- [https://www.dota2.com/newsentry/3066366095799664170](https://www.dota2.com/newsentry/3066366095799664170 "https://www.dota2.com/newsentry/3066366095799664170")
+> \- source: [https://www.dota2.com/newsentry/3066366095799664170](https://www.dota2.com/newsentry/3066366095799664170 "https://www.dota2.com/newsentry/3066366095799664170")
 
 Because i was an active player of the game and also bugbounty hunter, my idea just popped out to create guild with the Blind XSS Payload name, without even thingking the payload will executed somewhere on the valve systems.
 
