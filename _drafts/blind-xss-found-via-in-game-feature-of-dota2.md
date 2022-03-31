@@ -49,14 +49,19 @@ I was automating this process to login to the game and report my guild repeatedl
 
 * Keep in mind of your input might end up anywhere that you not even expect, we never know ¯\\_(ツ)_/¯ .
 
-That is all for this writeup folks, see you on the next writeup :salute: .
+That is all for this writeup folks, see you on the next writeup.
+
+![](/uploads/hats-off.gif)
 
 ***
 
 Jun 12 2020: Reported  
-Jun 12 2020: Severity Changed Crit -> High ( I don't get it actually,  the team said my xss need user interaction but i don't think that make a)  
+Jun 12 2020: Severity Changed Crit -> High ( I don't get it actually)  
 Jun 16 2020: Triaged  
-Sept 8 2020: Severity Changed High -> Med ( Based on all the information and actions that i can do there, this just dissapointing 😪 )  
+Sept 8 2020: Severity Changed High -> Med ( Based on all the information and actions that i can do there, this just dissapointing 😪 )
+
+![](/uploads/screen-shot-2022-03-31-at-15-55-37.png)  
 Sept 8 2020: Rewarded 750USD + 150USD Bonus
 
-Proof(UNDISCLOSED yet): [https://hackerone.com/reports/896281](https://hackerone.com/reports/896281 "https://hackerone.com/reports/896281")
+Proof(UNDISCLOSED yet): [https://hackerone.com/reports/896281](https://hackerone.com/reports/896281 "https://hackerone.com/reports/896281")  
+My H1 Profile: [https://hakcerone.com/abdilahrf_](https://hakcerone.com/abdilahrf_ "https://hakcerone.com/abdilahrf_")
