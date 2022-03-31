@@ -23,13 +23,15 @@ The finding started when Dota 2 is announcing the new feature for the battle pas
 
 Because i was an active player of the game and also bugbounty hunter, my idea just popped out to create guild with the Blind XSS Payload name, without even thingking the payload will executed somewhere on the valve systems.
 
-![](/uploads/create-guild.png)
+![](/uploads/create-new-guild.png)
 
 my first thought is wrong and the exploit was executed on the Dota 2 administration panel, which is a web application hosted on dota2.com which make me excited 🙀🙀🙀.
 
-![Dota 2 Admin panel](/uploads/blind-xss.png "Dota 2 Admin panel")
+![](/uploads/174_total_reports.png)
 
-This is was the admin panel looks like, rather than trying to escalating my privilege with the javascript execution i have, i just report what i found immediatelly to the [https://hackerone.com/valve](https://hackerone.com/valve "H1 Valve") team.
+This is was the admin panel looks like, rather than trying to escalating my privilege with the javascript execution i have, i just report what i found immediatelly to the [https://hackerone.com/valve](https://hackerone.com/valve "H1 Valve") team, but i've seen the admin panel is manage all the information of the game like the ip address of the currently in-game rooms, also i can possibly banned a player there, pro player information also stored there, etc is like almost everything custom game and whatever there.
+
+![](/uploads/menus.png)
 
 After my investigation to the vulnerability my conclusion is, the more guild registered to the system is more hard of our exploit being viewed by the staff that logged-in to the administrator panel because the table list of guild was sorted by the amount of report received to the guild, so to reproduce it for the second time i was using this steps below:
 
@@ -37,18 +39,22 @@ After my investigation to the vulnerability my conclusion is, the more guild reg
 * Report the guild name multiple times, until you feel the report amount is enough to make our guild listed on the first page.
 * Profit! `alert(1)`
 
+![](/uploads/reporting.png)
+
 There is 3 form of report that can a guild get, `report guild name`, `report guild logo`, `report guild tag` and all of the report amount is combined to `total_reports` that will used as the sorted value when the `datatable` is loaded on the application.
 
 I was automating this process to login to the game and report my guild repeatedly to get the amount of `total_reports` i want to get my guild on the first page of the `datatable` since the table is configured to only show 50 rows for each page, to get this was not hard since i was testing when the feature is just released couple days ago.
 
 VIDEO
 
+Until then, see you on the next writeup :salute: .
+
 ***
 
 Jun 12 2020: Reported  
-Jun 12 2020: Severity Changed Crit -> High ( I don't get it actually, since the admin panel is manage all the information of the game like the ip address of the game, also i can possibly banned a player there, pro player information also stored there )  
+Jun 12 2020: Severity Changed Crit -> High ( I don't get it actually,  the team said my xss need user interaction but i don't think that make a)  
 Jun 16 2020: Triaged  
-Sept 8 2020: Severity Changed High -> Med ( 😪 )  
+Sept 8 2020: Severity Changed High -> Med ( Based on all the information and actions that i can do there, this just dissapointing 😪 )  
 Sept 8 2020: Rewarded 750USD + 150USD Bonus
 
 Proof(UNDISCLOSED yet): [https://hackerone.com/reports/896281](https://hackerone.com/reports/896281 "https://hackerone.com/reports/896281")
