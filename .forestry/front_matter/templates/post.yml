@@ -25,8 +25,8 @@ fields:
   name: private
   label: private
 pages:
-- _posts/writeup-secret-note-keeper-fbctf-2019.md
-- _posts/open-redirect-account-takeover-pada-bukalapak-com.md
 - _posts/2018-11-14-improper-access-control-xss-on-seller-tokopedia-com.md
 - _posts/2019-02-13-arkavidia-5-fancafe-loona.md
 - _posts/2019-03-26-writeup-hackerone-50m-ctf-h1-702.md
+- _posts/blind-xss-found-via-in-game-feature-of-dota2.md
+- _posts/open-redirect-account-takeover-pada-bukalapak-com.md
