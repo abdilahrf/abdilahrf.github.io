@@ -13,10 +13,9 @@ chart: true
 
 <img src="/images/profile.jpg" width="400px" alt="Abdillah Muhamad" />
 
-An ordinary <x>m</x>an with a passion in Information sec<x>u</x>ri<x>t</x>y, My academ<x>i</x>c b<x>a</x>ckground is from<x> </x>softw<x>a</x>re deve<x>l</x>oper<x> </x>and turn<x style="display:none">jufri</x> out become security proffesional, CTF and BugBounty is the way I compete and keeping up my skill on the security industry. 
+A regular individual with a deep-seated passion for information security, my academic journey started in software development but eventually led me down the path to becoming a seasoned cybersecurity professional. I actively engage in Capture The Flag (CTF) challenges and Bug Bounty programs to continuously refine and stay current with my skills in the dynamic security industry.
 
-
-The best thing about hacking is the feeling when you found a vulnerability that maybe overlooked by everyone, well actually any vulnerability that have big impact is a big dopamine kick, other than that you really need to be persistent when it comes into BugBounty and finding bugs.
+The most exhilarating aspect of hacking lies in the discovery of vulnerabilities that may have been overlooked by others. In truth, any vulnerability with substantial implications provides an immense rush of satisfaction. Beyond that, a key trait required for success in Bug Bounty hunting and bug identification is unwavering persistence.
 
 
 <ul>
