@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '3.9.0'  # You can specify the version you prefer
+gem 'jekyll', '3.9.0'  # You canx specify the version you prefer
 
 group :jekyll_plugins do
   gem 'jekyll-paginate'  # For pagination
