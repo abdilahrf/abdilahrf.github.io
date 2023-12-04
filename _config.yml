@@ -49,7 +49,7 @@ links:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Asia/Jakarta
 future:      true
-highlighter: github
+highlighter: monokai
 #highlighter: pygments
 # highlighter: true
 markdown:    kramdown
