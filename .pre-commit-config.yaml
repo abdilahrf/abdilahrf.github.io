@@ -1,0 +1,11 @@
+# Security Added .pre-commit-config.yaml
+fail_fast: true
+repos:
+- repo: local # security
+  hooks:
+    - id: Security Script
+      name: Security Script
+      description: Detect secrets in your data.
+      entry: bash -c 'if [ -f $HOME/.git-templates/hooks/security.sh ] ; then $HOME/.git-templates/hooks/security.sh ; else echo security.sh not found, skipping... ; exit 0; fi'
+      language: system
+      stages: ["commit"]
