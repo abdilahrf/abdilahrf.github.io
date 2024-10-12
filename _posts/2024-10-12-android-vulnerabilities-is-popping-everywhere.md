@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Popping Android Vulnerabilities From Notification to WebView XSS to steal sensitive 
+title: Popping Android Vulnerabilities From Notification to WebView XSS to takeover account 
 date: 2024-10-12T00:00:00.000+07:00
 category:
 - bugbounty
@@ -11,6 +11,8 @@ tags:
 - intent
 private: false
 ---
+
+![Android](../images/android-vuln.jpg)
 
 ### Pre-text
 If you’ve always thought hacking Android apps was just about bypassing root detection, SSL pinning, or proxying HTTP requests through Burp Suite to uncover backend bugs, it might be time to shift your mindset. While these are valuable steps in the process, they don't define what Android app vulnerabilities are all about. As someone who’s spent time diving deep into mobile app security, I can tell you that the real vulnerabilities often lie within the Android Java code itself, not just in the backend APIs.
@@ -268,8 +270,11 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+---
 
 ### Key Takeaways
+
+---
 
 1. **Android app vulnerabilities go beyond SSL pinning and rooting**:
    It’s a common misconception that hacking Android apps is just about bypassing root detection or SSL pinning and looking for backend API bugs. In reality, Android app vulnerabilities are often found in the app’s own Java code, not just in the backend.
@@ -280,8 +285,11 @@ public class MainActivity extends AppCompatActivity {
 3. **ClassLoader attacks enable deeper exploitation**:
    Using a dynamic ClassLoader in Android allows an attacker to load the app’s internal classes and create objects that the app will accept as legitimate. This can bypass type checks and allow the attacker to manipulate data or inject malicious payloads into the app.
 
+---
 
 ### Recommendations to Fix
+
+---
 
 1. **Validate intents from external sources**:
    Always validate intents coming from other apps or external sources. Ensure the package or signature of the sending app is trusted before processing any intent.
@@ -294,3 +302,10 @@ public class MainActivity extends AppCompatActivity {
 
 4. **Exported=false**
     If the activity did not have any use cases to be utilized by other application it will always be better to set the `exported` value to `false`
+
+---
+
+### Another Good Read
+- https://dphoeniixx.medium.com/arbitrary-code-execution-on-facebook-for-android-through-download-feature-fb6826e33e0f
+- https://app.hextree.io/map/android
+- https://blog.oversecured.com/Why-dynamic-code-loading-could-be-dangerous-for-your-apps-a-Google-example/
