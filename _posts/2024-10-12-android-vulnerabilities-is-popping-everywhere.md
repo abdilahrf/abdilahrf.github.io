@@ -276,14 +276,18 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-1. **Android app vulnerabilities go beyond SSL pinning and rooting**:
-   It’s a common misconception that hacking Android apps is just about bypassing root detection or SSL pinning and looking for backend API bugs. In reality, Android app vulnerabilities are often found in the app’s own Java code, not just in the backend.
+#### 1. **Android app vulnerabilities go beyond SSL pinning and rooting**:
 
-2. **Always check for exported activity**:
-   Exported activities can be an entry point for attackers. Malicious notifications or other apps can exploit vulnerabilities within exported activities. If these activities handle WebViews improperly or lack input validation, they can be vulnerable to serious issues like Cross-Site Scripting (XSS).
+It’s a common misconception that hacking Android apps is just about bypassing root detection or SSL pinning and looking for backend API bugs. In reality, Android app vulnerabilities are often found in the app’s own Java code, not just in the backend.
 
-3. **ClassLoader attacks enable deeper exploitation**:
-   Using a dynamic ClassLoader in Android allows an attacker to load the app’s internal classes and create objects that the app will accept as legitimate. This can bypass type checks and allow the attacker to manipulate data or inject malicious payloads into the app.
+
+#### 2. **Always check for exported activity**:
+
+Exported activities can be an entry point for attackers. Malicious notifications or other apps can exploit vulnerabilities within exported activities. If these activities handle WebViews improperly or lack input validation, they can be vulnerable to serious issues like Cross-Site Scripting (XSS).
+
+#### 3. **ClassLoader attacks enable deeper exploitation**:
+
+Using a dynamic ClassLoader in Android allows an attacker to load the app’s internal classes and create objects that the app will accept as legitimate. This can bypass type checks and allow the attacker to manipulate data or inject malicious payloads into the app.
 
 ---
 
@@ -291,17 +295,22 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-1. **Validate intents from external sources**:
-   Always validate intents coming from other apps or external sources. Ensure the package or signature of the sending app is trusted before processing any intent.
+#### 1. **Validate intents from external sources**:
 
-2. **Use PendingIntent for restricted access**:
-   Leverage `PendingIntent` to ensure only authorized apps can trigger sensitive actions within your app.
+Always validate intents coming from other apps or external sources. Ensure the package or signature of the sending app is trusted before processing any intent.
 
-3. **Enforce URL validation in WebView**:
-   Only allow URLs from trusted domains to be loaded in WebView. This prevents malicious URLs from injecting harmful scripts.
+#### 2. **Use PendingIntent for restricted access**:
 
-4. **Exported=false**
-    If the activity did not have any use cases to be utilized by other application it will always be better to set the `exported` value to `false`
+Leverage `PendingIntent` to ensure only authorized apps can trigger sensitive actions within your app.
+
+
+#### 3. **Enforce URL validation in WebView**:
+
+Only allow URLs from trusted domains to be loaded in WebView. This prevents malicious URLs from injecting harmful scripts.
+
+#### 4. **Exported=false**
+
+If the activity did not have any use cases to be utilized by other application it will always be better to set the `exported` value to `false`
 
 ---
 
