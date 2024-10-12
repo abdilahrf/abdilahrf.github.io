@@ -161,6 +161,79 @@ Method buildMethod = builderClass.getDeclaredMethod("build");
 Object pushNotification = buildMethod.invoke(builderInstance);
 ```
 
+This is the original code from decompilation of the target app `PushNotification` Class
+
+```java
+public final class PushNotification implements Serializable {
+
+...SNIP... 
+
+    public PushNotification(String str, String str2, String str3, String str4, String str5, String str6, String str7, DefaultConstructorMarker defaultConstructorMarker) {
+        this.f6923a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = str4;
+        this.e = str5;
+        this.f = str6;
+        this.g = str7;
+    }
+
+
+    public final boolean isRichNotification() {
+        String str = this.e;
+        return !(str == null || StringsKt__StringsJVMKt.isBlank(str));
+    }
+
+
+    public static final /* data */ class Builder {
+
+        ...SNIP...
+
+        public Builder(@Nullable String str, @Nullable String str2, @Nullable String str3, @Nullable String str4, @Nullable String str5, @Nullable String str6, @Nullable String str7) {
+            this.f6924a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.e = str5;
+            this.f = str6;
+            this.g = str7;
+        }
+
+        @NotNull
+        public final PushNotification build() {
+            return new PushNotification(this.f6924a, this.b, this.c, this.d, this.e, this.f, this.g, null);
+        }
+
+
+        ...SNIP...
+
+        @NotNull
+        public final Builder id(@Nullable String id2) {
+            setId(id2);
+            return this;
+        }
+
+        @NotNull
+        public final Builder image(@Nullable String image) {
+            setImage(image);
+            return this;
+        }
+
+        @NotNull
+        public final Builder richUrl(@Nullable String richUrl) {
+            setRichUrl(richUrl);
+            return this;
+        }
+
+        public final void setDeepLink(@Nullable String str) {
+            this.f = str;
+        }
+
+        ...SNIP...
+    }
+}
+```
+
 By dynamically loading the target app's class and constructing the `PushNotification` object using reflection, I was able to create an object that the victim app accepted as a valid `PushNotification`. This allowed me to pass the malicious intent successfully.
 
 ---
