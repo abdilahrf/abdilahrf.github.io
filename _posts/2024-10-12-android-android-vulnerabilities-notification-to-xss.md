@@ -103,9 +103,9 @@ public void processPushNotification(@NotNull Intent intent, @NotNull Callback ca
 }
 ```
 
-Before we can reach the onRichNotification() method, we first need to correctly pass the getNotification(intent) check. This means our intent must be properly formatted according to the app's custom PushNotification object. If we send an intent with just our own class extras, it won’t work because the victim app uses its own Parcelable object for notifications.
+Before we can reach the `onRichNotification()` method, we first need to correctly pass the `getNotification(intent)` check. This means our intent must be properly formatted according to the app's custom `PushNotification` object. If we send an intent with just our own class extras, it won’t work because the victim app uses its own Parcelable object for notifications.
 
-This is where the ClassLoader comes into play. Since the app uses a custom parcelable object, we dynamically load the victim app's PushNotification class and create a valid notification object that the app expects. By doing this, we can ensure that our intent is processed successfully, leading to the execution of the onRichNotification() method.
+This is where the `ClassLoader` comes into play. Since the app uses a custom parcelable object, we dynamically load the victim app's PushNotification class and create a valid notification object that the app expects. By doing this, we can ensure that our intent is processed successfully, leading to the execution of the `onRichNotification()` method.
 
 #### 4. The Problematic `getNotification(Intent)` Method
 
