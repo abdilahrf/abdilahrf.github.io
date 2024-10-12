@@ -42,7 +42,7 @@ In this post, I'll dive into one of these issues: Sending crafted rich notificat
 
 The `TransitionFlowManager` activity was marked as `exported=true` in the AndroidManifest file, meaning any other application could send an intent to it. The intent action was `victim.PUSH_NOTIFICATION_OPENED`, allowing an attacker to send a crafted intent that triggers the vulnerability.
 
-```
+```xml
 <activity
     android:theme="@style/Translucent"
     android:name="com.victim.app.app.base.TransitionFlowManager"
