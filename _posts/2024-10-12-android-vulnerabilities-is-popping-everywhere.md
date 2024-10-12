@@ -1,6 +1,6 @@
 ---
 comments: true
-title: Popping Android Vulnerabilities From Notification to WebView XSS to takeover account 
+title: Popping Android Vulnerabilities From Notification to WebView XSS
 date: 2024-10-12T00:00:00.000+07:00
 category:
 - bugbounty
@@ -203,7 +203,7 @@ public final Intent createIntentToRichURL(@NotNull Context context, @NotNull Pus
 }
 ```
 
-`notification.getE()` will read the property "tp_rich_url" and notification.getF6923a() will read "tp_id" from the notification object that we sent using the intent and the URL will be loaded into the WebView.
+`notification.getE()` will read the property `tp_rich_url` and `notification.getF6923a()` will read `tp_id` from the notification object that we sent using the intent and the URL will be loaded into the WebView.
 
 ---
 
