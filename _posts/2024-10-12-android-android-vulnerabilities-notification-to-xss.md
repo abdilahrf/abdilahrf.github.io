@@ -278,6 +278,63 @@ public final Intent createIntentToRichURL(@NotNull Context context, @NotNull Pus
 
 `notification.getE()` will read the property `tp_rich_url` and `notification.getF6923a()` will read `tp_id` from the notification object that we sent using the intent and the URL will be loaded into the WebView.
 
+This intent will start `NotificationWebViewActivity` with `ID_NOTIFICATION_PARAM` and `URL_NOTIFICATION_PARAM` extras.
+
+```java
+public class NotificationWebViewActivity extends BaseActivity {
+    public static final String ID_NOTIFICATION_PARAM = "id_url_notification";
+    public static final String SEGMENT_PARAM = "push_segment";
+    public static final String URL_NOTIFICATION_PARAM = "push_url_notification";
+    public String B;
+    public String C;
+    public String D = "";
+    
+...SNIP...
+    
+    public void initialize() {
+        if (getIntent().hasExtra(SEGMENT_PARAM)) {
+            this.B = getIntent().getStringExtra(SEGMENT_PARAM);
+        }
+        if (getIntent().hasExtra(URL_NOTIFICATION_PARAM)) {
+            this.C = getIntent().getStringExtra(URL_NOTIFICATION_PARAM);
+        }
+        if (getIntent().hasExtra(ID_NOTIFICATION_PARAM)) {
+            this.D = getIntent().getStringExtra(ID_NOTIFICATION_PARAM);
+        }
+    }
+
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.notification_view);
+        ButterKnife.inject(this);
+        initialize();
+        configureActionBar();
+        showProgress("url");
+        this.webView.getSettings().setJavaScriptEnabled(true);
+        this.webView.getSettings().setBuiltInZoomControls(true);
+        this.webView.getSettings().setDisplayZoomControls(false);
+        this.webView.getSettings().setDomStorageEnabled(true);
+        this.webView.addJavascriptInterface(new AuthenticationService(this), "Android");
+
+        this.webView.getSettings().setUserAgentString(this.webView.getSettings().getUserAgentString() + "-Victim APP V.0.1.2");
+        
+        this.webView.loadUrl(this.C);
+        if (TextUtils.isEmpty(this.D)) {
+            return;
+        }
+        
+    }
+
+```
+
+ `NotificationWebViewActivity.onCreate()` called `initialize()` which extracting intent extras, into the class private parameters within the activity
+
+* `SEGMENT_PARAM` is assigned to `this.B`.
+* `URL_NOTIFICATION_PARAM` is assigned to `this.C`, which is the URL loaded into the WebView.
+* `ID_NOTIFICATION_PARAM` is assigned to `this.D`.
+
+At the point where `this.webView.loadUrl(this.C);` is called, the `WebView` is fully loaded with external content. Thanks to the `JavascriptInterface` attached to the `WebView`, it opens the door for JavaScript code running in the WebView to interact with native Android functions. This setup allows us to call native methods from `JavaScript`, enabling access to various functions exposed by the interface.
+
 ---
 
 ### Proof of Concept (PoC)
