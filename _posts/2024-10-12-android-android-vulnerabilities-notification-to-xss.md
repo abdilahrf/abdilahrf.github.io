@@ -288,7 +288,7 @@ public class NotificationWebViewActivity extends BaseActivity {
     public String B;
     public String C;
     public String D = "";
-    
+
 ...SNIP...
     
     public void initialize() {
@@ -329,7 +329,6 @@ public class NotificationWebViewActivity extends BaseActivity {
 
  `NotificationWebViewActivity.onCreate()` called `initialize()` which extracting intent extras, into the class private parameters within the activity
 
-* `SEGMENT_PARAM` is assigned to `this.B`.
 * `URL_NOTIFICATION_PARAM` is assigned to `this.C`, which is the URL loaded into the WebView.
 * `ID_NOTIFICATION_PARAM` is assigned to `this.D`.
 
